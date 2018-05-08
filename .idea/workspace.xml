@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="605417b7-592a-4870-94f4-a1d14c762e96" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/features/RegistrarAluno.feature" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/features/step_definitions/web_steps.rb.bak" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/controllers/home_controller.rb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/views/home/index.html.haml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.rb" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/features/RegistrarAluno.feature" beforeDir="false" afterPath="$PROJECT_DIR$/features/RegistrarAluno.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/features/step_definitions/web_steps.rb" beforeDir="false" afterPath="$PROJECT_DIR$/features/step_definitions/web_steps.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/features/support/paths.rb" beforeDir="false" afterPath="$PROJECT_DIR$/features/support/paths.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -22,24 +25,16 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/MonitoriaCIC@Scenario__Registrar_um_aluno__3_.rcov" NAME="Scenario: Registrar um aluno (3) Coverage Results" MODIFIED="1525794983938" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="MonitoriaCIC" />
-    <SUITE FILE_PATH="coverage/MonitoriaCIC@Scenario__Registrar_um_aluno.rcov" NAME="Scenario: Registrar um aluno Coverage Results" MODIFIED="1525793464167" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="MonitoriaCIC" />
-    <SUITE FILE_PATH="coverage/MonitoriaCIC@Scenario__Registrar_um_aluno__5_.rcov" NAME="Scenario: Registrar um aluno (5) Coverage Results" MODIFIED="1525793214396" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="MonitoriaCIC" />
-    <SUITE FILE_PATH="coverage/MonitoriaCIC@Scenario__Registrar_um_aluno__2_.rcov" NAME="Scenario: Registrar um aluno (2) Coverage Results" MODIFIED="1525794909646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="MonitoriaCIC" />
-    <SUITE FILE_PATH="coverage/MonitoriaCIC@Scenario__Registrar_um_aluno__1_.rcov" NAME="Scenario: Registrar um aluno (1) Coverage Results" MODIFIED="1525794166554" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="MonitoriaCIC" />
-    <SUITE FILE_PATH="coverage/MonitoriaCIC@Scenario__Registrar_um_aluno__4_.rcov" NAME="Scenario: Registrar um aluno (4) Coverage Results" MODIFIED="1525792987766" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="MonitoriaCIC" />
+    <SUITE FILE_PATH="coverage/MonitoriaCIC@Scenario__Registrar_um_aluno__3_.rcov" NAME="Scenario: Registrar um aluno (3) Coverage Results" MODIFIED="1525803206762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="MonitoriaCIC" />
+    <SUITE FILE_PATH="coverage/MonitoriaCIC@Scenario__Registrar_um_aluno.rcov" NAME="Scenario: Registrar um aluno Coverage Results" MODIFIED="1525803317855" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="MonitoriaCIC" />
+    <SUITE FILE_PATH="coverage/MonitoriaCIC@Scenario__Registrar_um_aluno__5_.rcov" NAME="Scenario: Registrar um aluno (5) Coverage Results" MODIFIED="1525803126634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="MonitoriaCIC" />
+    <SUITE FILE_PATH="coverage/MonitoriaCIC@Scenario__Registrar_um_aluno__2_.rcov" NAME="Scenario: Registrar um aluno (2) Coverage Results" MODIFIED="1525803181898" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="MonitoriaCIC" />
+    <SUITE FILE_PATH="coverage/MonitoriaCIC@Scenario__Registrar_um_aluno__1_.rcov" NAME="Scenario: Registrar um aluno (1) Coverage Results" MODIFIED="1525803393623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="MonitoriaCIC" />
+    <SUITE FILE_PATH="coverage/MonitoriaCIC@Scenario__Registrar_um_aluno__4_.rcov" NAME="Scenario: Registrar um aluno (4) Coverage Results" MODIFIED="1525803271579" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="MonitoriaCIC" />
+    <SUITE FILE_PATH="coverage/MonitoriaCIC@RegistrarAluno_feature.rcov" NAME="RegistrarAluno.feature Coverage Results" MODIFIED="1525802393426" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="MonitoriaCIC" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Gemfile" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Gemfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="42" column="27" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="27" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="RegistrarAluno.feature" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/features/RegistrarAluno.feature">
           <provider selected="true" editor-type-id="text-editor">
@@ -49,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="web_steps.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="web_steps.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/features/step_definitions/web_steps.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="59">
-              <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+            <state relative-caret-position="-76">
+              <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -61,17 +56,35 @@
       <file leaf-file-name="web_steps.rb.bak" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/features/step_definitions/web_steps.rb.bak">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="51" selection-start-line="51" selection-end-line="53" selection-end-column="3" />
+            <state relative-caret-position="71">
+              <caret line="64" column="32" lean-forward="true" selection-start-line="64" selection-start-column="32" selection-end-line="64" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="paths.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/features/support/paths.rb">
+      <file leaf-file-name="routes.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/routes.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
+            <state relative-caret-position="75">
+              <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="home_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.haml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/home/index.html.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -94,8 +107,16 @@
       <list>
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/features/support/paths.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/home.rb" />
+        <option value="$PROJECT_DIR$/app/models/home.rb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20180508173632_criar_alunos.rb" />
+        <option value="$PROJECT_DIR$/app/models/aluno.rb" />
         <option value="$PROJECT_DIR$/features/RegistrarAluno.feature" />
+        <option value="$PROJECT_DIR$/app/controllers/home_controller.rb" />
         <option value="$PROJECT_DIR$/features/step_definitions/web_steps.rb" />
+        <option value="$PROJECT_DIR$/app/views/home/index.html.haml" />
       </list>
     </option>
   </component>
@@ -132,6 +153,48 @@
               <item name="MonitoriaCIC" type="b2602c69:ProjectViewProjectNode" />
               <item name="MonitoriaCIC" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MonitoriaCIC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MonitoriaCIC" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MonitoriaCIC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MonitoriaCIC" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="stylesheets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MonitoriaCIC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MonitoriaCIC" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="controllers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MonitoriaCIC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MonitoriaCIC" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MonitoriaCIC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MonitoriaCIC" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MonitoriaCIC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MonitoriaCIC" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="MonitoriaCIC" type="b2602c69:ProjectViewProjectNode" />
+              <item name="MonitoriaCIC" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name="migrate" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="MonitoriaCIC" type="b2602c69:ProjectViewProjectNode" />
@@ -176,7 +239,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Cucumber.Scenario: Registrar um aluno (3)">
+  <component name="RunManager" selected="Cucumber.Scenario: Registrar um aluno (1)">
     <configuration name="Scenario: Registrar um aluno (1)" type="CucumberRunConfigurationType" factoryName="Cucumber" temporary="true">
       <predefined_log_file id="RUBY_CUCUMBER" enabled="true" />
       <module name="MonitoriaCIC" />
@@ -282,7 +345,7 @@
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="USE_CUSTOM_RUNNER" VALUE="false" />
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="SETTINGS_VERSION" VALUE="2" />
     </configuration>
-    <configuration name="Scenario: Registrar um aluno (5)" type="CucumberRunConfigurationType" factoryName="Cucumber" temporary="true">
+    <configuration name="Scenario: Registrar um aluno (4)" type="CucumberRunConfigurationType" factoryName="Cucumber" temporary="true">
       <predefined_log_file id="RUBY_CUCUMBER" enabled="true" />
       <module name="MonitoriaCIC" />
       <CUCUMBER_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -448,19 +511,19 @@
       <item itemvalue="Rake.spec: MonitoriaCIC" />
       <item itemvalue="Rails.Production: MonitoriaCIC" />
       <item itemvalue="Rails.Development: MonitoriaCIC" />
-      <item itemvalue="Cucumber.Scenario: Registrar um aluno (5)" />
-      <item itemvalue="Cucumber.Scenario: Registrar um aluno" />
-      <item itemvalue="Cucumber.Scenario: Registrar um aluno (1)" />
       <item itemvalue="Cucumber.Scenario: Registrar um aluno (2)" />
       <item itemvalue="Cucumber.Scenario: Registrar um aluno (3)" />
+      <item itemvalue="Cucumber.Scenario: Registrar um aluno (4)" />
+      <item itemvalue="Cucumber.Scenario: Registrar um aluno" />
+      <item itemvalue="Cucumber.Scenario: Registrar um aluno (1)" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Cucumber.Scenario: Registrar um aluno (3)" />
-        <item itemvalue="Cucumber.Scenario: Registrar um aluno (2)" />
         <item itemvalue="Cucumber.Scenario: Registrar um aluno (1)" />
         <item itemvalue="Cucumber.Scenario: Registrar um aluno" />
-        <item itemvalue="Cucumber.Scenario: Registrar um aluno (5)" />
+        <item itemvalue="Cucumber.Scenario: Registrar um aluno (4)" />
+        <item itemvalue="Cucumber.Scenario: Registrar um aluno (3)" />
+        <item itemvalue="Cucumber.Scenario: Registrar um aluno (2)" />
       </list>
     </recent_temporary>
   </component>
@@ -476,41 +539,44 @@
       <option name="presentableId" value="Default" />
       <updated>1525785966593</updated>
       <workItem from="1525785968378" duration="15000" />
-      <workItem from="1525786032437" duration="6754000" />
+      <workItem from="1525786032437" duration="14953000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Scenario__Registrar_um_aluno - 2018.05.08 at 12h 09m 15s.xml">
-      <configuration name="Scenario: Registrar um aluno" configurationId="CucumberRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Scenario__Registrar_um_aluno_(1) - 2018.05.08 at 12h 13m 22s.xml">
-      <configuration name="Scenario: Registrar um aluno (1)" configurationId="CucumberRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Scenario__Registrar_um_aluno_(2) - 2018.05.08 at 12h 14m 40s.xml">
+    <history-entry file="Scenario__Registrar_um_aluno_(2) - 2018.05.08 at 15h 01m 31s.xml">
       <configuration name="Scenario: Registrar um aluno (2)" configurationId="CucumberRunConfigurationType" />
     </history-entry>
-    <history-entry file="Scenario__Registrar_um_aluno_(3) - 2018.05.08 at 12h 21m 00s.xml">
+    <history-entry file="Scenario__Registrar_um_aluno_(3) - 2018.05.08 at 15h 02m 00s.xml">
       <configuration name="Scenario: Registrar um aluno (3)" configurationId="CucumberRunConfigurationType" />
     </history-entry>
-    <history-entry file="Scenario__Registrar_um_aluno_(4) - 2018.05.08 at 12h 23m 11s.xml">
+    <history-entry file="Scenario__Registrar_um_aluno_(4) - 2018.05.08 at 15h 04m 50s.xml">
       <configuration name="Scenario: Registrar um aluno (4)" configurationId="CucumberRunConfigurationType" />
     </history-entry>
-    <history-entry file="Scenario__Registrar_um_aluno_(5) - 2018.05.08 at 12h 26m 58s.xml">
-      <configuration name="Scenario: Registrar um aluno (5)" configurationId="CucumberRunConfigurationType" />
-    </history-entry>
-    <history-entry file="Scenario__Registrar_um_aluno - 2018.05.08 at 12h 31m 07s.xml">
+    <history-entry file="Scenario__Registrar_um_aluno - 2018.05.08 at 15h 05m 48s.xml">
       <configuration name="Scenario: Registrar um aluno" configurationId="CucumberRunConfigurationType" />
     </history-entry>
-    <history-entry file="Scenario__Registrar_um_aluno_(1) - 2018.05.08 at 12h 42m 50s.xml">
+    <history-entry file="Scenario__Registrar_um_aluno_(1) - 2018.05.08 at 15h 08m 55s.xml">
       <configuration name="Scenario: Registrar um aluno (1)" configurationId="CucumberRunConfigurationType" />
     </history-entry>
-    <history-entry file="Scenario__Registrar_um_aluno_(2) - 2018.05.08 at 12h 55m 13s.xml">
+    <history-entry file="Scenario__Registrar_um_aluno_(5) - 2018.05.08 at 15h 12m 08s.xml">
+      <configuration name="Scenario: Registrar um aluno (5)" configurationId="CucumberRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Scenario__Registrar_um_aluno_(2) - 2018.05.08 at 15h 13m 04s.xml">
       <configuration name="Scenario: Registrar um aluno (2)" configurationId="CucumberRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Scenario__Registrar_um_aluno_(3) - 2018.05.08 at 15h 13m 29s.xml">
+      <configuration name="Scenario: Registrar um aluno (3)" configurationId="CucumberRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Scenario__Registrar_um_aluno_(4) - 2018.05.08 at 15h 14m 33s.xml">
+      <configuration name="Scenario: Registrar um aluno (4)" configurationId="CucumberRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Scenario__Registrar_um_aluno - 2018.05.08 at 15h 15m 20s.xml">
+      <configuration name="Scenario: Registrar um aluno" configurationId="CucumberRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6769000" />
+    <option name="totallyTimeSpent" value="14968000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
@@ -570,10 +636,72 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/application.rb">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="25" lean-forward="true" selection-start-line="16" selection-start-column="25" selection-end-line="16" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180508173632_criar_alunos.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="31" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/home.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-end-line="2" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/aluno.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="11" selection-start-column="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/home_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="25" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/features/step_definitions/web_steps.rb.bak">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="51" selection-start-line="51" selection-end-line="53" selection-end-column="3" />
+        <state relative-caret-position="71">
+          <caret line="64" column="32" lean-forward="true" selection-start-line="64" selection-start-column="32" selection-end-line="64" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/features/step_definitions/web_steps.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-76">
+          <caret line="18" column="3" selection-start-line="18" selection-start-column="3" selection-end-line="18" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -584,10 +712,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/features/step_definitions/web_steps.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/home/index.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
+        <state relative-caret-position="135">
+          <caret line="9" column="8" selection-start-line="9" selection-start-column="8" selection-end-line="9" selection-end-column="8" />
         </state>
       </provider>
     </entry>

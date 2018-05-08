@@ -18,14 +18,8 @@ Quando /^(?:|eu )clicar em "([^"]*)"$/ do |button|
   click_button(button)
 end
 
-Quando /^(?:|eu )preencher "([^"]*)" com "([^"]*)"$/ do |value, field|
-  fill_in(field, :with => value)
-end
-
-Quando /^(?:|eu )preencher os seguintes campos:$/ do |fields|
-  fields.rows_hash.each do |name, value|
-    When %{Eu preencher "#{name}" com "#{value}"}
-  end
+Quando /^(?:|eu )preencher os seguintes campos:$/ do |table|
+  table.rows_hash.each {|field, value| fill_in field, :with => value }
 end
 
 Então /^(?:|eu )devo estar na (.+)$/ do |page_name|
