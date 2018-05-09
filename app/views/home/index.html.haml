@@ -1,7 +1,9 @@
 %main{:class => "container", :role => "main"}
   %div{:class => "row"}
     %div{:class => "col"}
-      %h1{:class => "text-center"} "Hello, World!"
+      %h1{:class => "text-center"} Ver Disciplinas
+      %div{:class => "text-right"}
+        = button_to "Ver Disciplinas", disciplinas_path, :class => "btn btn-primary"
     %div{:class => "col"}
       %h3{:class => "text-center"} Registro do aluno
       %p{:class => "text-center"} O aluno é responsável pela veracidade dos dados aqui inseridos.

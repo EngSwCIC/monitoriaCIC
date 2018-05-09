@@ -1,0 +1,36 @@
+%main{:class => "container", :role => "main"}
+  %div{:class => "row"}
+    %div{:class => "col"}
+      %h2{:class => "text-center"} Cadastrar Disciplina
+      %p{:class => "text-center"} Adicione a disciplina desejada.
+      %br
+      - if flash[:notice]
+        #notice.message= flash[:notice]
+      = form_tag disciplinas_path, :method => :post do
+        %div{:class => "form-group"}
+          = label :disciplina, :nome, "Nome"
+          = text_field :disciplina, :nome, :class => "form-control"
+
+        %div{:class => "form-group"}
+          = label :disciplina, :codigo, "Código"
+          = text_field :disciplina, :codigo, :class => "form-control"
+
+        %div{:class => "form-group"}
+          = label :disciplina, :professor, "Professor"
+          = email_field :disciplina, :professor, :class => "form-control"
+
+        %div{:class => "col"}
+          = label :disciplina, :departamento, "Departamento"
+          = text_field :disciplina, :departamento, :class => "form-control"
+        %br
+        %div{:class => "row"}
+          %div{:class => "col"}
+            %div{:class => "text-left"}
+              = button_to 'Voltar', :class => "btn btn-sm"
+          %div{:class => "col"} 
+            %div{:class => "text-right"}
+              = submit_tag 'Adicionar', :class => "btn btn-primary"
+      %br
+      %hr
+      %h2{:class => "text-center"} Disciplinas Cadastradas
+      %p{:class => "text-center"} **Ainda não implementado** 

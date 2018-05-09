@@ -4,4 +4,7 @@ Rails.application.routes.draw do
 
   # Rota para o registro dos alunos
   post '/home/registrar'
+
+  # Rota para o registro das disciplinas
+  resources :disciplinas
 end
