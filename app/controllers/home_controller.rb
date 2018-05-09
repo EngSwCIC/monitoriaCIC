@@ -1,6 +1,8 @@
 class HomeController < ApplicationController
   def index ; end
 
+  def login; end
+
   def registrar
     permitted = params.require(:aluno).permit(:nome,:matricula,:email,:cpf,:rg,:senha)
 
@@ -27,5 +29,8 @@ class HomeController < ApplicationController
         end
     end
     redirect_to root_path
+  end
+  def logar
+    
   end
 end
