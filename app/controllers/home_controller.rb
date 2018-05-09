@@ -3,7 +3,12 @@ class HomeController < ApplicationController
 
   def registrar
     permitted = params.require(:aluno).permit(:nome,:matricula,:email,:cpf,:rg,:senha)
-    if params[:senha] == params[:conSenha]
+
+    self.params = params.permit!
+    @senha = params[:aluno][:senha]
+    @conSenha = params[:aluno][:conSenha]
+
+    if @senha == @conSenha
       @aluno = Aluno.create!(permitted)
       flash[:notice] = "Usuário cadastrado com sucesso!"
     else
