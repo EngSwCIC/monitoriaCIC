@@ -1,12 +1,24 @@
 %main{:class => "container", :role => "main"}
   %div{:class => "row"}
     %div{:class => "col"}
-      %h1{:class => "text-center"} Ver Disciplinas
+
+      %h1{:class => "text-center"} Monitoria CIC
+      %p{:class => "text-center"} Bem vindo ao site de monitoria do CiC.
+      %p{:class => "text-center"} Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras et sollicitudin augue. Curabitur aliquet quam ac nisi accumsan commodo.
+      %hr
+      %h3{:class => "text-center"} Disciplinas Ofertadas
+      %p{:class => "text-center"} Veja a lista de disciplinas disponíveis e adicione novs disciplinas(administrador).
       %div{:class => "text-right"}
         = button_to "Ver Disciplinas", disciplinas_path, :class => "btn btn-primary"
     %div{:class => "col"}
       %h3{:class => "text-center"} Registro do aluno
       %p{:class => "text-center"} O aluno é responsável pela veracidade dos dados aqui inseridos.
+      %hr
+      %br
+      %p{:class => "text-left"}Já possui conta?
+      = link_to "Login", login_index_path
+      %br
+      %hr
       %br
       - if flash[:notice]
         #notice.message= flash[:notice]

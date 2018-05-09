@@ -7,4 +7,8 @@ Rails.application.routes.draw do
 
   # Rota para o registro das disciplinas
   resources :disciplinas
+
+  #
+  resources :login
+  post '/login/user'
 end
