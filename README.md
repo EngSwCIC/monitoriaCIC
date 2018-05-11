@@ -12,14 +12,14 @@ Para instalar o sistema, é necessário possuir:
 - Ruby versão 2.4.1
 - Rails versão 5.2.0
 - Gems:
- - Bootstrap versão 4.1.1
- - Devise versão x.y.z
- - Cucumber-rails
- - Database-cleaner
- - Capybara
- - Launchy
- - HAML
- - Sqlite3
+  - Bootstrap versão 4.1.1
+  - Devise versão x.y.z
+  - Cucumber-rails
+  - Database-cleaner
+  - Capybara
+  - Launchy
+  - HAML
+  - Sqlite3
 
 ## Instalação
 Para instalar a aplicação, é necessário clonar este repositório utilizando o comando:
