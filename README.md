@@ -1,4 +1,4 @@
-# README
+# MonitoriaCIC
 
 O MonitoriaCIC é um sistema automatizado de inscrição e seleção de monitores
 para as disciplinas do departamento de Ciência da Computação.
