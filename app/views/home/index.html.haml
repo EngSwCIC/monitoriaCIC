@@ -1,26 +1,37 @@
-.container
+%main{:class => "container", :role => "container"}
   .row
-    .col-sm-4
+    .col-sm-6
       %h1 Avisos
       %hr
-    .col-sm-2
-    .col-sm-5
+      .card.flex-md-row.mb-4.box-shadow.h-md-250
+        .card-body.d-flex.flex-column.align-items-start
+          %h3.mb-0
+            %a.text-dark Lorem Ipsum
+          .mb-1.text-muted Nov 12
+          %hr
+          %p.card-text.mb-auto Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium sodales enim, ut ullamcorper felis ultricies ac. Donec sed mauris sollicitudin, euismod nisl sit amet, posuere orci. Nunc cursus ipsum sed urna volutpat, quis fermentum lacus tincidunt...
+          %hr
+          %a{:class => "ml-auto btn btn-outline-primary", :href => "#"} Saiba mais
+      %br
+      .card.flex-md-row.mb-4.box-shadow.h-md-250
+        .card-body.d-flex.flex-column.align-items-start
+          %h3.mb-0
+            %a.text-dark Lorem Ipsum
+          .mb-1.text-muted Nov 13
+          %hr
+          %p.card-text.mb-auto Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium sodales enim, ut ullamcorper felis ultricies ac. Donec sed mauris sollicitudin, euismod nisl sit amet, posuere orci. Nunc cursus ipsum sed urna volutpat, quis fermentum lacus tincidunt...
+          %hr
+          %a{:class => "ml-auto btn btn-outline-primary", :href => "#"} Saiba mais
+    .col-sm-6
       %h1 Registro
       %hr
       %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
       %br
       Registre-se aqui para poder ver disciplinas listadas.
-      %a{:type => "button", :class => "btn btn-outline-info", :href => "signup", :method => "get"} Registre-se
+      %a{:href => "signup", :method => "get"} Registre-se
       %br
       %br
       Ja possui uma conta?
       %a{:href => "signin", :method => "get"} Faça login
       %br
   %hr
-  .row
-    .col-sm-4
-      %a{:type => "button", :class => "btn btn-outline-primary", :href => "https://atendimento.cic.unb.br", :method => "get"} DEPARTAMENTO
-    .col-sm-4
-      %a{:type => "button", :class => "btn btn-outline-primary", :href => "mapas", :method => "get"} MAPA
-    .col-sm-4
-      %a{:type => "button", :class => "btn btn-outline-primary", :href => "infos", :method => "get"} INFORMAÇÕES
