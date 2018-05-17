@@ -42,6 +42,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Uses Bootstrap Framework
 gem 'bootstrap', '~> 4.1.1'
 
+# Bootstrap JavaScript depends on jQuery
+gem 'jquery-rails'
+
 # Uses the Devise Gem for Login/Logout
 # gem 'devise'
 
