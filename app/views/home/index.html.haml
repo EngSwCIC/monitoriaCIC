@@ -25,13 +25,44 @@
     .col-sm-6
       %h1 Registro
       %hr
-      %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. 
+      %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
       %br
-      Registre-se aqui para poder ver disciplinas listadas.
-      %a{:href => "signup", :method => "get"} Registre-se
-      %br
-      %br
-      Ja possui uma conta?
-      %a{:href => "signin", :method => "get"} Faça login
-      %br
+      = form_tag "#", :method => :post do
+        .form-group.row
+          = label :user, :name, 'Nome', :class => "col-sm-3 col-form-label"
+          .col-sm-9
+            = text_field :user, :name, :class => "form-control"
+
+        .form-group.row
+          = label :user, :matricula, 'Matrícula', :class => "col-sm-3 col-form-label"
+          .col-sm-9
+            = text_field :user, :matricula, :class => "form-control"
+
+        .form-group.row
+          = label :user, :email, 'Email', :class => "col-sm-3 col-form-label"
+          .col-sm-9
+            = email_field :user, :email, :class => "form-control"
+
+        .row
+          .col
+            = label :user, :cpf, 'CPF'
+            = text_field :user, :cpf, :class => "form-control"
+
+          .col
+            = label :user, :rg, 'RG'
+            = text_field :user, :rg, :class => "form-control"
+
+        %br
+
+        .row
+          .col
+            = label :user, :password, 'Senha'
+            = password_field :user, :password, :class => "form-control"
+
+          .col
+            = label :user, :conPassword, 'Confirmar Senha'
+            = password_field :user, :conPassword, :class => "form-control"
+
+        %br
+        = submit_tag 'Registrar', :class => "btn btn-outline-primary float-right"
   %hr
