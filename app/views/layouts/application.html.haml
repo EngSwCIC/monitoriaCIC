@@ -24,9 +24,9 @@
               %a{:class => "nav-link", :href => "contatos"}Contato
             - if session[:user_id]
               %li.nav-item.ml-auto
-                %a{:class => "nav-link", :href => edit_session_path("current")}Perfil de
+                %a{:class => "nav-link", :href => edit_session_path("current")} Perfil de #{User.find_by_email(session[:user_id]).name}
               %li.nav-item.ml-auto
-                = link_to "Log Out", session_path("current"), method: "delete"
+                = link_to "Log Out", session_path("current"), method: "delete", :class => "nav-link"
             - else
               %li.nav-item.ml-auto
                 %a{:class => "nav-link", :href => new_session_path}Login
