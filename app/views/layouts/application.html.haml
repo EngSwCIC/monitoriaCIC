@@ -1,0 +1,44 @@
+!!! 5
+%html
+  %head
+    %title MonitoriaCIC
+    = stylesheet_link_tag 'application'
+    = stylesheet_link_tag 'custom'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+
+  %body
+    %nav{:class => "navbar navbar-expand-md navbar-light bg-light"}
+      .container
+        %a{:class => "navbar-brand", :href => root_path}
+          %img{:src => image_path("logo.png"), :alt => "Logo Monitoria CIC"}
+        %button{ :class => "navbar-toggler", :type => "button", 'data-toggle' => "collapse", 'data-target' => "#navbarSupportedContent",  'aria-controls' => "navbarSupportedContent", 'aria-expanded' => "false", 'aria-label' => "Toggle navigation"}
+          %span{:class => "navbar-toggler-icon"}
+        .collapse.navbar-collapse#navbarSupportedContent
+          %ul.navbar-nav.ml-auto
+            %li.nav-item.ml-auto
+              %a{:class => "nav-link", :href => "disciplinas"}Sobre
+            %li.nav-item.ml-auto
+              %a{:class => "nav-link", :href => "faqs"}FAQ
+            %li.nav-item.ml-auto
+              %a{:class => "nav-link", :href => "contatos"}Contato
+            - if session[:user_id]
+              %li.nav-item.ml-auto
+                %a{:class => "nav-link", :href => edit_session_path("current")} Perfil de #{User.find_by_email(session[:user_id]).name}
+              %li.nav-item.ml-auto
+                = link_to "Log Out", session_path("current"), method: "delete", :class => "nav-link"
+            - else
+              %li.nav-item.ml-auto
+                %a{:class => "nav-link", :href => new_session_path}Login
+    %br
+    = yield
+    %br
+    %footer.footer
+      .container
+        .row.text-center
+          .col-sm-4
+            %a{:class => "btn btn-outline-primary", :href => "https://atendimento.cic.unb.br", :method => "get"} DEPARTAMENTO
+          .col-sm-4
+            %a{:class => "btn btn-outline-primary", :href => "mapas", :method => "get"} MAPA
+          .col-sm-4
+            %a{:class => "btn btn-outline-primary", :href => "infos", :method => "get"} INFORMAÇÕES

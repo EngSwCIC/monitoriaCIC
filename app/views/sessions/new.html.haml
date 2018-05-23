@@ -1,0 +1,14 @@
+.container-fluid 
+  .col-md-3
+    - if flash[:notice]
+      #notice.message= flash[:notice]
+    %h1.text-center Log In
+    = form_tag sessions_path do
+      .field
+        = label_tag :email 
+        = email_field_tag :email, params[:email]
+      .field
+        = label_tag :password
+        = password_field_tag :password
+      .actions
+        =submit_tag "Log In"
