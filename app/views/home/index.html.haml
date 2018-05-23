@@ -1,5 +1,9 @@
 %main{:class => "container", :role => "container"}
   .row
+    .col
+      - if flash[:notice]
+        #notice.message= flash[:notice]
+  .row
     .col-sm-6
       %h1 Avisos
       %hr
@@ -27,8 +31,6 @@
       %hr
       %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
       %br
-      - if flash[:notice]
-        #notice.message= flash[:notice]
       = form_tag sign_up_path, :method => :post do
         .form-group.row
           = label :user, :name, 'Nome', :class => "col-sm-3 col-form-label"

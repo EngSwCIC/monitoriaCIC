@@ -1,0 +1,2 @@
+class DadoBancario < ApplicationRecord
+end

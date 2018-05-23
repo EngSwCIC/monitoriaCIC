@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  # has_secure_password
+  has_secure_password
 
   ## Verifica se o formulário foi preenchido de acordo com a especificação
   validates_presence_of :name
