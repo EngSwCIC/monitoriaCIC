@@ -22,11 +22,14 @@
               %a{:class => "nav-link", :href => "faqs"}FAQ
             %li.nav-item.ml-auto
               %a{:class => "nav-link", :href => "contatos"}Contato
-            %li.nav-item.ml-auto
-              / if !user_signed_in?
-              %a{:class => "nav-link", :href => "login"}Login
-              / else
-              / %a{:class => "nav-link", :href => "logout"}Logout
+            - if session[:user_id]
+              %li.nav-item.ml-auto
+                %a{:class => "nav-link", :href => edit_session_path("current")}Perfil de
+              %li.nav-item.ml-auto
+                = link_to "Log Out", session_path("current"), method: "delete"
+            - else
+              %li.nav-item.ml-auto
+                %a{:class => "nav-link", :href => new_session_path}Login
     %br
     = yield
     %br

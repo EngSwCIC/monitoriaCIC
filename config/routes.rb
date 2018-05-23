@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :users
+  resources :sessions
   post 'sign_up', to: 'users#create', as: 'sign_up'
 end

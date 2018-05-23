@@ -19,21 +19,16 @@ ActiveRecord::Schema.define(version: 2018_05_23_144729) do
   end
 
   create_table "users", id: false, force: :cascade do |t|
-    t.string "name", null: false
-    t.string "email", null: false
+    t.string "name"
+    t.string "email"
     t.string "password_digest"
-    t.string "cpf", null: false
-    t.string "rg", null: false
-    t.string "matricula", null: false
+    t.string "cpf"
+    t.string "rg"
+    t.string "matricula"
     t.integer "fk_banco"
     t.string "rememebr_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cpf"], name: "users_cpf_unique", unique: true
-    t.index ["email"], name: "users_email_unique", unique: true
-    t.index ["fk_banco"], name: "fk_banco"
-    t.index ["matricula"], name: "users_matricula_unique", unique: true
-    t.index ["rg"], name: "users_rg_unique", unique: true
   end
 
 end
