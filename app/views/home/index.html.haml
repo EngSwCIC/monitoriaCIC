@@ -1,7 +1,7 @@
-.container
-  .row
-    .col
-      - if flash[:notice]
+- if flash[:notice]
+  .container
+    .row
+      .col
         #notice.message= flash[:notice]
 
 -# Carousel

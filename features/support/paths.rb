@@ -16,8 +16,11 @@ module NavigationHelpers
     when /^the home\s?page$/
       '/'
 
-    when /^pagina inicial do MonitoriaCIC$/
-      '/'
+    when /^página inicial do MonitoriaCIC$/
+      root_path
+
+    when /^página de registro de alunos$/
+      new_user_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

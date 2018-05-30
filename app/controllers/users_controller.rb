@@ -4,14 +4,15 @@ class UsersController < ApplicationController
 
   ## POST /users/sign_up
   def create
-    @matricula  = false
-    @email      = false
-    @cpf        = false
-    @rg         = false
-    @password   = false
+    @user = User.create(user_params).valid?
 
-    @user = User.create!(user_params)
-    redirect_to root_path
+    if @user
+      flash[:notice] = "Registro realizado com sucesso!"
+      redirect_to root_path
+    else
+      flash[:notice] = "Registro não pôde ser realizado."
+      redirect_to new_user_path
+    end
   end
 
   private

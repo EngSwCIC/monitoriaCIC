@@ -1,3 +1,9 @@
+- if flash[:notice]
+  .container
+    .row
+      .col
+        #notice.message= flash[:notice]
+
 %main.container{role: "container"}
   .row
     .col-6.text-justify
@@ -42,4 +48,4 @@
             = password_field :user, :password_confirmation, :class => "form-control"
 
         %br
-        = submit_tag 'Registrar', :class => "btn btn-outline-primary float-right"
+        = submit_tag 'Registrar-se', :class => "btn btn-outline-primary float-right"
