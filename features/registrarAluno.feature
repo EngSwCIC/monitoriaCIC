@@ -17,7 +17,7 @@
         | Senha           |12345678                 |
         | Confirmar Senha |12345678                 |
       E eu aperto em "Registrar-se"
-      Então eu devo estar na página inicial do MonitoriaCIC
+      Então eu devo estar na página de registro de alunos
       E eu devo ver "Registro realizado com sucesso!"
 
     Cenário: Aluno não completa o registro (Sad Path - Nome)
