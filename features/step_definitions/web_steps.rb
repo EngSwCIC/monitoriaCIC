@@ -14,8 +14,12 @@ Dado /^(?:|que eu )estou na (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
-Quando /^(?:|eu )clico em "([^"]*)"$/ do |button|
+Quando /^(?:|eu )aperto em "([^"]*)"$/ do |button|
   click_button(button)
+end
+
+Quando /^(?:|eu )clico em "([^"]*)"$/ do |link|
+  click_link(link)
 end
 
 Quando /^(?:|eu )preencho "([^"]*)" com "([^"]*)"$/ do |field, value|
@@ -23,7 +27,7 @@ Quando /^(?:|eu )preencho "([^"]*)" com "([^"]*)"$/ do |field, value|
 end
 
 Quando /^(?:|eu )preencho o formulário de cadastro com informações válidas:$/ do |table|
-  table.rows_hash.each {|field, value| fill_in field, :with => value }
+  table.rows_hash.each {|field, value| fill_in field, :with => value}
 end
 
 Quando /^(?:|eu )preencho o formulário de cadastro com o campo "([^"]*)" inválido:$/ do |string|
@@ -115,5 +119,13 @@ Então /^(?:|eu )devo ver "([^"]*)"$/ do |text|
     page.should have_content(text)
   else
     assert page.has_content?(text)
+  end
+end
+
+Então /^(?:|eu )não devo ver "([^"]*)"$/ do |text|
+  if page.respond_to? :should
+    page.should have_no_content(text)
+  else
+    assert page.has_no_content?(text)
   end
 end

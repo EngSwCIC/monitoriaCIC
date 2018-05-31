@@ -1,0 +1,52 @@
+%br
+- flash.each do |name, msg|
+  .container
+    .row
+      .col
+        %div{class: "alert alert-#{name}"}= msg
+
+%main.container{role: "container"}
+  .row
+    .col-6.text-justify
+      -# Your code here!
+      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae porttitor eros. Sed aliquet erat et condimentum tincidunt. Donec eget fermentum nunc. Donec aliquet sollicitudin lectus, id posuere odio elementum eget. Nam pretium, nulla nec tempus rutrum, ligula lorem pulvinar dolor, nec vulputate dui libero eget ipsum. Nunc vestibulum ipsum nulla, quis facilisis felis pulvinar eget. Aenean elementum, sapien ut posuere feugiat, nibh nisi gravida metus, in vehicula sapien nunc ac dui. Donec eu quam sit amet odio commodo posuere. Nam commodo, est congue pretium pellentesque, felis ante volutpat diam, non porttitor felis quam in tellus. Mauris lacinia metus urna, eget semper erat sagittis nec. Integer at sagittis velit. Suspendisse sollicitudin fringilla risus, in tempor metus imperdiet a. Mauris ultrices tempus laoreet. Integer lobortis, justo auctor blandit facilisis, nisi ipsum scelerisque neque, sit amet blandit orci ante ut eros. Nullam mollis sapien lectus, ac egestas felis rutrum sit amet.
+    -#.col-1
+    .col-6
+      = form_tag users_path, :method => :post do
+        .form-group.row
+          = label :user, :name, 'Nome', :class => "col-sm-3 col-form-label"
+          .col-sm-9
+            = text_field :user, :name, :class => "form-control", :autocomplete => "off"
+
+        .form-group.row
+          = label :user, :matricula, 'Matrícula', :class => "col-sm-3 col-form-label"
+          .col-sm-9
+            = text_field :user, :matricula, :class => "form-control", :autocomplete => "off"
+
+        .form-group.row
+          = label :user, :email, 'Email', :class => "col-sm-3 col-form-label"
+          .col-sm-9
+            = email_field :user, :email, :class => "form-control", :autocomplete => "off"
+
+        .row
+          .col
+            = label :user, :cpf, 'CPF'
+            = text_field :user, :cpf, :class => "form-control", :autocomplete => "off"
+
+          .col
+            = label :user, :rg, 'RG'
+            = text_field :user, :rg, :class => "form-control", :autocomplete => "off"
+
+        %br
+
+        .row
+          .col
+            = label :user, :password, 'Senha'
+            = password_field :user, :password, :class => "form-control"
+
+          .col
+            = label :user, :password_confirmation, 'Confirmar Senha'
+            = password_field :user, :password_confirmation, :class => "form-control"
+
+        %br
+        = submit_tag 'Registrar-se', :class => "btn btn-outline-primary float-right"

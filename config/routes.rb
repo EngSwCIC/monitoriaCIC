@@ -4,5 +4,4 @@ Rails.application.routes.draw do
 
   resources :users
   resources :sessions
-  post 'sign_up', to: 'users#create', as: 'sign_up'
 end
