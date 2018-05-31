@@ -1,8 +1,9 @@
-- if flash[:notice]
+%br
+- flash.each do |name, msg|
   .container
     .row
       .col
-        #notice.message= flash[:notice]
+        %div{class: "alert alert-#{name}"}= msg
 
 %main.container{role: "container"}
   .row

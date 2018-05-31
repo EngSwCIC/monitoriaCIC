@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :rg
 
   ## Verifica se os campos tem o tamanho correto
-  validates :name, length: { in: 3...50 }#, format: { with: /\A[a-zA-Z]+[ ]?\z/, message: "only letters and spaces" }
+  validates :name, length: { in: 3...50 }, format: { without: /[\d]+|[!@#$%*\(\)\|\\;\:\/\?\]\[=\+\-_*",\.]+/, message: "only letters and spaces" }
   validates :matricula, length: { is: 9 }, format: { with: /\A[\d]+\z/, message: "only numbers" }
   validates :cpf, length: { is: 11 }, format: { with: /[\d]+/, message: "only numbers" }
   validate  :valid_cpf

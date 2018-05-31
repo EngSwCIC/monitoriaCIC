@@ -10,7 +10,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Registro realizado com sucesso!"
       redirect_to root_path
     else
-      flash[:notice] = "Registro não pôde ser realizado."
+      flash[:danger] = "Registro não pôde ser realizado."
       redirect_to new_user_path
     end
   end

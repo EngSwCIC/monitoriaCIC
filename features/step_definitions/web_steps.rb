@@ -27,7 +27,7 @@ Quando /^(?:|eu )preencho "([^"]*)" com "([^"]*)"$/ do |field, value|
 end
 
 Quando /^(?:|eu )preencho o formulário de cadastro com informações válidas:$/ do |table|
-  table.rows_hash.each {|field, value| fill_in field, :with => value }
+  table.rows_hash.each {|field, value| fill_in field, :with => value}
 end
 
 Quando /^(?:|eu )preencho o formulário de cadastro com o campo "([^"]*)" inválido:$/ do |string|
