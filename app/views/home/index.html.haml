@@ -1,72 +1,92 @@
-%main{:class => "container", :role => "container"}
-  .row
-    .col
-      - if flash[:notice]
+- if flash[:notice]
+  .container
+    .row
+      .col
         #notice.message= flash[:notice]
-  .row
-    .col-sm-6
-      %h1 Avisos
-      %hr
-      .card.flex-md-row.mb-4.box-shadow.h-md-250
-        .card-body.d-flex.flex-column.align-items-start
-          %h3.mb-0
-            %a.text-dark Lorem Ipsum
-          .mb-1.text-muted Nov 12
-          %hr
-          %p.card-text.mb-auto Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium sodales enim, ut ullamcorper felis ultricies ac. Donec sed mauris sollicitudin, euismod nisl sit amet, posuere orci. Nunc cursus ipsum sed urna volutpat, quis fermentum lacus tincidunt...
-          %hr
-          %a{:class => "ml-auto btn btn-outline-primary", :href => "#"} Saiba mais
-      %br
-      .card.flex-md-row.mb-4.box-shadow.h-md-250
-        .card-body.d-flex.flex-column.align-items-start
-          %h3.mb-0
-            %a.text-dark Lorem Ipsum
-          .mb-1.text-muted Nov 13
-          %hr
-          %p.card-text.mb-auto Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla pretium sodales enim, ut ullamcorper felis ultricies ac. Donec sed mauris sollicitudin, euismod nisl sit amet, posuere orci. Nunc cursus ipsum sed urna volutpat, quis fermentum lacus tincidunt...
-          %hr
-          %a{:class => "ml-auto btn btn-outline-primary", :href => "#"} Saiba mais
-    .col-sm-6
-      %h1 Registro
-      %hr
-      %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      %br
-      = form_tag sign_up_path, :method => :post do
-        .form-group.row
-          = label :user, :name, 'Nome', :class => "col-sm-3 col-form-label"
-          .col-sm-9
-            = text_field :user, :name, :class => "form-control", :autocomplete => "off"
 
-        .form-group.row
-          = label :user, :matricula, 'Matrícula', :class => "col-sm-3 col-form-label"
-          .col-sm-9
-            = text_field :user, :matricula, :class => "form-control", :autocomplete => "off"
+-# Carousel
+.carousel.slide#homeCarousel{'data-ride' => 'carousel', 'data-interval': "7500"}
+  %ol.carousel-indicators
+    %li.active{'data-target' => "homeCarousel", 'data-slide-to' => '0'}
+    %li{'data-target' => "homeCarousel", 'data-slide-to' => '1'}
+    %li{'data-target' => "homeCarousel", 'data-slide-to' => '2'}
+  .carousel-inner
+    .carousel-item.active
+      %img.first-slide.img-fluid{src: image_path("carousel.jpeg"), alt: "Slide 1"}
+      .container
+        .carousel-caption.text-left
+          %h1 Example Headeline 1.
+          %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+          %p
+            %a.btn.btn-lg.btn-primary{href: new_user_path, role: ""} Registre-se
+    .carousel-item
+      %img.second-slide.img-fluid{src: image_path("carousel.jpeg"), alt: "Slide 2"}
+      .container
+        .carousel-caption.text-left
+          %h1 Example Headline 2.
+          %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+          %p
+            %a.btn.btn-lg.btn-primary{href: "#", role: ""} Learn More
+    .carousel-item
+      %img.third-slide.img-fluid{src: image_path("carousel.jpeg"), alt: "Slide 3"}
+      .container
+        .carousel-caption.text-left
+          %h1 Example Headline 3.
+          %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+          %p
+            %a.btn.btn-lg.btn-primary{href: "#", role: ""} Learn More
+  %a.carousel-control-prev{href: "#homeCarousel", role: "button", 'data-slide': "prev"}
+    %span.carousel-control-prev-icon{'aria-hidden': true}
+    %span.sr-only Previous
+  %a.carousel-control-next{href: "#homeCarousel", role: "button", 'data-slide': "next"}
+    %span.carousel-control-next-icon{'aria-hidden': true}
+    %span.sr-only Next
+-# End Carousel
 
-        .form-group.row
-          = label :user, :email, 'Email', :class => "col-sm-3 col-form-label"
-          .col-sm-9
-            = email_field :user, :email, :class => "form-control", :autocomplete => "off"
+%main{:class => "container", :role => "container"}
+  .row.text-center
+    .col
+      %img.rounded-circle{src: image_path("carousel.jpeg"), alt: "Generic Image", width: "140", height: "140"}
+      %h2 Heading
+      %p Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+      %p
+        %a.btn.btn-secondary{href: "#", role: "button"} View details &raquo;
+    .col
+      %img.rounded-circle{src: image_path("carousel.jpeg"), alt: "Generic Image", width: "140", height: "140"}
+      %h2 Heading
+      %p Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+      %p
+        %a.btn.btn-secondary{href: "#", role: "button"} View details &raquo;
+    .col
+      %img.rounded-circle{src: image_path("carousel.jpeg"), alt: "Generic Image", width: "140", height: "140"}
+      %h2 Heading
+      %p Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+      %p
+        %a.btn.btn-secondary{href: "#", role: "button"} View details &raquo;
 
-        .row
-          .col
-            = label :user, :cpf, 'CPF'
-            = text_field :user, :cpf, :class => "form-control", :autocomplete => "off"
+  %hr.featurette-divider
 
-          .col
-            = label :user, :rg, 'RG'
-            = text_field :user, :rg, :class => "form-control", :autocomplete => "off"
+  .row.featurette
+    .col-7
+      %h2.featurette-heading First Feature Heading. <span class="text-muted">It'll blow your mind!</span>
+      %p.lead Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+    .col-5
+      %img.featurette-image.img-fluid.mx-auto{src: image_path("feature.jpg"), alt: "Generic Image"}
 
-        %br
+  %hr.featurette-divider
 
-        .row
-          .col
-            = label :user, :password, 'Senha'
-            = password_field :user, :password, :class => "form-control"
+  .row.featurette
+    .col-5
+      %img.featurette-image.img-fluid.mx-auto{src: image_path("feature.jpg"), alt: "Generic Image"}
+    .col-7
+      %h2.featurette-heading Oh yeah, it's that good. <span class="text-muted">See for yourself.</span>
+      %p.lead Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
 
-          .col
-            = label :user, :password_confirmation, 'Confirmar Senha'
-            = password_field :user, :password_confirmation, :class => "form-control"
+  %hr.featurette-divider
 
-        %br
-        = submit_tag 'Registrar', :class => "btn btn-outline-primary float-right"
-  %hr
+  .row.featurette
+    .col-7
+      %h2.featurette-heading And lastly this one. <span class="text-muted">Checkmate</span>
+      %p.lead Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+    .col-5
+      %img.featurette-image.img-fluid.mx-auto{src: image_path("feature.jpg"), alt: "Generic Image"}
