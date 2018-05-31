@@ -4,19 +4,23 @@ class UsersController < ApplicationController
 
   ## POST /users/sign_up
   def create
-    @user = User.create(user_params).valid?
+    @user = User.create(user_params)
 
-    if @user
+    if !@user.errors.any?
       flash[:notice] = "Registro realizado com sucesso!"
-      redirect_to root_path
+      redirect_to new_user_path
     else
-      flash[:danger] = "Registro não pôde ser realizado."
+      flash[:danger] = @user.errors.full_messages
       redirect_to new_user_path
     end
   end
 
   private
   def user_params
-    params.require(:user).permit(:name, :matricula, :email, :cpf, :rg, :password, :password_confirmation)
+    @data = params.require(:user).permit(:id, :name, :matricula, :email, :cpf, :rg, :password, :password_confirmation)
+    @data[:id] = @data[:id].to_i
+    @data[:id] += (User.count() + 1)
+
+    return @data
   end
 end
