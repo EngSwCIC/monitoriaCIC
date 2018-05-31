@@ -13,6 +13,7 @@
     -#.col-1
     .col-6
       = form_tag users_path, :method => :post do
+        = hidden_field :user, :id, :value => 0
         .form-group.row
           = label :user, :name, 'Nome', :class => "col-sm-3 col-form-label"
           .col-sm-9

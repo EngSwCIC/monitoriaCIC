@@ -4,7 +4,10 @@ class UsersController < ApplicationController
 
   ## POST /users/sign_up
   def create
-    @user = User.create(user_params).valid?
+    @data = user_params
+    @data[:id] = @data[:id].to_i
+    @data[:id] += (User.count() + 1)
+    @user = User.create(@data).valid?
 
     if @user
       flash[:notice] = "Registro realizado com sucesso!"
@@ -17,6 +20,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:name, :matricula, :email, :cpf, :rg, :password, :password_confirmation)
+    params.require(:user).permit(:id, :name, :matricula, :email, :cpf, :rg, :password, :password_confirmation)
   end
 end

@@ -1,2 +1,0 @@
-class DadoBancario < ApplicationRecord
-end
