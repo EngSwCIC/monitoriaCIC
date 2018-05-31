@@ -1,18 +1,23 @@
 %br
-- flash.each do |name, msg|
-  .container
-    .row
-      .col
-        %div{class: "alert alert-#{name}"}= msg
-
 %main.container{role: "container"}
   .row
-    .col-6.text-justify
+    .col-5.text-justify
       -# Your code here!
-      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin vitae porttitor eros. Sed aliquet erat et condimentum tincidunt. Donec eget fermentum nunc. Donec aliquet sollicitudin lectus, id posuere odio elementum eget. Nam pretium, nulla nec tempus rutrum, ligula lorem pulvinar dolor, nec vulputate dui libero eget ipsum. Nunc vestibulum ipsum nulla, quis facilisis felis pulvinar eget. Aenean elementum, sapien ut posuere feugiat, nibh nisi gravida metus, in vehicula sapien nunc ac dui. Donec eu quam sit amet odio commodo posuere. Nam commodo, est congue pretium pellentesque, felis ante volutpat diam, non porttitor felis quam in tellus. Mauris lacinia metus urna, eget semper erat sagittis nec. Integer at sagittis velit. Suspendisse sollicitudin fringilla risus, in tempor metus imperdiet a. Mauris ultrices tempus laoreet. Integer lobortis, justo auctor blandit facilisis, nisi ipsum scelerisque neque, sit amet blandit orci ante ut eros. Nullam mollis sapien lectus, ac egestas felis rutrum sit amet.
-    -#.col-1
+      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut ultricies odio, quis malesuada magna. Mauris nec tortor enim. Maecenas posuere nibh id justo scelerisque, sit amet consequat mi pellentesque. Quisque nibh arcu, efficitur sed sollicitudin hendrerit, tempor sed nisl. In elementum lorem mi, et volutpat nibh pulvinar vitae.
+    .col-1
     .col-6
       = form_tag users_path, :method => :post do
+        - if flash[:danger]
+          %div{class: "alert alert-danger"}
+            - flash[:danger].each do |msg|
+              %ul
+                %li
+                  =msg
+        - if flash[:notice]
+          .alert.alert-success
+            %ul
+              %li
+                = flash[:notice]
         = hidden_field :user, :id, :value => 0
         .form-group.row
           = label :user, :name, 'Nome', :class => "col-sm-3 col-form-label"
@@ -27,7 +32,7 @@
         .form-group.row
           = label :user, :email, 'Email', :class => "col-sm-3 col-form-label"
           .col-sm-9
-            = email_field :user, :email, :class => "form-control", :autocomplete => "off"
+            = text_field :user, :email, :class => "form-control", :autocomplete => "off"
 
         .row
           .col
