@@ -6,10 +6,10 @@ class SessionsController < ApplicationController
     @data = user_params
   	@user = User.find_by_email(@data[:email])
   	if @user && @user.authenticate(@data[:password])
-  		session[:user_id] = @user.email
-  		redirect_to root_url
+  		log_in(@user)
+  		redirect_to dashboard_path
   	else
-  		redirect_to new_session_path, notice: "Email ou senha inválidos"
+  		redirect_to new_session_path, danger: "Email ou senha inválidos"
   	end
   end
 

@@ -7,8 +7,9 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
 
     if !@user.errors.any?
+      log_in(@user)
       flash[:notice] = "Registro realizado com sucesso!"
-      redirect_to new_user_path
+      redirect_to dashboard_path
     else
       flash[:danger] = @user.errors.full_messages
       redirect_to new_user_path
