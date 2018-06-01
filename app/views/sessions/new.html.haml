@@ -1,14 +1,9 @@
-.container-fluid 
-  .col-md-3
-    - if flash[:notice]
-      #notice.message= flash[:notice]
-    %h1.text-center Log In
-    = form_tag sessions_path do
-      .field
-        = label_tag :email 
-        = email_field_tag :email, params[:email]
-      .field
-        = label_tag :password
-        = password_field_tag :password
-      .actions
-        =submit_tag "Log In"
+%main.container.text-center{role: "container"}
+  = form_tag new_session_path, class: "form-signin" do
+    %img.mb-4{src: image_path("logo.png"), alt: "Generic Logo"}
+    %h1.h3.mb-3.font-weight-normal Faça o login
+    = email_field :user, :email, class: "form-control", placeholder: "Seu email..."
+    = password_field :user, :password, class: "form-control", placeholder: "Sua senha..."
+    = submit_tag 'Login', :class => "btn btn-lg btn-primary btn-block"
+    %p.mt-5.mb-3.text-muted
+      &copy; 2018-2018
