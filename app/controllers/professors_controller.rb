@@ -4,7 +4,7 @@ class ProfessorsController < ApplicationController
   def new ; end
 
   def create
-    @professor = Professor.create!(professor_params)
+    @professor = Professor.create(professor_params)
 
     if !@professor.errors.any?
       flash[:notice] = "Registro realizado com sucesso!"
