@@ -43,12 +43,14 @@
       %footer.footer
         .container
           .row.text-center
-            .col-sm-4
-              %a{:class => "btn btn-outline-primary", :href => "https://atendimento.cic.unb.br", :method => "get"} DEPARTAMENTO
-            .col-sm-4
-              %a{:class => "btn btn-outline-primary", :href => "mapas", :method => "get"} MAPA
-            .col-sm-4
-              %a{:class => "btn btn-outline-primary", :href => "infos", :method => "get"} INFORMAÇÕES
+            .col-4
+              %a{:class => "btn btn-sm btn-outline-primary", :href => "https://atendimento.cic.unb.br", :method => "get"} DEPARTAMENTO
+            .col-4
+              %a{:class => "btn btn-sm btn-outline-primary", :href => "mapas", :method => "get"} MAPA
+            .col-4
+              %p.text-muted
+                Professores podem se registrar clicando
+                %a{:class => "", :href => new_professor_path, :method => :get} aqui
 
     %script{:src => "https://unpkg.com/feather-icons/dist/feather.min.js"}
     %script

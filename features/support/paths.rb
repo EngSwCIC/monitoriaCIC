@@ -22,6 +22,12 @@ module NavigationHelpers
     when /^página de registro de alunos$/
       new_user_path
 
+    when /^página de registro de professores$/
+      new_professor_path
+
+    when /^página do dashboard do usuário$/
+      dashboard_path
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

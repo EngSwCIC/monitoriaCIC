@@ -1,0 +1,58 @@
+%main.container{role: "main"}
+  .row
+    .col-3
+    .col.text-center
+      %h1 Lorem Ipsum
+      %p.text-justify
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Duis nisi justo, rhoncus nec tempus tincidunt, mollis hendrerit risus.
+        Nunc placerat sollicitudin massa, ac dapibus mauris consectetur blandit.
+        In pharetra varius justo, facilisis blandit elit.
+    .col-3
+
+  .row
+    .col-3
+    .col
+      -if flash[:danger]
+        .alert.alert-danger
+          - flash[:danger].each do |msg|
+            %ul
+              %li
+                =msg
+      -if flash[:notice]
+        .alert.alert-success
+          = flash[:notice]
+      = form_tag professors_path, method: :post do
+        = hidden_field :professor, :id, value: Professor.count()+1
+        .form-group.row
+          = label :professor, :name, "Nome", class: "col-sm-2 col-form-label"
+          .col-sm-10
+            = text_field :professor, :name, :class => "form-control", :autocomplete => "off"
+
+        .form-group.row
+          = label :professor, :username, "Username", class: "col-sm-2 col-form-label"
+          .col-sm-10
+            = text_field :professor, :username, :class => "form-control", :autocomplete => "off"
+
+        .form-group.row
+          = label :professor, :email, "Email", class: "col-sm-2 col-form-label"
+          .col-sm-10
+            = text_field :professor, :email, :class => "form-control", :autocomplete => "off"
+
+        .form-group.row
+          = label :professor, :role, "Papel", class: "col-sm-2 col-form-label"
+          .col-sm-10
+            = select :professor, :role, options_for_select(Professor.all_roles)
+
+        .row
+          .col
+            = label :professor, :password, 'Senha'
+            = password_field :professor, :password, :class => "form-control"
+
+          .col
+            = label :professor, :password_confirmation, 'Confirmar Senha'
+            = password_field :professor, :password_confirmation, :class => "form-control"
+
+        %br
+        = submit_tag 'Registrar', class: "btn btn-outline-primary btn-block"
+    .col-3
