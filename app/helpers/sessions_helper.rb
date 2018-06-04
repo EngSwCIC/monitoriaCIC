@@ -11,7 +11,7 @@ module SessionsHelper
 
   def current_user
     ## Determina se o usuário logado é um aluno ou professor
-    @current_user ||= User.find_by(email: session[:user_id]) || Professor.find_by(email: session[:user_id])
+    @current_user ||= User.find_by(email: session[:user_id]) || Professor.find_by(email: session[:user_id]) || Admin.find_by(email: session[:user_id])
   end
 
   def logged_in?

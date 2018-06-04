@@ -8,7 +8,8 @@ class ProfessorsController < ApplicationController
 
     if !@professor.errors.any?
       flash[:notice] = "Registro realizado com sucesso!"
-      redirect_to new_professor_path
+      log_in(@professor)
+      redirect_to dashboard_path
     else
       flash[:danger] = @professor.errors.full_messages
       redirect_to new_professor_path

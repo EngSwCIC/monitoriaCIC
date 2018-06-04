@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 0) do
   create_table "admins", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", null: false
-    t.string "password", null: false
+    t.string "password_digest", null: false
     t.string "remember_token", limit: 100
     t.datetime "created_at"
     t.datetime "updated_at"

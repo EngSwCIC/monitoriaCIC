@@ -43,6 +43,8 @@
         %h1 Hello, Aluno Dashboard!
       -elsif current_user.kind_of?(Professor)
         %h1 Hello, Professor Dashboard!
+      -elsif current_user.kind_of?(Admin)
+        %h1 Hello, Admin Dashboard!
     - if flash[:notice]
       .alert.alert-success
         =flash[:notice]

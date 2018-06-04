@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :users
   resources :professors
   resources :sessions
+  resources :admins
 
   get "dashboard/index", as: "dashboard"
 end

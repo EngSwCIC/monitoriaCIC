@@ -1,0 +1,28 @@
+%main.container{role: "container"}
+  .row
+    .col-3
+    .col
+      = form_tag admins_path, method: :post do
+        = hidden_field :admin, :id, :value => (Admin.count()+1)
+        .form-group.row
+          = label :admin, :name, 'Nome', :class => "col-sm-3 col-form-label"
+          .col-sm-9
+            = text_field :admin, :name, :class => "form-control", :autocomplete => "off"
+
+        .form-group.row
+          = label :admin, :email, 'Email', :class => "col-sm-3 col-form-label"
+          .col-sm-9
+            = text_field :admin, :email, :class => "form-control", :autocomplete => "off"
+
+        .row
+          .col
+            = label :admin, :password, 'Senha'
+            = password_field :admin, :password, :class => "form-control"
+
+          .col
+            = label :admin, :password_confirmation, 'Confirmar Senha'
+            = password_field :admin, :password_confirmation, :class => "form-control"
+
+        %br
+        = submit_tag 'Registrar', :class => "btn btn-outline-primary float-right"
+    .col-3
