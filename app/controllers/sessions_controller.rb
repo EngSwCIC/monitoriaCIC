@@ -1,22 +1,14 @@
 class SessionsController < ApplicationController
-  def new
-  end
+  def new ; end
 
   def create
-    # @data = user_params
-    
-  	@user = User.find_by_email(user_params[:email])
-  	if @user && @user.authenticate(user_params[:password])
-  		log_in(@user)
+    ## Busca aluno e professor. Retorna apenas um que for encontrado.
+    @login ||= User.find_by_email(login_params[:email]) || Professor.find_by_email(login_params[:email])
+  	if @login && @login.authenticate(login_params[:password])
+      log_in(@login)
   		redirect_to dashboard_path
   	else
-      @professor = Professor.find_by_email(professor_params[:email])
-      if @professor && @professor.authenticate(professor_params[:password])
-        log_in(@professor)
-        redirect_to root_url, notice: "Logged in"
-      else
-  		  redirect_to new_session_path, danger: "Email ou senha inválidos"
-  	  end
+      redirect_to new_session_path, danger: "Email ou senha inválidos"
     end
   end
 
@@ -25,14 +17,8 @@ class SessionsController < ApplicationController
     redirect_to root_url
   end
 
-
-# Mesma funcao?? 
-
-  def user_params
-    @data = params.require(:user).permit(:email, :password)
-  end
-
-  def professor_params
-    @data = params.require(:user).permit(:email, :password)
+  ## Define os parâmetros que serão lidos no formulário de login
+  def login_params
+    params.require(:user).permit(:email, :password)
   end
 end

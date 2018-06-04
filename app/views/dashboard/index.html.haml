@@ -39,7 +39,10 @@
 
   %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
     .d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3.border-bottom
-      %h1 Hello, Dashboard!
+      -if current_user.kind_of?(User)
+        %h1 Hello, Aluno Dashboard!
+      -elsif current_user.kind_of?(Professor)
+        %h1 Hello, Professor Dashboard!
     - if flash[:notice]
       .alert.alert-success
         =flash[:notice]
