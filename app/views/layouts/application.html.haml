@@ -8,7 +8,12 @@
     = csrf_meta_tags
 
   %body
-    %nav{:class => "navbar navbar-expand-md navbar-light bg-light"}
+    -if request.fullpath == "/dashboard/index"
+      - @class = "fixed-top shadow"
+    -else
+      - @class = ""
+
+    %nav{:class => "navbar navbar-expand-md navbar-light bg-light flex-md-nowrap p-0 #{@class}"}
       .container
         %a{:class => "navbar-brand", :href => root_path}
           %img{:src => image_path("logo.png"), :alt => "Logo Monitoria CIC"}
@@ -22,9 +27,9 @@
               %a{:class => "nav-link", :href => "faqs"}FAQ
             %li.nav-item.ml-auto
               %a{:class => "nav-link", :href => "contatos"}Contato
-            - if session[:user_id]
+            - if logged_in?
               %li.nav-item.ml-auto
-                %a{:class => "nav-link", :href => edit_session_path("current")} Perfil de #{User.find_by_email(session[:user_id]).name}
+                %a{:class => "nav-link", :href => edit_session_path("current")} Perfil de #{logged_user.name}
               %li.nav-item.ml-auto
                 = link_to "Sair", session_path("current"), method: "delete", :class => "nav-link"
             - else
@@ -33,13 +38,20 @@
               %li.nav-item.ml-auto
                 %a{:class => "nav-link", :href => new_session_path} Entrar
     = yield
-    %br
-    %footer.footer
-      .container
-        .row.text-center
-          .col-sm-4
-            %a{:class => "btn btn-outline-primary", :href => "https://atendimento.cic.unb.br", :method => "get"} DEPARTAMENTO
-          .col-sm-4
-            %a{:class => "btn btn-outline-primary", :href => "mapas", :method => "get"} MAPA
-          .col-sm-4
-            %a{:class => "btn btn-outline-primary", :href => "infos", :method => "get"} INFORMAÇÕES
+    -if request.fullpath != "/dashboard/index"
+      %br
+      %footer.footer
+        .container
+          .row.text-center
+            .col-4
+              %a{:class => "btn btn-sm btn-outline-primary", :href => "https://atendimento.cic.unb.br", :method => "get"} DEPARTAMENTO
+            .col-4
+              %a{:class => "btn btn-sm btn-outline-primary", :href => "mapas", :method => "get"} MAPA
+            .col-4
+              %p.text-muted
+                Professores podem se registrar clicando
+                %a{:class => "", :href => new_professor_path, :method => :get} aqui
+
+    %script{:src => "https://unpkg.com/feather-icons/dist/feather.min.js"}
+    %script
+      feather.replace()

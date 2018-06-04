@@ -1,0 +1,50 @@
+.container-fluid
+  .row
+    %nav.col-md-2.d-none.d-md-block.bg-light.sidebar
+      .sidebar-sticky
+        %ul.nav.flex-column
+          %li.nav-item
+            %a.nav-link.active{href: "#"}
+              %span{'data-feather': "home"}
+              Dashboard
+              %span.sr-only (current)
+          %li.nav-item
+            %a.nav-link{href: "#"}
+              %span{'data-feather': "file"}
+              Something 1
+          %li.nav-item
+            %a.nav-link{href: "#"}
+              %span{'data-feather': "shopping-cart"}
+              Something 2
+          %li.nav-item
+            %a.nav-link{href: "#"}
+              %span{'data-feather': "users"}
+              Something 3
+          %li.nav-item
+            %a.nav-link{href: "#"}
+              %span{'data-feather': "layers"}
+              Something 4
+
+        %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+          Some subtitle
+          %span Something
+          %a.d-flex.align-items-center.text-muted{href: "#"}
+            %span{'data-feather': "plus-circle"}
+
+        %ul.nav.flex-column.mb-2
+          %li.nav-item
+            %a.nav-link{href: "#"}
+              %span{'data-feather': "file-text"}
+              Something
+
+  %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
+    .d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3.border-bottom
+      -if current_user.kind_of?(User)
+        %h1 Hello, Aluno Dashboard!
+      -elsif current_user.kind_of?(Professor)
+        %h1 Hello, Professor Dashboard!
+      -elsif current_user.kind_of?(Admin)
+        %h1 Hello, Admin Dashboard!
+    - if flash[:notice]
+      .alert.alert-success
+        =flash[:notice]

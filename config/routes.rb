@@ -3,5 +3,9 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :users
+  resources :professors
   resources :sessions
+  resources :admins
+
+  get "dashboard/index", as: "dashboard"
 end

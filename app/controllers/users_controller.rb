@@ -7,8 +7,9 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
 
     if !@user.errors.any?
+      log_in(@user)
       flash[:notice] = "Registro realizado com sucesso!"
-      redirect_to new_user_path
+      redirect_to dashboard_path
     else
       flash[:danger] = @user.errors.full_messages
       redirect_to new_user_path
@@ -17,10 +18,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    @data = params.require(:user).permit(:id, :name, :matricula, :email, :cpf, :rg, :password, :password_confirmation)
-    @data[:id] = @data[:id].to_i
-    @data[:id] += (User.count() + 1)
-
-    return @data
+    params.require(:user).permit(:id, :name, :matricula, :email, :cpf, :rg, :password, :password_confirmation)
   end
 end
