@@ -18,10 +18,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    @data = params.require(:user).permit(:id, :name, :matricula, :email, :cpf, :rg, :password, :password_confirmation)
-    @data[:id] = @data[:id].to_i
-    @data[:id] += (User.count() + 1)
-
-    return @data
+    params.require(:user).permit(:id, :name, :matricula, :email, :cpf, :rg, :password, :password_confirmation)
   end
 end
