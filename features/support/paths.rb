@@ -31,6 +31,9 @@ module NavigationHelpers
     when /^página de login de usuários$/
       new_session_path
 
+    when /^página de FAQ$/
+      faq_path
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

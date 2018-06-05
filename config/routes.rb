@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   resources :sessions
   resources :admins
 
-  get "dashboard/index", as: "dashboard"
+  match "/dashboard", to: "dashboard#index", via: 'get'
+  match "/faq", to: "faq#index", :via => 'get'
 end
