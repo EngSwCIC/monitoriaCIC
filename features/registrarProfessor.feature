@@ -16,5 +16,5 @@
         | Confirmar Senha | 12345678                |
       E eu escolho o "Professor(a) Adjunto(a)" do seletor "professor[role]"
       E clico em "Registrar"
-      Então estou na página de registro de professores
+      Então estou na página de dashboard do usuário
       E eu devo ver "Registro realizado com sucesso!"

@@ -13,4 +13,4 @@
         | user[password]  | 110492                |
       E aperto em "Login"
       Então eu devo estar na página de dashboard do usuário
-      E devo ver "Hello, Admin Dasboard!"
+      E devo ver "Hello, Admin Dashboard!"
