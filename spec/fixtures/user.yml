@@ -1,0 +1,12 @@
+some_student:
+  id: 1
+  name: Bernardo Costa Nascimento
+  email: bernardoc1104@gmail.com
+  matricula: 140080279
+  cpf: 03638481182
+  rg: 2645178
+  password_digest: $2a$10$D77lak6dubRsCDcARYYxqu5P2ddPFbVXS3CyIibKwWgC.ZG/XQwjq
+  remember_token: nil
+  fk_banco: nil
+  created_at: 2018-06-11 14:36:05.797006
+  updated_at: 2018-06-11 14:36:05.797006
