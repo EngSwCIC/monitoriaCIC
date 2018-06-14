@@ -10,24 +10,85 @@ describe UsersController do
     end
   end
 
+  before :each do
+    @info = {
+        name: 'Bernardo Costa Nascimento',
+        email: 'bernardoc1104@gmail.com',
+        matricula: '140080279',
+        cpf: '03638481182',
+        rg: '2645178',
+        password: '110492',
+        password_confirmation: '110492'
+    }
+    @wrong_info = {
+        name: '',
+        email: '',
+        matricula: '',
+        cpf: '',
+        rg: '',
+        password: '',
+        password_confirmation: ''
+    }
+    @params = Hash.new
+    @params[:user] = @info
+  end
   describe '#create' do
-    before :each do
-      # code here ...
+    it 'calls the controller method that filters the form input' do
+      post :create, params: @params
+      users_controller = double('users_controller')
+      allow(users_controller).to receive(:users_param).and_return(@params[:user])
     end
-
-    it 'calls the controller method that filters the form input'
 
     it 'calls the model method that creates the user' do
-      expect(User).to receive(:create).with(@user)
-      post :create, params: @user
+      ActionController::Parameters.permit_all_parameters = true
+      @user = ActionController::Parameters.new(@params[:user])
+
+      expect(User).to receive(:create).with(@user).and_return(User.new(@user))
+      post :create, params: @params
     end
 
-    it 'calls the sessions helper method that logs the registered user'
+    it 'calls the sessions helper method that logs the registered user' do
+      expect(assigns(:user)).to eq(@user)
+      sessions_helper = double('sessions_helper')
+      allow(sessions_helper).to receive(:log_in).with(:user)
+      post :create, params: @params
+    end
 
-    it 'redirects the registered user to the dashboard'
+    it 'redirects the registered user to the dashboard' do
+      post :create, params: @params
+
+      expect(flash[:notice]).to eq("Registro realizado com sucesso!")
+      redirect_to dashboard_path
+      expect(subject).to redirect_to('/dashboard/index')
+    end
   end
 
-  describe '#user_params' do
-    it 'filters the data that was POSTed via the views form'
+  describe '#create sad paths' do
+    fixtures 'user'
+
+    describe 'tries to create an invalid user on the database' do
+      it 'tries to create a user that is not unique - email' do
+        post :create, params: @params
+        expect(flash[:danger]).to include('Matricula has already been taken', 'Email has already been taken',
+          'Cpf has already been taken', 'Rg has already been taken')
+        redirect_to new_user_path
+        expect(subject).to redirect_to('/users/new')
+      end
+    end
+
+    describe 'tries to create a user by filling the form wrong' do
+      it 'leaves the form blank' do
+        @params[:user] = @wrong_info
+        post :create, params: @params
+        expect(flash[:danger]).to include("Name can't be blank", "Email can't be blank", "Cpf can't be blank",
+          "Rg can't be blank", "Matricula can't be blank", "Password can't be blank", "Password must be between 6 and 12 characters",
+          "Name is too short (minimum is 3 characters)", "Email invalid email format",
+          "Cpf is the wrong length (should be 11 characters)", "Cpf only numbers", "Rg is too short (minimum is 7 characters)",
+          "Rg only numbers", "Matricula is the wrong length (should be 9 characters)", "Matricula only numbers",
+          "Password confirmation must be between 6 and 12 characters")
+        redirect_to new_user_path
+        expect(subject).to redirect_to('/users/new')
+      end
+    end
   end
 end
