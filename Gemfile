@@ -63,6 +63,8 @@ group :development do
 end
 
 group :test do
+  gem 'rspec-rails'
+  gem 'guard-rspec'
   # Adds support for Capybara system testing and selenium driver
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels'

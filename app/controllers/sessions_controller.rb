@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 
   def create
     ## Busca aluno e professor. Retorna apenas um que for encontrado.
-    @login ||= User.find_by_email(login_params[:email]) || Professor.find_by_email(login_params[:email]) || Admin.find_by_email(login_params[:email])
+    @login ||= User.find_by_email(login_params[:email]) 
   	if @login && @login.authenticate(login_params[:password])
       log_in(@login)
   		redirect_to dashboard_path
