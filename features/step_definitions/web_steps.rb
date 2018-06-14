@@ -10,6 +10,32 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
+Dado /^(?:|que ) o banco possui um aluno e um professor$/ do
+  @aluno = {
+    id: 1,
+    name: 'Bernardo Costa Nascimento',
+    email: 'bernardoc1104@gmail.com',
+    matricula: '140080279',
+    cpf: '03638481182',
+    rg: '2645178',
+    password: '110492',
+    password_confirmation: '110492'
+  }
+
+  @professor = {
+    id: 1,
+    name: 'Genaina Nunes Rodrigues',
+    username: 'grodrigues',
+    email: 'genaina@unb.br',
+    role: 2,
+    password: '123456',
+    password_confirmation: '123456'
+  }
+
+  User.create!(@aluno)
+  Professor.create!(@professor)
+end
+
 Dado /^(?:|que eu )estou na (.+)$/ do |page_name|
   visit path_to(page_name)
 end
@@ -36,7 +62,7 @@ Quando /^(?:|eu )escolho o "([^"]*)" do seletor "([^"]*)"$/ do |value, field|
   select(value, :from => field)
 end
 
-Quando /^(?:|eu )preencho o formulário de cadastro com informações válidas:$/ do |table|
+Quando /^(?:|eu )preencho o formulário de login com:$/ do |table|
   table.rows_hash.each {|field, value| fill_in field, :with => value}
 end
 
