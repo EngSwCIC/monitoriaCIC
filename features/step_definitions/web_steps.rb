@@ -22,6 +22,12 @@ Quando /^(?:|eu )clico em "([^"]*)"$/ do |link|
   click_link(link)
 end
 
+Quando /^(?:|eu )clicar em uma pergunta$/ do
+  button = "Lorem Ipsum \#"
+  number = rand(5) + 1
+  click_button(button + number.to_s)
+end
+
 Quando /^(?:|eu )preencho "([^"]*)" com "([^"]*)"$/ do |field, value|
   fill_in(field, :with => value)
 end

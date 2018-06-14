@@ -7,8 +7,9 @@ class SessionsController < ApplicationController
   	if @login && @login.authenticate(login_params[:password])
       log_in(@login)
   		redirect_to dashboard_path
-  	else
-      redirect_to new_session_path, danger: "Email ou senha inválidos"
+    else
+      flash[:danger] = "Email ou senha inválidos"
+      redirect_to new_session_path
     end
   end
 

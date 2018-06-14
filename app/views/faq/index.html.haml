@@ -1,0 +1,96 @@
+%main.container{role: "container"}
+  .row
+    .col.text-justify
+      %h1 FAQ
+      %p
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id ante nunc.
+        Maecenas semper, orci eget volutpat suscipit, erat quam consectetur urna, eu porttitor sem risus eu ligula.
+        Duis pulvinar augue non justo sagittis consequat. Etiam non odio eu magna rhoncus gravida.
+        Morbi magna tortor, iaculis at dolor gravida, imperdiet molestie lectus.
+        Ut quam enim, faucibus sed cursus et, bibendum eget lacus.
+        Quisque varius arcu eu dui ornare, mattis gravida nisi pharetra. Maecenas at sollicitudin diam.
+        Morbi finibus risus non nibh blandit euismod. Etiam dignissim nibh quis ex pretium ullamcorper.
+
+  %br
+
+  .row
+    .col.text-justify
+      %h2 Subject #1
+      .accordion{id: "accordionExample"}
+        .card
+          .card-header{id: "headingOne"}
+            %h5.mb-0
+              %button.btn.btn-link.collapsed{type: "button", 'data-toggle': "collapse", 'data-target': "#collapseOne",
+              'aria-expanded': "false", 'aria-controls': "collapseOne"}
+                Lorem Ipsum #1
+          .collapse{id: "collapseOne", 'aria-labelledby': "headingOne", 'data-parent': "#accordionExample"}
+            .card-body
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id ante nunc.
+              Maecenas semper, orci eget volutpat suscipit, erat quam consectetur urna, eu porttitor sem risus eu ligula.
+              Duis pulvinar augue non justo sagittis consequat. Etiam non odio eu magna rhoncus gravida.
+
+        .card
+          .card-header{id: "headingTwo"}
+            %h5.mb-0
+              %button.btn.btn-link.collapsed{type: "button", 'data-toggle': "collapse", 'data-target': "#collapseTwo",
+              'aria-expanded': "false", 'aria-controls': "collapseTwo"}
+                Lorem Ipsum #2
+          .collapse{id: "collapseTwo", 'aria-labelledby': "headingTwo", 'data-parent': "#accordionExample"}
+            .card-body
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id ante nunc.
+              Maecenas semper, orci eget volutpat suscipit, erat quam consectetur urna, eu porttitor sem risus eu ligula.
+              Duis pulvinar augue non justo sagittis consequat. Etiam non odio eu magna rhoncus gravida.
+
+        .card
+          .card-header{id: "headingThree"}
+            %h5.mb-0
+              %button.btn.btn-link.collapsed{type: "button", 'data-toggle': "collapse", 'data-target': "#collapseThree",
+              'aria-expanded': "false", 'aria-controls': "collapseThree"}
+                Lorem Ipsum #3
+          .collapse{id: "collapseThree", 'aria-labelledby': "headingThree", 'data-parent': "#accordionExample"}
+            .card-body
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id ante nunc.
+              Maecenas semper, orci eget volutpat suscipit, erat quam consectetur urna, eu porttitor sem risus eu ligula.
+              Duis pulvinar augue non justo sagittis consequat. Etiam non odio eu magna rhoncus gravida.
+
+  %br
+
+  .row
+    .col.text-justify
+      %h2 Subject #2
+      .accordion{id: "accordionExample1"}
+        .card
+          .card-header{id: "headingOne1"}
+            %h5.mb-0
+              %button.btn.btn-link.collapsed{type: "button", 'data-toggle': "collapse", 'data-target': "#collapseOne1",
+              'aria-expanded': "false", 'aria-controls': "collapseOne1"}
+                Lorem Ipsum #4
+          .collapse{id: "collapseOne1", 'aria-labelledby': "headingOne1", 'data-parent': "#accordionExample1"}
+            .card-body
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id ante nunc.
+              Maecenas semper, orci eget volutpat suscipit, erat quam consectetur urna, eu porttitor sem risus eu ligula.
+              Duis pulvinar augue non justo sagittis consequat. Etiam non odio eu magna rhoncus gravida.
+
+        .card
+          .card-header{id: "headingTwo1"}
+            %h5.mb-0
+              %button.btn.btn-link.collapsed{type: "button", 'data-toggle': "collapse", 'data-target': "#collapseTwo1",
+              'aria-expanded': "false", 'aria-controls': "collapseTwo1"}
+                Lorem Ipsum #5
+          .collapse{id: "collapseTwo1", 'aria-labelledby': "headingTwo1", 'data-parent': "#accordionExample1"}
+            .card-body
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id ante nunc.
+              Maecenas semper, orci eget volutpat suscipit, erat quam consectetur urna, eu porttitor sem risus eu ligula.
+              Duis pulvinar augue non justo sagittis consequat. Etiam non odio eu magna rhoncus gravida.
+
+        .card
+          .card-header{id: "headingThree1"}
+            %h5.mb-0
+              %button.btn.btn-link.collapsed{type: "button", 'data-toggle': "collapse", 'data-target': "#collapseThree1",
+              'aria-expanded': "false", 'aria-controls': "collapseThree1"}
+                Lorem Ipsum #6
+          .collapse{id: "collapseThree1", 'aria-labelledby': "headingThree1", 'data-parent': "#accordionExample1"}
+            .card-body
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id ante nunc.
+              Maecenas semper, orci eget volutpat suscipit, erat quam consectetur urna, eu porttitor sem risus eu ligula.
+              Duis pulvinar augue non justo sagittis consequat. Etiam non odio eu magna rhoncus gravida.
