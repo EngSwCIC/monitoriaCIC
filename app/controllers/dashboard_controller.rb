@@ -3,7 +3,13 @@ class DashboardController < ApplicationController
 
   def index; end
 
-  def edit_user; end
+  def edit_user
+    if current_user.kind_of?(User)
+      @user = User.find_by_email(session[:user_id])
+    elsif current_user.kind_of?(Professor)
+      @professor = Professor.find_by_email(session[:user_id])
+    end
+  end
 
   private
   def user_logged

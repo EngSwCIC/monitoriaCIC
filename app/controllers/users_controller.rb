@@ -16,6 +16,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = User.find_by_email(session[:user_id])
+    permitted = user_params
+    @user.update_attributes(permitted)
+
+    if !@user.errors.any?
+      flash[:notice] = "Cadastro atualizado com sucesso!"
+    elsif
+      flash[:danger] = @user.errors.full_messages
+      puts flash[:danger]
+    end
+
+    redirect_to dashboard_path
+  end
+
   private
   def user_params
     params.require(:user).permit(:id, :name, :matricula, :email, :cpf, :rg, :password, :password_confirmation)
