@@ -5,6 +5,9 @@ class UsersController < ApplicationController
   ## POST /users/sign_up
   def create
     @user = User.create(user_params)
+    #puts '*********'
+    #puts user_params
+    #puts user_params.class
 
     if !@user.errors.any?
       log_in(@user)
@@ -18,6 +21,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:id, :name, :matricula, :email, :cpf, :rg, :password, :password_confirmation)
+   params.require(:user).permit(:id, :name, :matricula, :email, :cpf, :rg, :password, :password_confirmation)
   end
 end
