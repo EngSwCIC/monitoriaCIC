@@ -16,13 +16,13 @@ class Professor < ActiveRecord::Base
   validates_uniqueness_of :email
 
   # Verificação do nome
-  validates :name, length: { in: 3...50 }, format: { without: /[\d]+|[!@#$%*\(\)\|\\;\:\/?\]\[=\+\-_",\.]+/, message: "only letters and spaces" }
+  validates :name, length: { in: 3..50 }, format: { without: /[\d]+|[!@#$%*\(\)\|\\;\:\/?\]\[=\+\-_",\.]+/, message: "only letters and spaces" }
   # Verificação do username
-  validates :username, length: { in: 3...50 }, format: { with: /\A[\w+]+\z/, message: "only word characters (letter, numbers, underscore...)" }
+  validates :username, length: { in: 3..15 }, format: { with: /\A[\w+]+\z/, message: "only word characters (letter, numbers, underscore...)" }
   # Verificação do email
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@unb\.br\z/i
   validates :email, format: { with: VALID_EMAIL_REGEX, message: "not a UnB email" }
   # Verificação da senha e confirmação de senha
-  validates :password, length: { in: 6...12, message: "must be between 6 and 12 characters" }, on: :create
-  validates :password_confirmation, length: { in: 6...12, message: "must be between 6 and 12 characters" }, on: :create
+  validates :password, length: { in: 6..12, message: "must be between 6 and 12 characters" }, on: :create
+  validates :password_confirmation, length: { in: 6..12, message: "must be between 6 and 12 characters" }, on: :create
 end
