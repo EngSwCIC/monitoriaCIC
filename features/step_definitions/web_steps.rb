@@ -40,18 +40,39 @@ Dado /^(?:|que eu )estou na (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
+Dado /^(?:|que o )"([^"]*)" está logado$/ do |user_type|
+  case user_type
+  when "aluno"
+    steps %(
+      Quando eu preencho o formulário de login com:
+        | user_email    | bernardoc1104@gmail.com |
+        | user_password | 110492                  |
+      E eu aperto em "Login"
+    )
+  when "professor"
+    steps %(
+      Quando eu preencho o formulário de login com:
+        | user_email    | genaina@unb.br |
+        | user_password | 123456         |
+      E eu aperto em "Login"
+    )
+  end
+end
+
+Dado /^(?:|que) está na página de editar perfil$/ do
+  steps %(
+    Então eu devo estar na página de dashboard do usuário
+    Quando eu clico em "Editar Perfil"
+    Então eu devo estar na página de editar perfil do usuário
+  )
+end
+
 Quando /^(?:|eu )aperto em "([^"]*)"$/ do |button|
   click_button(button)
 end
 
 Quando /^(?:|eu )clico em "([^"]*)"$/ do |link|
   click_link(link)
-end
-
-Quando /^(?:|eu )clicar em uma pergunta$/ do
-  button = "Lorem Ipsum \#"
-  number = rand(5) + 1
-  click_button(button + number.to_s)
 end
 
 Quando /^(?:|eu )preencho "([^"]*)" com "([^"]*)"$/ do |field, value|
@@ -63,6 +84,10 @@ Quando /^(?:|eu )escolho o "([^"]*)" do seletor "([^"]*)"$/ do |value, field|
 end
 
 Quando /^(?:|eu )preencho o formulário de login com:$/ do |table|
+  table.rows_hash.each {|field, value| fill_in field, :with => value}
+end
+
+Quando /^(?:|eu )preencho o formulário com:$/ do |table|
   table.rows_hash.each {|field, value| fill_in field, :with => value}
 end
 

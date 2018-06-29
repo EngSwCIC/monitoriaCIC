@@ -178,13 +178,9 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.8.2)
       mini_portile2 (~> 2.3.0)
-<<<<<<< HEAD
-=======
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
-    orm_adapter (0.5.0)
->>>>>>> 6d483dce2be97f22d7fa357c040a05c06c22f90e
     popper_js (1.12.9)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -226,11 +222,6 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-<<<<<<< HEAD
-=======
-    responders (2.4.0)
-      actionpack (>= 4.2.0, < 5.3)
-      railties (>= 4.2.0, < 5.3)
     rspec (3.7.0)
       rspec-core (~> 3.7.0)
       rspec-expectations (~> 3.7.0)
@@ -252,7 +243,6 @@ GEM
       rspec-mocks (~> 3.7.0)
       rspec-support (~> 3.7.0)
     rspec-support (3.7.1)
->>>>>>> 6d483dce2be97f22d7fa357c040a05c06c22f90e
     ruby_dep (1.5.0)
     rubyzip (1.2.1)
     sass (3.5.6)
@@ -324,12 +314,8 @@ DEPENDENCIES
   cucumber-rails
   cucumber-rails-training-wheels
   database_cleaner
-<<<<<<< HEAD
-=======
-  devise
   factory_bot_rails
   guard-rspec
->>>>>>> 6d483dce2be97f22d7fa357c040a05c06c22f90e
   haml
   jbuilder (~> 2.5)
   jquery-rails

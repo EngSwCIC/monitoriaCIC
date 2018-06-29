@@ -17,6 +17,8 @@ class Professor < ActiveRecord::Base
 
   # Verificação do nome
   validates :name, length: { in: 3...50 }, format: { without: /[\d]+|[!@#$%*\(\)\|\\;\:\/?\]\[=\+\-_",\.]+/, message: "only letters and spaces" }
+  # Verificação do username
+  validates :username, length: { in: 3...50 }, format: { with: /\A[\w+]+\z/, message: "only word characters (letter, numbers, underscore...)" }
   # Verificação do email
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@unb\.br\z/i
   validates :email, format: { with: VALID_EMAIL_REGEX, message: "not a UnB email" }

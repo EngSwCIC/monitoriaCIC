@@ -60,7 +60,7 @@
                 = text_field :user, :email, class: 'form-control-plaintext', autocomplete: 'off', readonly: 'readonly'
             .row
               .col
-                = label :user, :cpf, 'Cpf'
+                = label :user, :cpf, 'CPF'
                 = text_field :user, :cpf, class: 'form-control', autocomplete: 'off'
               .col
                 = label :user, :rg, 'RG'
@@ -78,5 +78,33 @@
             = submit_tag 'Atualizar cadastro', class: 'btn btn-outline-primary float-right'
           - # ------------------------ Formulário de para atualizar cadastro do Aluno ------------------------ #
         -elsif current_user.kind_of?(Professor)
-          %h1 Hello, Professor Dashboard!
+          = form_tag professor_path(@professor), method: :put do
+            .form-group.row
+              = label :professor, :name, 'Nome', class: 'col-sm-3 col-form-label'
+              .col-sm-9
+                = text_field :professor, :name, class: 'form-control'
+            .form-group.row
+              = label :professor, :name, 'Username', class: 'col-sm-3 col-form-label'
+              .col-sm-9
+                = text_field :professor, :username, class: 'form-control'
+            .form-group.row
+              = label :professor, :email, 'Email', class: 'col-sm-3 col-form-label'
+              .col-sm-9
+                = text_field :professor, :email, class: 'form-control-plaintext', readonly: 'readonly'
+            .form-group.row
+              = label :professor, :role, 'Papel', class: 'col-sm-3 col-form-label'
+              .col-sm-9
+                = select :professor, :role, options_for_select(Professor.all_roles)
+
+            .row
+              .col
+                = label :professor, :password, 'Nova senha'
+                = password_field :professor, :password, :class => "form-control"
+
+              .col
+                = label :professor, :password_confirmation, 'Confirmar nova senha'
+                = password_field :professor, :password_confirmation, :class => "form-control"
+
+            %br
+            = submit_tag 'Atualizar cadastro', class: "btn btn-outline-primary float-right"
       .col-2

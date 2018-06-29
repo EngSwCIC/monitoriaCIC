@@ -5,9 +5,6 @@ class UsersController < ApplicationController
   ## POST /users/sign_up
   def create
     @user = User.create(user_params)
-    #puts '*********'
-    #puts user_params
-    #puts user_params.class
 
     if !@user.errors.any?
       log_in(@user)
@@ -21,14 +18,12 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by_email(session[:user_id])
-    permitted = user_params
-    @user.update_attributes(permitted)
+    @user.update_attributes(user_params)
 
     if !@user.errors.any?
       flash[:notice] = "Cadastro atualizado com sucesso!"
     elsif
       flash[:danger] = @user.errors.full_messages
-      puts flash[:danger]
     end
 
     redirect_to dashboard_path

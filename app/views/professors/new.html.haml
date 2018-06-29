@@ -23,7 +23,6 @@
         .alert.alert-success
           = flash[:notice]
       = form_tag professors_path, method: :post do
-        = hidden_field :professor, :id, value: Professor.count()+1
         .form-group.row
           = label :professor, :name, "Nome", class: "col-sm-2 col-form-label"
           .col-sm-10

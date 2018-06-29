@@ -16,6 +16,19 @@ class ProfessorsController < ApplicationController
     end
   end
 
+  def update
+    @professor = Professor.find_by_email(session[:user_id])
+    @professor.update_attributes(professor_params)
+
+    if !@professor.errors.any?
+      flash[:notice] = "Cadastro atualizado com sucesso!"
+    elsif
+      flash[:danger] = @professor.errors.full_messages
+    end
+
+    redirect_to dashboard_path
+  end
+
   protected
 
   def professor_params
