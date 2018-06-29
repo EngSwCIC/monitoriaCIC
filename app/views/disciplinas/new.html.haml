@@ -12,10 +12,7 @@
     .col
       -if flash[:danger]
         .alert.alert-danger
-          - flash[:danger].each do |msg|
-            %ul
-              %li
-                =msg
+          = flash[:danger]
       -if flash[:notice]
         .alert.alert-success
           = flash[:notice]

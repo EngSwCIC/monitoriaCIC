@@ -2,13 +2,14 @@
 %br
 -if flash[:danger]
   .alert.alert-danger
-    - flash[:danger].each do |msg|
-      %ul
-        %li
-          =msg
+    = flash[:danger]
 -if flash[:notice]
   .alert.alert-success
     = flash[:notice]
+#{pluralize(@disciplinas.count, "disciplina")} no banco.
+%br
+- if current_user.class == Professor
+  %a{href:new_disciplina_path, method:"get", :class=>"btn btn-primary"}Adicionar nova Disciplina
 %hr
 - @disciplinas.each do |d|
   - if d.fk_tipo_disciplina_id == 1
@@ -36,4 +37,9 @@
           %td=d.c_est
           %td=d.c_ext
   =link_to "Mais Informações", disciplina_path(d)
+  %br
+  - if current_user.class == User
+    =link_to "Aplicar para monitor", "#"
+  - else
+    =link_to "Ver candidatos a monitoria", "#"
   %hr

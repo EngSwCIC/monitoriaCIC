@@ -1,9 +1,6 @@
 -if flash[:danger]
   .alert.alert-danger
-    - flash[:danger].each do |msg|
-      %ul
-        %li
-          =msg
+    - flash[:danger]
 -if flash[:notice]
   .alert.alert-success
     = flash[:notice]
@@ -34,5 +31,9 @@
 =@disciplina.c_ext
 %br
 
-=link_to "Editar", edit_disciplina_path(@disciplina)
-=link_to "Deletar", disciplina_path(@disciplina), method: :delete, data: { confirm: "Tem certeza que quer deletar essa disciplina?"}
+-if current_user.class == Professor
+  =link_to "Editar", edit_disciplina_path(@disciplina)
+  %br
+  =link_to "Deletar", disciplina_path(@disciplina), method: :delete, data: { confirm: "Tem certeza que quer deletar essa disciplina?"}
+  %br
+=link_to "Ver lista de candidatos a monitoria"
