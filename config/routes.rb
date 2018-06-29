@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :professors
   resources :sessions
   resources :admins
+  resources :disciplinas
 
   match "/dashboard", to: "dashboard#index", via: 'get'
   match "/faq", to: "faq#index", :via => 'get'

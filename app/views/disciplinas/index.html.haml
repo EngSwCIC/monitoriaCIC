@@ -1,0 +1,39 @@
+%h1 Disciplinas
+%br
+-if flash[:danger]
+  .alert.alert-danger
+    - flash[:danger].each do |msg|
+      %ul
+        %li
+          =msg
+-if flash[:notice]
+  .alert.alert-success
+    = flash[:notice]
+%hr
+- @disciplinas.each do |d|
+  - if d.fk_tipo_disciplina_id == 1
+    - tipo="Obrigatória"
+  - else
+    - tipo="Optativa"
+  %br
+  %h2=d.nome
+  %br
+  =tipo
+  %br
+  Créditos:
+  %br
+  .row
+    .col-4
+      %table
+        %tr
+          %th Prático
+          %th Teórico
+          %th Est
+          %th Ext
+        %tr
+          %td=d.c_prat
+          %td=d.c_teor
+          %td=d.c_est
+          %td=d.c_ext
+  =link_to "Mais Informações", disciplina_path(d)
+  %hr

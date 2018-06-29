@@ -1,0 +1,38 @@
+-if flash[:danger]
+  .alert.alert-danger
+    - flash[:danger].each do |msg|
+      %ul
+        %li
+          =msg
+-if flash[:notice]
+  .alert.alert-success
+    = flash[:notice]
+%h1=@disciplina.nome
+%br
+- if @disciplina.fk_tipo_disciplina_id == 1
+  - tipo="Obrigatória"
+- else
+  - tipo="Optativa"
+%label 
+  %strong Tipo:
+=tipo
+%br
+%label 
+  %strong Créditos Práticos:
+=@disciplina.c_prat
+%br
+%label 
+  %strong Créditos Teóricos:
+=@disciplina.c_teor
+%br
+%label 
+  %strong Créditos Est:
+=@disciplina.c_est
+%br
+%label 
+  %strong Créditos Ext:
+=@disciplina.c_ext
+%br
+
+=link_to "Editar", edit_disciplina_path(@disciplina)
+=link_to "Deletar", disciplina_path(@disciplina), method: :delete, data: { confirm: "Tem certeza que quer deletar essa disciplina?"}
