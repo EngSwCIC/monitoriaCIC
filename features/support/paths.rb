@@ -34,6 +34,9 @@ module NavigationHelpers
     when /^página de FAQ$/
       faq_path
 
+    when /^página de editar perfil do usuário$/
+      dashboard_edit_user_path
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

@@ -1,10 +1,12 @@
+%br
+%br
 .container-fluid
   .row
-    %nav.col-md-2.d-none.d-md-block.bg-light.sidebar
+    %nav.col-md-2.d-none.d-md-block.bg-light.sidebar{style: 'margin-top: 40px'}
       .sidebar-sticky
         %ul.nav.flex-column
           %li.nav-item
-            %a.nav-link.active{href: "#"}
+            %a.nav-link.active{href: dashboard_path}
               %span{'data-feather': "home"}
               Dashboard
               %span.sr-only (current)
@@ -33,18 +35,26 @@
 
         %ul.nav.flex-column.mb-2
           %li.nav-item
-            %a.nav-link{href: "#"}
-              %span{'data-feather': "file-text"}
-              Something
+            %a.nav-link{href: dashboard_edit_user_path}
+              %span{'data-feather': "edit"}
+              Editar Perfil
 
   %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
-    .d-flex.justify-content-between.flex-wrap.flex-md-nowrap.align-items-center.pt-3.pb-2.mb-3.border-bottom
-      -if current_user.kind_of?(User)
-        %h1 Hello, Aluno Dashboard!
-      -elsif current_user.kind_of?(Professor)
-        %h1 Hello, Professor Dashboard!
-      -elsif current_user.kind_of?(Admin)
-        %h1 Hello, Admin Dashboard!
     - if flash[:notice]
       .alert.alert-success
         =flash[:notice]
+    - if flash[:danger]
+      %div{class: "alert alert-danger"}
+        - flash[:danger].each do |msg|
+          %ul
+            %li
+              =msg
+    -if current_user.kind_of?(User)
+      %h1
+        Hello, Aluno Dashboard!
+    -elsif current_user.kind_of?(Professor)
+      %h1
+        Hello, Professor Dashboard!
+    -elsif current_user.kind_of?(Admin)
+      %h1
+        Hello, Admin Dashboard!

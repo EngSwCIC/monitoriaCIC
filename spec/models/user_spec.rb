@@ -256,7 +256,7 @@ describe User do
       invalid_user = User.create(cpf: '03638481182')
       expect(invalid_user.errors[:cpf]).to include('has already been taken')
 
-      valid_user = User.create(cpf: '09646418104')
+      valid_user = User.create(cpf: '12345678901')
       expect(valid_user.errors[:cpf]).to_not include('has already been taken')
     end
 
