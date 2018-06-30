@@ -1,37 +1,115 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/bernardo/Dropbox/UnB/Engenharia de Software/MonitoriaCIC/app/helpers/application_helper.rb": [
+      "/home/jomasnow/Desktop/ES/monitoriaCIC/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/bernardo/Dropbox/UnB/Engenharia de Software/MonitoriaCIC/app/helpers/home_helper.rb": [
+      "/home/jomasnow/Desktop/ES/monitoriaCIC/app/helpers/disciplinas_helper.rb": [
         1,
         null
       ],
-      "/home/bernardo/Dropbox/UnB/Engenharia de Software/MonitoriaCIC/app/helpers/sessions_helper.rb": [
+      "/home/jomasnow/Desktop/ES/monitoriaCIC/app/helpers/home_helper.rb": [
+        1,
+        null
+      ],
+      "/home/jomasnow/Desktop/ES/monitoriaCIC/app/helpers/sessions_helper.rb": [
         1,
         1,
         7,
         null,
         null,
         1,
-        0,
+        9,
         0,
         null,
         null,
         null,
         1,
         null,
-        0,
+        16,
         null,
         null,
         1,
-        0,
+        9,
         null,
         null
       ],
-      "/home/bernardo/Dropbox/UnB/Engenharia de Software/MonitoriaCIC/app/controllers/professors_controller.rb": [
+      "/home/jomasnow/Desktop/ES/monitoriaCIC/app/controllers/disciplinas_controller.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        null,
+        null,
+        1,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        5,
+        null,
+        null,
+        1,
+        9,
+        9,
+        null,
+        null,
+        null,
+        1,
+        7,
+        0,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/home/jomasnow/Desktop/ES/monitoriaCIC/app/controllers/application_controller.rb": [
+        1,
+        1,
+        1,
+        null
+      ],
+      "/home/jomasnow/Desktop/ES/monitoriaCIC/app/controllers/professors_controller.rb": [
         1,
         1,
         null,
@@ -70,13 +148,7 @@
         null,
         null
       ],
-      "/home/bernardo/Dropbox/UnB/Engenharia de Software/MonitoriaCIC/app/controllers/application_controller.rb": [
-        1,
-        1,
-        1,
-        null
-      ],
-      "/home/bernardo/Dropbox/UnB/Engenharia de Software/MonitoriaCIC/app/controllers/users_controller.rb": [
+      "/home/jomasnow/Desktop/ES/monitoriaCIC/app/controllers/users_controller.rb": [
         1,
         null,
         1,
@@ -114,7 +186,34 @@
         null,
         null
       ],
-      "/home/bernardo/Dropbox/UnB/Engenharia de Software/MonitoriaCIC/app/models/user.rb": [
+      "/home/jomasnow/Desktop/ES/monitoriaCIC/app/models/disciplina.rb": [
+        1,
+        1,
+        0,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/home/jomasnow/Desktop/ES/monitoriaCIC/app/models/application_record.rb": [
+        1,
+        1,
+        null
+      ],
+      "/home/jomasnow/Desktop/ES/monitoriaCIC/app/models/user.rb": [
         1,
         1,
         null,
@@ -188,7 +287,7 @@
         null,
         null
       ],
-      "/home/bernardo/Dropbox/UnB/Engenharia de Software/MonitoriaCIC/app/models/professor.rb": [
+      "/home/jomasnow/Desktop/ES/monitoriaCIC/app/models/professor.rb": [
         1,
         1,
         null,
@@ -218,77 +317,41 @@
         1,
         null
       ],
-      "/home/bernardo/Dropbox/UnB/Engenharia de Software/MonitoriaCIC/app/channels/application_cable/channel.rb": [
-        0,
-        0,
-        0,
-        0
-      ],
-      "/home/bernardo/Dropbox/UnB/Engenharia de Software/MonitoriaCIC/app/channels/application_cable/connection.rb": [
-        0,
-        0,
-        0,
-        0
-      ],
-      "/home/bernardo/Dropbox/UnB/Engenharia de Software/MonitoriaCIC/app/jobs/application_job.rb": [
-        0,
-        0
-      ],
-      "/home/bernardo/Dropbox/UnB/Engenharia de Software/MonitoriaCIC/app/models/application_record.rb": [
-        0,
-        0,
-        0
-      ],
-      "/home/bernardo/Dropbox/UnB/Engenharia de Software/MonitoriaCIC/app/models/admin.rb": [
-        0,
-        0,
+      "/home/jomasnow/Desktop/ES/monitoriaCIC/app/models/admin.rb": [
+        1,
+        1,
         null,
+        1,
+        null
+      ],
+      "/home/jomasnow/Desktop/ES/monitoriaCIC/app/jobs/application_job.rb": [
         0,
         0
       ],
-      "/home/bernardo/Dropbox/UnB/Engenharia de Software/MonitoriaCIC/app/controllers/home_controller.rb": [
-        0,
-        0,
-        0
-      ],
-      "/home/bernardo/Dropbox/UnB/Engenharia de Software/MonitoriaCIC/app/controllers/sobre_controller.rb": [
-        0,
-        0,
-        0
-      ],
-      "/home/bernardo/Dropbox/UnB/Engenharia de Software/MonitoriaCIC/app/controllers/faq_controller.rb": [
-        0,
-        0,
-        0
-      ],
-      "/home/bernardo/Dropbox/UnB/Engenharia de Software/MonitoriaCIC/app/controllers/sessions_controller.rb": [
-        0,
-        0,
-        null,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
+      "/home/jomasnow/Desktop/ES/monitoriaCIC/app/mailers/application_mailer.rb": [
         0,
         0,
         0,
         0
       ],
-      "/home/bernardo/Dropbox/UnB/Engenharia de Software/MonitoriaCIC/app/controllers/admins_controller.rb": [
+      "/home/jomasnow/Desktop/ES/monitoriaCIC/app/channels/application_cable/channel.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/jomasnow/Desktop/ES/monitoriaCIC/app/channels/application_cable/connection.rb": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/jomasnow/Desktop/ES/monitoriaCIC/app/controllers/sobre_controller.rb": [
+        0,
+        0,
+        0
+      ],
+      "/home/jomasnow/Desktop/ES/monitoriaCIC/app/controllers/admins_controller.rb": [
         0,
         0,
         null,
@@ -304,7 +367,7 @@
         0,
         0
       ],
-      "/home/bernardo/Dropbox/UnB/Engenharia de Software/MonitoriaCIC/app/controllers/dashboard_controller.rb": [
+      "/home/jomasnow/Desktop/ES/monitoriaCIC/app/controllers/dashboard_controller.rb": [
         0,
         0,
         null,
@@ -326,13 +389,44 @@
         0,
         0
       ],
-      "/home/bernardo/Dropbox/UnB/Engenharia de Software/MonitoriaCIC/app/mailers/application_mailer.rb": [
+      "/home/jomasnow/Desktop/ES/monitoriaCIC/app/controllers/sessions_controller.rb": [
         0,
+        0,
+        null,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/home/jomasnow/Desktop/ES/monitoriaCIC/app/controllers/home_controller.rb": [
+        0,
+        0,
+        0
+      ],
+      "/home/jomasnow/Desktop/ES/monitoriaCIC/app/controllers/faq_controller.rb": [
         0,
         0,
         0
       ]
     },
-    "timestamp": 1530305200
+    "timestamp": 1530346311
   }
 }
