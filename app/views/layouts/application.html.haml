@@ -29,6 +29,8 @@
               %a{:class => "nav-link", :href => "contatos"}Contato
             - if logged_in?
               %li.nav-item.ml-auto
+                = link_to "Disciplinas", disciplinas_path, method: "get", :class => "nav-link"
+              %li.nav-item.ml-auto
                 %a{:class => "nav-link", :href => edit_session_path("current")} Perfil de #{logged_user.name}
               %li.nav-item.ml-auto
                 = link_to "Sair", session_path("current"), method: "delete", :class => "nav-link"
