@@ -10,26 +10,15 @@
               %span{'data-feather': "home"}
               Dashboard
               %span.sr-only (current)
-          %li.nav-item
-            %a.nav-link{href: "#"}
-              %span{'data-feather': "file"}
-              Something 1
-          %li.nav-item
-            %a.nav-link{href: "#"}
-              %span{'data-feather': "shopping-cart"}
-              Something 2
-          %li.nav-item
-            %a.nav-link{href: "#"}
-              %span{'data-feather': "users"}
-              Something 3
-          %li.nav-item
-            %a.nav-link{href: "#"}
-              %span{'data-feather': "layers"}
-              Something 4
+          - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
+            %li.nav-item
+              %a.nav-link{href: disciplinas_path}
+                %span{'data-feather': "file"}
+                Disciplinas
 
         %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
-          Some subtitle
-          %span Something
+          Menu
+          %span do usuário
           %a.d-flex.align-items-center.text-muted{href: "#"}
             %span{'data-feather': "plus-circle"}
 
