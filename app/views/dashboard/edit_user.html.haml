@@ -1,0 +1,117 @@
+%br
+%br
+.container-fluid
+  .row
+    %nav.col-md-2.d-none.d-md-block.bg-light.sidebar{style: 'margin-top: 40px'}
+      .sidebar-sticky
+        %ul.nav.flex-column
+          %li.nav-item
+            %a.nav-link.active{href: dashboard_path}
+              %span{'data-feather': "home"}
+              Dashboard
+              %span.sr-only (current)
+          %li.nav-item
+            %a.nav-link{href: "#"}
+              %span{'data-feather': "file"}
+              Something 1
+          %li.nav-item
+            %a.nav-link{href: "#"}
+              %span{'data-feather': "shopping-cart"}
+              Something 2
+          %li.nav-item
+            %a.nav-link{href: "#"}
+              %span{'data-feather': "users"}
+              Something 3
+          %li.nav-item
+            %a.nav-link{href: "#"}
+              %span{'data-feather': "layers"}
+              Something 4
+
+        %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+          Some subtitle
+          %span Something
+          %a.d-flex.align-items-center.text-muted{href: "#"}
+            %span{'data-feather': "plus-circle"}
+
+        - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_edit_user_path}
+                %span{'data-feather': "edit"}
+                Editar Perfil
+
+        -if current_user.kind_of?(User)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_dados_bancarios_path}
+                %span{'data-feather': "dollar-sign"}
+                Dados Bancários
+
+  %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
+    .row
+      .col-10
+        -if current_user.kind_of?(User)
+          - # ------------------------ Formulário de para atualizar cadastro do Aluno ------------------------ #
+          = form_tag user_path(@user), method: :put do
+            .form-group.row
+              = label :user, :name, 'Nome', class: 'col-sm-3 col-form-label'
+              .col-sm-9
+                = text_field :user, :name, class: 'form-control', autocomplete: 'off'
+            .form-group.row
+              = label :user, :matricula, 'Matricula', class: 'col-sm-3 col-form-label'
+              .col-sm-9
+                = text_field :user, :matricula, class: 'form-control', autocomplete: 'off'
+            .form-group.row
+              = label :user, :email, 'Email', class: 'col-sm-3 col-form-label', autocomplete: 'off'
+              .col-sm-9
+                = text_field :user, :email, class: 'form-control-plaintext', autocomplete: 'off', readonly: 'readonly'
+            .row
+              .col
+                = label :user, :cpf, 'CPF'
+                = text_field :user, :cpf, class: 'form-control', autocomplete: 'off'
+              .col
+                = label :user, :rg, 'RG'
+                = text_field :user, :rg, class: 'form-control', autocomplete: 'off'
+            %br
+            .row
+              .col
+                = label :user, :password, 'Nova senha'
+                = password_field :user, :password, class: 'form-control'
+              .col
+                = label :user, :password_confirmation, 'Confirmar nova senha'
+                = password_field :user, :password_confirmation, class: 'form-control'
+
+            %br
+            = submit_tag 'Atualizar cadastro', class: 'btn btn-outline-primary float-right'
+          - # ------------------------ Formulário de para atualizar cadastro do Aluno ------------------------ #
+        -elsif current_user.kind_of?(Professor)
+          = form_tag professor_path(@professor), method: :put do
+            .form-group.row
+              = label :professor, :name, 'Nome', class: 'col-sm-3 col-form-label'
+              .col-sm-9
+                = text_field :professor, :name, class: 'form-control'
+            .form-group.row
+              = label :professor, :name, 'Username', class: 'col-sm-3 col-form-label'
+              .col-sm-9
+                = text_field :professor, :username, class: 'form-control'
+            .form-group.row
+              = label :professor, :email, 'Email', class: 'col-sm-3 col-form-label'
+              .col-sm-9
+                = text_field :professor, :email, class: 'form-control-plaintext', readonly: 'readonly'
+            .form-group.row
+              = label :professor, :role, 'Papel', class: 'col-sm-3 col-form-label'
+              .col-sm-9
+                = select :professor, :role, options_for_select(Professor.all_roles)
+
+            .row
+              .col
+                = label :professor, :password, 'Nova senha'
+                = password_field :professor, :password, :class => "form-control"
+
+              .col
+                = label :professor, :password_confirmation, 'Confirmar nova senha'
+                = password_field :professor, :password_confirmation, :class => "form-control"
+
+            %br
+            = submit_tag 'Atualizar cadastro', class: "btn btn-outline-primary float-right"
+      .col-2

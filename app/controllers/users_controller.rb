@@ -7,20 +7,30 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
 
     if !@user.errors.any?
+      log_in(@user)
       flash[:notice] = "Registro realizado com sucesso!"
-      redirect_to new_user_path
+      redirect_to dashboard_path
     else
       flash[:danger] = @user.errors.full_messages
       redirect_to new_user_path
     end
   end
 
+  def update
+    @user = User.find_by_email(session[:user_id])
+    @user.update_attributes(user_params)
+
+    if !@user.errors.any?
+      flash[:notice] = "Cadastro atualizado com sucesso!"
+    elsif
+      flash[:danger] = @user.errors.full_messages
+    end
+
+    redirect_to dashboard_path
+  end
+
   private
   def user_params
-    @data = params.require(:user).permit(:id, :name, :matricula, :email, :cpf, :rg, :password, :password_confirmation)
-    @data[:id] = @data[:id].to_i
-    @data[:id] += (User.count() + 1)
-
-    return @data
+   params.require(:user).permit(:id, :name, :matricula, :email, :cpf, :rg, :password, :password_confirmation)
   end
 end
