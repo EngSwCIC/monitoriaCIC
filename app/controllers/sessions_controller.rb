@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     @login ||= User.find_by_email(login_params[:email]) || Professor.find_by_email(login_params[:email]) || Admin.find_by_email(login_params[:email])
   	if @login && @login.authenticate(login_params[:password])
       log_in(@login)
-  		redirect_to dashboard_path
+      redirect_to dashboard_path
     else
       flash[:danger] = "Email ou senha inválidos"
       redirect_to new_session_path

@@ -8,9 +8,9 @@
     = csrf_meta_tags
 
   %body
-    -if request.fullpath.include? "/dashboard"
+    - if (request.fullpath.include? "/dashboard") || (request.fullpath.include? "/dados_bancarios")
       - @class = "fixed-top shadow"
-    -else
+    - else
       - @class = ""
 
     %nav{:class => "navbar navbar-expand-md navbar-light bg-light flex-md-nowrap p-0 #{@class}"}
@@ -29,7 +29,7 @@
               %a{:class => "nav-link", :href => "contatos"}Contato
             - if logged_in?
               %li.nav-item.ml-auto
-                %a{:class => "nav-link", :href => edit_session_path("current")} Perfil de #{logged_user.name}
+                %a{:class => "nav-link", :href => dashboard_edit_user_path} Perfil de #{logged_user.name}
               %li.nav-item.ml-auto
                 = link_to "Sair", session_path("current"), method: "delete", :class => "nav-link"
             - else
@@ -38,7 +38,7 @@
               %li.nav-item.ml-auto
                 %a{:class => "nav-link", :href => new_session_path} Entrar
     = yield
-    -if request.fullpath != "/dashboard/index"
+    - if (!request.fullpath.include? "/dashboard") && (!request.fullpath.include? "/dados_bancarios")
       %br
       %footer.footer
         .container
@@ -48,8 +48,8 @@
             .col-4
               %a{:class => "btn btn-sm btn-outline-primary", :href => "mapas", :method => "get"} MAPA
             .col-4
-              %p.text-muted
-                - if !logged_in?
+              - if !logged_in?
+                %p.text-muted
                   Professores podem se registrar clicando
                   %a{:class => "", :href => new_professor_path, :method => :get} aqui
 
