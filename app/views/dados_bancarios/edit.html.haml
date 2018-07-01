@@ -55,17 +55,17 @@
             .form-group.row
               = label :dados_bancarios, :codigo, 'Banco', class: 'col-sm-2 col-form-label'
               .col-sm-10
-                = text_field :dados_bancarios, :codigo, class: 'form-control'
+                = text_field :dados_bancarios, :codigo, class: 'form-control', autocomplete: 'off'
 
             .form-group.row
               = label :dados_bancarios, :agencia, 'Agência', class: 'col-sm-2 col-form-label'
               .col-sm-10
-                = text_field :dados_bancarios, :agencia, class: 'form-control'
+                = text_field :dados_bancarios, :agencia, class: 'form-control', autocomplete: 'off'
 
             .form-group.row
               = label :dados_bancarios, :conta_corrente, 'Conta Corrente', class: 'col-sm-2 col-form-label'
               .col-sm-10
-                = text_field :dados_bancarios, :conta_corrente, class: 'form-control'
+                = text_field :dados_bancarios, :conta_corrente, class: 'form-control', autocomplete: 'off'
 
             = submit_tag 'Atualizar dados bancários', class: 'btn btn-outline-success btn-block'
         .col-1

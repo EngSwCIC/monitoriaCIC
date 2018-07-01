@@ -56,17 +56,20 @@
             .form-group.row
               = label :dados_bancarios, :codigo, 'Banco', class: 'col-sm-2 col-form-label'
               .col-sm-10
-                = text_field :dados_bancarios, :codigo, class: 'form-control', placeholder: 'Seu banco...'
+                = text_field :dados_bancarios, :codigo, class: 'form-control', placeholder: 'Seu banco...',
+                autocomplete: 'off'
 
             .form-group.row
               = label :dados_bancarios, :agencia, 'Agência', class: 'col-sm-2 col-form-label'
               .col-sm-10
-                = text_field :dados_bancarios, :agencia, class: 'form-control', placeholder: 'Sua agência...'
+                = text_field :dados_bancarios, :agencia, class: 'form-control', placeholder: 'Sua agência...',
+                autocomplete: 'off'
 
             .form-group.row
               = label :dados_bancarios, :conta_corrente, 'Conta Corrente', class: 'col-sm-2 col-form-label'
               .col-sm-10
-                = text_field :dados_bancarios, :conta_corrente, class: 'form-control', placeholder: 'Sua conta corrente...'
+                = text_field :dados_bancarios, :conta_corrente, class: 'form-control', placeholder: 'Sua conta corrente...',
+                autocomplete: 'off'
 
             = submit_tag 'Cadastrar dados bancários', class: 'btn btn-outline-success btn-block'
         .col-1

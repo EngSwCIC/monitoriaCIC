@@ -47,6 +47,7 @@ class DadosBancariosController < ApplicationController
     @dados_bancarios.delete
     @user.update(fk_banco: nil)
 
+    flash[:notice] = 'Dados bancários apagados com sucesso!'
     redirect_to dashboard_dados_bancarios_path
   end
 
