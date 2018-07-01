@@ -140,6 +140,12 @@ describe Disciplina do
 	      @disciplina.valid?
 	      expect(@disciplina.errors[:c_ext]).to_not include('apenas numeros')
 	    end
+  end
 
-	end
+  describe '#all_tipos' do
+    it 'should return an array with the Disciplina types' do
+      @tipos = [['Obrigatória', 1], ['Optativa', 2]]
+      expect(Disciplina.all_tipos).to eq @tipos
+    end
+  end
 end
