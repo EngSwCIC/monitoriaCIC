@@ -53,6 +53,17 @@ Dado /^(?:|que eu )possuo dados bancários cadastrados$/ do
   @user.update!(fk_banco: @dados_bancarios.id)
 end
 
+Dado /^(?:|que ) o banco possui uma disciplina$/ do
+  Disciplina.create!(
+    :cod_disciplina => 1,
+    :nome => "Engenharia de Software",
+    :fk_tipo_disciplina_id => 1,
+    :c_prat => 4,
+    :c_teor => 2,
+    :c_est => 4,
+    :c_ext => 0)
+end
+
 Dado /^(?:|que eu )estou na (.+)$/ do |page_name|
   visit path_to(page_name)
 end
@@ -81,6 +92,14 @@ Dado /^(?:|que) está na página de editar perfil$/ do
     Então eu devo estar na página de dashboard do usuário
     Quando eu clico em "Editar Perfil"
     Então eu devo estar na página de editar perfil do usuário
+  )
+end
+
+Dado /^(?:|que) está na página de disciplinas$/ do
+  steps %(
+    Então eu devo estar na página de dashboard do usuário
+    Quando eu clico em "Disciplinas"
+    Então eu devo estar na página de disciplinas
   )
 end
 
