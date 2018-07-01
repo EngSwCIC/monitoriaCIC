@@ -2,7 +2,7 @@
   Funcionalidade: Usuário consegue acessar a página 'Editar Perfil' e consegue atualizar seus dados cadastrais
 
     Cenário de Fundo:
-      Dado que  o banco possui um aluno e um professor
+      Dado que o banco possui um aluno e um professor
       Dado que eu estou na página inicial do MonitoriaCIC
       Quando eu clico em "Entrar"
       Então eu devo estar na página de login de usuários

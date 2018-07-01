@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe User do
+describe Professor do
   describe 'validations for name' do
     before :each do
       @record = Professor.new

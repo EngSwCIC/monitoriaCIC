@@ -10,7 +10,7 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
-Dado /^(?:|que ) o banco possui um aluno e um professor$/ do
+Dado /^(?:|que )o banco possui um aluno e um professor$/ do
   @aluno = {
     id: 1,
     name: 'Bernardo Costa Nascimento',
@@ -34,6 +34,23 @@ Dado /^(?:|que ) o banco possui um aluno e um professor$/ do
 
   User.create!(@aluno)
   Professor.create!(@professor)
+end
+
+Dado /^(?:|que eu )possuo dados bancários cadastrados$/ do
+  @dados_bancarios = {
+    codigo: 'Banco do Brasil',
+    agencia: '33804',
+    conta_corrente: '394653'
+  }
+
+  DadosBancarios.create!(@dados_bancarios)
+  @user = User.find_by_email('bernardoc1104@gmail.com')
+  @dados_bancarios = DadosBancarios.find_by(
+    codigo: 'Banco do Brasil',
+    agencia: '33804',
+    conta_corrente: '394653'
+  )
+  @user.update!(fk_banco: @dados_bancarios.id)
 end
 
 Dado /^(?:|que eu )estou na (.+)$/ do |page_name|
@@ -73,6 +90,10 @@ end
 
 Quando /^(?:|eu )clico em "([^"]*)"$/ do |link|
   click_link(link)
+end
+
+Quando /^(?:|eu )clico no link "([^"]*)"$/ do |link|
+  first('editar-dados').click_link(link)
 end
 
 Quando /^(?:|eu )preencho "([^"]*)" com "([^"]*)"$/ do |field, value|

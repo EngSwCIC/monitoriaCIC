@@ -37,6 +37,15 @@ module NavigationHelpers
     when /^página de editar perfil do usuário$/
       dashboard_edit_user_path
 
+    when /^página de dados bancários$/
+      dashboard_dados_bancarios_path
+
+    when /^página de cadastro de dados bancários$/
+      new_dados_bancario_path
+
+    when /^página de edição de dados bancários$/
+      edit_dados_bancario_path(User.find_by_email('bernardoc1104@gmail.com').id)
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

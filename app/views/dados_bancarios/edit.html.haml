@@ -47,22 +47,25 @@
                 %span{'data-feather': "dollar-sign"}
                 Dados Bancários
 
-  %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
-    - if flash[:notice]
-      .alert.alert-success
-        =flash[:notice]
-    - if flash[:danger]
-      %div{class: "alert alert-danger"}
-        - flash[:danger].each do |msg|
-          %ul
-            %li
-              =msg
-    -if current_user.kind_of?(User)
-      %h1
-        Hello, Aluno Dashboard!
-    -elsif current_user.kind_of?(Professor)
-      %h1
-        Hello, Professor Dashboard!
-    -elsif current_user.kind_of?(Admin)
-      %h1
-        Hello, Admin Dashboard!
+    %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
+      .row
+        .col-2
+        .col
+          = form_tag dados_bancario_path(@dados_bancarios), method: :put do
+            .form-group.row
+              = label :dados_bancarios, :codigo, 'Banco', class: 'col-sm-2 col-form-label'
+              .col-sm-10
+                = text_field :dados_bancarios, :codigo, class: 'form-control'
+
+            .form-group.row
+              = label :dados_bancarios, :agencia, 'Agência', class: 'col-sm-2 col-form-label'
+              .col-sm-10
+                = text_field :dados_bancarios, :agencia, class: 'form-control'
+
+            .form-group.row
+              = label :dados_bancarios, :conta_corrente, 'Conta Corrente', class: 'col-sm-2 col-form-label'
+              .col-sm-10
+                = text_field :dados_bancarios, :conta_corrente, class: 'form-control'
+
+            = submit_tag 'Atualizar dados bancários', class: 'btn btn-outline-success btn-block'
+        .col-1
