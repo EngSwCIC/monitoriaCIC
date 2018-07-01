@@ -8,7 +8,7 @@
     = csrf_meta_tags
 
   %body
-    - if (request.fullpath.include? "/dashboard") || (request.fullpath.include? "/dados_bancarios")
+    - if (request.fullpath.include? "/dashboard") || (request.fullpath.include? "/dados_bancarios") || (request.fullpath.include? "/disciplinas")
       - @class = "fixed-top shadow"
     - else
       - @class = ""
@@ -30,8 +30,9 @@
             - if logged_in?
               %li.nav-item.ml-auto
                 %a{:class => "nav-link", :href => dashboard_edit_user_path} Perfil de #{logged_user.name}
-              %li.nav-item.ml-auto
-                = link_to "Disciplinas", disciplinas_path, method: "get", :class => "nav-link"
+              - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
+                %li.nav-item.ml-auto
+                  = link_to "Disciplinas", disciplinas_path, method: "get", :class => "nav-link"
               %li.nav-item.ml-auto
                 = link_to "Sair", session_path("current"), method: "delete", :class => "nav-link"
             - else
@@ -40,7 +41,7 @@
               %li.nav-item.ml-auto
                 %a{:class => "nav-link", :href => new_session_path} Entrar
     = yield
-    - if (!request.fullpath.include? "/dashboard") && (!request.fullpath.include? "/dados_bancarios")
+    - if (!request.fullpath.include? "/dashboard") && (!request.fullpath.include? "/dados_bancarios") && (!request.fullpath.include? "/disciplinas")
       %br
       %footer.footer
         .container
