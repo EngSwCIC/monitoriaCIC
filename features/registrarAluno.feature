@@ -1,6 +1,6 @@
 # language: pt
   Funcionalidade: Aluno pode se registrar manualmente
-    O usuário acessa o sistema e é capaz de realizar uma ação de login.
+    O aluno acessa o sistema e é capaz de realizar uma ação de sign up.
 
   Cenário de Fundo:
     Dado que eu estou na página inicial do MonitoriaCIC
@@ -17,7 +17,7 @@
         | Senha           |12345678                 |
         | Confirmar Senha |12345678                 |
       E eu aperto em "Registrar-se"
-      Então eu devo estar na página de registro de alunos
+      Então eu devo estar na página do dashboard do usuário
       E eu devo ver "Registro realizado com sucesso!"
 
     Cenário: Aluno não completa o registro (Sad Path - Nome)

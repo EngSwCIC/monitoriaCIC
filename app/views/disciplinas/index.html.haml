@@ -1,0 +1,88 @@
+%br
+%br
+.container-fluid
+  .row
+    %nav.col-md-2.d-none.d-md-block.bg-light.sidebar{style: 'margin-top: 40px'}
+      .sidebar-sticky
+        %ul.nav.flex-column
+          %li.nav-item
+            %a.nav-link.active{href: dashboard_path}
+              %span{'data-feather': "home"}
+              Dashboard
+              %span.sr-only (current)
+          - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
+            %li.nav-item
+              %a.nav-link{href: disciplinas_path}
+                %span{'data-feather': "book"}
+                Disciplinas
+
+        %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+          Menu
+          %span do usuário
+          %a.d-flex.align-items-center.text-muted{href: "#"}
+            %span{'data-feather': "plus-circle"}
+
+        -if current_user.kind_of?(User) || current_user.kind_of?(Professor)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_edit_user_path}
+                %span{'data-feather': "edit"}
+                Editar Perfil
+
+        -if current_user.kind_of?(User)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_dados_bancarios_path}
+                %span{'data-feather': "dollar-sign"}
+                Dados Bancários
+
+    %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
+      .row
+        .col-1
+        .col
+          %h1 Disciplinas
+          %br
+          -if flash[:danger]
+            .alert.alert-danger
+              = flash[:danger]
+          -if flash[:notice]
+            .alert.alert-success
+              = flash[:notice]
+          #{pluralize(@disciplinas.count, "disciplina")} no banco.
+          %br
+          - if current_user.class == Professor
+            %a{href:new_disciplina_path, method:"get", :class=>"btn btn-primary"}Adicionar nova Disciplina
+          %hr
+          - @disciplinas.each do |d|
+            - if d.fk_tipo_disciplina_id == 1
+              - tipo="Obrigatória"
+            - else
+              - tipo="Optativa"
+            %br
+            %h2=d.nome
+            %br
+            =tipo
+            %br
+            Créditos:
+            %br
+            .row
+              .col-4
+                %table
+                  %tr
+                    %th Prático
+                    %th Teórico
+                    %th Est
+                    %th Ext
+                  %tr
+                    %td=d.c_prat
+                    %td=d.c_teor
+                    %td=d.c_est
+                    %td=d.c_ext
+            =link_to "Mais Informações", disciplina_path(d)
+            %br
+            - if current_user.class == User
+              =link_to "Aplicar para monitor", "#"
+            - else
+              =link_to "Ver candidatos a monitoria", "#"
+            %hr
+        .col-1

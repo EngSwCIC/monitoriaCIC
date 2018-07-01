@@ -22,6 +22,42 @@ module NavigationHelpers
     when /^página de registro de alunos$/
       new_user_path
 
+    when /^página de registro de professores$/
+      new_professor_path
+
+    when /^página de dashboard do usuário$/
+      dashboard_path
+
+    when /^página de disciplinas$/
+      disciplinas_path
+
+    when /^página de informações da disciplina (.*)$/
+      disciplina_path(Disciplina.find($1))
+
+    when /^página de edição da disciplina (.*)$/
+      edit_disciplina_path(Disciplina.find($1))
+
+    when /^página de nova disciplina$/
+      new_disciplina_path
+
+    when /^página de login de usuários$/
+      new_session_path
+
+    when /^página de FAQ$/
+      faq_path
+
+    when /^página de editar perfil do usuário$/
+      dashboard_edit_user_path
+
+    when /^página de dados bancários$/
+      dashboard_dados_bancarios_path
+
+    when /^página de cadastro de dados bancários$/
+      new_dados_bancario_path
+
+    when /^página de edição de dados bancários$/
+      edit_dados_bancario_path(User.find_by_email('bernardoc1104@gmail.com').id)
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

@@ -1,0 +1,81 @@
+%br
+%br
+.container-fluid
+  .row
+    %nav.col-md-2.d-none.d-md-block.bg-light.sidebar{style: 'margin-top: 40px'}
+      .sidebar-sticky
+        %ul.nav.flex-column
+          %li.nav-item
+            %a.nav-link.active{href: dashboard_path}
+              %span{'data-feather': "home"}
+              Dashboard
+              %span.sr-only (current)
+          - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
+            %li.nav-item
+              %a.nav-link{href: disciplinas_path}
+                %span{'data-feather': "book"}
+                Disciplinas
+
+        %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+          Menu
+          %span do usuário
+          %a.d-flex.align-items-center.text-muted{href: "#"}
+            %span{'data-feather': "plus-circle"}
+
+        -if current_user.kind_of?(User) || current_user.kind_of?(Professor)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_edit_user_path}
+                %span{'data-feather': "edit"}
+                Editar Perfil
+
+        -if current_user.kind_of?(User)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_dados_bancarios_path}
+                %span{'data-feather': "dollar-sign"}
+                Dados Bancários
+
+    %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
+      .col-1
+      .col
+        -if flash[:danger]
+          .alert.alert-danger
+            - flash[:danger]
+        -if flash[:notice]
+          .alert.alert-success
+            = flash[:notice]
+        %h1=@disciplina.nome
+        %br
+        - if @disciplina.fk_tipo_disciplina_id == 1
+          - tipo="Obrigatória"
+        - else
+          - tipo="Optativa"
+        %label
+          %strong Tipo:
+        =tipo
+        %br
+        %label
+          %strong Créditos Práticos:
+        =@disciplina.c_prat
+        %br
+        %label
+          %strong Créditos Teóricos:
+        =@disciplina.c_teor
+        %br
+        %label
+          %strong Créditos Est:
+        =@disciplina.c_est
+        %br
+        %label
+          %strong Créditos Ext:
+        =@disciplina.c_ext
+        %br
+
+        -if current_user.class == Professor
+          =link_to "Editar", edit_disciplina_path(@disciplina)
+          %br
+          =link_to "Deletar", disciplina_path(@disciplina), method: :delete, data: { confirm: "Tem certeza que quer deletar essa disciplina?"}
+          %br
+        =link_to "Ver lista de candidatos a monitoria"
+      .col-1

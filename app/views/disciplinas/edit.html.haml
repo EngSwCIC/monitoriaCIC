@@ -1,0 +1,57 @@
+%br
+%main.container{role: "main"}
+  .row
+    .col-3
+    .col.text-center
+      %h1 Editar Disciplina
+      %p.text-justify
+        Atualize informações de sua disciplina. 
+    .col-3
+
+  .row
+    .col-3
+    .col
+      -if flash[:danger]
+        .alert.alert-danger
+          - flash[:danger].each do |msg|
+            %ul
+              %li
+                =msg
+      -if flash[:notice]
+        .alert.alert-success
+          = flash[:notice]
+      = form_tag disciplina_path, method: :put do
+        <!-- = hidden_field :professor, :id, value: @disciplina.id -->
+        .form-group.row
+          = label :disciplina, :nome, "Nome", class: "col-sm-2 col-form-label"
+          .col-sm-10
+            = text_field :disciplina, :nome, :class => "form-control", :autocomplete => "off"
+
+        .form-group.row
+          = label :disciplina, :c_prat, "Créditos Práticos", class: "col-sm-2 col-form-label"
+          .col-sm-10
+            = text_field :disciplina, :c_prat, :class => "form-control", :autocomplete => "off"
+
+        .form-group.row
+          = label :disciplina, :c_teor, "Créditos Teóricos", class: "col-sm-2 col-form-label"
+          .col-sm-10
+            = text_field :disciplina, :c_teor, :class => "form-control", :autocomplete => "off"
+
+        .form-group.row
+          = label :disciplina, :c_est, "Créditos Est", class: "col-sm-2 col-form-label"
+          .col-sm-10
+            = text_field :disciplina, :c_est, :class => "form-control", :autocomplete => "off"
+
+        .form-group.row
+          = label :disciplina, :c_ext, "Créditos Ext", class: "col-sm-2 col-form-label"
+          .col-sm-10
+            = text_field :disciplina, :c_ext, :class => "form-control", :autocomplete => "off"
+
+        .form-group.row
+          = label :disciplina, :fk_tipo_disciplina_id, "Tipo", class: "col-sm-2 col-form-label"
+          .col-sm-10
+            = select :disciplina, :fk_tipo_disciplina_id, options_for_select(Disciplina.all_tipos)
+
+        %br
+        = submit_tag 'Atualizar', class: "btn btn-outline-primary btn-block"
+    .col-3
