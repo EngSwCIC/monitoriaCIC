@@ -2,7 +2,11 @@ require 'rails_helper'
 
 describe DisciplinasController do
 	before :each do
-		@engenharia = Disciplina.new(:cod_disciplina => 1, :nome => "Engenharia de Software", :fk_tipo_disciplina_id => 1, :c_prat => 4, :c_teor => 2, :c_est => 4, :c_ext => 0)
+		allow_any_instance_of(DisciplinasController).to receive(:logged_in).and_return true
+		allow_any_instance_of(DisciplinasController).to receive(:is_professor).and_return true
+		@engenharia = Disciplina.new(:nome => "Engenharia de Software", :fk_tipo_disciplina_id => 1, :c_prat => 4, :c_teor => 2, :c_est => 4, :c_ext => 0)
+		@params = Hash.new
+		@params[:disciplina] = @engenharia
 	end
 
 	describe "instance methods" do
@@ -17,13 +21,15 @@ describe DisciplinasController do
 		describe "Tem um usuario logado" do
 			context "Happy Path" do 
 				it "does not redirect to new_session_path" do
+					allow_any_instance_of(DisciplinasController).to receive(:logged_in).and_return true
 					expect(response).to_not redirect_to new_session_path
 				end
 			end
 
 			context "Sad Path" do 
 				it "redirects to new_session_path" do
-					expect(response).to_not redirect_to new_session_path
+					allow_any_instance_of(DisciplinasController).to receive(:logged_in).and_return false
+					expect(response).to be_successful
 				end
 			end
 		end
@@ -31,13 +37,15 @@ describe DisciplinasController do
 		describe "Usuario tem acesso ao CRUD" do
 			context "Happy Path" do 
 				it "does not redirect to disciplinas_path" do
+					allow_any_instance_of(DisciplinasController).to receive(:is_professor).and_return true
 					expect(response).to_not redirect_to disciplinas_path
 				end
 			end
 
 			context "Sad Path" do 
 				it "redirects to disciplinas_path" do
-					expect(response).to_not redirect_to disciplinas_path
+					allow_any_instance_of(DisciplinasController).to receive(:is_professor).and_return false
+					expect(response).to be_successful
 				end
 			end
 		end
@@ -52,7 +60,7 @@ describe DisciplinasController do
 			end
 			it "renders the :index view" do
 				get :index
-    			expect(response).to_not render_template :index				#Nao ta certo, era pra ser to render. Como faz pra ele passar? ele depende de ter um usuario logado pra passar, como faz esses testes que dependem de outra funçao?
+    			expect(response).to render_template :index				
 			end
 		end
 
@@ -60,14 +68,14 @@ describe DisciplinasController do
 			it "renders the :show view" do 
 				@engenharia.save
 				get :show, params: { id: @engenharia.cod_disciplina }
-    			expect(response).to_not render_template :show
+    			expect(response).to render_template :show
     		end
 		end
 
 		describe "GET #new" do
 			it "renders the :new view" do
 				get :new
-    			expect(response).to_not render_template :new
+    			expect(response).to render_template :new
 			end
 		end
 
@@ -76,9 +84,9 @@ describe DisciplinasController do
 				it "saves the new disciplina in the database" do 
 					expect(@engenharia.save).to be true
 				end
-	      		it "redirects to the disciplina_path" do 
-	      			post :create, params: {disciplina: @engenharia}
-	      			expect(response).to_not redirect_to disciplinas_path
+	      		it "redirects to the disciplinas_path" do 
+	      			post :create, params: {disciplina:@params}
+	      			expect(response).to be_successful
 	      		end
 			end
 
@@ -89,7 +97,7 @@ describe DisciplinasController do
 				end
 	      		it "re-renders the :new view" do
 	      			get :new
-    				expect(response).to_not render_template :new
+    				expect(response).to render_template :new
     			end
 			end
 			
@@ -99,7 +107,7 @@ describe DisciplinasController do
 			it "renders the :edit view" do
 				@engenharia.save
 	      		get :edit, params: { id: @engenharia.cod_disciplina }
-    			expect(response).to_not render_template :edit
+    			expect(response).to render_template :edit
     		end
 		end
 
@@ -110,8 +118,8 @@ describe DisciplinasController do
 				end
 	      		it "redirects to the disciplinas_path" do 
 	      			@engenharia.save
-	      			post :update, params: {id: @engenharia.cod_disciplina}
-	      			expect(response).to_not redirect_to disciplinas_path
+	      			put :update, {params: { disciplina: @params, id: @engenharia.cod_disciplina}}
+	      			expect(response).to redirect_to disciplinas_path
 	      		end
 			end
 
@@ -122,7 +130,7 @@ describe DisciplinasController do
 	      		it "re-renders the :edit view" do 
 	      			@engenharia.save
 	      			get :edit, params: { id: @engenharia.cod_disciplina }
-    				expect(response).to_not render_template :edit
+    				expect(response).to render_template :edit
     			end
 			end
 		end
@@ -135,7 +143,7 @@ describe DisciplinasController do
 			it "redirects to the disciplinas_path" do
 				@engenharia.save
 	      		post :destroy, params: {id: @engenharia.cod_disciplina}
-	      		expect(response).to_not redirect_to disciplinas_path
+	      		expect(response).to redirect_to disciplinas_path
 			end
 		end
 	end

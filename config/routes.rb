@@ -12,4 +12,6 @@ Rails.application.routes.draw do
   match "/dashboard/edit_user", to: "dashboard#edit_user", via: 'get'
   match "/faq", to: "faq#index", :via => 'get'
   match "/sobre", to: "sobre#index", :via => 'get'
+  # match "/disciplinas/show", to: "disciplinas#show", via: 'get'
+  # match "/disciplinas/edit", to: "disciplinas#edit", via: 'get'
 end

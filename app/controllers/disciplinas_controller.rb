@@ -15,7 +15,7 @@ class DisciplinasController < ApplicationController
 		@disciplina = Disciplina.new disciplina_params
 
 		if @disciplina.save
-			redirect_to @disciplina, notice: "Disciplina cadastrada com sucesso!"
+			redirect_to disciplinas_path, notice: "Disciplina cadastrada com sucesso!"
 		else
 			flash[:danger] = "Ocorreu um erro ao cadastrar a disciplina. Nenhuma disciplina cadastrada."
 			render 'new'
