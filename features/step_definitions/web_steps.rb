@@ -10,6 +10,16 @@ module WithinHelpers
 end
 World(WithinHelpers)
 
+Dado /^(?:|que )o banco possui um adminstrador$/ do
+  @adm = {
+    name: 'Admin MonitoriaCiC',
+    email: 'secretaria@cic.unb.br',
+    password: '110492',
+    password_confirmation: '110492'
+  }
+  Admin.create!(@adm)
+end
+
 Dado /^(?:|que )o banco possui um aluno e um professor$/ do
   @aluno = {
     id: 1,
@@ -112,7 +122,7 @@ Quando /^(?:|eu )clico em "([^"]*)"$/ do |link|
 end
 
 Quando /^(?:|eu )clico no link "([^"]*)"$/ do |link|
-  first('editar-dados').click_link(link)
+  first('.editar-dados').click_link(link)
 end
 
 Quando /^(?:|eu )preencho "([^"]*)" com "([^"]*)"$/ do |field, value|
@@ -134,7 +144,7 @@ end
 Quando /^(?:|eu )preencho o formulário de cadastro com o campo "([^"]*)" inválido:$/ do |string|
   case string
   when "Nome"
-    steps %(Quando eu preencho o formulário de cadastro com informações válidas:
+    steps %(Quando eu preencho o formulário com:
         | Nome            |                           |
         | Matrícula       | 140080279                 |
         | Email           | bernardoc1104@gmail.com   |
@@ -144,7 +154,7 @@ Quando /^(?:|eu )preencho o formulário de cadastro com o campo "([^"]*)" invál
         | Confirmar Senha | 12345678                  |
     )
   when "Email"
-    steps %(Quando eu preencho o formulário de cadastro com informações válidas:
+    steps %(Quando eu preencho o formulário com:
         | Nome            | Bernardo Costa Nascimento |
         | Matrícula       | 140080279                 |
         | Email           |                           |
@@ -154,7 +164,7 @@ Quando /^(?:|eu )preencho o formulário de cadastro com o campo "([^"]*)" invál
         | Confirmar Senha | 12345678                  |
     )
   when "Matrícula"
-    steps %(Quando eu preencho o formulário de cadastro com informações válidas:
+    steps %(Quando eu preencho o formulário com:
         | Nome            | Bernardo Costa Nascimento |
         | Matrícula       |                           |
         | Email           | bernardoc1104@gmail.com   |
@@ -164,7 +174,7 @@ Quando /^(?:|eu )preencho o formulário de cadastro com o campo "([^"]*)" invál
         | Confirmar Senha | 12345678                  |
     )
   when "CPF"
-    steps %(Quando eu preencho o formulário de cadastro com informações válidas:
+    steps %(Quando eu preencho o formulário com:
         | Nome            | Bernardo Costa Nascimento |
         | Matrícula       | 140080279                 |
         | Email           | bernardoc1104@gmail.com   |
@@ -174,7 +184,7 @@ Quando /^(?:|eu )preencho o formulário de cadastro com o campo "([^"]*)" invál
         | Confirmar Senha | 12345678                  |
     )
   when "RG"
-    steps %(Quando eu preencho o formulário de cadastro com informações válidas:
+    steps %(Quando eu preencho o formulário com:
         | Nome            | Bernardo Costa Nascimento |
         | Matrícula       | 140080279                 |
         | Email           | bernardoc1104@gmail.com   |
@@ -184,7 +194,7 @@ Quando /^(?:|eu )preencho o formulário de cadastro com o campo "([^"]*)" invál
         | Confirmar Senha | 12345678                  |
     )
   when "Senha"
-    steps %(Quando eu preencho o formulário de cadastro com informações válidas:
+    steps %(Quando eu preencho o formulário com:
         | Nome            | Bernardo Costa Nascimento |
         | Matrícula       |                           |
         | Email           | bernardoc1104@gmail.com   |
@@ -194,7 +204,7 @@ Quando /^(?:|eu )preencho o formulário de cadastro com o campo "([^"]*)" invál
         | Confirmar Senha | 12345678                  |
     )
   when "Confimar Senha"
-    steps %(Quando eu preencho o formulário de cadastro com informações válidas:
+    steps %(Quando eu preencho o formulário com:
         | Nome            | Bernardo Costa Nascimento |
         | Matrícula       |                           |
         | Email           | bernardoc1104@gmail.com   |
@@ -229,4 +239,19 @@ Então /^(?:|eu )não devo ver "([^"]*)"$/ do |text|
   else
     assert page.has_no_content?(text)
   end
+end
+
+Então /^(?:|eu )devo ver as todas as mensagens de falha para registro de professores$/ do
+  steps %(
+    E eu devo ver "Password can't be blank"
+    E eu devo ver "Password must be between 6 and 12 characters"
+    E eu devo ver "Name can't be blank"
+    E eu devo ver "Name is too short (minimum is 3 characters)"
+    E eu devo ver "Username can't be blank"
+    E eu devo ver "Username is too short (minimum is 3 characters)"
+    E eu devo ver "Username only word characters (letter, numbers, underscore...)"
+    E eu devo ver "Email can't be blank"
+    E eu devo ver "Email not a UnB email"
+    E eu devo ver "Password confirmation must be between 6 and 12 characters"
+  )
 end

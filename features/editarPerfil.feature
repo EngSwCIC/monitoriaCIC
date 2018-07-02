@@ -44,11 +44,37 @@
         Dado que o "professor" está logado
         E que está na página de editar perfil
         Quando eu preencho o formulário com:
-          | Nome                  | Bernardo Costa  |
-          | Username              | bernas1104      |
-          | Nova senha            | 110492-Bb       |
-          | Confirmar nova senha  | 110492-Bb       |
+          | Nome                  | Genaina Rodrigues |
+          | Username              | bernas1104        |
+          | Nova senha            | 110492-Bb         |
+          | Confirmar nova senha  | 110492-Bb         |
         E eu escolho o "Professor(a)" do seletor "Papel"
         E eu aperto em "Atualizar cadastro"
         Então eu devo estar na página de dashboard do usuário
         E eu devo ver "Cadastro atualizado com sucesso!"
+
+      Cenário: Aluno tenta editar perfil com infomações inválidas
+        Dado que o "aluno" está logado
+        E que está na página de editar perfil
+        Quando eu preencho o formulário com:
+          | Nome                  | |
+          | Matricula             | |
+          | CPF                   | |
+          | RG                    | |
+          | Nova senha            | |
+          | Confirmar nova senha  | |
+        E eu aperto em "Atualizar cadastro"
+        Então eu devo estar na página de dashboard do usuário
+        E eu não devo ver "Cadastro atualizado com sucesso!"
+
+      Cenário: Professor tenta editar perfil com informações inválidas
+        Dado que o "professor" está logado
+        E que está na página de editar perfil
+        Quando eu preencho o formulário com:
+          | Nome                  | |
+          | Username              | |
+          | Nova senha            | |
+          | Confirmar nova senha  | |
+        E eu aperto em "Atualizar cadastro"
+        Então eu devo estar na página de dashboard do usuário
+        E eu não devo ver "Cadastro atualizado com sucesso!"
