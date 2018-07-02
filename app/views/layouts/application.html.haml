@@ -30,9 +30,6 @@
             - if logged_in?
               %li.nav-item.ml-auto
                 %a{:class => "nav-link", :href => dashboard_edit_user_path} Perfil de #{logged_user.name}
-              - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
-                %li.nav-item.ml-auto
-                  = link_to "Disciplinas", disciplinas_path, method: "get", :class => "nav-link"
               %li.nav-item.ml-auto
                 = link_to "Sair", session_path("current"), method: "delete", :class => "nav-link"
             - else

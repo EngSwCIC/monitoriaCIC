@@ -53,7 +53,7 @@ Dado /^(?:|que eu )possuo dados bancários cadastrados$/ do
   @user.update!(fk_banco: @dados_bancarios.id)
 end
 
-Dado /^(?:|que ) o banco possui uma disciplina$/ do
+Dado /^(?:|que )o banco possui uma disciplina$/ do
   Disciplina.create!(
     :cod_disciplina => 1,
     :nome => "Engenharia de Software",
@@ -112,7 +112,7 @@ Quando /^(?:|eu )clico em "([^"]*)"$/ do |link|
 end
 
 Quando /^(?:|eu )clico no link "([^"]*)"$/ do |link|
-  first('editar-dados').click_link(link)
+  first('.nav-link').click_link(link)
 end
 
 Quando /^(?:|eu )preencho "([^"]*)" com "([^"]*)"$/ do |field, value|
@@ -134,7 +134,7 @@ end
 Quando /^(?:|eu )preencho o formulário de cadastro com o campo "([^"]*)" inválido:$/ do |string|
   case string
   when "Nome"
-    steps %(Quando eu preencho o formulário de cadastro com informações válidas:
+    steps %(Quando eu preencho o formulário com:
         | Nome            |                           |
         | Matrícula       | 140080279                 |
         | Email           | bernardoc1104@gmail.com   |
@@ -144,7 +144,7 @@ Quando /^(?:|eu )preencho o formulário de cadastro com o campo "([^"]*)" invál
         | Confirmar Senha | 12345678                  |
     )
   when "Email"
-    steps %(Quando eu preencho o formulário de cadastro com informações válidas:
+    steps %(Quando eu preencho o formulário com:
         | Nome            | Bernardo Costa Nascimento |
         | Matrícula       | 140080279                 |
         | Email           |                           |
@@ -154,7 +154,7 @@ Quando /^(?:|eu )preencho o formulário de cadastro com o campo "([^"]*)" invál
         | Confirmar Senha | 12345678                  |
     )
   when "Matrícula"
-    steps %(Quando eu preencho o formulário de cadastro com informações válidas:
+    steps %(Quando eu preencho o formulário com:
         | Nome            | Bernardo Costa Nascimento |
         | Matrícula       |                           |
         | Email           | bernardoc1104@gmail.com   |
@@ -164,7 +164,7 @@ Quando /^(?:|eu )preencho o formulário de cadastro com o campo "([^"]*)" invál
         | Confirmar Senha | 12345678                  |
     )
   when "CPF"
-    steps %(Quando eu preencho o formulário de cadastro com informações válidas:
+    steps %(Quando eu preencho o formulário com:
         | Nome            | Bernardo Costa Nascimento |
         | Matrícula       | 140080279                 |
         | Email           | bernardoc1104@gmail.com   |
@@ -174,7 +174,7 @@ Quando /^(?:|eu )preencho o formulário de cadastro com o campo "([^"]*)" invál
         | Confirmar Senha | 12345678                  |
     )
   when "RG"
-    steps %(Quando eu preencho o formulário de cadastro com informações válidas:
+    steps %(Quando eu preencho o formulário com:
         | Nome            | Bernardo Costa Nascimento |
         | Matrícula       | 140080279                 |
         | Email           | bernardoc1104@gmail.com   |
@@ -184,7 +184,7 @@ Quando /^(?:|eu )preencho o formulário de cadastro com o campo "([^"]*)" invál
         | Confirmar Senha | 12345678                  |
     )
   when "Senha"
-    steps %(Quando eu preencho o formulário de cadastro com informações válidas:
+    steps %(Quando eu preencho o formulário com:
         | Nome            | Bernardo Costa Nascimento |
         | Matrícula       |                           |
         | Email           | bernardoc1104@gmail.com   |
@@ -194,7 +194,7 @@ Quando /^(?:|eu )preencho o formulário de cadastro com o campo "([^"]*)" invál
         | Confirmar Senha | 12345678                  |
     )
   when "Confimar Senha"
-    steps %(Quando eu preencho o formulário de cadastro com informações válidas:
+    steps %(Quando eu preencho o formulário com:
         | Nome            | Bernardo Costa Nascimento |
         | Matrícula       |                           |
         | Email           | bernardoc1104@gmail.com   |
