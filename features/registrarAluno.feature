@@ -8,7 +8,7 @@
     Então eu devo estar na página de registro de alunos
 
     Cenário: Aluno se registra no sistema (Happy Path)
-      Quando eu preencho o formulário de cadastro com informações válidas:
+      Quando eu preencho o formulário com:
         | Nome            |Bernardo Costa Nascimento|
         | Matrícula       |140080279                |
         | Email           |bernardoc1104@gmail.com  |
@@ -17,7 +17,7 @@
         | Senha           |12345678                 |
         | Confirmar Senha |12345678                 |
       E eu aperto em "Registrar-se"
-      Então eu devo estar na página do dashboard do usuário
+      Então eu devo estar na página de dashboard do usuário
       E eu devo ver "Registro realizado com sucesso!"
 
     Cenário: Aluno não completa o registro (Sad Path - Nome)
