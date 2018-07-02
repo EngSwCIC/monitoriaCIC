@@ -72,7 +72,7 @@
 
             %br
             = submit_tag 'Atualizar cadastro', class: 'btn btn-outline-primary float-right'
-          - # ------------------------ Formulário de para atualizar cadastro do Aluno ------------------------ #
+          - # ------------------------ Formulário de para atualizar cadastro do Professor ------------------------ #
         -elsif current_user.kind_of?(Professor)
           = form_tag professor_path(@professor), method: :put do
             .form-group.row
@@ -80,7 +80,7 @@
               .col-sm-9
                 = text_field :professor, :name, class: 'form-control'
             .form-group.row
-              = label :professor, :name, 'Username', class: 'col-sm-3 col-form-label'
+              = label :professor, :username, 'Username', class: 'col-sm-3 col-form-label'
               .col-sm-9
                 = text_field :professor, :username, class: 'form-control'
             .form-group.row
