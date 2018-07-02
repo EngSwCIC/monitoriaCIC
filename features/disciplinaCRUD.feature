@@ -34,7 +34,7 @@
         Então eu não devo ver "Adicionar nova Disciplina"
         Quando eu clico em "Mais Informações"
         Então eu devo estar na página de informações da disciplina 1
-        E eu não devo ver "Editar"
+        E eu não devo ver "Editar Disciplina"
         E eu não devo ver "Deletar"
 
     Cenário: Professor acessa uma disciplina
@@ -43,7 +43,7 @@
         Então eu devo ver "Adicionar nova Disciplina"
         Quando eu clico em "Mais Informações"
         Então eu devo estar na página de informações da disciplina 1
-        E eu devo ver "Editar"
+        E eu devo ver "Editar Disciplina"
         E eu devo ver "Deletar"
 
     Cenário: Professor edita uma disciplina
@@ -51,7 +51,7 @@
         E que está na página de disciplinas
         Quando eu clico em "Mais Informações"
         Então eu devo estar na página de informações da disciplina 1
-        Quando eu clico em "Editar"
+        Quando eu clico em "Editar Disciplina"
         Então eu devo estar na página de edição da disciplina 1
         Quando eu preencho o formulário com:
           | Nome                  | Banco de Dados  |
