@@ -57,7 +57,7 @@
               = flash[:notice]
           #{pluralize(@disciplinas.count, "disciplina")} no banco.
           %br
-          - if current_user.class == Professor
+          - if current_user.class == Admin
             %a{href:new_disciplina_path, method:"get", :class=>"btn btn-primary"}Adicionar nova Disciplina
           %hr
           - @disciplinas.each do |d|

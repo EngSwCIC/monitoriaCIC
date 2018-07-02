@@ -3,7 +3,7 @@ require 'rails_helper'
 describe DisciplinasController do
 	before :each do
 		allow_any_instance_of(DisciplinasController).to receive(:logged_in).and_return true
-		allow_any_instance_of(DisciplinasController).to receive(:is_professor).and_return true
+		allow_any_instance_of(DisciplinasController).to receive(:is_admin).and_return true
 		@engenharia = Disciplina.new(:nome => "Engenharia de Software", :fk_tipo_disciplina_id => 1, :c_prat => 4, :c_teor => 2, :c_est => 4, :c_ext => 0)
 		@params = Hash.new
 		@params[:disciplina] = @engenharia
@@ -37,14 +37,14 @@ describe DisciplinasController do
 		describe "Usuario tem acesso ao CRUD" do
 			context "Happy Path" do 
 				it "does not redirect to disciplinas_path" do
-					allow_any_instance_of(DisciplinasController).to receive(:is_professor).and_return true
+					allow_any_instance_of(DisciplinasController).to receive(:is_admin).and_return true
 					expect(response).to_not redirect_to disciplinas_path
 				end
 			end
 
 			context "Sad Path" do 
 				it "redirects to disciplinas_path" do
-					allow_any_instance_of(DisciplinasController).to receive(:is_professor).and_return false
+					allow_any_instance_of(DisciplinasController).to receive(:is_admin).and_return false
 					expect(response).to be_successful
 				end
 			end

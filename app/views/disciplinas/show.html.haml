@@ -72,8 +72,8 @@
         =@disciplina.c_ext
         %br
 
-        -if current_user.class == Professor
-          =link_to "Editar", edit_disciplina_path(@disciplina)
+        -if current_user.class == Admin
+          =link_to "Editar Disciplina", edit_disciplina_path(@disciplina)
           %br
           =link_to "Deletar", disciplina_path(@disciplina), method: :delete, data: { confirm: "Tem certeza que quer deletar essa disciplina?"}
           %br
