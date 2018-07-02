@@ -1,7 +1,7 @@
 class Disciplina < ApplicationRecord
 	def self.all_tipos
     	return [['Obrigatória', 1], ['Optativa', 2]]
- 	end
+	end
 
  	validates_presence_of :nome
  	validates_presence_of :fk_tipo_disciplina_id

@@ -1,0 +1,38 @@
+%br
+%main.container{role: 'container'}
+  .row
+    .col-2
+    .col
+      %h2.text-center
+        = Disciplina.find_by_cod_disciplina(@turma.fk_cod_disciplina).nome
+        %br
+        Turma
+        = @turma.turma
+
+      %hr
+      = form_tag turma_path(@turma), method: :put do
+        = hidden_field :turma, :fk_vagas_id, value: 1
+
+        .form-group.row
+          = label :turma, :turma, 'Turma', class: 'col-sm-2 col-form-label'
+          .col-sm-10
+            = text_field :turma, :turma, class: 'form-control'
+
+        .form-group.row
+          = label :turma, :professor, 'Professor', class: 'col-sm-2 col-form-label'
+          .col-sm-10
+            = text_field :turma, :professor, class: 'form-control-plaintext', readonly: 'readonly', value: current_user.name
+
+        .form-group.row
+          = label :turma, :disciplina, 'Disciplina', class: 'col-sm-2 col-form-label'
+          .col-sm-10
+            = select :turma, :fk_cod_disciplina, options_for_select(Turma.sel_disciplinas)
+
+        .form-group.row
+          = label :turma, :qnt_bolsas, 'Bolsas', class: 'col-sm-2 col-form-label'
+          .col-sm-10
+            = select :turma, :qnt_bolsas, options_for_select(Turma.qnt_bolsas)
+
+        = submit_tag 'Atualizar turma', class: 'btn btn-outline-success btn-block'
+
+    .col-2
