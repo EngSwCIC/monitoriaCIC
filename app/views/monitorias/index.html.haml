@@ -79,11 +79,11 @@
           - else
             %p Utilize esta pagina para aceitar ou recusar solicitaçoes para monitor em sua turma.
             %br
-              - @monitorias.each do |m|
-                - d = Disciplina.find(m.fk_cod_disciplina)
+              - Disciplina.find_each do |d|
+                - m = Monitoria.find_by(fk_cod_disciplina: d.cod_disciplina)
                 = d.nome
                 %br
                 = link_to "Ver lista de monitores.", monitoria_path(m)
                 %br
-          %hr
+                %hr
         .col-1
