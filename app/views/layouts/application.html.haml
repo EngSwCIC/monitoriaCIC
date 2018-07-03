@@ -22,11 +22,9 @@
         .collapse.navbar-collapse#navbarSupportedContent
           %ul.navbar-nav.ml-auto
             %li.nav-item.ml-auto
-              %a{:class => "nav-link", :href => "sobre"}Sobre
+              %a{:class => "nav-link", :href => sobre_path}Sobre
             %li.nav-item.ml-auto
               %a{:class => "nav-link", :href => faq_path}FAQ
-            %li.nav-item.ml-auto
-              %a{:class => "nav-link", :href => "contatos"}Contato
             - if logged_in?
               %li.nav-item.ml-auto
                 %a{:class => "nav-link", :href => dashboard_edit_user_path} Perfil de #{logged_user.name}
