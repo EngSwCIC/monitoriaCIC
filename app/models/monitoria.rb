@@ -5,7 +5,15 @@ class Monitoria < ApplicationRecord
  		Disciplina.find_each do |d|
  			@disciplinas << [d.nome, d.cod_disciplina]
  		end
- 		return @disciplinas
+ 		@disciplinas
+ 	end
+
+ 	def self.all_turmas
+ 		@turmas = Array.new
+ 		Turma.find_each do |t|
+ 			@turmas << [t.turma, t.id]
+ 		end
+ 		@turmas
  	end
 
  	def self.all_status
