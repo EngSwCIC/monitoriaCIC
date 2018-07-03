@@ -34,7 +34,7 @@
         .form-group.row
           = label :monitoria, :fk_turmas_id, "Turma", class: "col-sm-2 col-form-label"
           .col-sm-10
-            = select :monitoria, :fk_turmas_id, options_for_select(Monitoria.all_disciplinas)
+            = select :monitoria, :fk_turmas_id, options_for_select(Monitoria.all_turmas)
 
         .form-group.row
           = label :monitoria, :descricao_status, "Descriçao", class: "col-sm-2 col-form-label"
