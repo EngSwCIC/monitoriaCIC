@@ -48,15 +48,6 @@
                 Dados Bancários
 
     %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
-      - if flash[:notice]
-        .alert.alert-success
-          =flash[:notice]
-      - if flash[:danger]
-        %div{class: "alert alert-danger"}
-          - flash[:danger].each do |msg|
-            %ul
-              %li
-                =msg
       .row
         .col-10
           .row
@@ -66,22 +57,21 @@
                   %h2 Suas Turmas
                   %br
                   %ul.list-group
-                    - @turmas, @disciplinas = TurmasController.show_turmas_professor(session[:user_id])
-                    - @turmas.each do |turma|
+                    - @turmas = TurmasController.get_turmas(current_user)
+                    - @turmas.each do |t|
                       %li.list-group-item
+                        - d = Disciplina.find_by(cod_disciplina: t.fk_cod_disciplina)
                         Disciplina:
-                        - @disciplinas.each do |disciplina|
-                          - if disciplina.cod_disciplina == turma.fk_cod_disciplina
-                            = disciplina.nome
+                        =d.nome
                         %br
                         Turma:
-                        = turma.turma
+                        =t.turma
                         %br
                         Bolsas:
-                        = turma.qnt_bolsas
-                        %hr
-                        %a.btn.btn-outline-warning.btn-block{ href: edit_turma_path(turma.id) } Editar dados
-                        = link_to "Apagar turma", turma_path(turma.id), method: :delete, class: 'btn btn-outline-danger btn-block'
+                        =t.qnt_bolsas
+                        %br
+                        %a.btn.btn-outline-warning.btn-block{ href: edit_turma_path(t.id) } Editar dados
+                        = link_to "Apagar turma", turma_path(t.id), method: :delete, class: 'btn btn-outline-danger btn-block'
                 .col
                   .p.text-justify
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis lobortis justo, id suscipit lacus.

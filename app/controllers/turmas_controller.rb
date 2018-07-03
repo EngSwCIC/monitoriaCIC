@@ -44,23 +44,13 @@ class TurmasController < ApplicationController
     params.require(:turma).permit(:id, :turma, :professor, :fk_cod_disciplina, :qnt_bolsas, :fk_vagas_id)
   end
 
-  def self.show_turmas_professor(email)
-    @professor = Professor.find_by_email(email)
-    @turmas = Turma.select('id, turma, fk_cod_disciplina, qnt_bolsas, professor')
-
-    @turmas_professor = []
-    @turmas.each do |turma|
-      if turma.professor == @professor.name
-        @turmas_professor.insert(-1, turma)
+  def self.get_turmas(professor)
+    @turmas = Array.new
+    @turmas_buscadas = Turma.find_each do |turma|
+      if turma.professor == professor.name
+        @turmas << turma
       end
     end
-
-    @disciplinas = []
-    @turmas_professor.each do |turma|
-      @disciplina = Disciplina.find_by_cod_disciplina(turma.fk_cod_disciplina)
-      @disciplinas.insert(-1, @disciplina)
-    end
-
-    return @turmas, @disciplinas
+    @turmas
   end
 end
