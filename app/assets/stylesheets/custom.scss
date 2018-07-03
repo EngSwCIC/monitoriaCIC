@@ -178,3 +178,31 @@ body {
 [role="main"] {
   padding-top: 48px; /* Space for fixed navbar */
 }
+
+.yellow{
+  color: yellow;
+}
+
+.bg-unb-green{
+  background-color: #008644;
+}
+
+.bg-unb-blue{
+  background-color: #00427E;
+}
+
+.color-white{
+  color: white;
+}
+
+.footer-separator{
+  height: 5px;
+  background-color: white;
+  width: 75%;
+  float: left;
+}
+
+.map-area{
+  height: 300px;
+  width: 100%;
+}

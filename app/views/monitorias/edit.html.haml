@@ -1,0 +1,34 @@
+%br
+%main.container{role: "main"}
+  .row
+    .col-3
+    .col.text-center
+      %h1 Aplicar Para Monitor
+      %p.text-justify
+        Como professor, você pode cadastrar suas monitorias aqui, bastando preencher os dados do formulário abaixo.
+    .col-3
+
+  .row
+    .col-3
+    .col
+      -if flash[:danger]
+        .alert.alert-danger
+          = flash[:danger]
+      -if flash[:notice]
+        .alert.alert-success
+          = flash[:notice]
+      = form_tag monitoria_path, method: :put do
+        - @aluno = User.find_by(matricula: @monitoria.fk_matricula)
+        .form-group.row
+          = label :monitoria, :remuneracao, "Aluno", class: "col-sm-2 col-form-label"
+          .col-sm-10
+            %p= @aluno.name
+
+        .form-group.row
+          = label :monitoria, :fk_status_monitoria_id, "Situaçao", class: "col-sm-2 col-form-label"
+          .col-sm-10
+            = select :monitoria, :fk_status_monitoria_id, options_for_select(Monitoria.all_status)
+        
+        %br
+        = submit_tag 'Atualizar', class: "btn btn-outline-primary btn-block"
+    .col-3

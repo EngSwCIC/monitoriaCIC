@@ -40,18 +40,12 @@
     = yield
     - if (!request.fullpath.include? "/dashboard") && (!request.fullpath.include? "/dados_bancarios") && (!request.fullpath.include? "/disciplinas")
       %br
-      %footer.footer
+      %footer.footer.bg-unb-blue
         .container
           .row.text-center
-            .col-4
-              %a{:class => "btn btn-sm btn-outline-primary", :href => "https://atendimento.cic.unb.br", :method => "get"} DEPARTAMENTO
-            .col-4
-              %a{:class => "btn btn-sm btn-outline-primary", :href => "mapas", :method => "get"} MAPA
-            .col-4
-              - if !logged_in?
-                %p.text-muted
-                  Professores podem se registrar clicando
-                  %a{:class => "", :href => new_professor_path, :method => :get} aqui
+            .col
+              %p.color-white
+                Departamento de Ciência da Computação - &copy; 2018
 
     %script{:src => "https://unpkg.com/feather-icons/dist/feather.min.js"}
     %script

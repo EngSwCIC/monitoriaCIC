@@ -16,6 +16,8 @@ class DashboardController < ApplicationController
 
   def dados_bancarios; end
 
+  def turmas; end
+
   private
   def user_logged
     if !logged_in?

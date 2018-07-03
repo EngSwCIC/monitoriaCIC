@@ -6,17 +6,17 @@
       .sidebar-sticky
         %ul.nav.flex-column
           %li.nav-item
-            %a.nav-link.active{href: dashboard_path}
+            %a.nav-link{href: dashboard_path}
               %span{'data-feather': "home"}
               Dashboard
               %span.sr-only (current)
           - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
             %li.nav-item
               %a.nav-link{href: disciplinas_path}
-                %span{'data-feather': "file"}
+                %span{'data-feather': "book"}
                 Disciplinas
           %li.nav-item
-            %a.nav-link{href: monitorias_path}
+            %a.nav-link.active{href: monitorias_path}
               %span{'data-feather': "home"}
               Monitoria
 
@@ -41,28 +41,22 @@
                 Dados Bancários
 
     %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
-      .row
-        .col-2
-        .col
-          %h2 Cadastrar Dados Bancários
-          = form_tag dados_bancarios_path, method: :post do
-            .form-group.row
-              = label :dados_bancarios, :codigo, 'Banco', class: 'col-sm-2 col-form-label'
-              .col-sm-10
-                = text_field :dados_bancarios, :codigo, class: 'form-control', placeholder: 'Seu banco...',
-                autocomplete: 'off'
-
-            .form-group.row
-              = label :dados_bancarios, :agencia, 'Agência', class: 'col-sm-2 col-form-label'
-              .col-sm-10
-                = text_field :dados_bancarios, :agencia, class: 'form-control', placeholder: 'Sua agência...',
-                autocomplete: 'off'
-
-            .form-group.row
-              = label :dados_bancarios, :conta_corrente, 'Conta Corrente', class: 'col-sm-2 col-form-label'
-              .col-sm-10
-                = text_field :dados_bancarios, :conta_corrente, class: 'form-control', placeholder: 'Sua conta corrente...',
-                autocomplete: 'off'
-
-            = submit_tag 'Cadastrar dados bancários', class: 'btn btn-outline-success btn-block'
-        .col-1
+      .col-1
+      .col
+        -if flash[:danger]
+          .alert.alert-danger
+            - flash[:danger]
+        -if flash[:notice]
+          .alert.alert-success
+            = flash[:notice]
+        - d = Disciplina.find(@monitoria.fk_cod_disciplina)
+        %h2 Candidatos a monitor de #{d.nome}
+        %br
+        - @alunos.each do |a|
+          - if @monitoria.fk_matricula == a.matricula
+            =a.name
+            %br
+            =link_to "Alterar Situaçao", edit_monitoria_path(@monitoria)
+            %br
+            %hr
+      .col-1
