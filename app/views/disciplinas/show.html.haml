@@ -6,15 +6,19 @@
       .sidebar-sticky
         %ul.nav.flex-column
           %li.nav-item
-            %a.nav-link.active{href: dashboard_path}
+            %a.nav-link{href: dashboard_path}
               %span{'data-feather': "home"}
               Dashboard
               %span.sr-only (current)
           - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
             %li.nav-item
-              %a.nav-link{href: disciplinas_path}
+              %a.nav-link.active{href: disciplinas_path}
                 %span{'data-feather': "book"}
                 Disciplinas
+          %li.nav-item
+            %a.nav-link{href: monitorias_path}
+              %span{'data-feather': "home"}
+              Monitoria
 
         %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
           Menu

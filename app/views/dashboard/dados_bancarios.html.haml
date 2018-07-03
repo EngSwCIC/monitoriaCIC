@@ -15,6 +15,10 @@
               %a.nav-link{href: disciplinas_path}
                 %span{'data-feather': "file"}
                 Disciplinas
+          %li.nav-item
+            %a.nav-link{href: monitorias_path}
+              %span{'data-feather': "home"}
+              Monitoria
 
           -if current_user.kind_of?(Professor)
             %ul.nav.flex-column.mb-2

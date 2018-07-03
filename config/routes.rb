@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   resources :dados_bancarios
   resources :disciplinas
   resources :turmas
+  resources :monitorias do
+    collection do
+      get 'new_from_disciplina'
+    end
+  end
 
   match "/dashboard", to: "dashboard#index", via: 'get'
   match "/dashboard/edit_user", to: "dashboard#edit_user", via: 'get'
