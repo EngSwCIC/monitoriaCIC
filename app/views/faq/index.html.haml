@@ -1,96 +1,171 @@
 %main.container{role: "container"}
   .row
     .col.text-justify
-      %h1 FAQ
+      %h1 Frequent Asked Questions - FAQ
       %p
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id ante nunc.
-        Maecenas semper, orci eget volutpat suscipit, erat quam consectetur urna, eu porttitor sem risus eu ligula.
-        Duis pulvinar augue non justo sagittis consequat. Etiam non odio eu magna rhoncus gravida.
-        Morbi magna tortor, iaculis at dolor gravida, imperdiet molestie lectus.
-        Ut quam enim, faucibus sed cursus et, bibendum eget lacus.
-        Quisque varius arcu eu dui ornare, mattis gravida nisi pharetra. Maecenas at sollicitudin diam.
-        Morbi finibus risus non nibh blandit euismod. Etiam dignissim nibh quis ex pretium ullamcorper.
+        Olá! Se você está aqui, provavelmente é um 'calouro(a)' no sistema. Não se preocupe!
+        Seguindo os passos abaixo, você verá como é fácil utilizar o sistema MonitoriaCiC.
+        As dicas cobrem: Registro, Utilização Alunos e Utilização Professores.
+        %br
+        Se por acaso sua duvida não estiver respondida abaixo, envie um e-mail para:
+        %a{href: 'mailto: secretaria@cic.unb.br'}secretaria@cic.unb.br
+        e responderemos os mais rápido possível!
 
   %br
 
   .row
     .col.text-justify
-      %h2 Subject #1
+      %h2 Registro
       .accordion{id: "accordionExample"}
         .card
           .card-header{id: "headingOne"}
             %h5.mb-0
-              %button.btn.btn-link.collapsed{type: "button", 'data-toggle': "collapse", 'data-target': "#collapseOne",
+              %button.btn.btn-link.collapsed.unb-link{type: "button", 'data-toggle': "collapse", 'data-target': "#collapseOne",
               'aria-expanded': "false", 'aria-controls': "collapseOne"}
-                Lorem Ipsum #1
+                Registro de alunos
           .collapse{id: "collapseOne", 'aria-labelledby': "headingOne", 'data-parent': "#accordionExample"}
             .card-body
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id ante nunc.
-              Maecenas semper, orci eget volutpat suscipit, erat quam consectetur urna, eu porttitor sem risus eu ligula.
-              Duis pulvinar augue non justo sagittis consequat. Etiam non odio eu magna rhoncus gravida.
+              Alunos que desejam se cadastrar no sistema devem seguir alguns passos simples:
+              %ol
+                %li
+                  Clicar
+                  %a{href: new_user_path}aqui
+                  para ir para a página de registro de alunos;
+                %li
+                  Preencher o formulário - lembrando
+                  que as informações fornecidas são de responsabilidade do aluno;
+                %li
+                  Clicar em 'Registrar-se'
+              E pronto! Você já está cadastrado e logado no sistema. Agora é só utilizar!
 
         .card
           .card-header{id: "headingTwo"}
             %h5.mb-0
-              %button.btn.btn-link.collapsed{type: "button", 'data-toggle': "collapse", 'data-target': "#collapseTwo",
+              %button.btn.btn-link.collapsed.unb-link{type: "button", 'data-toggle': "collapse", 'data-target': "#collapseTwo",
               'aria-expanded': "false", 'aria-controls': "collapseTwo"}
-                Lorem Ipsum #2
+                Registro de professores
           .collapse{id: "collapseTwo", 'aria-labelledby': "headingTwo", 'data-parent': "#accordionExample"}
             .card-body
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id ante nunc.
-              Maecenas semper, orci eget volutpat suscipit, erat quam consectetur urna, eu porttitor sem risus eu ligula.
-              Duis pulvinar augue non justo sagittis consequat. Etiam non odio eu magna rhoncus gravida.
-
-        .card
-          .card-header{id: "headingThree"}
-            %h5.mb-0
-              %button.btn.btn-link.collapsed{type: "button", 'data-toggle': "collapse", 'data-target': "#collapseThree",
-              'aria-expanded': "false", 'aria-controls': "collapseThree"}
-                Lorem Ipsum #3
-          .collapse{id: "collapseThree", 'aria-labelledby': "headingThree", 'data-parent': "#accordionExample"}
-            .card-body
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id ante nunc.
-              Maecenas semper, orci eget volutpat suscipit, erat quam consectetur urna, eu porttitor sem risus eu ligula.
-              Duis pulvinar augue non justo sagittis consequat. Etiam non odio eu magna rhoncus gravida.
-
+              Professores que desejam se cadastrar no sistema devem seguir alguns
+              passos simples:
+              %ol
+                %li
+                  Clicar
+                  %a{href: new_professor_path}aqui
+                  para ir para página de registro de professores;
+                %li
+                  Preencher o formulário - lembrando que as informações fornecidas são de responsabilidade
+                  do professor;
+                %li
+                  Clicar em 'Registrar'
+              E pronto! Você já está cadastrado e logado no sistema. Agora é só utilizar!
   %br
-
   .row
     .col.text-justify
-      %h2 Subject #2
+      %h2 Utilização alunos
       .accordion{id: "accordionExample1"}
         .card
           .card-header{id: "headingOne1"}
             %h5.mb-0
-              %button.btn.btn-link.collapsed{type: "button", 'data-toggle': "collapse", 'data-target': "#collapseOne1",
+              %button.btn.btn-link.collapsed.unb-link{type: "button", 'data-toggle': "collapse", 'data-target': "#collapseOne1",
               'aria-expanded': "false", 'aria-controls': "collapseOne1"}
-                Lorem Ipsum #4
+                Acessando a conta
           .collapse{id: "collapseOne1", 'aria-labelledby': "headingOne1", 'data-parent': "#accordionExample1"}
             .card-body
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id ante nunc.
-              Maecenas semper, orci eget volutpat suscipit, erat quam consectetur urna, eu porttitor sem risus eu ligula.
-              Duis pulvinar augue non justo sagittis consequat. Etiam non odio eu magna rhoncus gravida.
+              Caso você já tenha uma conta no sistema, você pode acessá-la clicando
+              %a{href: new_session_path}aqui
+              \. Uma vez na página de login, basta digitar seu e-mail e senha de registro, e clicar em
+              'Login'.
 
         .card
           .card-header{id: "headingTwo1"}
             %h5.mb-0
-              %button.btn.btn-link.collapsed{type: "button", 'data-toggle': "collapse", 'data-target': "#collapseTwo1",
+              %button.btn.btn-link.collapsed.unb-link{type: "button", 'data-toggle': "collapse", 'data-target': "#collapseTwo1",
               'aria-expanded': "false", 'aria-controls': "collapseTwo1"}
-                Lorem Ipsum #5
+                Editar Perfil
           .collapse{id: "collapseTwo1", 'aria-labelledby': "headingTwo1", 'data-parent': "#accordionExample1"}
             .card-body
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id ante nunc.
-              Maecenas semper, orci eget volutpat suscipit, erat quam consectetur urna, eu porttitor sem risus eu ligula.
-              Duis pulvinar augue non justo sagittis consequat. Etiam non odio eu magna rhoncus gravida.
+              Para editar seu perfil de usuário, você precisa logar em sua conta. Uma vez logado,
+              você pode clicar em 'Perfil <seu nome>' no menu superior, ou em 'Editar Perfil' no
+              menu lateral.
+              %br
+              É importante lembrar que:
+              %ul
+                %li
+                  Nome é obrigatório, deve possuir de 3 a 50 caracteres e ter apenas letras e espaços;
+                %li
+                  Matrícula é obrigatória, deve possuir 9 caracteres e apenas números;
+                %li
+                  CPF é obrigatório, deve possuir 11 caracteres, apenas números e ser válido;
+                %li
+                  RG é obrigatório, deve possuir ao menos 7 caracteres e apenas números;
+                %li
+                  Senha e Confirmar Senha deve ser iguais entre si e possuir de 6 a 12 caracteres.
 
         .card
           .card-header{id: "headingThree1"}
             %h5.mb-0
-              %button.btn.btn-link.collapsed{type: "button", 'data-toggle': "collapse", 'data-target': "#collapseThree1",
+              %button.btn.btn-link.collapsed.unb-link{type: "button", 'data-toggle': "collapse", 'data-target': "#collapseThree1",
               'aria-expanded': "false", 'aria-controls': "collapseThree1"}
-                Lorem Ipsum #6
+                Aplicar para Monitor
           .collapse{id: "collapseThree1", 'aria-labelledby': "headingThree1", 'data-parent': "#accordionExample1"}
             .card-body
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id ante nunc.
-              Maecenas semper, orci eget volutpat suscipit, erat quam consectetur urna, eu porttitor sem risus eu ligula.
-              Duis pulvinar augue non justo sagittis consequat. Etiam non odio eu magna rhoncus gravida.
+              Caso deseje se candidatar a monitoria, o aluno deve estar logado em sua conta. Uma vez logado,
+              deve clicar em 'Monitoria' no menu lateral, clicar em 'Aplicar para Monitor' na página aberta,
+              e preencher o formulário de inscrição. O aluno deve escolher a disciplina, turma e informar a
+              nota de aprovação da disciplina e IRA no campo 'Descrição'.
+
+  %br
+  .row
+    .col.text-justify
+      %h2 Utilização professores
+      .accordion{id: "accordionExample2"}
+        .card
+          .card-header{id: "headingOne2"}
+            %h5.mb-0
+              %button.btn.btn-link.collapsed.unb-link{type: "button", 'data-toggle': "collapse", 'data-target': "#collapseOne2",
+              'aria-expanded': "false", 'aria-controls': "collapseOne2"}
+                Acessando a conta
+          .collapse{id: "collapseOne2", 'aria-labelledby': "headingOne2", 'data-parent': "#accordionExample2"}
+            .card-body
+              Caso você já tenha uma conta no sistema, você pode acessá-la clicando
+              %a{href: new_session_path}aqui
+              \. Uma vez na página de login, basta digitar seu e-mail e senha de registro, e clicar em
+              'Login'.
+
+        .card
+          .card-header{id: "headingTwo2"}
+            %h5.mb-0
+              %button.btn.btn-link.collapsed.unb-link{type: "button", 'data-toggle': "collapse", 'data-target': "#collapseTwo2",
+              'aria-expanded': "false", 'aria-controls': "collapseTwo2"}
+                Editar Perfil
+          .collapse{id: "collapseTwo2", 'aria-labelledby': "headingTwo2", 'data-parent': "#accordionExample2"}
+            .card-body
+              Para editar seu perfil de usuário, você precisa logar em sua conta. Uma vez logado,
+              você pode clicar em 'Perfil <seu nome>' no menu superior, ou em 'Editar Perfil' no
+              menu lateral.
+              %br
+              É importante lembrar que:
+              %ul
+                %li
+                  Nome é obrigatório, deve possuir de 3 a 50 caracteres e ter apenas letras e espaços;
+                %li
+                  Username é obrigatório, deve possuir de 3 a 15 caracteres e apenas letras, números e underscore;
+                %li
+                  Papel é obrigatório, o professor deve selecionar uma opção da lista.
+                %li
+                  Senha e Confirmar Senha deve ser iguais entre si e possuir de 6 a 12 caracteres.
+
+        .card
+          .card-header{id: "headingThree2"}
+            %h5.mb-0
+              %button.btn.btn-link.collapsed.unb-link{type: "button", 'data-toggle': "collapse", 'data-target': "#collapseThree2",
+              'aria-expanded': "false", 'aria-controls': "collapseThree2"}
+                Cadastrar Turmas
+          .collapse{id: "collapseThree2", 'aria-labelledby': "headingThree2", 'data-parent': "#accordionExample2"}
+            .card-body
+              Para iniciar o professor de seleção de monitores, o professor deve primeiro cadastrar turmas para
+              a disciplina que irá ministrar durante o semestre. Para isso, o professor deve acessar sua conta,
+              clicar em 'Turmas' no menu lateral da dashboard, clicar em 'Cadastrar nova turma', escrever qual é a
+              turma (A, B, etc...), selecionar a disciplina (entre as disciplinas cadastradas no sistema), selecionar
+              a quantidade de bolsas disponíveis e, por fim, clicar 'Cadastrar turma'.
