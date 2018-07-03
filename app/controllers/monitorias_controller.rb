@@ -44,7 +44,7 @@ class MonitoriasController < ApplicationController
 
 	def update
 		if @monitoria.update monitoria_params
-			redirect_to monitorias_path, notice: "Monitoria atualizada!"
+			redirect_to monitorias_path, notice: "Situaçao atualizada!"
 		else
 			render 'edit'
 		end

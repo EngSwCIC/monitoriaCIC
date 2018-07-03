@@ -17,11 +17,8 @@
       -if flash[:notice]
         .alert.alert-success
           = flash[:notice]
-      = form_tag monitorias_path, method: :post do
+      = form_tag monitoria_path, method: :put do
         - @aluno = User.find_by(matricula: @monitoria.fk_matricula)
-        = hidden_field :monitoria, :fk_matricula, value: @aluno.matricula
-        = hidden_field :monitoria, :prioridade, value: 1
-        = hidden_field :monitoria, :fk_status_monitoria_id, value: 1 
         .form-group.row
           = label :monitoria, :remuneracao, "Aluno", class: "col-sm-2 col-form-label"
           .col-sm-10
