@@ -1,68 +1,31 @@
 %br
-%br
-.container-fluid
+%main.container{role: "main"}
   .row
-    %nav.col-md-2.d-none.d-md-block.bg-light.sidebar{style: 'margin-top: 40px'}
-      .sidebar-sticky
-        %ul.nav.flex-column
-          %li.nav-item
-            %a.nav-link.active{href: dashboard_path}
-              %span{'data-feather': "home"}
-              Dashboard
-              %span.sr-only (current)
-          - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
-            %li.nav-item
-              %a.nav-link{href: disciplinas_path}
-                %span{'data-feather': "file"}
-                Disciplinas
-          %li.nav-item
-            %a.nav-link{href: monitorias_path}
-              %span{'data-feather': "home"}
-              Monitoria
+    .col-2
+    .col
+      %h2.text-center Cadastrar Dados Bancários
+      %hr
+      %p.lead.text-center
+        Cadastre seus dados bancários. Eles são necessários para que o aluno possa concorrer
+        a monitoria remunerada.
+      = form_tag dados_bancarios_path, method: :post do
+        .form-group.row
+          = label :dados_bancarios, :codigo, 'Banco', class: 'col-sm-2 col-form-label'
+          .col-sm-10
+            = text_field :dados_bancarios, :codigo, class: 'form-control', placeholder: 'Seu banco...',
+            autocomplete: 'off'
 
-        %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
-          Menu
-          %span do usuário
-          %a.d-flex.align-items-center.text-muted{href: "#"}
-            %span{'data-feather': "plus-circle"}
+        .form-group.row
+          = label :dados_bancarios, :agencia, 'Agência', class: 'col-sm-2 col-form-label'
+          .col-sm-10
+            = text_field :dados_bancarios, :agencia, class: 'form-control', placeholder: 'Sua agência...',
+            autocomplete: 'off'
 
-        -if current_user.kind_of?(User) || current_user.kind_of?(Professor)
-          %ul.nav.flex-column.mb-2
-            %li.nav-item
-              %a.nav-link{href: dashboard_edit_user_path}
-                %span{'data-feather': "edit"}
-                Editar Perfil
+        .form-group.row
+          = label :dados_bancarios, :conta_corrente, 'Conta Corrente', class: 'col-sm-2 col-form-label'
+          .col-sm-10
+            = text_field :dados_bancarios, :conta_corrente, class: 'form-control', placeholder: 'Sua conta corrente...',
+            autocomplete: 'off'
 
-        -if current_user.kind_of?(User)
-          %ul.nav.flex-column.mb-2
-            %li.nav-item
-              %a.nav-link{href: dashboard_dados_bancarios_path}
-                %span{'data-feather': "dollar-sign"}
-                Dados Bancários
-
-    %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
-      .row
-        .col-2
-        .col
-          %h2 Cadastrar Dados Bancários
-          = form_tag dados_bancarios_path, method: :post do
-            .form-group.row
-              = label :dados_bancarios, :codigo, 'Banco', class: 'col-sm-2 col-form-label'
-              .col-sm-10
-                = text_field :dados_bancarios, :codigo, class: 'form-control', placeholder: 'Seu banco...',
-                autocomplete: 'off'
-
-            .form-group.row
-              = label :dados_bancarios, :agencia, 'Agência', class: 'col-sm-2 col-form-label'
-              .col-sm-10
-                = text_field :dados_bancarios, :agencia, class: 'form-control', placeholder: 'Sua agência...',
-                autocomplete: 'off'
-
-            .form-group.row
-              = label :dados_bancarios, :conta_corrente, 'Conta Corrente', class: 'col-sm-2 col-form-label'
-              .col-sm-10
-                = text_field :dados_bancarios, :conta_corrente, class: 'form-control', placeholder: 'Sua conta corrente...',
-                autocomplete: 'off'
-
-            = submit_tag 'Cadastrar dados bancários', class: 'btn btn-outline-success btn-block'
-        .col-1
+        = submit_tag 'Cadastrar dados bancários', class: 'btn btn-outline-success btn-block'
+    .col-2

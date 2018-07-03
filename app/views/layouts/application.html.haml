@@ -8,7 +8,7 @@
     = csrf_meta_tags
 
   %body
-    - if (request.fullpath.include? "/dashboard") || (request.fullpath.include? "/dados_bancarios") || (request.fullpath.include? "/disciplinas")
+    - if (request.fullpath.include? "/dashboard")
       - @class = "fixed-top shadow"
     - else
       - @class = ""
@@ -22,7 +22,7 @@
         .collapse.navbar-collapse#navbarSupportedContent
           %ul.navbar-nav.ml-auto
             %li.nav-item.ml-auto
-              %a{:class => "nav-link", :href => "sobre"}Sobre
+              %a{:class => "nav-link", :href => sobre_path}Sobre
             %li.nav-item.ml-auto
               %a{:class => "nav-link", :href => faq_path}FAQ
             %li.nav-item.ml-auto
@@ -38,7 +38,7 @@
               %li.nav-item.ml-auto
                 %a{:class => "nav-link", :href => new_session_path} Entrar
     = yield
-    - if (!request.fullpath.include? "/dashboard") && (!request.fullpath.include? "/dados_bancarios") && (!request.fullpath.include? "/disciplinas")
+    - if (!request.fullpath.include? "/dashboard")
       %br
       %footer.footer.bg-unb-blue
         .container

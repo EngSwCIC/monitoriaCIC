@@ -6,20 +6,24 @@
       .sidebar-sticky
         %ul.nav.flex-column
           %li.nav-item
-            %a.nav-link.active{href: dashboard_path}
+            %a.nav-link{href: dashboard_path}
               %span{'data-feather': "home"}
               Dashboard
               %span.sr-only (current)
+          %li.nav-item
+            %a.nav-link{href: dashboard_disciplinas_path}
+              %span{'data-feather': "file"}
+              Disciplinas
           - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
             %li.nav-item
-              %a.nav-link{href: disciplinas_path}
-                %span{'data-feather': "file"}
-                Disciplinas
+              %a.nav-link{href: dashboard_monitorias_path}
+                %span{'data-feather': "home"}
+                Monitoria
 
           -if current_user.kind_of?(Professor)
             %ul.nav.flex-column.mb-2
               %li.nav-item
-                %a.nav-link{href: dashboard_turmas_path}
+                %a.nav-link.active{href: dashboard_turmas_path}
                   %span{'data-feather': "edit"}
                   Turmas
 
@@ -33,7 +37,7 @@
           %ul.nav.flex-column.mb-2
             %li.nav-item
               %a.nav-link{href: dashboard_edit_user_path}
-                %span{'data-feather': "edit"}
+                %span{'data-feather': "settings"}
                 Editar Perfil
 
         -if current_user.kind_of?(User)
@@ -53,37 +57,37 @@
             %ul
               %li
                 =msg
-      .col-1
-      .col
-        .row
-          .col
-            .row
-              .col
-                %h2 Suas Turmas
-                %br
-                %ul.list-group
-                  - @turmas, @disciplinas = TurmasController.show_turmas_professor(session[:user_id])
-                  - @turmas.each do |turma|
-                    %li.list-group-item
-                      Disciplina:
-                      - @disciplinas.each do |disciplina|
-                        - if disciplina.cod_disciplina == turma.fk_cod_disciplina
-                          = disciplina.nome
-                      %br
-                      Turma:
-                      = turma.turma
-                      %br
-                      Bolsas:
-                      = turma.qnt_bolsas
-                      %br
-                      %a.btn.btn-outline-warning.btn-block{ href: edit_turma_path(turma.id) } Editar dados
-                      = link_to "Apagar turma", turma_path(turma.id), method: :delete, class: 'btn btn-outline-danger btn-block'
-              .col
-                .p.text-justify
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis lobortis justo, id suscipit lacus.
-                  Pellentesque pharetra lorem et ipsum auctor, vitae viverra justo pretium.
-                  Proin magna justo, vulputate id nulla vel, lobortis aliquet velit. Praesent ut enim justo.
-                  Aliquam odio enim, facilisis ut blandit et, cursus vel lacus.
-                %br
-                %a.btn.btn-outline-success.btn-block{href: new_turma_path} Cadastrar nova turma
-      .col-1
+      .row
+        .col-10
+          .row
+            .col
+              .row
+                .col
+                  %h2 Suas Turmas
+                  %br
+                  %ul.list-group
+                    - @turmas, @disciplinas = TurmasController.show_turmas_professor(session[:user_id])
+                    - @turmas.each do |turma|
+                      %li.list-group-item
+                        Disciplina:
+                        - @disciplinas.each do |disciplina|
+                          - if disciplina.cod_disciplina == turma.fk_cod_disciplina
+                            = disciplina.nome
+                        %br
+                        Turma:
+                        = turma.turma
+                        %br
+                        Bolsas:
+                        = turma.qnt_bolsas
+                        %hr
+                        %a.btn.btn-outline-warning.btn-block{ href: edit_turma_path(turma.id) } Editar dados
+                        = link_to "Apagar turma", turma_path(turma.id), method: :delete, class: 'btn btn-outline-danger btn-block'
+                .col
+                  .p.text-justify
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis lobortis justo, id suscipit lacus.
+                    Pellentesque pharetra lorem et ipsum auctor, vitae viverra justo pretium.
+                    Proin magna justo, vulputate id nulla vel, lobortis aliquet velit. Praesent ut enim justo.
+                    Aliquam odio enim, facilisis ut blandit et, cursus vel lacus.
+                  %br
+                  %a.btn.btn-outline-success.btn-block{href: new_turma_path} Cadastrar nova turma
+        .col-2

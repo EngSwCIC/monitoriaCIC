@@ -10,15 +10,15 @@
               %span{'data-feather': "home"}
               Dashboard
               %span.sr-only (current)
-          - if current_user.kind_of?(User) || current_user.kind_of?(Professor) || current_user.kind_of?(Admin)
-            %li.nav-item
-              %a.nav-link{href: disciplinas_path}
-                %span{'data-feather': "file"}
-                Disciplinas
           %li.nav-item
-            %a.nav-link{href: monitorias_path}
-              %span{'data-feather': "home"}
-              Monitoria
+            %a.nav-link{href: dashboard_disciplinas_path}
+              %span{'data-feather': "file"}
+              Disciplinas
+          - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
+            %li.nav-item
+              %a.nav-link{href: dashboard_monitorias_path}
+                %span{'data-feather': "home"}
+                Monitoria
 
           -if current_user.kind_of?(Professor)
             %ul.nav.flex-column.mb-2
@@ -27,17 +27,18 @@
                   %span{'data-feather': "edit"}
                   Turmas
 
-        %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
-          Menu
-          %span do usuário
-          %a.d-flex.align-items-center.text-muted{href: "#"}
-            %span{'data-feather': "plus-circle"}
+        -unless current_user.kind_of?(Admin)
+          %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+            Menu
+            %span do usuário
+            %a.d-flex.align-items-center.text-muted{href: "#"}
+              %span{'data-feather': "plus-circle"}
 
         -if current_user.kind_of?(User) || current_user.kind_of?(Professor)
           %ul.nav.flex-column.mb-2
             %li.nav-item
               %a.nav-link{href: dashboard_edit_user_path}
-                %span{'data-feather': "edit"}
+                %span{'data-feather': "settings"}
                 Editar Perfil
 
         -if current_user.kind_of?(User)
@@ -48,21 +49,60 @@
                 Dados Bancários
 
     %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
-      - if flash[:notice]
-        .alert.alert-success
-          =flash[:notice]
-      - if flash[:danger]
-        %div{class: "alert alert-danger"}
-          - flash[:danger].each do |msg|
-            %ul
+      .row
+        - if flash[:notice]
+          .alert.alert-success
+            =flash[:notice]
+        - if flash[:danger]
+          %div{class: "alert alert-danger"}
+            - flash[:danger].each do |msg|
+              %ul
+                %li
+                  =msg
+        .col-10
+          -if current_user.kind_of?(User)
+            %h1
+              Bem vindo ao MonitoriaCiC,
+              = current_user.name + "!"
+            %br
+            %p.lead
+              Os dias de papel e burocracia acabaram. Agora os alunos podem utilizar o MonitoriaCiC
+              para realizar inscrições para monitoria de disciplinas sem precisar sair de casa.
+              Para começar utilizar o sistema siga os passos listados abaixo:
+            %ol.lead
               %li
-                =msg
-      -if current_user.kind_of?(User)
-        %h1
-          Hello, Aluno Dashboard!
-      -elsif current_user.kind_of?(Professor)
-        %h1
-          Hello, Professor Dashboard!
-      -elsif current_user.kind_of?(Admin)
-        %h1
-          Hello, Admin Dashboard!
+                %p.lead
+                  Cadastre seus dados bancários clicando
+                  %a{href: dashboard_dados_bancarios_path}aqui;
+              %li
+                %p.lead
+                  Inscreva-se para monitoria clicando
+                  %a{href: dashboard_monitorias_path}aqui.
+            %p.lead
+              Quando terminar, basta acompanhar sua inscrição clicando em 'Monitoria' no menu lateral.
+
+          -elsif current_user.kind_of?(Professor)
+            %h1
+              Bem vindo ao MonitoriaCiC,
+              = current_user.name
+              !
+            %br
+            %p.lead
+              Os dias de papel e burocracia acabaram. Agora os professores podem utilizar o MonitoriaCiC para
+              selecioar seus monitores diretamente pelo computador. Para começar a utilizar o sistema, siga
+              os passos abaixo:
+            %ol.lead
+              %li
+                %p
+                  Cadastre suas turmas clicando
+                  %a{href: dashboard_turmas_path}aqui.
+              %li
+                %p
+                  Lorem Ipsum
+            %p.lead
+              Para analisar os candidatos, basta clicar em 'Monitoria' no menu lateral. Também é na página de
+              'Monitoria' que o professor poderá escolher os monitores para a disciplina.
+          -elsif current_user.kind_of?(Admin)
+            %h1
+              Hello, Admin Dashboard!
+        .col-2

@@ -18,6 +18,24 @@ class DashboardController < ApplicationController
 
   def turmas; end
 
+  def monitorias
+    @user = current_user
+    @monitorias = Array.new
+    Monitoria.find_each do |m|
+      if @user.kind_of?(User)
+        if m.fk_matricula == @user.matricula
+          @monitorias << m
+        end
+      else
+        @monitorias << m
+      end
+    end
+  end
+
+  def disciplinas
+    @disciplinas = Disciplina.find_each
+  end
+
   private
   def user_logged
     if !logged_in?

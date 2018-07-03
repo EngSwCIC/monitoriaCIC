@@ -6,19 +6,19 @@
       .sidebar-sticky
         %ul.nav.flex-column
           %li.nav-item
-            %a.nav-link.active{href: dashboard_path}
+            %a.nav-link{href: dashboard_path}
               %span{'data-feather': "home"}
               Dashboard
               %span.sr-only (current)
+          %li.nav-item
+            %a.nav-link{href: dashboard_disciplinas_path}
+              %span{'data-feather': "file"}
+              Disciplinas
           - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
             %li.nav-item
-              %a.nav-link{href: disciplinas_path}
-                %span{'data-feather': "file"}
-                Disciplinas
-          %li.nav-item
-            %a.nav-link{href: monitorias_path}
-              %span{'data-feather': "home"}
-              Monitoria
+              %a.nav-link{href: dashboard_monitorias_path}
+                %span{'data-feather': "home"}
+                Monitoria
 
           -if current_user.kind_of?(Professor)
             %ul.nav.flex-column.mb-2
@@ -36,8 +36,8 @@
         -if current_user.kind_of?(User) || current_user.kind_of?(Professor)
           %ul.nav.flex-column.mb-2
             %li.nav-item
-              %a.nav-link{href: dashboard_edit_user_path}
-                %span{'data-feather': "edit"}
+              %a.nav-link.active{href: dashboard_edit_user_path}
+                %span{'data-feather': "settings"}
                 Editar Perfil
 
         -if current_user.kind_of?(User)
@@ -47,9 +47,14 @@
                 %span{'data-feather': "dollar-sign"}
                 Dados Bancários
 
+
   %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
     .row
       .col-10
+        %h2 Editar Perfil
+        %hr
+        %p.lead
+          Caso seja necessário, você pode atualizar seu dados de cadastro - com exceção do e-mail - aqui!
         -if current_user.kind_of?(User)
           - # ------------------------ Formulário de para atualizar cadastro do Aluno ------------------------ #
           = form_tag user_path(@user), method: :put do
