@@ -8,7 +8,7 @@
     = csrf_meta_tags
 
   %body
-    - if (request.fullpath.include? "/dashboard") || (request.fullpath.include? "/dados_bancarios") || (request.fullpath.include? "/disciplinas")
+    - if (request.fullpath.include? "/dashboard")
       - @class = "fixed-top shadow"
     - else
       - @class = ""
@@ -22,14 +22,17 @@
         .collapse.navbar-collapse#navbarSupportedContent
           %ul.navbar-nav.ml-auto
             %li.nav-item.ml-auto
-              %a{:class => "nav-link", :href => "sobre"}Sobre
+              %a{:class => "nav-link", :href => sobre_path}Sobre
             %li.nav-item.ml-auto
               %a{:class => "nav-link", :href => faq_path}FAQ
             %li.nav-item.ml-auto
-              %a{:class => "nav-link", :href => "contatos"}Contato
+              %a{:class => "nav-link", :href => root_path + "#contato"}Contato
             - if logged_in?
               %li.nav-item.ml-auto
-                %a{:class => "nav-link", :href => dashboard_edit_user_path} Perfil de #{logged_user.name}
+                -unless current_user.kind_of? Admin
+                  %a{:class => "nav-link", :href => dashboard_edit_user_path} Perfil de #{logged_user.name}
+                -if current_user.kind_of? Admin
+                  %a{:class => "nav-link", :href => dashboard_path} Dashboard
               %li.nav-item.ml-auto
                 = link_to "Sair", session_path("current"), method: "delete", :class => "nav-link"
             - else
@@ -38,20 +41,14 @@
               %li.nav-item.ml-auto
                 %a{:class => "nav-link", :href => new_session_path} Entrar
     = yield
-    - if (!request.fullpath.include? "/dashboard") && (!request.fullpath.include? "/dados_bancarios") && (!request.fullpath.include? "/disciplinas")
+    - if (!request.fullpath.include? "/dashboard")
       %br
-      %footer.footer
+      %footer.footer.bg-unb-blue
         .container
           .row.text-center
-            .col-4
-              %a{:class => "btn btn-sm btn-outline-primary", :href => "https://atendimento.cic.unb.br", :method => "get"} DEPARTAMENTO
-            .col-4
-              %a{:class => "btn btn-sm btn-outline-primary", :href => "mapas", :method => "get"} MAPA
-            .col-4
-              - if !logged_in?
-                %p.text-muted
-                  Professores podem se registrar clicando
-                  %a{:class => "", :href => new_professor_path, :method => :get} aqui
+            .col
+              %p.color-white
+                Departamento de Ciência da Computação - &copy; 2018
 
     %script{:src => "https://unpkg.com/feather-icons/dist/feather.min.js"}
     %script

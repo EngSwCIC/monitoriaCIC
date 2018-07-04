@@ -63,7 +63,7 @@ Dado /^(?:|que eu )possuo dados bancários cadastrados$/ do
   @user.update!(fk_banco: @dados_bancarios.id)
 end
 
-Dado /^(?:|que ) o banco possui uma disciplina$/ do
+Dado /^(?:|que )o banco possui uma disciplina$/ do
   Disciplina.create!(
     :cod_disciplina => 1,
     :nome => "Engenharia de Software",
@@ -85,6 +85,13 @@ Dado /^(?:|que o )"([^"]*)" está logado$/ do |user_type|
       Quando eu preencho o formulário de login com:
         | user_email    | bernardoc1104@gmail.com |
         | user_password | 110492                  |
+      E eu aperto em "Login"
+    )
+  when "admin"
+    steps %(
+      Quando eu preencho o formulário de login com:
+        | user_email    | secretaria@cic.unb.br |
+        | user_password | 110492                |
       E eu aperto em "Login"
     )
   when "professor"
@@ -119,10 +126,6 @@ end
 
 Quando /^(?:|eu )clico em "([^"]*)"$/ do |link|
   click_link(link)
-end
-
-Quando /^(?:|eu )clico no link "([^"]*)"$/ do |link|
-  first('.editar-dados').click_link(link)
 end
 
 Quando /^(?:|eu )preencho "([^"]*)" com "([^"]*)"$/ do |field, value|

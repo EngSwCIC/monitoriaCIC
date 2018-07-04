@@ -9,32 +9,39 @@
   %ol.carousel-indicators
     %li.active{'data-target' => "homeCarousel", 'data-slide-to' => '0'}
     %li{'data-target' => "homeCarousel", 'data-slide-to' => '1'}
-    %li{'data-target' => "homeCarousel", 'data-slide-to' => '2'}
   .carousel-inner
     .carousel-item.active
-      %img.first-slide.img-fluid{src: image_path("carousel.jpeg"), alt: "Slide 1"}
+      %img.first-slide.img-fluid{src: image_path("tutor.jpeg"), alt: "Slide 1"}
       .container
         .carousel-caption.text-left
-          %h1 Example Headeline 1.
-          %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+          %h1 Torne-se um Monitor
           %p
-            %a.btn.btn-lg.btn-primary{href: new_user_path, role: ""} Registre-se
+            Aquela matéria que você gostou e passou com facilidade,
+            pode ser um grande obstáculo para outro aluno.
+            %span.yellow Ajude
+            quem precisa!
+          %p
+            Se você é
+            %span.yellow aluno
+            e deseja se tornar um monitor, o processo começa aqui!
+          %p.text-center
+            %a.btn.btn-md.btn-primary{href: new_user_path} Registre-se
     .carousel-item
-      %img.second-slide.img-fluid{src: image_path("carousel.jpeg"), alt: "Slide 2"}
+      %img.second-slide.img-fluid{src: image_path("professor.jpeg"), alt: "Slide 2"}
       .container
         .carousel-caption.text-left
-          %h1 Example Headline 2.
-          %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+          %h1 Monitor fácil
           %p
-            %a.btn.btn-lg.btn-primary{href: "#", role: ""} Learn More
-    .carousel-item
-      %img.third-slide.img-fluid{src: image_path("carousel.jpeg"), alt: "Slide 3"}
-      .container
-        .carousel-caption.text-left
-          %h1 Example Headline 3.
-          %p Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.
+            Os dias de papel para seleção de monitores acabou! É possível realizar um processo
+            seletivo completamente
+            %span.yellow digital
           %p
-            %a.btn.btn-lg.btn-primary{href: "#", role: ""} Learn More
+            Se você é um
+            %span.yellow professor
+            e deseja fazer um processo de seleção de monitores interamente digital,
+            o processo começa aqui!
+          %p.text-center
+            %a.btn.btn-md.btn-primary{href: new_professor_path, role: ""} Registre-se
   %a.carousel-control-prev{href: "#homeCarousel", role: "button", 'data-slide': "prev"}
     %span.carousel-control-prev-icon{'aria-hidden': true}
     %span.sr-only Previous
@@ -46,47 +53,75 @@
 %main{:class => "container", :role => "container"}
   .row.text-center
     .col
-      %img.rounded-circle{src: image_path("carousel.jpeg"), alt: "Generic Image", width: "140", height: "140"}
-      %h2 Heading
-      %p Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+      %img.rounded-circle{src: image_path("paper.png"), alt: "Sem Papel", width: "140", height: "140"}
+      %h2 Sem Papel
       %p
-        %a.btn.btn-secondary{href: "#", role: "button"} View details &raquo;
+        Em mundo com uma crescente preocupação com o meio ambiente, nada melhor do que
+        realizar uma tarefa sem ter que utilizar papel, não é mesmo?
+      %p
+        %a.btn.btn-outline-secondary{href: sobre_path, role: "button"} Sobre &raquo;
     .col
-      %img.rounded-circle{src: image_path("carousel.jpeg"), alt: "Generic Image", width: "140", height: "140"}
-      %h2 Heading
-      %p Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+      %img.rounded-circle{src: image_path("people.png"), alt: "Alunos e Professores", width: "140", height: "140"}
+      %h2 Alunos e Professores
       %p
-        %a.btn.btn-secondary{href: "#", role: "button"} View details &raquo;
+        Um unico sistema para alunos e professores. Aqui você pode ser cadastrar,
+        aplicar (aluno) e selecionar (professor) para monitoria, sem burocracia!
+      %p
+        %a.btn.btn-outline-primary.unb-blue{href: new_user_path, role: "button"} Alunos &raquo;
+        %a.btn.btn-outline-primary.unb-green{href: new_professor_path} Professores &raquo;
     .col
-      %img.rounded-circle{src: image_path("carousel.jpeg"), alt: "Generic Image", width: "140", height: "140"}
-      %h2 Heading
-      %p Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
+      %img.rounded-circle{src: image_path("computer.png"), alt: "Prático", width: "140", height: "140"}
+      %h2 Prático
       %p
-        %a.btn.btn-secondary{href: "#", role: "button"} View details &raquo;
+        Inicie seu processo para se tornar monitor, ou escolha agora o seu monitor.
+        Tudo está a apenas alguns cliques de 'distância'. Comece a usar agora!
+      %p
+        %a.btn.btn-outline-secondary{href: faq_path, role: "button"} FAQ &raquo;
 
   %hr.featurette-divider
 
   .row.featurette
     .col-7
-      %h2.featurette-heading First Feature Heading. <span class="text-muted">It'll blow your mind!</span>
-      %p.lead Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+      %h2.featurette-heading
+        Está chegando o período de inscrições.
+        %span.text-muted Prepare-se!
+      %p.lead
+        As aulas estão voltando e é chegado mais um período de inscrição para monitorias. Nunca utilizou o sistema
+        antes? Acesse a página
+        %a{href: sobre_path}sobre
+        para obter mais informações.
+        %br
+        Já possui conta?
+        %a{href: new_session_path}Acesse
+        já e faça sua inscrição para a monitoria 2018/1!
     .col-5
-      %img.featurette-image.img-fluid.mx-auto{src: image_path("feature.jpg"), alt: "Generic Image"}
+      %img.featurette-image.img-fluid.mx-auto{src: image_path("volta-aulas.jpg"), alt: "Volta as Aulas"}
 
-  %hr.featurette-divider
+%br
+%br
 
-  .row.featurette
-    .col-5
-      %img.featurette-image.img-fluid.mx-auto{src: image_path("feature.jpg"), alt: "Generic Image"}
-    .col-7
-      %h2.featurette-heading Oh yeah, it's that good. <span class="text-muted">See for yourself.</span>
-      %p.lead Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-
-  %hr.featurette-divider
-
-  .row.featurette
-    .col-7
-      %h2.featurette-heading And lastly this one. <span class="text-muted">Checkmate</span>
-      %p.lead Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
-    .col-5
-      %img.featurette-image.img-fluid.mx-auto{src: image_path("feature.jpg"), alt: "Generic Image"}
+.container-fluid.bg-unb-green{id: 'contato', style: 'margin-bottom: -8px; min-height: 400px; padding-top: 50px; padding-bottom: 50px;'}
+  .row
+    .col-2
+    .col
+      %h4.color-white Localização
+      %hr.footer-separator
+      %br
+      %iframe.map-area{src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3839.865395377778!2d-47.86960127247336!3d-15.758258418101756!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x935a3bb88f71361f%3A0x3933d293e644ad55!2zUHLDqWRpbyBkZSBDacOqbmNpYSBkYSBDb21wdXRhw6fDo28gZSBFc3RhdMOtc3RpY2EgLSBDSUMvRVNU!5e0!3m2!1spt-BR!2sbr!4v1415989303580"}
+    .col
+      %h4.color-white Contato
+      %hr.footer-separator
+      %br
+      %br
+      %p.lead.color-white
+        Graduação: +55 61 3107-3662
+        %br
+        %br
+        Email: secretaria@cic.unb.br
+        %br
+        %br
+        Departamento de Ciência da Computação - CIC
+        Campus Darcy Ribeiro, Asa Norte
+        Brasília - DF
+        CEP 70910-900
+    .col-2

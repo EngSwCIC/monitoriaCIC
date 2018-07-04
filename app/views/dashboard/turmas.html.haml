@@ -1,0 +1,88 @@
+%br
+%br
+.container-fluid
+  .row
+    %nav.col-md-2.d-none.d-md-block.bg-light.sidebar{style: 'margin-top: 40px'}
+      .sidebar-sticky
+        %ul.nav.flex-column
+          %li.nav-item
+            %a.nav-link{href: dashboard_path}
+              %span{'data-feather': "home"}
+              Dashboard
+              %span.sr-only (current)
+          -if current_user.kind_of?(Admin)
+            %li.nav-item
+              %a.nav-link{href: dashboard_disciplinas_path}
+                %span{'data-feather': "file"}
+                Disciplinas
+          - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
+            %li.nav-item
+              %a.nav-link{href: dashboard_monitorias_path}
+                %span{'data-feather': "github"}
+                Monitoria
+
+          -if current_user.kind_of?(Professor)
+            %ul.nav.flex-column.mb-2
+              %li.nav-item
+                %a.nav-link.active{href: dashboard_turmas_path}
+                  %span{'data-feather': "edit"}
+                  Turmas
+
+        %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+          Menu
+          %span do usuário
+          %a.d-flex.align-items-center.text-muted{href: "#"}
+            %span{'data-feather': "plus-circle"}
+
+        -if current_user.kind_of?(User) || current_user.kind_of?(Professor)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_edit_user_path}
+                %span{'data-feather': "settings"}
+                Editar Perfil
+
+        -if current_user.kind_of?(User)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_dados_bancarios_path}
+                %span{'data-feather': "dollar-sign"}
+                Dados Bancários
+
+    %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
+      .row
+        .col-10
+          .row
+            .col
+              .row
+                .col
+                  %h2 Suas Turmas
+                  %hr
+                  %ul.list-group
+                    - @turmas = TurmasController.get_turmas(current_user)
+                    - @turmas.each do |t|
+                      %li.list-group-item
+                        - d = Disciplina.find_by(cod_disciplina: t.fk_cod_disciplina)
+                        Disciplina:
+                        =d.nome
+                        %br
+                        Turma:
+                        =t.turma
+                        %br
+                        Bolsas:
+                        =t.qnt_bolsas
+                        %br
+                        %a.btn.btn-outline-warning.btn-block{ href: edit_turma_path(t.id) } Editar dados
+                        = link_to "Apagar turma", turma_path(t.id), method: :delete, class: 'btn btn-outline-danger btn-block'
+                .col
+                  %br
+                  %br
+                  %p.text-justify
+                    Para iniciar o processo de seleção de monitores, o professor precisa, primeiro, cadastra
+                    turmas para as disciplinas que ministra. A edição e remoção das turmas também pode ser feito
+                    aqui.
+                    %br
+                    Após o cadastro das turmas, professor pode analisar os candidatos a monitores de suas turmas
+                    na página de 'Turmas'.
+                  %br
+                  %a.btn.btn-outline-success.btn-block{href: new_turma_path} Cadastrar nova turma
+        .col-2

@@ -10,23 +10,36 @@
               %span{'data-feather': "home"}
               Dashboard
               %span.sr-only (current)
-          - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
+          -if current_user.kind_of?(Admin)
             %li.nav-item
-              %a.nav-link{href: disciplinas_path}
+              %a.nav-link{href: dashboard_disciplinas_path}
                 %span{'data-feather': "file"}
                 Disciplinas
+          - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
+            %li.nav-item
+              %a.nav-link{href: dashboard_monitorias_path}
+                %span{'data-feather': "github"}
+                Monitoria
 
-        %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
-          Menu
-          %span do usuário
-          %a.d-flex.align-items-center.text-muted{href: "#"}
-            %span{'data-feather': "plus-circle"}
+          -if current_user.kind_of?(Professor)
+            %ul.nav.flex-column.mb-2
+              %li.nav-item
+                %a.nav-link{href: dashboard_turmas_path}
+                  %span{'data-feather': "edit"}
+                  Turmas
+
+        -unless current_user.kind_of?(Admin)
+          %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+            Menu
+            %span do usuário
+            %a.d-flex.align-items-center.text-muted{href: "#"}
+              %span{'data-feather': "plus-circle"}
 
         -if current_user.kind_of?(User) || current_user.kind_of?(Professor)
           %ul.nav.flex-column.mb-2
             %li.nav-item
               %a.nav-link{href: dashboard_edit_user_path}
-                %span{'data-feather': "edit"}
+                %span{'data-feather': "settings"}
                 Editar Perfil
 
         -if current_user.kind_of?(User)
@@ -37,21 +50,92 @@
                 Dados Bancários
 
     %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
-      - if flash[:notice]
-        .alert.alert-success
-          =flash[:notice]
-      - if flash[:danger]
-        %div{class: "alert alert-danger"}
-          - flash[:danger].each do |msg|
-            %ul
+      .row
+        - if flash[:notice]
+          .alert.alert-success
+            =flash[:notice]
+        - if flash[:danger]
+          %div{class: "alert alert-danger"}
+            - flash[:danger].each do |msg|
+              %ul
+                %li
+                  =msg
+        .col-10
+          -if current_user.kind_of?(User)
+            %h1
+              Bem vindo ao MonitoriaCiC,
+              %span.color-unb-green
+                = current_user.name
+              !
+            %br
+            %p.lead
+              Os dias de papel e burocracia acabaram. Agora os alunos podem utilizar o MonitoriaCiC
+              para realizar inscrições para monitoria de disciplinas sem precisar sair de casa.
+              Para começar utilizar o sistema siga os passos listados abaixo:
+            %ol.lead
               %li
-                =msg
-      -if current_user.kind_of?(User)
-        %h1
-          Hello, Aluno Dashboard!
-      -elsif current_user.kind_of?(Professor)
-        %h1
-          Hello, Professor Dashboard!
-      -elsif current_user.kind_of?(Admin)
-        %h1
-          Hello, Admin Dashboard!
+                %p.lead
+                  Cadastre seus dados bancários clicando
+                  %a{href: dashboard_dados_bancarios_path}aqui;
+              %li
+                %p.lead
+                  Inscreva-se para monitoria clicando
+                  %a{href: dashboard_monitorias_path}aqui.
+            %p.lead
+              Quando terminar, basta acompanhar sua inscrição clicando em 'Monitoria' no menu lateral.
+
+          -elsif current_user.kind_of?(Professor)
+            %h1
+              Bem vindo ao MonitoriaCiC,
+              %span.color-unb-green
+                = current_user.name
+              !
+            %br
+            %p.lead
+              Os dias de papel e burocracia acabaram. Agora os professores podem utilizar o MonitoriaCiC para
+              selecioar seus monitores diretamente pelo computador. Para começar a utilizar o sistema, siga
+              os passos abaixo:
+            %ol.lead
+              %li
+                %p
+                  Cadastre suas turmas clicando
+                  %a{href: dashboard_turmas_path}aqui.
+              %li
+                %p
+                  Veja os alunos inscritos para monitora em suas turmas clicando
+                  %a{href: dashboard_monitorias_path}aqui.
+              %li
+                %p
+                  Verifique se os links 'Ver lista de monitores' estão azuis para
+                  uma dada disciplina. Em caso positivo, clica no link para aceitar
+                  ou recusar o monitor para turma da sua disciplina.
+            %p.lead
+              Para analisar os candidatos, basta clicar em 'Monitoria' no menu lateral. Também é na página de
+              'Monitoria' que o professor poderá escolher os monitores para a disciplina.
+          -elsif current_user.kind_of?(Admin)
+            %h1
+              Bem vindo ao MonitoriaCiC,
+              %span.color-unb-green
+                Admin
+              !
+            %br
+            %p.lead
+              Como administrador, é seu papel cadastrar e gerenciar as disciplinas do sistema. É, também, de extrema
+              importância que reporte os problemas e novas FAQ's para os desenvolvedores do sistema
+              para que o mesmo possa ser atualizado de acordo.
+              %br
+              Para adicionar disciplinas, basta seguir os passos:
+            %ol.lead
+              %li
+                Clique em 'Disciplinas' no menu lateral
+              %li
+                Clique em 'Adicionar nova Disciplina' na página aberta
+              %li
+                Preencha os dados de acordo com a disciplina desejada
+            %br
+            %p.lead
+              É também papel do adminstrador excluir alunos que tenham fornecido informações falsas ou
+              que tenham concluído o curso de graduação e não são mais alunos da Universidade.
+              Para realizar a ação de exclusão, basta clicar em 'Alunos' no menu lateral, procurar o aluno
+              na lista e clicar em 'Excluir aluno'.
+        .col-2

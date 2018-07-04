@@ -1,0 +1,58 @@
+%br
+%main.container{role: "main"}
+  .row
+    .col-3
+    .col.text-center
+      %h1 Aplicar Para Monitor
+      %hr
+      %p.text-justify
+        Os alunos interessados em ser monitores devem preencher o cadastro para monitoria abaixo.
+        Escolher o tipo (remunerado/volutário) é <b>obrigatório</b> assim como uma descrição.
+        %br
+        A descrição deve conter a nota que o aluno obteve na disciplina e seu IRA.
+    .col-3
+
+  .row
+    .col-3
+    .col
+      -if flash[:danger]
+        .alert.alert-danger
+          = flash[:danger]
+      -if flash[:notice]
+        .alert.alert-success
+          = flash[:notice]
+      = form_tag monitorias_path, method: :post do
+        = hidden_field :monitoria, :fk_matricula, value: @user.matricula
+        = hidden_field :monitoria, :prioridade, value: 1
+        = hidden_field :monitoria, :fk_status_monitoria_id, value: 1 
+        .form-group.row
+          = label :monitoria, :remuneracao, "Remuneraçao", class: "col-sm-3 col-form-label"
+          .col-sm-9
+            = select :monitoria, :remuneracao, options_for_select([["---", nil], ["Voluntária"], ["Remunerada"]]), {}, class: 'custom-select'
+
+        .form-group.row
+          = label :monitoria, :fk_cod_disciplina, "Disciplina", class: "col-sm-3 col-form-label"
+          .col-sm-9
+            - disciplina = Disciplina.find(@cod_disciplina)
+            = hidden_field :monitoria, :fk_cod_disciplina, value: @cod_disciplina
+            = disciplina.nome
+
+        .form-group.row
+          = label :monitoria, :fk_turmas_id, "Turma", class: "col-sm-3 col-form-label"
+          .col-sm-9
+            - turmas = Turma.where(:fk_cod_disciplina => @cod_disciplina)
+            - all = []
+            - turmas.each do |turma|
+              - atual = [turma.turma, turma.id]
+              - all.insert(-1, atual)
+            = select :monitoria, :fk_turmas_id, options_for_select(all), {}, class: 'custom-select'
+
+        .form-group.row
+          = label :monitoria, :descricao_status, "Descriçao", class: "col-sm-3 col-form-label"
+          .col-sm-9
+            = text_field :monitoria, :descricao_status, :class => "form-control", :autocomplete => "off", :required => "required"
+
+        
+        %br
+        = submit_tag 'Cadastrar', class: "btn btn-outline-primary btn-block unb-blue"
+    .col-3
