@@ -10,14 +10,15 @@
               %span{'data-feather': "home"}
               Dashboard
               %span.sr-only (current)
-          %li.nav-item
-            %a.nav-link{href: dashboard_disciplinas_path}
-              %span{'data-feather': "file"}
-              Disciplinas
+          -if current_user.kind_of?(Admin)
+            %li.nav-item
+              %a.nav-link{href: dashboard_disciplinas_path}
+                %span{'data-feather': "file"}
+                Disciplinas
           - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
             %li.nav-item
               %a.nav-link{href: dashboard_monitorias_path}
-                %span{'data-feather': "home"}
+                %span{'data-feather': "github"}
                 Monitoria
 
           -if current_user.kind_of?(Professor)
@@ -63,7 +64,9 @@
           -if current_user.kind_of?(User)
             %h1
               Bem vindo ao MonitoriaCiC,
-              = current_user.name + "!"
+              %span.color-unb-green
+                = current_user.name
+              !
             %br
             %p.lead
               Os dias de papel e burocracia acabaram. Agora os alunos podem utilizar o MonitoriaCiC
@@ -84,7 +87,8 @@
           -elsif current_user.kind_of?(Professor)
             %h1
               Bem vindo ao MonitoriaCiC,
-              = current_user.name
+              %span.color-unb-green
+                = current_user.name
               !
             %br
             %p.lead
@@ -98,11 +102,40 @@
                   %a{href: dashboard_turmas_path}aqui.
               %li
                 %p
-                  Lorem Ipsum
+                  Veja os alunos inscritos para monitora em suas turmas clicando
+                  %a{href: dashboard_monitorias_path}aqui.
+              %li
+                %p
+                  Verifique se os links 'Ver lista de monitores' estão azuis para
+                  uma dada disciplina. Em caso positivo, clica no link para aceitar
+                  ou recusar o monitor para turma da sua disciplina.
             %p.lead
               Para analisar os candidatos, basta clicar em 'Monitoria' no menu lateral. Também é na página de
               'Monitoria' que o professor poderá escolher os monitores para a disciplina.
           -elsif current_user.kind_of?(Admin)
             %h1
-              Hello, Admin Dashboard!
+              Bem vindo ao MonitoriaCiC,
+              %span.color-unb-green
+                Admin
+              !
+            %br
+            %p.lead
+              Como administrador, é seu papel cadastrar e gerenciar as disciplinas do sistema. É, também, de extrema
+              importância que reporte os problemas e novas FAQ's para os desenvolvedores do sistema
+              para que o mesmo possa ser atualizado de acordo.
+              %br
+              Para adicionar disciplinas, basta seguir os passos:
+            %ol.lead
+              %li
+                Clique em 'Disciplinas' no menu lateral
+              %li
+                Clique em 'Adicionar nova Disciplina' na página aberta
+              %li
+                Preencha os dados de acordo com a disciplina desejada
+            %br
+            %p.lead
+              É também papel do adminstrador excluir alunos que tenham fornecido informações falsas ou
+              que tenham concluído o curso de graduação e não são mais alunos da Universidade.
+              Para realizar a ação de exclusão, basta clicar em 'Alunos' no menu lateral, procurar o aluno
+              na lista e clicar em 'Excluir aluno'.
         .col-2

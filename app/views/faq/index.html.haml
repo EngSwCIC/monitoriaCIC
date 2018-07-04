@@ -177,3 +177,20 @@
               desejada.
               %br
               É possível, também, apagar as turmas cadastradas clicando em 'Apagar turma' na turma desejada.
+
+        .card
+          .card-header{id: "headingFour2"}
+            %h5.mb-0
+              %button.btn.btn-link.collapsed.unb-link{type: "button", 'data-toggle': "collapse", 'data-target': "#collapseFour2",
+              'aria-expanded': "false", 'aria-controls': "collapseFour2"}
+                Selecionar Monitores
+          .collapse{id: "collapseFour2", 'aria-labelledby': "headingFour2", 'data-parent': "#accordionExample2"}
+            .card-body
+              Para selecionar os monitores de uma disciplina, o professor deve estar logado em sua conta. Uma vez
+              logado, deve clicar em 'Monitoria' no menu lateral, observar os links para cada turma. Links de cor
+              cinza indicam que não há alunos inscritos para o processo em uma dada turma, links de cor azul indicam
+              que há alunos inscritos no processo para uma dada turma.
+              %br
+              Ao clicar no link 'Ver lista de monitores', o professor será levado a uma página onde poderá ver
+              todos os alunos inscritos para monitoria naquela turma. Para aceitar ou recusar os alunos, o
+              professor deve clicar em 'Alterar Situação', selecionar a nova 'Situação' e clicar em 'Atualizar'.

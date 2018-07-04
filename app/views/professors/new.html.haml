@@ -41,7 +41,7 @@
         .form-group.row
           = label :professor, :role, "Papel", class: "col-sm-2 col-form-label"
           .col-sm-10
-            = select :professor, :role, options_for_select(Professor.all_roles)
+            = select :professor, :role, options_for_select(Professor.all_roles), {}, class: 'custom-select'
 
         .row
           .col
