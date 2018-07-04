@@ -74,6 +74,40 @@ Dado /^(?:|que )o banco possui uma disciplina$/ do
     :c_ext => 0)
 end
 
+Dado /^(?:|que )o banco possui uma turma cadastrada$/ do
+  Turma.create!(
+    id: 1,
+    turma: 'A',
+    professor: 'Genaina Nunes Rodrigues',
+    fk_cod_disciplina: 1,
+    fk_status_turma_id: 3,
+    qnt_bolsas: 4,
+    fk_vagas_id: 1
+  )
+end
+
+Dado /^(?:|que )o banco possui duas turmas cadastradas$/ do
+  Turma.create!(
+      id: 1,
+      turma: 'A',
+      professor: 'Genaina Nunes Rodrigues',
+      fk_cod_disciplina: 1,
+      fk_status_turma_id: 3,
+      qnt_bolsas: 4,
+      fk_vagas_id: 1
+  )
+
+  Turma.create!(
+      id: 2,
+      turma: 'B',
+      professor: 'Genaina Nunes Rodrigues',
+      fk_cod_disciplina: 1,
+      fk_status_turma_id: 3,
+      qnt_bolsas: 4,
+      fk_vagas_id: 1
+  )
+end
+
 Dado /^(?:|que eu )estou na (.+)$/ do |page_name|
   visit path_to(page_name)
 end
@@ -128,6 +162,10 @@ Quando /^(?:|eu )clico em "([^"]*)"$/ do |link|
   click_link(link)
 end
 
+Quando /^(?:|eu )clico em "([^"]*)" da primeira turma$/ do |link|
+  click_link(link)
+end
+
 Quando /^(?:|eu )preencho "([^"]*)" com "([^"]*)"$/ do |field, value|
   fill_in(field, :with => value)
 end
@@ -144,79 +182,9 @@ Quando /^(?:|eu )preencho o formulário com:$/ do |table|
   table.rows_hash.each {|field, value| fill_in field, :with => value}
 end
 
-Quando /^(?:|eu )preencho o formulário de cadastro com o campo "([^"]*)" inválido:$/ do |string|
-  case string
-  when "Nome"
-    steps %(Quando eu preencho o formulário com:
-        | Nome            |                           |
-        | Matrícula       | 140080279                 |
-        | Email           | bernardoc1104@gmail.com   |
-        | CPF             | 01234567890               |
-        | RG              | 1234567                   |
-        | Senha           | 12345678                  |
-        | Confirmar Senha | 12345678                  |
-    )
-  when "Email"
-    steps %(Quando eu preencho o formulário com:
-        | Nome            | Bernardo Costa Nascimento |
-        | Matrícula       | 140080279                 |
-        | Email           |                           |
-        | CPF             | 01234567890               |
-        | RG              | 1234567                   |
-        | Senha           | 12345678                  |
-        | Confirmar Senha | 12345678                  |
-    )
-  when "Matrícula"
-    steps %(Quando eu preencho o formulário com:
-        | Nome            | Bernardo Costa Nascimento |
-        | Matrícula       |                           |
-        | Email           | bernardoc1104@gmail.com   |
-        | CPF             | 01234567890               |
-        | RG              | 1234567                   |
-        | Senha           | 12345678                  |
-        | Confirmar Senha | 12345678                  |
-    )
-  when "CPF"
-    steps %(Quando eu preencho o formulário com:
-        | Nome            | Bernardo Costa Nascimento |
-        | Matrícula       | 140080279                 |
-        | Email           | bernardoc1104@gmail.com   |
-        | CPF             |                           |
-        | RG              | 1234567                   |
-        | Senha           | 12345678                  |
-        | Confirmar Senha | 12345678                  |
-    )
-  when "RG"
-    steps %(Quando eu preencho o formulário com:
-        | Nome            | Bernardo Costa Nascimento |
-        | Matrícula       | 140080279                 |
-        | Email           | bernardoc1104@gmail.com   |
-        | CPF             | 01234567890               |
-        | RG              |                           |
-        | Senha           | 12345678                  |
-        | Confirmar Senha | 12345678                  |
-    )
-  when "Senha"
-    steps %(Quando eu preencho o formulário com:
-        | Nome            | Bernardo Costa Nascimento |
-        | Matrícula       |                           |
-        | Email           | bernardoc1104@gmail.com   |
-        | CPF             | 01234567890               |
-        | RG              | 1234567                   |
-        | Senha           | 12345678                  |
-        | Confirmar Senha | 12345678                  |
-    )
-  when "Confimar Senha"
-    steps %(Quando eu preencho o formulário com:
-        | Nome            | Bernardo Costa Nascimento |
-        | Matrícula       |                           |
-        | Email           | bernardoc1104@gmail.com   |
-        | CPF             | 01234567890               |
-        | RG              | 1234567                   |
-        | Senha           | 12345678                  |
-        | Confirmar Senha |                           |
-    )
-  end
+Quando /^(?:|eu )aperto enter no teclado$/ do
+  page.evaluate_script('window.confirm = function() { return true; }')
+  page.click('Ok')
 end
 
 Então /^(?:|eu )devo estar na (.+)$/ do |page_name|
@@ -244,7 +212,7 @@ Então /^(?:|eu )não devo ver "([^"]*)"$/ do |text|
   end
 end
 
-Então /^(?:|eu )devo ver as todas as mensagens de falha para registro de professores$/ do
+Então /^(?:|eu )devo ver todas as mensagens de falha para registro de professores$/ do
   steps %(
     E eu devo ver "Password can't be blank"
     E eu devo ver "Password must be between 6 and 12 characters"
@@ -255,6 +223,27 @@ Então /^(?:|eu )devo ver as todas as mensagens de falha para registro de profes
     E eu devo ver "Username only word characters (letter, numbers, underscore...)"
     E eu devo ver "Email can't be blank"
     E eu devo ver "Email not a UnB email"
+    E eu devo ver "Password confirmation must be between 6 and 12 characters"
+  )
+end
+
+Então /^(?:|eu )devo ver todas as mensagens de falha para registro de alunos$/ do
+  steps %(
+    E eu devo ver "Password can't be blank"
+    E eu devo ver "Password must be between 6 and 12 characters"
+    E eu devo ver "Name can't be blank"
+    E eu devo ver "Name is too short (minimum is 3 characters)"
+    E eu devo ver "Email can't be blank"
+    E eu devo ver "Email invalid email format"
+    E eu devo ver "Cpf can't be blank"
+    E eu devo ver "Cpf is the wrong length (should be 11 characters)"
+    E eu devo ver "Cpf only numbers"
+    E eu devo ver "Rg can't be blank"
+    E eu devo ver "Rg is too short (minimum is 7 characters)"
+    E eu devo ver "Rg only numbers"
+    E eu devo ver "Matricula can't be blank"
+    E eu devo ver "Matricula is the wrong length (should be 9 characters)"
+    E eu devo ver "Matricula only numbers"
     E eu devo ver "Password confirmation must be between 6 and 12 characters"
   )
 end

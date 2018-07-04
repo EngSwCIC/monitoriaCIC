@@ -26,4 +26,4 @@
         | Senha           | |
         | Confirmar Senha | |
       E eu aperto em "Registrar"
-      Então eu devo ver as todas as mensagens de falha para registro de professores
+      Então eu devo ver todas as mensagens de falha para registro de professores

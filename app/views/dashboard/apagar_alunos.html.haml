@@ -10,14 +10,14 @@
               %span{'data-feather': "home"}
               Dashboard
               %span.sr-only (current)
-          -if current_user.kind_of? Admin
+          -if current_user.kind_of?(Admin)
             %li.nav-item
               %a.nav-link{href: dashboard_disciplinas_path}
                 %span{'data-feather': "file"}
-              Disciplinas
+                Disciplinas
           - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
             %li.nav-item
-              %a.nav-link.active{href: dashboard_monitorias_path}
+              %a.nav-link{href: dashboard_monitorias_path}
                 %span{'data-feather': "github"}
                 Monitoria
 
@@ -31,7 +31,7 @@
           -if current_user.kind_of?(Admin)
             %ul.nav.flex-column.mb-2
               %li.nav-item
-                %a.nav-link{href: dashboard_apagar_alunos_path}
+                %a.nav-link.active{href: dashboard_apagar_alunos_path}
                   %span{'data-feather': "trash"}
                   Apagar alunos
 
@@ -57,44 +57,43 @@
                 Dados Bancários
 
     %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
-      .col-1
-      .col
-        -if flash[:danger]
-          .alert.alert-danger
-            - flash[:danger]
-        -if flash[:notice]
-          .alert.alert-success
-            = flash[:notice]
-        - d = Disciplina.find(Turma.find(params[:id]).fk_cod_disciplina)
-        %h2 Candidatos a monitor
-        %h4 Disciplina: #{d.nome}
-        %h5
-          Turma: #{Turma.find(params[:id]).turma}
-        %br
-        .row
-          - @alunos.each do |a|
-            - @monitoria.each do |monitor|
-              - if monitor.fk_matricula == a.matricula
-                .col-3
-                  .card
-                    .card-body
-                      %h5.card-title
-                        Aluno: <b>#{a.name}</b>
-                      %br
-                      Matrícula: <b>#{a.matricula}</b>
-                      %br
-                      Remuneração: <b>#{monitor.remuneracao}</b>
-                      %br
-                      Descrição: <b>#{monitor.descricao_status}</b>
-                      %br
-                      Status:
-                      %b
-                        - if monitor.fk_status_monitoria_id == 1
-                          Pendente
-                        - elsif monitor.fk_status_monitoria_id == 2
-                          Rejeitado
-                        - else
-                          Aceito
-                      %hr
-                      =link_to "Alterar Situaçao", edit_monitoria_path(monitor.id), class: 'btn btn-outline-primary unb-blue btn-block'
-      .col-1
+      .row
+        .col
+          %h2 Deletar Alunos
+          %hr
+          -if flash[:danger]
+            .alert.alert-danger
+              = flash[:danger]
+          -if flash[:notice]
+            .alert.alert-success
+              = flash[:notice]
+      %br
+      .row
+        .col
+          .row
+            .col-8
+              .row
+                - @users.each do |user|
+                  .col-6
+                    .card
+                      .card-body
+                        %h5.card-title #{user.name}
+                        %hr
+                        Matricula: <b>#{user.matricula}</b>
+                        %br
+                        Email: <b>#{user.email}</b>
+                        %br
+                        CPF: <b>#{user.cpf}</b>
+                        %br
+                        RG: <b>#{user.rg}</b>
+            .col-4
+              Utilize o campo abaixo para digitar a matrícula do aluno que será deletado e
+              clique em 'Deletar aluno' para concluir a ação.
+              %hr
+              = form_tag dashboard_deletar_aluno_path, method: :post do
+                = label :user, :matricula, 'Matrícula'
+                = text_field :user, :matricula, class: 'form-control', autocomplete: 'off'
+
+                %br
+                = submit_tag 'Deletar aluno', class: 'btn btn-outline-danger btn-block', data: {confirm: 'Tem certeza que deseja apagar o aluno?'}
+        .col-1

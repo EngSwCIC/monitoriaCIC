@@ -58,6 +58,21 @@ module NavigationHelpers
     when /^página de edição de dados bancários$/
       edit_dados_bancario_path(User.find_by_email('bernardoc1104@gmail.com').id)
 
+    when /^página de turmas$/
+      dashboard_turmas_path
+
+    when /^página de cadastro de turmas$/
+      new_turma_path
+
+    when /^página de edição de turma$/
+      edit_turma_path(Turma.find(1))
+
+    when /^página de apagar alunos$/
+      dashboard_apagar_alunos_path
+
+    when /^página de Sobre do sistema$/
+      sobre_path
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

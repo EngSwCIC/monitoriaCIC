@@ -52,4 +52,15 @@ class Turma < ActiveRecord::Base
   validates_presence_of :professor
   validates_presence_of :fk_cod_disciplina
   validates_presence_of :qnt_bolsas
+  validate :turma_unica
+
+  def turma_unica
+    @turmas = Turma.where(fk_cod_disciplina: fk_cod_disciplina)
+
+    @turmas.each do |t|
+      if t.turma == turma
+        errors.add(:turma, "#{turma} não é a única para a disciplina #{Disciplina.find(fk_cod_disciplina).nome}")
+      end
+    end
+  end
 end
