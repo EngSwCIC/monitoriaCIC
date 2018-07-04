@@ -1,9 +1,9 @@
-%br
 %main.container{role: "main"}
   .row
     .col-3
     .col.text-center
       %h1 Cadastrar Nova Disciplina
+      %hr
       %p.text-justify
         Como professor, você pode cadastrar suas disciplinas aqui, bastando preencher os dados do formulário abaixo.
     .col-3
@@ -18,7 +18,6 @@
         .alert.alert-success
           = flash[:notice]
       = form_tag disciplinas_path, method: :post do
-        <!-- = hidden_field :professor, :id, value: Disciplina.count()+1 -->
         .form-group.row
           = label :disciplina, :nome, "Nome", class: "col-sm-2 col-form-label"
           .col-sm-10
@@ -52,3 +51,4 @@
         %br
         = submit_tag 'Cadastrar', class: "btn btn-outline-primary btn-block"
     .col-3
+%br

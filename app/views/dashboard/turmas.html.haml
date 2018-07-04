@@ -6,20 +6,25 @@
       .sidebar-sticky
         %ul.nav.flex-column
           %li.nav-item
-            %a.nav-link.active{href: dashboard_path}
+            %a.nav-link{href: dashboard_path}
               %span{'data-feather': "home"}
               Dashboard
               %span.sr-only (current)
-          - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
+          -if current_user.kind_of?(Admin)
             %li.nav-item
-              %a.nav-link{href: disciplinas_path}
+              %a.nav-link{href: dashboard_disciplinas_path}
                 %span{'data-feather': "file"}
                 Disciplinas
+          - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
+            %li.nav-item
+              %a.nav-link{href: dashboard_monitorias_path}
+                %span{'data-feather': "github"}
+                Monitoria
 
           -if current_user.kind_of?(Professor)
             %ul.nav.flex-column.mb-2
               %li.nav-item
-                %a.nav-link{href: dashboard_turmas_path}
+                %a.nav-link.active{href: dashboard_turmas_path}
                   %span{'data-feather': "edit"}
                   Turmas
 
@@ -33,7 +38,7 @@
           %ul.nav.flex-column.mb-2
             %li.nav-item
               %a.nav-link{href: dashboard_edit_user_path}
-                %span{'data-feather': "edit"}
+                %span{'data-feather': "settings"}
                 Editar Perfil
 
         -if current_user.kind_of?(User)
@@ -44,45 +49,49 @@
                 Dados Bancários
 
     %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
-      - if flash[:notice]
-        .alert.alert-success
-          =flash[:notice]
-      - if flash[:danger]
-        %div{class: "alert alert-danger"}
-          - flash[:danger].each do |msg|
-            %ul
-              %li
-                =msg
-      .col-1
-      .col
-        .row
-          .col
-            .row
-              .col
-                %h2 Suas Turmas
-                %br
-                %ul.list-group
-                  - @turmas = TurmasController.get_turmas(current_user)
-                  - @turmas.each do |t|
-                    %li.list-group-item
-                      - d = Disciplina.find_by(cod_disciplina: t.fk_cod_disciplina)
-                      Disciplina:
-                      =d.nome
-                      %br
-                      Turma:
-                      =t.turma
-                      %br
-                      Bolsas:
-                      =t.qnt_bolsas
-                      %br
-                      %a.btn.btn-outline-warning.btn-block{ href: edit_turma_path(t.id) } Editar dados
-                      = link_to "Apagar turma", turma_path(t.id), method: :delete, class: 'btn btn-outline-danger btn-block'
-              .col
-                .p.text-justify
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis lobortis justo, id suscipit lacus.
-                  Pellentesque pharetra lorem et ipsum auctor, vitae viverra justo pretium.
-                  Proin magna justo, vulputate id nulla vel, lobortis aliquet velit. Praesent ut enim justo.
-                  Aliquam odio enim, facilisis ut blandit et, cursus vel lacus.
-                %br
-                %a.btn.btn-outline-success.btn-block{href: new_turma_path} Cadastrar nova turma
-      .col-1
+      .row
+        .col-10
+          .row
+            .col
+              .row
+                .col
+                  %h2 Suas Turmas
+                  %hr
+                  - if flash[:notice]
+                    .alert.alert-success
+                      =flash[:notice]
+                  - if flash[:danger]
+                    %div{class: "alert alert-danger"}
+                      - flash[:danger].each do |msg|
+                        %ul
+                          %li
+                            =msg
+                  %ul.list-group
+                    - @turmas = TurmasController.get_turmas(current_user)
+                    - @turmas.each do |t|
+                      %li.list-group-item
+                        - d = Disciplina.find_by(cod_disciplina: t.fk_cod_disciplina)
+                        Disciplina:
+                        =d.nome
+                        %br
+                        Turma:
+                        =t.turma
+                        %br
+                        Bolsas:
+                        =t.qnt_bolsas
+                        %br
+                        %a.btn.btn-outline-warning.btn-block{ href: edit_turma_path(t.id) } Editar dados
+                        = link_to "Apagar turma", turma_path(t.id), method: :delete, class: 'btn btn-outline-danger btn-block'
+                .col
+                  %br
+                  %br
+                  %p.text-justify
+                    Para iniciar o processo de seleção de monitores, o professor precisa, primeiro, cadastra
+                    turmas para as disciplinas que ministra. A edição e remoção das turmas também pode ser feito
+                    aqui.
+                    %br
+                    Após o cadastro das turmas, professor pode analisar os candidatos a monitores de suas turmas
+                    na página de 'Turmas'.
+                  %br
+                  %a.btn.btn-outline-success.btn-block{href: new_turma_path} Cadastrar nova turma
+        .col-2

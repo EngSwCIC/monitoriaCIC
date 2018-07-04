@@ -206,3 +206,49 @@ body {
   height: 300px;
   width: 100%;
 }
+
+.unb-blue{
+  border-color: #00427E;
+  color: #00427E;
+}
+.unb-blue:active, .unb-blue:hover{
+  background-color: #00427E !important;
+  border-color: #00427E !important;
+}
+
+.unb-blue:focus{
+  box-shadow: 0 0 0 0.2rem rgba(0, 66, 126, 0.5) !important;
+  background-color: #00427E !important;
+  border-color: #00427E !important;
+}
+
+.unb-green{
+  border-color: #008644;
+  color: #008644;
+}
+.unb-green:active, .unb-green:hover{
+  background-color: #008644 !important;
+  border-color: #008644 !important;
+}
+
+.unb-green:active, .unb-green:focus{
+  background-color: #008644 !important;
+  border-color: #008644 !important;
+  box-shadow: 0 0 0 0.2rem rgba(0, 140, 68, 0.5) !important;
+}
+
+.unb-link, .unb-link:visited, .unb-link:focus{
+  color: #008644 !important;
+}
+
+.unb-link:hover{
+  color: #006624 !important;
+}
+
+.color-unb-green{
+  color: #008644;
+}
+
+.color-unb-blue{
+  color: #00427E;
+}

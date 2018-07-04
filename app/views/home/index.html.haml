@@ -59,7 +59,7 @@
         Em mundo com uma crescente preocupação com o meio ambiente, nada melhor do que
         realizar uma tarefa sem ter que utilizar papel, não é mesmo?
       %p
-        %a.btn.btn-secondary{href: "#", role: "button"} View details &raquo;
+        %a.btn.btn-outline-secondary{href: sobre_path, role: "button"} Sobre &raquo;
     .col
       %img.rounded-circle{src: image_path("people.png"), alt: "Alunos e Professores", width: "140", height: "140"}
       %h2 Alunos e Professores
@@ -67,7 +67,8 @@
         Um unico sistema para alunos e professores. Aqui você pode ser cadastrar,
         aplicar (aluno) e selecionar (professor) para monitoria, sem burocracia!
       %p
-        %a.btn.btn-secondary{href: "#", role: "button"} View details &raquo;
+        %a.btn.btn-outline-primary.unb-blue{href: new_user_path, role: "button"} Alunos &raquo;
+        %a.btn.btn-outline-primary.unb-green{href: new_professor_path} Professores &raquo;
     .col
       %img.rounded-circle{src: image_path("computer.png"), alt: "Prático", width: "140", height: "140"}
       %h2 Prático
@@ -75,7 +76,7 @@
         Inicie seu processo para se tornar monitor, ou escolha agora o seu monitor.
         Tudo está a apenas alguns cliques de 'distância'. Comece a usar agora!
       %p
-        %a.btn.btn-secondary{href: "#", role: "button"} View details &raquo;
+        %a.btn.btn-outline-secondary{href: faq_path, role: "button"} FAQ &raquo;
 
   %hr.featurette-divider
 
@@ -87,7 +88,7 @@
       %p.lead
         As aulas estão voltando e é chegado mais um período de inscrição para monitorias. Nunca utilizou o sistema
         antes? Acesse a página
-        %a{href: "#"}sobre
+        %a{href: sobre_path}sobre
         para obter mais informações.
         %br
         Já possui conta?
@@ -99,7 +100,7 @@
 %br
 %br
 
-.container-fluid.bg-unb-green{style: 'margin-bottom: -8px; min-height: 400px; padding-top: 50px; padding-bottom: 50px;'}
+.container-fluid.bg-unb-green{id: 'contato', style: 'margin-bottom: -8px; min-height: 400px; padding-top: 50px; padding-bottom: 50px;'}
   .row
     .col-2
     .col
