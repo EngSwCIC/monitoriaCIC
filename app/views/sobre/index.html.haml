@@ -1,25 +1,34 @@
 %main.container{role: "container"}
   .row
     .col.text-justify
-      %h1 Sobre
-      %p
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id ante nunc.
-        Maecenas semper, orci eget volutpat suscipit, erat quam consectetur urna, eu porttitor sem risus eu ligula.
-        Duis pulvinar augue non justo sagittis consequat. Etiam non odio eu magna rhoncus gravida.
-        Morbi magna tortor, iaculis at dolor gravida, imperdiet molestie lectus.
-        Ut quam enim, faucibus sed cursus et, bibendum eget lacus.
-
-  %br
-
-    %h1 Como Usar este Site
-    %p
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse id ante nunc.
-      Maecenas semper, orci eget volutpat suscipit, erat quam consectetur urna, eu porttitor sem risus eu ligula.
-      Duis pulvinar augue non justo sagittis consequat. Etiam non odio eu magna rhoncus gravida.
-      Morbi magna tortor, iaculis at dolor gravida, imperdiet molestie lectus.
-      Ut quam enim, faucibus sed cursus et, bibendum eget lacus.
-      Quisque varius arcu eu dui ornare, mattis gravida nisi pharetra. Maecenas at sollicitudin diam.
-      Morbi finibus risus non nibh blandit euismod. Etiam dignissim nibh quis ex pretium ullamcorper.
-
+      %h1.text-center Sobre
+      %hr
+      %p.lead.text-justify
+        O MonitoriaCiC é um sistema que veio para facilitar a inscrição e seleção dos monitores
+        para as disciplinas do curso de graduação em Ciência da Computação da Universidade de Brasília.
+        Desenvolvido por alunos, o sistema cadastra as disciplinas, alunos e professores para que todo
+        o processo de seleção seja automatizado.
+      %br
+      %hr
+      %br
+      .row
+        .col-6
+          %img.img-fluid{src: image_path("computer.jpeg"), alt: "Digital"}
+        .col-6
+          %h1 Chega de papel
+          %p.lead.text-justify
+            Comece a usar o sistema agora mesmo e descubra como é fácil se tornar e escolher um monitor.
+            %br
+            Se você é um professor e ainda não possui uma conta, clique
+            %a{href: new_professor_path}
+              aqui.
+            %br
+            Se você é um aluno e ainda não possui uma conta, clique
+            %a{href: new_user_path}
+              aqui.
+            %br
+            Se já possui uma conta mas não sabe como usar o sistema, veja o nosso FAQ clicando
+            %a{href: faq_path}
+              aqui.
   %br
 
