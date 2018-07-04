@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   match "/dashboard/turmas", to: "dashboard#turmas", via: 'get'
   match "/dashboard/monitorias", to: "dashboard#monitorias", via: 'get'
   match "/dashboard/disciplinas", to: "dashboard#disciplinas", via: 'get'
+  match "/dashboard/monitorias/candidatos", to: "monitorias#show", via: 'get'
   match "/faq", to: "faq#index", :via => 'get'
   match "/sobre", to: "sobre#index", :via => 'get'
 end

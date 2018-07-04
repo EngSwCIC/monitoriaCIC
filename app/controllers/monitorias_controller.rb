@@ -1,14 +1,15 @@
 class MonitoriasController < ApplicationController
-	before_action :find_monitoria, only: [:show, :edit, :update, :destroy]
+	before_action :find_monitoria, only: [:show, :update, :destroy]
+	before_action :find_monitor, only: [:edit]
 	before_action :logged_in
 
 	def new
-		@monitoria = Monitoria.new
+		@cod_disciplina = params[:turma]
 		@user = current_user
 	end
 
 	def create
-		@monitoria = Monitoria.new monitoria_params
+		@monitoria = Monitoria.new(monitoria_params)
 
 		if @monitoria.save
 			redirect_to dashboard_monitorias_path, notice: "Aplicaçao para monitoria enviada com sucesso!"
@@ -44,6 +45,10 @@ class MonitoriasController < ApplicationController
 	end
 
 	def find_monitoria
+		@monitoria = Monitoria.where(fk_turmas_id: params[:id])
+	end
+
+	def find_monitor
 		@monitoria = Monitoria.find(params[:id])
 	end
 

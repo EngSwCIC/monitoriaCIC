@@ -51,45 +51,96 @@
       .row
         .col-10
           %h1 Monitoria
-          %br
+          %hr
           -if flash[:danger]
             .alert.alert-danger
               = flash[:danger]
           -if flash[:notice]
             .alert.alert-success
               = flash[:notice]
-          %br
 
           - if current_user.class == User
-            %p Utilize esta pagina para acompanhar suas solicitaçoes para monitor.
-            %a{href:new_monitoria_path, method:"get", :class=>"btn btn-primary"}Aplicar para Monitor
+            %p.lead
+              Aqui você pode realizar suas inscrições para monitorias nas disciplinas de sua escolha.
+              Após a inscrição, o acompanhamento e exclusão de inscrições pode ser realizado abaixo.
+            %p.lead
+              Voce tem <b>#{pluralize(@monitorias.count, "cadastro")}</b> para monitor.
             %br
-            %p Voce tem #{pluralize(@monitorias.count, "cadastro")} para monitor.
-            - @monitorias.each do |m|
-              - d = Disciplina.find(m.fk_cod_disciplina)
-              - case m.fk_status_monitoria_id
-                - when 1
-                  - status = "Pendente"
-                - when 2
-                  - status = "Rejeitado"
-                - when 3
-                  - status = "Aceito"
-              %hr
-              Aplicou para monitor na disciplina: #{d.nome}. 
-              %br
-              Status do solicitaçao: #{status}
-              %br
-              =link_to "Remover aplicaçao", monitoria_path(m), method: :delete, data: { confirm: "Tem certeza que quer desistir de monitorar esta disciplina?"}
-              %br
-              %br
-          - else
-            %p Utilize esta pagina para aceitar ou recusar solicitaçoes para monitor em sua turma.
-            %br
-              - Disciplina.find_each do |d|
-                - m = Monitoria.find_by(fk_cod_disciplina: d.cod_disciplina)
-                = d.nome
-                %br
-                = link_to "Ver lista de monitores.", monitoria_path(m)
-                %br
+            .row
+              .col-8
+                %h4 Inscrições
                 %hr
+                .row
+                  - @monitorias.each do |m|
+                    .col-6
+                      - d = Disciplina.find(m.fk_cod_disciplina)
+                      - case m.fk_status_monitoria_id
+                        - when 1
+                          - status = "Pendente"
+                        - when 2
+                          - status = "Rejeitado"
+                        - when 3
+                          - status = "Aceito"
+                      .card
+                        .card-body
+                          %h5.card-title
+                            Aplicação Monitoria
+                          %hr
+                          Disciplina: <b>#{d.nome}</b>
+                          %br
+                          Status do solicitaçao: <b>#{status}</b>
+                          %br
+                          %br
+                          =link_to "Remover aplicaçao", monitoria_path(m), method: :delete, data: {confirm: "Tem certeza que quer desistir de monitorar esta disciplina?"}, class: 'btn btn-outline-danger btn-block'
+              .col-4
+                %h4 Turmas
+                %hr
+                %div{style:'height: 550px; overflow-y: scroll'}
+                  - @turmas = Turma.all_turmas
+                  - @disciplinas = Disciplina.all_disciplinas
+                  - @disciplinas.each do |disciplina|
+                    - @turmas.each do |turma|
+                      - if disciplina.cod_disciplina == turma.fk_cod_disciplina
+                        .card
+                          .card-body
+                            %h5
+                              = disciplina.nome
+                            %p
+                              %b Turma:
+                              = turma.turma
+                              %br
+                              %b Professor:
+                              = turma.professor
+                            = link_to "Aplicar para monitoria", new_monitoria_path(turma: turma.fk_cod_disciplina), class: 'btn btn-outline-success unb-green btn-block'
+
+          - else
+            %p.lead
+              Professor, nessa página você pode visualizar todas as turmas de disciplinas que você
+              ministra que receberam inscrições de alunos para monitoria. Para acessar a lista
+              e escolher seus monitores, clique em 'Ver lista de monitores' em alguma das turmas abaixo.
+              %br
+              Caso o botão esteja desativado (cinza) significa que ainda não há aplicantes para monitoria
+              na disciplina.
+            %br
+            .row
+              .col
+                .ul.list-group
+                  - Turma.where(professor: @user.name).each do |turma|
+                    - @disciplina = Disciplina.find(turma.fk_cod_disciplina)
+                    %li.list-group-item
+                      Disciplina:
+                      %b
+                        = @disciplina.nome
+                      %br
+                      Turma:
+                      %b
+                        = turma.turma
+                      %br
+                      %br
+                      - cod = @disciplina.cod_disciplina
+                      - m = Monitoria.find_by(fk_cod_disciplina: cod, fk_turmas_id: turma.id)
+                      - if !m.nil?
+                        = link_to "Ver lista de monitores", dashboard_monitorias_candidatos_path(id: turma.id), class: 'btn btn-outline-primary unb-blue'
+                      - else
+                        = link_to "Ver lista de monitores", nil, class: 'btn btn-secondary disabled'
         .col-2

@@ -55,7 +55,7 @@
               .row
                 .col
                   %h2 Suas Turmas
-                  %br
+                  %hr
                   %ul.list-group
                     - @turmas = TurmasController.get_turmas(current_user)
                     - @turmas.each do |t|
@@ -73,11 +73,15 @@
                         %a.btn.btn-outline-warning.btn-block{ href: edit_turma_path(t.id) } Editar dados
                         = link_to "Apagar turma", turma_path(t.id), method: :delete, class: 'btn btn-outline-danger btn-block'
                 .col
-                  .p.text-justify
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis lobortis justo, id suscipit lacus.
-                    Pellentesque pharetra lorem et ipsum auctor, vitae viverra justo pretium.
-                    Proin magna justo, vulputate id nulla vel, lobortis aliquet velit. Praesent ut enim justo.
-                    Aliquam odio enim, facilisis ut blandit et, cursus vel lacus.
+                  %br
+                  %br
+                  %p.text-justify
+                    Para iniciar o processo de seleção de monitores, o professor precisa, primeiro, cadastra
+                    turmas para as disciplinas que ministra. A edição e remoção das turmas também pode ser feito
+                    aqui.
+                    %br
+                    Após o cadastro das turmas, professor pode analisar os candidatos a monitores de suas turmas
+                    na página de 'Turmas'.
                   %br
                   %a.btn.btn-outline-success.btn-block{href: new_turma_path} Cadastrar nova turma
         .col-2

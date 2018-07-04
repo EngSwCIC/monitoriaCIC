@@ -10,27 +10,35 @@
               %span{'data-feather': "home"}
               Dashboard
               %span.sr-only (current)
+          %li.nav-item
+            %a.nav-link{href: dashboard_disciplinas_path}
+              %span{'data-feather': "file"}
+              Disciplinas
           - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
             %li.nav-item
-              %a.nav-link{href: disciplinas_path}
-                %span{'data-feather': "book"}
-                Disciplinas
-          %li.nav-item
-            %a.nav-link.active{href: monitorias_path}
-              %span{'data-feather': "home"}
-              Monitoria
+              %a.nav-link.active{href: dashboard_monitorias_path}
+                %span{'data-feather': "home"}
+                Monitoria
 
-        %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
-          Menu
-          %span do usuário
-          %a.d-flex.align-items-center.text-muted{href: "#"}
-            %span{'data-feather': "plus-circle"}
+          -if current_user.kind_of?(Professor)
+            %ul.nav.flex-column.mb-2
+              %li.nav-item
+                %a.nav-link{href: dashboard_turmas_path}
+                  %span{'data-feather': "edit"}
+                  Turmas
+
+        -unless current_user.kind_of?(Admin)
+          %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+            Menu
+            %span do usuário
+            %a.d-flex.align-items-center.text-muted{href: "#"}
+              %span{'data-feather': "plus-circle"}
 
         -if current_user.kind_of?(User) || current_user.kind_of?(Professor)
           %ul.nav.flex-column.mb-2
             %li.nav-item
               %a.nav-link{href: dashboard_edit_user_path}
-                %span{'data-feather': "edit"}
+                %span{'data-feather': "settings"}
                 Editar Perfil
 
         -if current_user.kind_of?(User)
@@ -49,14 +57,36 @@
         -if flash[:notice]
           .alert.alert-success
             = flash[:notice]
-        - d = Disciplina.find(@monitoria.fk_cod_disciplina)
-        %h2 Candidatos a monitor de #{d.nome}
+        - d = Disciplina.find(Turma.find(params[:id]).fk_cod_disciplina)
+        %h2 Candidatos a monitor
+        %h4 Disciplina: #{d.nome}
+        %h5
+          Turma: #{Turma.find(params[:id]).turma}
         %br
-        - @alunos.each do |a|
-          - if @monitoria.fk_matricula == a.matricula
-            =a.name
-            %br
-            =link_to "Alterar Situaçao", edit_monitoria_path(@monitoria)
-            %br
-            %hr
+        .row
+          - @alunos.each do |a|
+            - @monitoria.each do |monitor|
+              - if monitor.fk_matricula == a.matricula
+                .col-3
+                  .card
+                    .card-body
+                      %h5.card-title
+                        Aluno: <b>#{a.name}</b>
+                      %br
+                      Matrícula: <b>#{a.matricula}</b>
+                      %br
+                      Remuneração: <b>#{monitor.remuneracao}</b>
+                      %br
+                      Descrição: <b>#{monitor.descricao_status}</b>
+                      %br
+                      Status:
+                      %b
+                        - if monitor.fk_status_monitoria_id == 1
+                          Pendente
+                        - elsif monitor.fk_status_monitoria_id == 2
+                          Rejeitado
+                        - else
+                          Aceito
+                      %hr
+                      =link_to "Alterar Situaçao", edit_monitoria_path(monitor.id), class: 'btn btn-outline-primary unb-blue btn-block'
       .col-1

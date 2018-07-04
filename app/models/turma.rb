@@ -37,6 +37,17 @@ class Turma < ActiveRecord::Base
     return @show
   end
 
+  def self.sel_turmas
+    [
+      'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
+      'AA', 'BB', 'CC', 'DD', 'EE', 'FF', 'GG', 'HH'
+    ]
+  end
+
+  def self.all_turmas
+    find_each()
+  end
+
   validates_presence_of :turma
   validates_presence_of :professor
   validates_presence_of :fk_cod_disciplina
