@@ -36,10 +36,41 @@ class DashboardController < ApplicationController
     @disciplinas = Disciplina.find_each
   end
 
+  def apagar_alunos
+    @users = User.order(:matricula)
+  end
+
+  def deletar_aluno
+    @user = User.find_by_matricula(params[:user][:matricula])
+
+    if !@user.nil?
+      @dados_bancarios = DadosBancarios.where(id: @user.fk_banco)
+      if !@dados_bancarios.nil?
+        DadosBancarios.delete(@dados_bancarios)
+      end
+
+      @monitoria = Monitoria.where(fk_matricula: @user.matricula)
+      if !@monitoria.nil?
+        Monitoria.delete(@monitoria)
+      end
+
+      @user = User.delete(@user.id)
+      flash[:notice] = 'Aluno apagado com sucesso!'
+    else
+      flash[:danger] = "Aluno de matrícula #{matricula_params} não existe."
+    end
+
+    redirect_to dashboard_apagar_alunos_path
+  end
+
   private
   def user_logged
     if !logged_in?
       redirect_to new_session_path, notice: "Você precisa estar logado para acessar essa página"
     end
+  end
+
+  def matricula_params
+    params.require(:user).permit(:matricula)
   end
 end

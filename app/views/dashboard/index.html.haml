@@ -49,6 +49,13 @@
                 %span{'data-feather': "dollar-sign"}
                 Dados Bancários
 
+        -if current_user.kind_of?(Admin)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_apagar_alunos_path}
+                %span{'data-feather': "trash"}
+                Apagar alunos
+
     %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
       .row
         - if flash[:notice]
