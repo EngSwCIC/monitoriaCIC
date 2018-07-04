@@ -41,7 +41,11 @@ class DashboardController < ApplicationController
   end
 
   def deletar_aluno
-    @user = User.find_by_matricula(params[:user][:matricula])
+    @matricula = params[:user][:matricula]
+    if @matricula.length == 0
+      @matricula = nil
+    end
+    @user = User.find_by_matricula(@matricula)
 
     if !@user.nil?
       @dados_bancarios = DadosBancarios.where(id: @user.fk_banco)
@@ -57,7 +61,11 @@ class DashboardController < ApplicationController
       @user = User.delete(@user.id)
       flash[:notice] = 'Aluno apagado com sucesso!'
     else
-      flash[:danger] = "Aluno de matrícula #{matricula_params} não existe."
+      if !@matricula.nil?
+        flash[:danger] = "Aluno de matrícula #{@matricula} não existe."
+      else
+        flash[:danger] = "Digite uma matrícula para deletar algum aluno."
+      end
     end
 
     redirect_to dashboard_apagar_alunos_path
@@ -68,9 +76,5 @@ class DashboardController < ApplicationController
     if !logged_in?
       redirect_to new_session_path, notice: "Você precisa estar logado para acessar essa página"
     end
-  end
-
-  def matricula_params
-    params.require(:user).permit(:matricula)
   end
 end

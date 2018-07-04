@@ -87,8 +87,8 @@
                         Bolsas:
                         =t.qnt_bolsas
                         %br
-                        %a.btn.btn-outline-warning.btn-block{ href: edit_turma_path(t.id) } Editar dados
-                        = link_to "Apagar turma", turma_path(t.id), method: :delete, class: 'btn btn-outline-danger btn-block'
+                        %a.btn.btn-outline-warning.btn-block{ href: edit_turma_path(t.id), id: "edit_#{t.id}" }Editar dados
+                        = link_to "Apagar turma", turma_path(t.id), method: :delete, class: 'btn btn-outline-danger btn-block', id: "delete_#{t.id}"
                 .col
                   %br
                   %br
