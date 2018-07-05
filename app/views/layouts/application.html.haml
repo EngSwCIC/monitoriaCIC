@@ -30,7 +30,7 @@
             - if logged_in?
               %li.nav-item.ml-auto
                 -unless current_user.kind_of? Admin
-                  %a{:class => "nav-link", :href => dashboard_edit_user_path} Perfil de #{logged_user.name}
+                  %a{:class => "nav-link", :href => dashboard_edit_user_path} Perfil de #{current_user.name}
                 -if current_user.kind_of? Admin
                   %a{:class => "nav-link", :href => dashboard_path} Dashboard
               %li.nav-item.ml-auto
