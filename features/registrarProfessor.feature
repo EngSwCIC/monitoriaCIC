@@ -3,9 +3,7 @@
     Um professor que acessa o sistema é capaz de se registrar manualmente
 
   Cenário de Fundo:
-    Dado que eu estou na página inicial do MonitoriaCIC
-    Quando eu clico em "aqui"
-    Então estou na página de registro de professores
+    Dado estou na página de registro de professores
 
     Cenário: Professor se registra no sistema
       Quando eu preencho o formulário com:
@@ -26,4 +24,4 @@
         | Senha           | |
         | Confirmar Senha | |
       E eu aperto em "Registrar"
-      Então eu devo ver as todas as mensagens de falha para registro de professores
+      Então eu devo ver todas as mensagens de falha para registro de professores

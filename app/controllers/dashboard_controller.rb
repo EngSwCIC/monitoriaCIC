@@ -26,14 +26,47 @@ class DashboardController < ApplicationController
         if m.fk_matricula == @user.matricula
           @monitorias << m
         end
-      else
-        @monitorias << m
       end
     end
   end
 
   def disciplinas
     @disciplinas = Disciplina.find_each
+  end
+
+  def apagar_alunos
+    @users = User.order(:matricula)
+  end
+
+  def deletar_aluno
+    @matricula = params[:user][:matricula]
+    if @matricula.length == 0
+      @matricula = nil
+    end
+    @user = User.find_by_matricula(@matricula)
+
+    if !@user.nil?
+      @dados_bancarios = DadosBancarios.where(id: @user.fk_banco)
+      if !@dados_bancarios.nil?
+        DadosBancarios.delete(@dados_bancarios)
+      end
+
+      @monitoria = Monitoria.where(fk_matricula: @user.matricula)
+      if !@monitoria.nil?
+        Monitoria.delete(@monitoria)
+      end
+
+      @user = User.delete(@user.id)
+      flash[:notice] = 'Aluno apagado com sucesso!'
+    else
+      if !@matricula.nil?
+        flash[:danger] = "Aluno de matrícula #{@matricula} não existe."
+      else
+        flash[:danger] = "Digite uma matrícula para deletar algum aluno."
+      end
+    end
+
+    redirect_to dashboard_apagar_alunos_path
   end
 
   private

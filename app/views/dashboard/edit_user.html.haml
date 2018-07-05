@@ -28,6 +28,13 @@
                   %span{'data-feather': "edit"}
                   Turmas
 
+          -if current_user.kind_of?(Admin)
+            %ul.nav.flex-column.mb-2
+              %li.nav-item
+                %a.nav-link{href: dashboard_apagar_alunos_path}
+                  %span{'data-feather': "trash"}
+                  Apagar alunos
+
         %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
           Menu
           %span do usuário
