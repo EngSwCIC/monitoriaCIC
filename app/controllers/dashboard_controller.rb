@@ -26,8 +26,6 @@ class DashboardController < ApplicationController
         if m.fk_matricula == @user.matricula
           @monitorias << m
         end
-      else
-        @monitorias << m
       end
     end
   end
