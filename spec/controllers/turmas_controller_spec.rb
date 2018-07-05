@@ -181,14 +181,15 @@ describe TurmasController do
 
   describe '#get_turmas' do
     before :each do
-      @professor1 = FactoryBot.create(:professor)
-      @professor2 = FactoryBot.create(:professor, id: '2', name: 'Rodrigo Bonifácio',
-                                      username: 'rbonifacio', email: 'rbonifacio@unb.br')
+      @professor1 = FactoryBot.create(:professor, id: '10', name: 'Marcus Lamar',
+                                      username: 'mlamar', email: 'lamar@unb.br')
+      @professor2 = FactoryBot.create(:professor, id: '12', name: 'Maristela Holanda',
+                                      username: 'mholanda', email: 'mholanda@unb.br')
       @disciplina1 = FactoryBot.create(:disciplina, cod_disciplina: '1')
       @disciplina2 = FactoryBot.create(:disciplina, cod_disciplina: '2')
-      @turma1 = FactoryBot.create(:turma, id: '1', fk_cod_disciplina: '1', turma: 'A')
-      @turma2 = FactoryBot.create(:turma, id: '2', fk_cod_disciplina: '1', turma: 'B')
-      @turma3 = FactoryBot.create(:turma, id: '3', fk_cod_disciplina: '2', turma: 'A', professor: 'Rodrigo Bonifácio')
+      @turma1 = FactoryBot.create(:turma, id: '1', fk_cod_disciplina: '1', turma: 'A', professor: 'Marcus Lamar')
+      @turma2 = FactoryBot.create(:turma, id: '2', fk_cod_disciplina: '1', turma: 'B', professor: 'Marcus Lamar')
+      @turma3 = FactoryBot.create(:turma, id: '3', fk_cod_disciplina: '2', turma: 'A', professor: 'Maristela Holanda')
     end
 
     it 'should return an array of Turmas' do

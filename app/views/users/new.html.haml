@@ -2,8 +2,17 @@
 %main.container{role: "container"}
   .row
     .col-5.text-justify
-      -# Your code here!
-      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ut ultricies odio, quis malesuada magna. Mauris nec tortor enim. Maecenas posuere nibh id justo scelerisque, sit amet consequat mi pellentesque. Quisque nibh arcu, efficitur sed sollicitudin hendrerit, tempor sed nisl. In elementum lorem mi, et volutpat nibh pulvinar vitae.
+      %h1 Registro de alunos
+      %hr
+      %p.text-justify
+        Você está a apenas alguns passos de começar usar o sistema que irá
+        mudar para sempre como o processo de seleção de monitores funciona.
+        Preencha os dados ao lado com suas informações e comece a usar o sistema agora mesmo!
+        %br
+        %br
+        %b
+          Lembre-se:
+        a veracidade das informações aqui fornecidas são de responsabilidade do usuário.
     .col-1
     .col-6
       = form_tag users_path, :method => :post do
