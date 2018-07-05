@@ -53,4 +53,24 @@ Após a execução desses comandos, a pasta "features" irá constar no root da a
 Nela poderão ser criados arquivos ".feature" para rodar testes baseados em "User Stories".
 
 ### Testes de Unidade
-~ Em desenvolvimento ~
+Juntamente com os testes de integração, novas features precisam também de testes
+unitários. Para realiza-los, é necessário a utilização do RSpec. Para instala-lo,
+o usuário deve executar os comandos:
+
+> $ rails generate rspec:install
+
+Após a instalação, o usuário poderá verificar a criação da pasta 'spec' no diretório principal
+da aplicação. Nela, o usuário poderá escrever testes unitários para as _controllers_ e _models_.
+O usuário deve criar pastas 'controllers' para os testes das _controllers_ e 'models' para as
+_models_. Adicionalmente, poderá criar as pastas 'fixtures' e 'factories' para criar _fixtures_
+e _FactoryBots_ a serem utilizados nos testes.
+
+Opicionalmente, o usuário pode abrir o arquivo .rspec, localizado no diretório raiz, e definir
+as seguintes diretrizes:
+
+> -c -fd
+
+Que servem para adicionar cor aos resultados gerados e formatação no texto respectivamente.
+
+Por fim, o usuário deve, após a geração dos testes, abrir o arquivo '/coverage/index.html' para
+verificar a cobertura do código, aqui realizada pelo SimpleCov.

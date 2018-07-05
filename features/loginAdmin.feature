@@ -13,7 +13,6 @@
         | user[password]  | 110492                |
       E aperto em "Login"
       Então eu devo estar na página de dashboard do usuário
-      E devo ver "Hello, Admin Dashboard!"
 
     Cenário: Eu, enquanto Administrador, não consigo acessar o sistema com uma conta inválida (Sad Path)
       Quando eu preencho o formulário com:
