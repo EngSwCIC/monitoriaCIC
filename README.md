@@ -13,7 +13,8 @@ Para instalar o sistema, é necessário possuir:
 - Rails versão 5.2.0
 - Gems:
   - Bootstrap versão 4.1.1
-  - Devise versão x.y.z
+  - jQuery-rails
+  - RSpec-rails
   - Cucumber-rails
   - Database-cleaner
   - Capybara

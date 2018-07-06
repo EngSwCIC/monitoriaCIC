@@ -165,14 +165,17 @@ describe TurmasController do
 
   describe '#destroy' do
     before :each do
+      @disciplina = FactoryBot.create(:disciplina, cod_disciplina: '24')
+      @monitoria = FactoryBot.create(:monitoria, id: '13', fk_cod_disciplina: '24', fk_turmas_id: '1')
       @db_turma = FactoryBot.create(:turma, id: '1')
       @params = {}
       @params[:id] = '1'
     end
 
-    it 'should delete a given Turma' do
+    it 'should delete a given Turma and all Monitorias associated with it' do
       expect(Turma).to receive(:find).with(@params[:id])
-        .and_return(Turma.find(@params[:id]))
+        .and_return(@db_turma)
+      expect(Monitoria).to receive(:find_each).and_return(Monitoria.find_each)
       delete :destroy, params: @params
       expect(flash[:notice]).to eq('Turma apagada com sucesso!')
       expect(subject).to redirect_to('/dashboard/turmas')
