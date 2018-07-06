@@ -29,7 +29,7 @@ module NavigationHelpers
       dashboard_path
 
     when /^página de disciplinas$/
-      disciplinas_path
+      dashboard_disciplinas_path
 
     when /^página de informações da disciplina (.*)$/
       disciplina_path(Disciplina.find($1))
