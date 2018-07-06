@@ -171,8 +171,8 @@ describe TurmasController do
     end
 
     it 'should delete a given Turma' do
-      expect(Turma).to receive(:destroy).with(@params[:id])
-        .and_return(Turma.destroy(@params[:id]))
+      expect(Turma).to receive(:find).with(@params[:id])
+        .and_return(Turma.find(@params[:id]))
       delete :destroy, params: @params
       expect(flash[:notice]).to eq('Turma apagada com sucesso!')
       expect(subject).to redirect_to('/dashboard/turmas')
