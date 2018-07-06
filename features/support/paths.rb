@@ -31,8 +31,20 @@ module NavigationHelpers
     when /^página de disciplinas$/
       dashboard_disciplinas_path
 
+    when /^página de monitoria$/
+      dashboard_monitorias_path
+
+    when /^página de nova monitoria$/
+      new_monitoria_path
+
     when /^página de informações da disciplina (.*)$/
       disciplina_path(Disciplina.find($1))
+
+    when /^página de monitores da turma$/
+      dashboard_monitorias_candidatos_path
+
+    when /^página de alterar monitoria (.*)$/
+      edit_monitoria_path(Monitoria.find($1))
 
     when /^página de edição da disciplina (.*)$/
       edit_disciplina_path(Disciplina.find($1))

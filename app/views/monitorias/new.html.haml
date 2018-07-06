@@ -28,7 +28,7 @@
         .form-group.row
           = label :monitoria, :remuneracao, "Remuneraçao", class: "col-sm-3 col-form-label"
           .col-sm-9
-            = select :monitoria, :remuneracao, options_for_select([["---", nil], ["Voluntária"], ["Remunerada"]]), {}, class: 'custom-select'
+            = select :monitoria, :remuneracao, options_for_select([["Voluntária"], ["Remunerada"]]), {}, class: 'custom-select', :required => "required"
 
         .form-group.row
           = label :monitoria, :fk_cod_disciplina, "Disciplina", class: "col-sm-3 col-form-label"

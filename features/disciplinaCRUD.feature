@@ -1,7 +1,6 @@
 # language: pt
   Funcionalidade: Disciplinas podem ser visualizadas, editadas, removidas e criadas.
-    Professores podem visualizar, editar, remover e criar disciplinas.
-    Alunos podem apenas visualizar.
+    Administradores podem visualizar, editar, remover e criar disciplinas.
 
   Cenário de Fundo:
       Dado que o banco possui um adminstrador
