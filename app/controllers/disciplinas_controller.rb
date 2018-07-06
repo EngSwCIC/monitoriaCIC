@@ -29,6 +29,16 @@ class DisciplinasController < ApplicationController
 	end
 
 	def destroy
+		Turma.find_each do |t|
+			if t.fk_cod_disciplina == @disciplina.cod_disciplina
+				t.destroy
+			end 
+		end
+		Monitoria.find_each do |m|
+			if m.fk_cod_disciplina == @disciplina.cod_disciplina
+				m.destroy
+			end
+		end
 		@disciplina.destroy
 		redirect_to dashboard_disciplinas_path, notice: "Disciplina removida!"
 	end

@@ -3,28 +3,37 @@ require 'rails_helper'
 describe SessionsController do
 	describe 'create' do
 		before :each do
-		    @info = {
-		        email: 'jm.duda@uol.com.br',
-		        password: 'joao123',
-		    }
-		    @params = Hash.new
-		    @params[:user] = @info
-		  end
+      @user = FactoryBot.create(
+				:user,
+        id: '12',
+        email: 'jm.duda@uol.com.br',
+        password: 'joao123',
+        password_confirmation: 'joao123'
+      )
+			@info = {
+				email: 'jm.duda@uol.com.br',
+				password: 'joao123',
+			}
+			@params = Hash.new
+			@params[:user] = @info
+      @session = {}
+      @session[:user_id] = @user.email
+		end
 		it 'calls the model method to find user' do
-			post :create, params: @params 
-      		expect(User).to receive(:find_by_email).and_return(@params[:user])
+			expect(User).to receive(:find_by_email).and_return(@user)
+			post :create, params: @params
 		end
 		it 'logs user in' do
-			expect(assigns(:user)).to eq(@user)
-		    sessions_helper = double('sessions_helper')
-		    allow(sessions_helper).to receive(:log_in).with(:user)
-		    post :create, params: @params
+      # expect(@user).to receive(:authenticate).with(@params[:user][:password])
+      expect_any_instance_of(SessionsController).to receive(:log_in).with(@user)
+      	.and_return(@session)
+			post :create, params: @params
 		end
 		it 'redirects to dashboard' do 
 			post :create, params: @params
-	      	redirect_to dashboard_path
-	      	expect(subject).to redirect_to('/dashboard/index')
-	    end
+			redirect_to dashboard_path
+			expect(subject).to redirect_to('/dashboard')
+		end
 	end
 end
 

@@ -119,7 +119,7 @@
                               %br
                               %b Professor:
                               = turma.professor
-                            = link_to "Aplicar para monitoria", new_monitoria_path(turma: turma.fk_cod_disciplina), class: 'btn btn-outline-success unb-green btn-block'
+                            = link_to "Aplicar para monitoria", new_monitoria_path(turma: turma.fk_cod_disciplina), {class: 'btn btn-outline-success unb-green btn-block', id: "link_#{turma.id}" }
 
           - else
             %p.lead

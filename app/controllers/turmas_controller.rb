@@ -34,7 +34,13 @@ class TurmasController < ApplicationController
   end
 
   def destroy
-    @turma = Turma.destroy(params[:id])
+    @turma = Turma.find(params[:id])
+    Monitoria.find_each do |m|
+      if m.fk_turmas_id == @turma.id
+        m.destroy
+      end
+    end
+    @turma.destroy
     flash[:notice] = 'Turma apagada com sucesso!'
     redirect_to dashboard_turmas_path
   end

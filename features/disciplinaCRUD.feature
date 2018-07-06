@@ -1,7 +1,6 @@
 # language: pt
   Funcionalidade: Disciplinas podem ser visualizadas, editadas, removidas e criadas.
-    Professores podem visualizar, editar, remover e criar disciplinas.
-    Alunos podem apenas visualizar.
+    Administradores podem visualizar, editar, remover e criar disciplinas.
 
   Cenário de Fundo:
       Dado que o banco possui um adminstrador
@@ -11,56 +10,16 @@
       Quando eu clico em "Entrar"
       Então eu devo estar na página de login de usuários
 
-    Cenário: Aluno acessa a página disciplinas
-        Quando eu preencho o formulário de login com:
-          | user_email    | bernardoc1104@gmail.com |
-          | user_password | 110492                  |
-        E eu aperto em "Login"
-        Então eu devo estar na página de dashboard do usuário
-        Quando eu clico em "Disciplinas"
-        Então eu devo estar na página de disciplinas
-
-    Cenário: Professor acessa a página editar perfil
-        Quando eu preencho o formulário de login com:
-          | user_email    | genaina@unb.br          |
-          | user_password | 123456                  |
-        E eu aperto em "Login"
-        Então eu devo estar na página de dashboard do usuário
-        Quando eu clico em "Disciplinas"
-        Então eu devo estar na página de disciplinas
-
-    Cenário: Aluno acessa uma disciplina
-        Dado que o "aluno" está logado
-        E que está na página de disciplinas
-        Então eu não devo ver "Adicionar nova Disciplina"
-        Quando eu clico em "Mais Informações"
-        Então eu devo estar na página de informações da disciplina 1
-        E eu não devo ver "Editar Disciplina"
-        E eu não devo ver "Deletar"
-
-    Cenário: Professor acessa uma disciplina
-        Dado que o "professor" está logado
-        E que está na página de disciplinas
-        Então eu não devo ver "Adicionar nova Disciplina"
-        Quando eu clico em "Mais Informações"
-        Então eu devo estar na página de informações da disciplina 1
-        E eu não devo ver "Editar Disciplina"
-        E eu não devo ver "Deletar"
-
     Cenário: Admin acessa uma disciplina
         Dado que o "admin" está logado
         E que está na página de disciplinas
         Então eu devo ver "Adicionar nova Disciplina"
-        Quando eu clico em "Mais Informações"
-        Então eu devo estar na página de informações da disciplina 1
         E eu devo ver "Editar Disciplina"
-        E eu devo ver "Deletar"
+        E eu devo ver "Apagar Disciplina"
 
     Cenário: Admin edita uma disciplina
         Dado que o "admin" está logado
         E que está na página de disciplinas
-        Quando eu clico em "Mais Informações"
-        Então eu devo estar na página de informações da disciplina 1
         Quando eu clico em "Editar Disciplina"
         Então eu devo estar na página de edição da disciplina 1
         Quando eu preencho o formulário com:
@@ -93,8 +52,6 @@
     Cenário: Admin remove uma disciplina
         Dado que o "admin" está logado
         E que está na página de disciplinas
-        Quando eu clico em "Mais Informações"
-        Então eu devo estar na página de informações da disciplina 1
-        Quando eu clico em "Deletar"
+        Quando eu clico em "Apagar Disciplina"
         Então eu devo estar na página de disciplinas
         E eu devo ver "Disciplina removida!"
