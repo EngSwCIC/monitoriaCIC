@@ -1,6 +1,6 @@
 class MonitoriasController < ApplicationController
-	before_action :find_monitoria, only: [:show, :update, :destroy]
-	before_action :find_monitor, only: [:edit]
+	before_action :find_monitor, only: [:show]
+	before_action :find_monitoria, only: [:destroy, :edit, :update]
 	before_action :logged_in
 
 	def new

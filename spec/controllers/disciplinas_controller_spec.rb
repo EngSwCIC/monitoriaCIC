@@ -52,26 +52,6 @@ describe DisciplinasController do
 	end
 
 	describe "URL methods" do
-		describe "GET #index" do
-			it "populates an array of disciplinas" do
-				@engenharia.save
-				disciplinas = Disciplina.find_each
-				expect(disciplinas.count).to_not be eq(0)
-			end
-			it "renders the :index view" do
-				get :index
-    			expect(response).to render_template :index				
-			end
-		end
-
-		describe "GET #show" do
-			it "renders the :show view" do 
-				@engenharia.save
-				get :show, params: { id: @engenharia.cod_disciplina }
-    			expect(response).to render_template :show
-    		end
-		end
-
 		describe "GET #new" do
 			it "renders the :new view" do
 				get :new
@@ -116,10 +96,10 @@ describe DisciplinasController do
 				it "updates the disciplina in the database" do 
 					expect(@engenharia.update(:nome => "Software")).to be true
 				end
-	      		it "redirects to the disciplinas_path" do 
+	      		it "redirects to the dashboard_disciplinas_path" do 
 	      			@engenharia.save
 	      			put :update, {params: { disciplina: @params, id: @engenharia.cod_disciplina}}
-	      			expect(response).to redirect_to disciplinas_path
+	      			expect(response).to redirect_to dashboard_disciplinas_path
 	      		end
 			end
 
@@ -140,10 +120,10 @@ describe DisciplinasController do
 				@engenharia.save
 				expect(@engenharia.destroy).to eq(@engenharia)
 			end
-			it "redirects to the disciplinas_path" do
+			it "redirects to the dashboard_disciplinas_path" do
 				@engenharia.save
 	      		post :destroy, params: {id: @engenharia.cod_disciplina}
-	      		expect(response).to redirect_to disciplinas_path
+	      		expect(response).to redirect_to dashboard_disciplinas_path
 			end
 		end
 	end
