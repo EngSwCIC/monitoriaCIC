@@ -10,9 +10,9 @@ Admin.destroy_all
 Professor.destroy_all
 User.destroy_all
 
-#Admin.create(id: 1, name: "Admin UnB", email: "secretaria@cic.unb.br",
-# password_digest: "$2a$10$wRBUJnS6OyMsIbL2DcuESenrfzGXeKf86Jm7bkdHPaa2gFYDCxt0.",
-# remember_token: nil, created_at: '2018-06-04 18:12:09.050792', updated_at: '2018-06-04 18:12:09.050792')
+Admin.create(id: 1, name: "Admin UnB", email: "secretaria@cic.unb.br",
+ password_digest: "$2a$10$wRBUJnS6OyMsIbL2DcuESenrfzGXeKf86Jm7bkdHPaa2gFYDCxt0.",
+ remember_token: nil, created_at: '2018-06-04 18:12:09.050792', updated_at: '2018-06-04 18:12:09.050792')
 
 User.create([{id: 1, name: "Bernardo Costa", email: "bernardo1104@gmail.com",
              password_digest: "$2a$10$yzqRBMSJr16fqSo9l218UODeVC3hJtKj7rnKFYGyMmGuZbeunYH2K",
