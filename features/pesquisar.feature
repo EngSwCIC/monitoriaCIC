@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # language: pt
 Funcionalidade: Eu, enquanto aluno, quero pesquisar oferta de monitoria por disciplina
 
@@ -26,3 +27,6 @@ Funcionalidade: Eu, enquanto aluno, quero pesquisar oferta de monitoria por disc
     E aperto em "Pesquisar"
     Então eu devo estar na página de monitoria
     E eu devo ver "Disciplina não possui oferta de monitoria"
+=======
+Como aluno quero pesquisar oferta de monitoria
+>>>>>>> b4bf40e05751f75759d4a0bba3d9ea5f270e2b1e
