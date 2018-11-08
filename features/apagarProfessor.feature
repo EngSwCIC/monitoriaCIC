@@ -1,5 +1,4 @@
-Como administrador quero apagar professor
-
+# language: pt
 
 
  Funcionalidade: Eu, enquanto administrador, consigo apagar professores do sistema
