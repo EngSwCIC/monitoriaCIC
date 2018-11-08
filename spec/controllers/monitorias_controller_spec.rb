@@ -198,5 +198,16 @@ describe MonitoriasController do
         expect(subject).to redirect_to('/dashboard/monitorias')
       end
     end
+
+    describe "#find_disciplina" do        #modificado para sprint 1
+      describe 'happy path' do
+        it "encontra a monitoria no banco" do
+          @monitoria = FactoryBot.create(:monitoria, id: '1')
+          @monitoria.save
+          monitoria = Monitoria.find(1)
+          expect(monitoria).to eq(@monitoria)
+        end
+      end
+    end
   end
 end

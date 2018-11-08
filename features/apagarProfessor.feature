@@ -1,0 +1,1 @@
+Como administrador quero apagar professor
