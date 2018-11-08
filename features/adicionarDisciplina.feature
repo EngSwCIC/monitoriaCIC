@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # language: pt
     Funcionalidade: Eu, enquanto professor, quero adicionar uma disciplina de monitoria
 
