@@ -1,6 +1,6 @@
 class DisciplinasController < ApplicationController
 	before_action :find_disciplina, only: [:show, :edit, :update, :destroy]
-	before_action :is_admin, only: [:edit, :new, :create, :update, :destroy] 
+	before_action :is_professor, only: [:edit, :new, :create, :update, :destroy] 
 	before_action :logged_in
 
 	def new
@@ -58,8 +58,8 @@ class DisciplinasController < ApplicationController
 			end
 	end
 
-	def is_admin
-		if !current_user.kind_of?(Admin)
+	def is_professor
+		if !current_user.kind_of?(Admin) && !current_user.kind_of?(Professor)
 			flash[:danger] = "Acesso negado."
 				redirect_to dashboard_disciplinas_path
 		end
