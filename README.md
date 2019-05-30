@@ -27,11 +27,11 @@ Para instalar a aplicação, é necessário clonar este repositório utilizando 
 
 > $ git clone https://github.com/EngSwCIC/monitoriaCIC
 
-CD para o diretório 'monitoriaCIC', e rode os seguitnes comandos:
+CD para o diretório 'monitoriaCIC', e rode os seguintes comandos:
 
 > $ bundler install
 
-> $ rake db:migrate
+> $ rake db:schema:load
 
 > $ rails server
 
