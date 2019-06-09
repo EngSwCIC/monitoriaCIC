@@ -14,5 +14,11 @@
     = label :user, :password, 'Password', :class => "sr-only"
     = password_field :user, :password, class: "form-control", placeholder: "Sua senha..."
     = submit_tag 'Login', :class => "btn btn-md btn-primary btn-block"
+    %p.mt-4.text-muted
+      (psst! Esqueceu a senha?
+      %a{href: new_reset_senha_path}Clique aqui
+      %span> )
+      -# Elimina o espaço após um link
+    %p
     %p.mt-5.mb-3.text-muted
       &copy; 2018-2018
