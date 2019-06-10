@@ -26,4 +26,5 @@ Rails.application.routes.draw do
   match "/dashboard/deletar_aluno", to: "dashboard#deletar_aluno", via: 'post'
   match "/faq", to: "faq#index", :via => 'get'
   match "/sobre", to: "sobre#index", :via => 'get'
+  match "/professores", to: "professors#index", :via => 'get'
 end

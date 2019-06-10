@@ -1,0 +1,34 @@
+%br
+%main.container{role: "container"}
+  .row
+    .col-5.text-justify
+      %h1 Olá professor!
+      %hr
+      %p.text-justify
+        Por gentileza, nos informe qual dos professores abaixo é você?
+        %br
+        %br
+      = form_tag users_path, :method => :post do
+        - if flash[:danger]
+          %div{class: "alert alert-danger"}
+            - flash[:danger].each do |msg|
+              %ul
+                %li
+                  =msg
+        - if flash[:notice]
+          .alert.alert-success
+            %ul
+              %li
+                = flash[:notice]
+
+        .form-group.row
+          = label :user, :name, 'Professor(a)', :class => "col-sm-3 col-form-label"
+          .col-sm-9
+            = select("user", "name", @CicList.collect {|p| p }, { include_blank: true }, {:class => 'form-control'})
+        %br
+        = submit_tag 'Registrar-se', :class => "btn btn-outline-primary float-left"
+        %br
+        %br
+        %a.btn.btn-md.btn-primary{href: new_user_path} Registro de alunos
+    .col-1
+    

@@ -1,5 +1,7 @@
 class ProfessorsController < ApplicationController
-  def index ; end
+  def index 
+    @CicList = ["Shacon", "Alchieri", "Díbio", "Genaina", "Celio"]
+  end
 
   def new ; end
 
