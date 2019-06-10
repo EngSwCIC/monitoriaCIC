@@ -1,0 +1,16 @@
+%main.container.text-center{role: "container"}
+  = form_tag reset_senhas_path, method: :post, class: "form-signin" do
+    %img.mb-4{src: image_path("logo.png"), alt: "Generic Logo"}
+    - if flash[:danger] || flash[:notice]
+      - if flash[:danger]
+        .alert.alert-danger
+          =flash[:danger]
+      - elsif flash[:notice]
+        .alert.alert-warning
+          =flash[:notice]
+    %h1.h3.mb-3.font-weight-normal Recupere sua senha
+    = label :user, :email, 'Email', :class => "sr-only"
+    = email_field :user, :email, class: "form-control", placeholder: "Seu email..."
+    = submit_tag 'Enviar', :class => "btn btn-md btn-primary btn-block mt-2"
+    %p.mt-5.mb-3.text-muted
+      &copy; 2018-2018

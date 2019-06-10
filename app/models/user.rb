@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  attr_accessor :remember_token, :reset_token
   has_secure_password
 
   self.primary_key = :id
@@ -68,5 +69,17 @@ class User < ActiveRecord::Base
     if (cpf[9].to_i) != @first || (cpf[10].to_i) != @second
       errors.add(:cpf, "is invalid")
     end
+  end
+
+  # Sets the password reset attributes.
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update_attribute(:reset_digest,  User.digest(reset_token))
+    update_attribute(:reset_sent_at, Time.zone.now)
+  end
+
+  # Sends password reset email.
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
   end
 end
