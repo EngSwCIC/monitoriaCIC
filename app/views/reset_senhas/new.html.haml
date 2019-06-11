@@ -9,8 +9,8 @@
         .alert.alert-warning
           =flash[:notice]
     %h1.h3.mb-3.font-weight-normal Recupere sua senha
-    = label :user, :email, 'Email', :class => "sr-only"
-    = email_field :user, :email, class: "form-control", placeholder: "Seu email..."
+    = label :reset_senha, :email, 'Email', :class => "sr-only"
+    = email_field :reset_senha, :email, class: "form-control", placeholder: "Seu email..."
     = submit_tag 'Enviar', :class => "btn btn-md btn-primary btn-block mt-2"
     %p.mt-5.mb-3.text-muted
       &copy; 2018-2018
