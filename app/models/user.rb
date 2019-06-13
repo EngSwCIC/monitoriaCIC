@@ -71,6 +71,18 @@ class User < ActiveRecord::Base
     end
   end
 
+  # Retorna o digest de um hash de uma string passada para o método
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+               BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+
+  # Retorna um token aleatório
+  def User.new_token
+    SecureRandom.urlsafe_base64
+  end
+
   # Define os atributos para resetar a senha
   def create_reset_digest
     self.reset_token = User.new_token
@@ -80,6 +92,6 @@ class User < ActiveRecord::Base
 
   # Envia o e-mail para resetar a senha
   def send_password_reset_email
-    UserMailer.password_reset(self).deliver_now
+    UserMailer.reset_senha(self).deliver_now
   end
 end
