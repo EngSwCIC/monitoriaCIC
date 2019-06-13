@@ -5,7 +5,7 @@ class UserMailer < ApplicationMailer
   #
   #   en.user_mailer.reset_senha.subject
   #
-  def reset_senha(user)
+  def password_reset(user)
     @user = user
     mail to: user.email, subject: "Recuperação de senha"
   end
