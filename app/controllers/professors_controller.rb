@@ -1,21 +1,25 @@
 class ProfessorsController < ApplicationController
   def index 
-    @CicList = ["Shacon", "Alchieri", "Díbio", "Genaina", "Celio"]
+    #@CicList = ["Shacon", "Alchieri", "Díbio", "Genaina", "Celio"]
+    @professor = Professor.all
   end
 
   def new ; end
 
   def create
-    @professor = Professor.create(professor_params)
+    #@professor = Professor.create(professor_params)
 
-    if !@professor.errors.any?
-      flash[:notice] = "Registro realizado com sucesso!"
-      log_in(@professor)
-      redirect_to dashboard_path
-    else
-      flash[:danger] = @professor.errors.full_messages
-      redirect_to new_professor_path
-    end
+    #if !@professor.errors.any?
+    #  flash[:notice] = "Registro realizado com sucesso!"
+    #  log_in(@professor)
+    #  redirect_to dashboard_path
+    #else
+    #  flash[:danger] = @professor.errors.full_messages
+    #  redirect_to new_professor_path
+    #end
+  end
+  def identityconfirmation
+    
   end
 
   def update

@@ -8,7 +8,7 @@
         Por gentileza, nos informe qual dos professores abaixo é você?
         %br
         %br
-      = form_tag users_path, :method => :post do
+      = form_tag confirmation_path, :method => :post do
         - if flash[:danger]
           %div{class: "alert alert-danger"}
             - flash[:danger].each do |msg|
@@ -22,11 +22,11 @@
                 = flash[:notice]
 
         .form-group.row
-          = label :user, :name, 'Professor(a)', :class => "col-sm-3 col-form-label"
+          = label :professor, :name, 'Professor(a)', :class => "col-sm-3 col-form-label"
           .col-sm-9
-            = select("user", "name", @CicList.collect {|p| p }, { include_blank: true }, {:class => 'form-control'})
+            = select("professor", "name", @professor.collect {|p| p.name }, { include_blank: true }, {:class => 'custom-select', required: true})
         %br
-        = submit_tag 'Registrar-se', :class => "btn btn-outline-primary float-left"
+        = submit_tag 'Registrar-se', data: {confirm: "Um e-mail será enviado para esse professor, tem certeza de que deseja processeguir?"}, :class => "btn btn-outline-primary float-left"
         %br
         %br
         %a.btn.btn-md.btn-primary{href: new_user_path} Registro de alunos
