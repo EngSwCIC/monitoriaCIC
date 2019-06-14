@@ -7,19 +7,21 @@ class ProfessorsController < ApplicationController
   def new ; end
 
   def create
-    #@professor = Professor.create(professor_params)
+    @professor = Professor.create(professor_params)
 
-    #if !@professor.errors.any?
-    #  flash[:notice] = "Registro realizado com sucesso!"
-    #  log_in(@professor)
-    #  redirect_to dashboard_path
-    #else
-    #  flash[:danger] = @professor.errors.full_messages
-    #  redirect_to new_professor_path
-    #end
+    if !@professor.errors.any?
+      flash[:notice] = "Registro realizado com sucesso!"
+      log_in(@professor)
+      redirect_to dashboard_path
+    else
+      flash[:danger] = @professor.errors.full_messages
+      redirect_to new_professor_path
+    end
   end
   def identityconfirmation
-    
+    @professor = Professor.where(:name => params[:professor][:name])[0]
+    # Acrescente um ponto de exclamação em deliver_now para renderizar as mensagens de erro...
+    ProfessorMailer.with(professor: @professor).key_email.deliver_now
   end
 
   def update
