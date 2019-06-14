@@ -1,2 +1,16 @@
-<h1>ResetSenhas#edit</h1>
-<p>Find me in app/views/reset_senhas/edit.html.erb</p>
+%main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
+  .row
+    .col-10
+      %h2 Configurar nova senha
+      %hr
+      %p.lead
+        Digite uma nova senha e confirme ela nos campos abaixo:
+        = form_for @user, :url => reset_senha_path(params[:id]) do |f|
+          = hidden_field_tag :email, @user.email
+          .row
+            .col
+              = f.password_field :password, class: 'form-control', placeholder: 'Nova senha'
+            .col
+              = f.password_field :password_confirmation, class: 'form-control', placeholder: 'Confirmar nova senha'
+
+          = submit_tag 'Atualizar cadastro', class: 'btn btn-outline-primary float-right mt-3'
