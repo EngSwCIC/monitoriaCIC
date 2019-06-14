@@ -11,7 +11,7 @@ class ResetSenhasController < ApplicationController
     if @user
       @user.create_reset_digest
       @user.send_password_reset_email
-      flash[:info] = "As instruções para resetar sua senha foram enviadas para seu e-mail."
+      flash[:notice] = "As instruções para resetar sua senha foram enviadas para seu e-mail."
       redirect_to root_url
     else
       flash.now[:danger] = "Seu e-mail não foi encontrado."
