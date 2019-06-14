@@ -95,12 +95,12 @@ class User < ActiveRecord::Base
     UserMailer.reset_senha(self).deliver_now
   end
 
-  # Returns true if a password reset has expired.
+  # Retorna true se o parâmetro password reset expirou
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
   end
 
-  # Returns true if the given token matches the digest.
+  # Retorna true se o token passado é o mesmo que o digest armazenado no banco
   def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
     return false if digest.nil?

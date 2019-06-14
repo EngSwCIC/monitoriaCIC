@@ -24,11 +24,11 @@ class ResetSenhasController < ApplicationController
 
   def update
     if params[:user][:password].empty?
-      @user.errors.add(:password, "can't be empty")
+      @user.errors.add(:password, "O campo senha deve ser preenchido.")
       render 'edit'
     elsif @user.update_attributes(user_params)
       log_in @user
-      flash[:success] = "Password has been reset."
+      flash[:success] = "Sua nova senha foi salva."
       redirect_to dashboard_path
     else
       render 'edit'
@@ -37,18 +37,19 @@ class ResetSenhasController < ApplicationController
 
   private
 
+    # Instancia o usuário em questão procurando por seu e-mail
     def get_user
       @user = User.find_by(email: params[:email])
     end
 
-    # Confirms a valid user.
+    # Confirma se o usuário instanciado acima é válido
     def valid_user
       unless @user && @user.authenticated?(:reset, params[:id])
       redirect_to root_url
       end
     end
 
-    # Checks expiration of reset token.
+    # Verifica se o token em questão expirou
     def check_expiration
       if @user.password_reset_expired?
         flash[:danger] = "Password reset has expired."
@@ -56,6 +57,7 @@ class ResetSenhasController < ApplicationController
       end
     end
 
+    # Filtra os parâmetros que serão passados para o BD
     def user_params
       params.require(:user).permit(:password, :password_confirmation)
     end
