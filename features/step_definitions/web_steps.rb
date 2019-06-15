@@ -272,7 +272,3 @@ Dado("que meu nome esta na lista") do
     password_confirmation: '123456'
    )
 end
-
-Então("eu devo estar mandando os dados do professor selecionado para o mailer") do
-  pending # Write code here that turns the phrase above into concrete actions
-end

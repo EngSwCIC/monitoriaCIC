@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get 'new_from_disciplina'
     end
   end
+  resources :reset_senhas, only: [:new, :create, :edit, :update]
 
   match "/dashboard", to: "dashboard#index", via: 'get'
   match "/dashboard/edit_user", to: "dashboard#edit_user", via: 'get'
