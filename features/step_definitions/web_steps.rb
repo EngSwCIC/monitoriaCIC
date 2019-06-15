@@ -260,3 +260,15 @@ Então /^(?:|eu )devo ver todas as mensagens de falha para registro de alunos$/ 
     E eu devo ver "Password confirmation must be between 6 and 12 characters"
   )
 end
+#"
+Dado("que meu nome esta na lista") do
+  Professor.create!(
+    id: 1,
+    name: 'Genaina Nunes Rodrigues',
+    username: 'grodrigues',
+    email: 'genaina@unb.br',
+    role: 2,
+    password: '123456',
+    password_confirmation: '123456'
+   )
+end

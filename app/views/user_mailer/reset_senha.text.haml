@@ -1,0 +1,7 @@
+Para configurar uma nova senha, clique no link abaixo:
+
+= edit_reset_senha_url(@user.reset_token, email: @user.email)
+
+Esse link irá expirar em duas horas.
+
+Caso você não tenha requisitado uma troca de senha, ignore este e-mail e sua senha permanecerá a mesma.

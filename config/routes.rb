@@ -14,6 +14,7 @@ Rails.application.routes.draw do
       get 'new_from_disciplina'
     end
   end
+  resources :reset_senhas, only: [:new, :create, :edit, :update]
 
   match "/dashboard", to: "dashboard#index", via: 'get'
   match "/dashboard/edit_user", to: "dashboard#edit_user", via: 'get'
@@ -26,4 +27,6 @@ Rails.application.routes.draw do
   match "/dashboard/deletar_aluno", to: "dashboard#deletar_aluno", via: 'post'
   match "/faq", to: "faq#index", :via => 'get'
   match "/sobre", to: "sobre#index", :via => 'get'
+  match "/professors/confirm", to: "professors#identityconfirmation", :via => 'post', as: 'confirmation'
+
 end

@@ -1,5 +1,8 @@
 class ProfessorsController < ApplicationController
-  def index ; end
+  def index 
+    #@CicList = ["Shacon", "Alchieri", "Díbio", "Genaina", "Celio"]
+    @professor = Professor.all
+  end
 
   def new ; end
 
@@ -14,6 +17,11 @@ class ProfessorsController < ApplicationController
       flash[:danger] = @professor.errors.full_messages
       redirect_to new_professor_path
     end
+  end
+  def identityconfirmation
+    @professor = Professor.where(:name => params[:professor][:name])[0]
+    # Acrescente um ponto de exclamação em deliver_now para renderizar as mensagens de erro...
+    ProfessorMailer.with(professor: @professor).key_email.deliver_now
   end
 
   def update

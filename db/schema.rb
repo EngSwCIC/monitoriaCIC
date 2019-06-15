@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_06_09_232923) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name", null: false
@@ -132,6 +132,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.string "remember_token", limit: 100
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string "reset_digest"
+    t.datetime "reset_sent_at"
     t.index ["cpf"], name: "users_cpf_unique", unique: true
     t.index ["email"], name: "users_email_unique", unique: true
     t.index ["fk_banco"], name: "fk_banco"
