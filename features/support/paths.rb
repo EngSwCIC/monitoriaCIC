@@ -89,6 +89,12 @@ module NavigationHelpers
     when /^página de Sobre do sistema$/
       sobre_path
 
+    when /^página de nova recuperação de senha$/
+      new_reset_senha_path
+
+    when /^página de recuperação de senha$/
+      reset_senhas_path
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
