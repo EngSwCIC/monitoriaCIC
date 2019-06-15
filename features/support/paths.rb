@@ -24,6 +24,10 @@ module NavigationHelpers
 
     when /^página de registro de professores$/
       new_professor_path
+    when /^página de selecao de professores$/
+      professors_path
+    when /^página de confirmacao dos professores$/
+      confirmation_path 
 
     when /^página de dashboard do usuário$/
       dashboard_path
