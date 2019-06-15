@@ -1,0 +1,8 @@
+%h1 Recuperação de senha
+
+%p Para configurar uma nova senha, clique neste link:
+= edit_reset_senha_url(@user.reset_token, email: @user.email)
+
+%p Esse link irá expirar em duas horas.
+
+%p Caso você não tenha requisitado uma troca de senha, ignore este e-mail e sua senha permanecerá a mesma.

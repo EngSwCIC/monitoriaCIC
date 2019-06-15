@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  attr_accessor :remember_token, :reset_token
   has_secure_password
 
   self.primary_key = :id
@@ -68,5 +69,41 @@ class User < ActiveRecord::Base
     if (cpf[9].to_i) != @first || (cpf[10].to_i) != @second
       errors.add(:cpf, "is invalid")
     end
+  end
+
+  # Retorna o digest de um hash de uma string passada para o método
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+               BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+
+  # Retorna um token aleatório
+  def User.new_token
+    SecureRandom.urlsafe_base64
+  end
+
+  # Define os atributos para resetar a senha
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update_attribute(:reset_digest,  User.digest(reset_token))
+    update_attribute(:reset_sent_at, Time.zone.now)
+  end
+
+  # Envia o e-mail para resetar a senha
+  def send_password_reset_email
+    UserMailer.reset_senha(self).deliver_now
+  end
+
+  # Retorna true se o parâmetro password reset expirou
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
+  end
+
+  # Retorna true se o token passado é o mesmo que o digest armazenado no banco
+  def authenticated?(attribute, token)
+    digest = send("#{attribute}_digest")
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
   end
 end
