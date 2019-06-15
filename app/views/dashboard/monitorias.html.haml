@@ -55,6 +55,13 @@
                 %span{'data-feather': "dollar-sign"}
                 Dados Bancários
 
+        -if current_user.kind_of?(User)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_historico_path}
+                %span{'data-feather': "dollar-sign"}
+                Histórico
+
     %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
       .row
         .col-10
