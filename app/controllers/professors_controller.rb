@@ -53,7 +53,7 @@ class ProfessorsController < ApplicationController
       email = t.css('span.p-email').text.reverse
 
       if valid_email?(email)
-        puts name = t.css('h4.people-details-h4').text.match(/(\S+\.?\s?)+/)
+        name = t.css('h4.people-details-h4').text.match(/(\S+\.?\s?)+/)
         moniker = email.match(/[^@]+/)
         role = match_role(t.css('span.people-details.p-people').text)
         pwd = generate_password
