@@ -109,7 +109,6 @@ class DashboardController < ApplicationController
                                        :role => match_role(t.css('span.people-details.p-people').text),
                                        :password => pwd,
                                        :password_confirmation => pwd)
-          professor.save
         end
       end
     end
