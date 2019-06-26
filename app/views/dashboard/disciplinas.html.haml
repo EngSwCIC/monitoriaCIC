@@ -35,6 +35,13 @@
                   %span{'data-feather': "trash"}
                   Apagar alunos
 
+          -if current_user.kind_of?(Admin)
+            %ul.nav.flex-column.mb-2
+              %li.nav-item
+                %a.nav-link{href: dashboard_importar_professores_path}
+                  %span{'data-feather': "users"}
+                  Importar lista de professores
+
         -unless current_user.kind_of?(Admin)
           %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
             Menu
@@ -117,4 +124,5 @@
                             %a.btn.btn-outline-warning.btn-block{href: edit_disciplina_path(d.cod_disciplina)}
                               Editar Disciplina
                           .col-6
-                            =link_to "Apagar Disciplina", disciplina_path(d.cod_disciplina), method: :delete, class: 'btn btn-outline-danger btn-block'
+                            =link_to "Apagar Disciplina", disciplina_path(d.cod_disciplina), method: :delete,
+                            class: 'btn btn-outline-danger btn-block'
