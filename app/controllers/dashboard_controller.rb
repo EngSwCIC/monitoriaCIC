@@ -85,6 +85,7 @@ class DashboardController < ApplicationController
     end
   end
 
+  # Faz um web scrape da página do CIC para adquirir os dados dos professores e cadastrá-los no BD
   def web_scraper
     # Habilitam a abertura de webpages no código
     require 'open-uri'
@@ -114,15 +115,19 @@ class DashboardController < ApplicationController
     end
   end
 
+  # Verifica se o e-mail pertence ao domínio da UnB (retorna 'true' se sim e 'false', caso contrário)
   def valid_email?(email)
     email =~ /\A[\w+\-.]+@unb\.br\z/i
   end
 
+  # Gera uma string de caracteres aleatórios de tamanho adequado para salvar como senha do professor no BD.
+  # Essa senha é apenas um placeholder, durante o cadastro, o professor deverá modifica-la.
   def generate_password
     require 'securerandom'
     SecureRandom.base64(9)
   end
 
+  # Faz o match da titularidade do professor com o número esperado no BD
   def match_role(role)
     case role
     when /substituto/i
@@ -135,8 +140,10 @@ class DashboardController < ApplicationController
       5
     when /titular/i
       6
+    # Cláusula específica para um erro comum do parser: retornar uma string contendo apenas caracteres de espaço
     when /\A\s/
       0
+    # Cláusula padrão retorna um valor para cadastrar o professor com o papel de 'professor' no BD
     else
       2
     end
