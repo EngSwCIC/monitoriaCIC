@@ -91,7 +91,9 @@
             .col-4
               Clique no botão abaixo para importar a lista de professores a partir do
               %a{href: 'https://cic.unb.br/professores/'}site do CIC
-              %span> .
+              %span> . Apenas professores com e-mail da UnB (professor
+              %strong> @unb.br
+              %span> ) são adicionados automaticamente.
               %hr
                 = link_to "Importar professores", dashboard_scrape_professores_path,
                 :class => "btn btn-outline-primary btn-block"
