@@ -95,6 +95,8 @@ module NavigationHelpers
     when /^página de recuperação de senha$/
       reset_senhas_path
 
+    when /^página de importar professores$/
+      dashboard_importar_professores_path
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
