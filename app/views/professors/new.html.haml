@@ -51,11 +51,11 @@
         .row
           .col
             = label :professor, :password, 'Senha'
-            = password_field :professor, :password, :class => "form-control"
+            = password_field :professor, :password, :class => "form-control", :autocomplete => "off"
 
           .col
             = label :professor, :password_confirmation, 'Confirmar Senha'
-            = password_field :professor, :password_confirmation, :class => "form-control"
+            = password_field :professor, :password_confirmation, :class => "form-control", :autocomplete => "off"
 
         %br
         = submit_tag 'Registrar', class: "btn btn-outline-primary btn-block"
