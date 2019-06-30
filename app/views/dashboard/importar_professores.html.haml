@@ -6,7 +6,7 @@
       .sidebar-sticky
         %ul.nav.flex-column
           %li.nav-item
-            %a.nav-link{href: dashboard_path}
+            %a.nav-link.active{href: dashboard_path}
               %span{'data-feather': "home"}
               Dashboard
               %span.sr-only (current)
@@ -27,20 +27,6 @@
                 %a.nav-link{href: dashboard_turmas_path}
                   %span{'data-feather': "edit"}
                   Turmas
-
-          -if current_user.kind_of?(Admin)
-            %ul.nav.flex-column.mb-2
-              %li.nav-item
-                %a.nav-link.active{href: dashboard_apagar_alunos_path}
-                  %span{'data-feather': "trash"}
-                  Apagar alunos
-
-          -if current_user.kind_of?(Admin)
-            %ul.nav.flex-column.mb-2
-              %li.nav-item
-                %a.nav-link{href: dashboard_importar_professores_path}
-                  %span{'data-feather': "users"}
-                  Importar lista de professores
 
         -unless current_user.kind_of?(Admin)
           %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
@@ -63,10 +49,24 @@
                 %span{'data-feather': "dollar-sign"}
                 Dados Bancários
 
+        -if current_user.kind_of?(Admin)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_apagar_alunos_path}
+                %span{'data-feather': "trash"}
+                Apagar alunos
+        -if current_user.kind_of?(Admin)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_importar_professores_path}
+                %span{'data-feather': "users"}
+                Importar lista de professores
+
+
     %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
       .row
         .col
-          %h2 Deletar Alunos
+          %h2 Importar lista de professores
           %hr
           -if flash[:danger]
             .alert.alert-danger
@@ -80,27 +80,21 @@
           .row
             .col-8
               .row
-                - @users.each do |user|
+                - @teachers.each do |t|
                   .col-6
                     .card
                       .card-body
-                        %h5.card-title #{user.name}
+                        %h5.card-title #{t.name}
                         %hr
-                        Matricula: <b>#{user.matricula}</b>
-                        %br
-                        Email: <b>#{user.email}</b>
-                        %br
-                        CPF: <b>#{user.cpf}</b>
-                        %br
-                        RG: <b>#{user.rg}</b>
-            .col-4
-              Utilize o campo abaixo para digitar a matrícula do aluno que será deletado e
-              clique em 'Deletar aluno' para concluir a ação.
-              %hr
-              = form_tag dashboard_deletar_aluno_path, method: :post do
-                = label :user, :matricula, 'Matrícula'
-                = text_field :user, :matricula, class: 'form-control', autocomplete: 'off'
+                        Email: <b>#{t.email}</b>
 
-                %br
-                = submit_tag 'Deletar aluno', class: 'btn btn-outline-danger btn-block', data: {confirm: 'Tem certeza que deseja apagar o aluno?'}
+            .col-4
+              Clique no botão abaixo para importar a lista de professores a partir do
+              %a{href: 'https://cic.unb.br/professores/'}site do CIC
+              %span> . Apenas professores com e-mail da UnB (professor
+              %strong> @unb.br
+              %span> ) são adicionados automaticamente.
+              %hr
+                = link_to "Importar professores", dashboard_scrape_professores_path,
+                :class => "btn btn-outline-primary btn-block"
         .col-1
