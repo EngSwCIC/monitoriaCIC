@@ -17,7 +17,7 @@
                 Disciplinas
           - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
             %li.nav-item
-              %a.nav-link.active{href: dashboard_monitorias_path}
+              %a.nav-link{href: dashboard_monitorias_path}
                 %span{'data-feather': "github"}
                 Monitoria
 
@@ -58,8 +58,8 @@
         -if current_user.kind_of?(User)
           %ul.nav.flex-column.mb-2
             %li.nav-item
-              %a.nav-link{href: dashboard_historico_path}
-                %span{'data-feather': "dollar-sign"}
+              %a.nav-link.active{href: dashboard_historico_path}
+                %span{'data-feather': "film"}
                 Histórico
 
     %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
@@ -74,4 +74,8 @@
             .alert.alert-success
               = flash[:notice]
 
-        
+
+          %p.lead
+            Aqui você pode conferir o seu histórico de disciplinas das quais você foi monitor:
+          %br
+

@@ -1,5 +1,5 @@
 class HistoricoController < ApplicationController
-	def Hello
-		@message = 'Hello World'
+	def index
+
 	end
 end
