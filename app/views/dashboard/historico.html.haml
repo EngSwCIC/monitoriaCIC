@@ -74,8 +74,28 @@
             .alert.alert-success
               = flash[:notice]
 
-
-          %p.lead
-            Aqui você pode conferir o seu histórico de disciplinas das quais você foi monitor:
-          %br
-
+          - if current_user.class == User
+            %p.lead
+              Aqui você pode verificar o histórico de disciplinas das quais você já foi monitor.
+            %p.lead
+              Voce já foi monitor em <b>#{pluralize(@mostrar.count, "turma")}</b>.
+            %br
+            .row
+            %h4 Inscrições
+            %hr
+            .row
+              - @mostrar.each do |m|
+                .col-0
+                  - d = Disciplina.find(m.fk_cod_disciplina)
+                  - t = Turma.find(m.fk_turmas_id)
+                  - status = "Encerrado"
+                .card
+                  .card-body
+                    %h5.card-title
+                      Monitoria Encerrada
+                    %hr
+                    Disciplina: <b>#{d.nome}</b>
+                    %br
+                    Turma: <b>#{t.turma}
+                    %br
+                    Status da monitoria: <b>#{status}</b>
