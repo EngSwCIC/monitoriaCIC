@@ -50,6 +50,10 @@ class TurmasController < ApplicationController
     params.require(:turma).permit(:id, :turma, :professor, :fk_cod_disciplina, :qnt_bolsas, :fk_vagas_id)
   end
 
+  def find_turma
+    @turma = Turma.find(params[:id])
+  end
+
   def self.get_turmas(professor)
     @turmas = Array.new
     @turmas_buscadas = Turma.find_each do |turma|

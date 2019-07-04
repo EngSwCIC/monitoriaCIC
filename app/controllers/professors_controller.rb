@@ -1,6 +1,5 @@
 class ProfessorsController < ApplicationController
-  def index 
-    #@CicList = ["Shacon", "Alchieri", "Díbio", "Genaina", "Celio"]
+  def index
     @professor = Professor.all
   end
 

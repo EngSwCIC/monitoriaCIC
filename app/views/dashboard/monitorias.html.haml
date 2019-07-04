@@ -55,6 +55,13 @@
                 %span{'data-feather': "dollar-sign"}
                 Dados Bancários
 
+        -if current_user.kind_of?(User)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_historico_path}
+                %span{'data-feather': "film"}
+                Histórico
+
     %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
       .row
         .col-10
@@ -89,17 +96,20 @@
                           - status = "Rejeitado"
                         - when 3
                           - status = "Aceito"
-                      .card
-                        .card-body
-                          %h5.card-title
-                            Aplicação Monitoria
-                          %hr
-                          Disciplina: <b>#{d.nome}</b>
-                          %br
-                          Status do solicitaçao: <b>#{status}</b>
-                          %br
-                          %br
-                          =link_to "Remover aplicaçao", monitoria_path(m), method: :delete, data: {confirm: "Tem certeza que quer desistir de monitorar esta disciplina?"}, class: 'btn btn-outline-danger btn-block'
+                        - when 4
+                          - status = "Encerrado"
+                      -if m.fk_status_monitoria_id != 4
+                        .card
+                          .card-body
+                            %h5.card-title
+                              Aplicação Monitoria
+                            %hr
+                            Disciplina: <b>#{d.nome}</b>
+                            %br
+                            Status do solicitaçao: <b>#{status}</b>
+                            %br
+                            %br
+                            =link_to "Remover aplicaçao", monitoria_path(m), method: :delete, data: {confirm: "Tem certeza que quer desistir de monitorar esta disciplina?"}, class: 'btn btn-outline-danger btn-block'
               .col-4
                 %h4 Turmas
                 %hr

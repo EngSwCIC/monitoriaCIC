@@ -51,62 +51,51 @@
         -if current_user.kind_of?(User)
           %ul.nav.flex-column.mb-2
             %li.nav-item
-              %a.nav-link.active{href: dashboard_dados_bancarios_path}
+              %a.nav-link{href: dashboard_dados_bancarios_path}
                 %span{'data-feather': "dollar-sign"}
                 Dados Bancários
 
         -if current_user.kind_of?(User)
           %ul.nav.flex-column.mb-2
             %li.nav-item
-              %a.nav-link{href: dashboard_historico_path}
+              %a.nav-link.active{href: dashboard_historico_path}
                 %span{'data-feather': "film"}
                 Histórico
 
     %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
-      - if flash[:notice]
-        .alert.alert-success
-          =flash[:notice]
-      - if flash[:danger]
-        %div{class: "alert alert-danger"}
-          - flash[:danger].each do |msg|
-            %ul
-              %li
-                =msg
       .row
         .col-10
-          %h2 Dados Bancários
+          %h1 Histórico
           %hr
-          %p.lead
-            Adicione, edite ou apague seus dados bancários aqui!
-          %br
-          - if current_user.fk_banco == nil
-            %p.text-justify
-              Você ainda não possui dados bancários cadastrados. Se você deseja concorrer a monitoria
-              remunerada, clique no botão para adicionar seus dados bancários.
-            %a.btn.btn-outline-success{href: new_dados_bancario_path} Adicionar
-          - else
-            %p.text-justify
-              Você possui dados bancários cadastrados. Caso você deseje alterar seus dados, basta clicar no botão
-              "Editar". Caso deseje apagar seus dados bancários do sistema, basta clicar em "Apagar".
-            - @fk_banco = DadosBancarios.find(current_user.fk_banco)
-            %table.table
-              %thead
-                %tr
-                  %th Banco
-                  %th Agencia
-                  %th Conta Corrente
-              %tbody
-                %tr
-                  %td
-                    = @fk_banco.codigo
-                  %td
-                    = @fk_banco.agencia
-                  %td
-                    = @fk_banco.conta_corrente
+          -if flash[:danger]
+            .alert.alert-danger
+              = flash[:danger]
+          -if flash[:notice]
+            .alert.alert-success
+              = flash[:notice]
 
+          - if current_user.class == User
+            %p.lead
+              Aqui você pode verificar o histórico de disciplinas das quais você já foi monitor.
+            %p.lead
+              Voce já foi monitor em <b>#{pluralize(@mostrar.count, "turma")}</b>.
+            %br
             .row
-              .col
-                %a.btn.btn-outline-warning.btn-block.editar-dados{ href: edit_dados_bancario_path(@fk_banco.id) } Editar dados
-              .col
-                = link_to "Apagar dados", dados_bancario_path(@fk_banco.id), method: :delete, class: 'btn btn-outline-danger btn-block'
-        .col-2
+            %h4 Inscrições
+            %hr
+            .row
+              - @mostrar.each do |m|
+                .col-0
+                  - d = Disciplina.find(m.fk_cod_disciplina)
+                  - t = Turma.find(m.fk_turmas_id)
+                  - status = "Encerrado"
+                .card
+                  .card-body
+                    %h5.card-title
+                      Monitoria Encerrada
+                    %hr
+                    Disciplina: <b>#{d.nome}</b>
+                    %br
+                    Turma: <b>#{t.turma}
+                    %br
+                    Status da monitoria: <b>#{status}</b>

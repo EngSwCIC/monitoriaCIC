@@ -272,3 +272,29 @@ Dado("que meu nome esta na lista") do
     password_confirmation: '123456'
    )
 end
+
+Então("eu devo estar mandando os dados do professor selecionado para o mailer") do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Quando /^(?:|eu )selecionar o "([^"]*)" do seletor "([^"]*)"$/ do |value, field|
+  select(value, :from => field)
+  @value = value
+end
+
+Então("o usuario deve receber um email de confirmação") do
+  # make your delivery state to 'test' mode
+  ActionMailer::Base.delivery_method = :test
+  # make sure that actionMailer perform an email delivery
+  ActionMailer::Base.perform_deliveries = true
+  # clear all the email deliveries, so we can easily checking the new ones
+  ActionMailer::Base.deliveries.clear
+  
+  @professor = Professor.where(:name => @value)[0]
+  ProfessorMailer.with(professor: @professor).key_email.deliver_now
+
+  email = ActionMailer::Base.deliveries.first
+  email.from.should.to_s == "notifications@example.com"
+  email.to.should.to_s == @professor.email
+  email.html_part.body.should include("Para acessar a pagina de login por favor use esse <a href=\"http://localhost:3000/sessions/new\">link</a>.")
+end
