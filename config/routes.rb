@@ -21,6 +21,7 @@ Rails.application.routes.draw do
   match "/dashboard/dados_bancarios", to: "dashboard#dados_bancarios", via: 'get'
   match "/dashboard/turmas", to: "dashboard#turmas", via: 'get'
   match "/dashboard/monitorias", to: "dashboard#monitorias", via: 'get'
+  match "/dashboard/historico", to: "dashboard#historico", via: 'get'
   match "/dashboard/disciplinas", to: "dashboard#disciplinas", via: 'get'
   match "/dashboard/monitorias/candidatos", to: "monitorias#show", via: 'get'
   match "/dashboard/apagar_alunos", to: "dashboard#apagar_alunos", via: 'get'

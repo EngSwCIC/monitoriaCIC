@@ -24,7 +24,9 @@ class DashboardController < ApplicationController
     Monitoria.find_each do |m|
       if @user.kind_of?(User)
         if m.fk_matricula == @user.matricula
-          @monitorias << m
+          if m.fk_status_monitoria_id != 4
+            @monitorias << m
+          end
         end
       end
     end
@@ -36,6 +38,16 @@ class DashboardController < ApplicationController
 
   def apagar_alunos
     @users = User.order(:matricula)
+  end
+
+  def historico
+    @user = current_user
+    @mostrar = Array.new
+    Monitoria.find_each do |m|
+      if (@user.kind_of?(User) && m.fk_matricula == @user.matricula && m.fk_status_monitoria_id == 4)
+        @mostrar << m
+      end
+    end
   end
 
   def deletar_aluno

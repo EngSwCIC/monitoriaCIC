@@ -1,0 +1,3 @@
+class HistoricoController < ApplicationController
+
+end
