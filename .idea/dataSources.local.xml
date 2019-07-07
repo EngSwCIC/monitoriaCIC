@@ -11,13 +11,13 @@
       <introspection-schemas>*:main</introspection-schemas>
     </data-source>
     <data-source name="Rails MonitoriaCIC: development" uuid="85548f4b-7014-4a51-9f7e-1e80c87e07c0">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
     </data-source>
     <data-source name="Rails MonitoriaCIC: cucumber" uuid="dc82fa75-97ec-43d6-bca0-5da1aebb813b">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
     </data-source>
     <data-source name="Rails MonitoriaCIC: test" uuid="87e8e026-3c06-4fa5-963c-efc0381e5b2e">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
     </data-source>
   </component>
 </project>
