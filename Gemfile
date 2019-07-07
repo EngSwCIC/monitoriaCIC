@@ -83,6 +83,7 @@ group :test do
   gem 'factory_bot_rails'
   gem 'simplecov'
 
+  # Used for metrics
   gem 'metric_fu', git: 'https://github.com/metricfu/metric_fu.git'
 end
 
