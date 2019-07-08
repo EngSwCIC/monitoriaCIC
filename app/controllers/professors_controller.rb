@@ -19,7 +19,6 @@ class ProfessorsController < ApplicationController
   end
   def identityconfirmation
     @professor = Professor.where(:name => params[:professor][:name])[0]
-    # Acrescente um ponto de exclamação em deliver_now para renderizar as mensagens de erro...
     ProfessorMailer.with(professor: @professor).key_email.deliver_now
   end
 
