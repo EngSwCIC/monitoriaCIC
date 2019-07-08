@@ -25,6 +25,16 @@ describe ResetSenhasController do
       redirect_to root_path
       expect(subject).to redirect_to('/')
     end
+
+    it 'should send an e-mail with the following properties to a registered user' do
+      user = User.find_by_email('clapalos@live.com')
+      user.reset_token = User.new_token
+      mail = UserMailer.reset_senha(user)
+
+      expect(mail.subject).to eq("Recuperação de senha")
+      expect(mail.to).to match_array(user.email)
+      expect(mail.body.encoded).to match(user.reset_token)
+    end
   end
 
   describe '#create sad paths' do
@@ -57,30 +67,68 @@ describe ResetSenhasController do
         expect(subject).to render_template(:new)
       end
     end
-
-  end
-
-  # Setup needed before methods 'edit' and update
-  before :each do
-    allow_any_instance_of(ResetSenhasController).to receive(:get_user).and_return(true)
-    allow_any_instance_of(ResetSenhasController).to receive(:valid_user).and_return(true)
-    allow_any_instance_of(ResetSenhasController).to receive(:check_expiration).and_return(true)
   end
 
   describe '#edit' do
     fixtures 'user'
 
     before :each do
-      @params = {email: 'bernardoc1104@gmail.com'}
+      allow_any_instance_of(ResetSenhasController).to receive(:valid_user).and_return(true)
+      allow_any_instance_of(ResetSenhasController).to receive(:check_expiration).and_return(true)
     end
 
     it 'should render views/reset_senhas/edit.html.haml' do
-      get :edit
+      user = User.find_by_email('clapalos@live.com')
+      user.reset_token = User.new_token
+
+      get :edit, params: {id: user.reset_token, email: user.email }
       expect(response).to render_template(:edit)
     end
   end
 
+  describe '#edit sad path' do
+    fixtures 'user'
+
+    before :each do
+      @user = User.find_by_email('clapalos@live.com')
+      @user.reset_token = User.new_token
+      @user.reset_sent_at = Time.zone.now
+    end
+
+    it 'receives an invalid e-mail and redirect to homepage' do
+      get :edit, params: { id: @user.reset_token, email: 'abobrinhajr@unb.br' }
+      redirect_to root_path
+      expect(response).to redirect_to('/')
+    end
+
+    it 'receives a blank e-mail and redirect to homepage' do
+      get :edit, params: { id: @user.reset_token, email: '' }
+      redirect_to root_path
+      expect(response).to redirect_to('/')
+    end
+
+    it 'receives an invalid token and redirect to homepage' do
+      get :edit, params: { id: 'J0hnR0n4ld$R3u3lT0lK1en', email: @user.email }
+      redirect_to root_path
+      expect(response).to redirect_to('/')
+    end
+
+    it 'receives a blank token and redirect to homepage' do
+      get :edit, params: { id: '', email: @user.email }
+      redirect_to root_path
+      expect(response).to redirect_to('/')
+    end
+  end
+
   describe '#update' do
+    fixtures 'user'
+
+    before :each do
+      allow_any_instance_of(ResetSenhasController).to receive(:valid_user).and_return(true)
+      allow_any_instance_of(ResetSenhasController).to receive(:check_expiration).and_return(true)
+    end
+
+
 
   end
 
