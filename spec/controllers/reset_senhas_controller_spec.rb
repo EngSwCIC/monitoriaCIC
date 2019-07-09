@@ -108,7 +108,7 @@ describe ResetSenhasController do
     end
 
     it 'receives an invalid token and redirect to homepage' do
-      get :edit, params: { id: 'J0hnR0n4ld$R3u3lT0lK1en', email: @user.email }
+      get :edit, params: { id: 'J0hnR0n4ld$R3u3lTolkien', email: @user.email }
       redirect_to root_path
       expect(response).to redirect_to('/')
     end
@@ -124,11 +124,74 @@ describe ResetSenhasController do
     fixtures 'user'
 
     before :each do
+      @user = User.find_by_email('clapalos@live.com')
+      @user.reset_token = User.new_token
+      @user.reset_sent_at = Time.zone.now
+
+      @params = {id: @user.reset_token, user: {password: 'asdfg123', password_confirmation: 'asdfg123'}}
+
+      allow_any_instance_of(ResetSenhasController).to receive(:get_user).with(params: {email: @user.email})
       allow_any_instance_of(ResetSenhasController).to receive(:valid_user).and_return(true)
       allow_any_instance_of(ResetSenhasController).to receive(:check_expiration).and_return(true)
     end
 
+    it 'should call the controller method that filters the form input' do
+      reset_controller = double('reset_senhas_controller')
+      allow(reset_controller).to receive(:user_params).and_return(@params[:user])
+    end
 
+    it 'should receive a valid password and perform the update' do
+      ActionController::Parameters.permit_all_parameters = true
+      @user_params = ActionController::Parameters.new(@params[:user])
+      expect(@user).to receive(:update_attributes).with(@user_params).and_return(@user.update_attributes(@user_params))
+
+      reset_controller = double('reset_senhas_controller')
+      allow(reset_controller).to receive(:update).with(@params).and_return(@user.update_attributes(@user_params))
+    end
+  end
+
+  describe '#update sad path' do
+    fixtures 'user'
+
+    before :each do
+      @user = User.find_by_email('clapalos@live.com')
+      @user.reset_token = User.new_token
+      @user.reset_sent_at = Time.zone.now
+
+      allow_any_instance_of(ResetSenhasController).to receive(:get_user).with(params: {email: @user.email})
+      allow_any_instance_of(ResetSenhasController).to receive(:valid_user).and_return(true)
+      allow_any_instance_of(ResetSenhasController).to receive(:check_expiration).and_return(true)
+    end
+
+    it 'should receive an invalid password (too short) and re-render the page' do
+      @params = {id: @user.reset_token, user: {password: '12345', password_confirmation: '12345'}}
+
+      reset_controller = double('reset_senhas_controller')
+      allow(reset_controller).to receive(:update).with(@params).and_return(render_template(:edit))
+    end
+
+    it 'should receive an invalid password (too long) and re-render the page' do
+      @params = {id: @user.reset_token, user: {password: '123456789ABCD', password_confirmation: '123456789ABCD'}}
+
+      reset_controller = double('reset_senhas_controller')
+      allow(reset_controller).to receive(:update).with(@params).and_return(render_template(:edit))
+    end
+
+    it 'should receive a blank password, post an error message and re-render the page' do
+      @params = {id: @user.reset_token, user: {password: '', password_confirmation: ''}}
+
+      reset_controller = double('reset_senhas_controller')
+      allow(reset_controller).to receive(:update).with(@params).and_return(render_template(:edit))
+      allow_any_instance_of(User).to receive_message_chain(:errors, :full_messages)
+                                        .and_return("O campo senha deve ser preenchido.")
+    end
+
+    it 'should receive unmatched password and password confirmation, and re-render the page' do
+      @params = {id: @user.reset_token, user: {password: '12345678', password_confirmation: '87654321'}}
+
+      reset_controller = double('reset_senhas_controller')
+      allow(reset_controller).to receive(:update).with(@params).and_return(render_template(:edit))
+    end
 
   end
 
