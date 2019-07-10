@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   match "/dashboard/monitorias/candidatos", to: "monitorias#show", via: 'get'
   match "/dashboard/apagar_alunos", to: "dashboard#apagar_alunos", via: 'get'
   match "/dashboard/deletar_aluno", to: "dashboard#deletar_aluno", via: 'post'
+  match "/dashboard/importar_disciplinas", to: "dashboard#importar_disciplinas", via: 'get'
+  match "/dashboard/raspar_disciplinas", to: "dashboard#raspar_disciplinas", via: 'get'
   match "/faq", to: "faq#index", :via => 'get'
   match "/sobre", to: "sobre#index", :via => 'get'
   match "/professors/confirm", to: "professors#identityconfirmation", :via => 'post', as: 'confirmation'
