@@ -113,16 +113,9 @@ class DashboardController < ApplicationController
     teachers_list.each do |t|
       email = t.css('span.p-email').text.reverse
 
-      if valid_email?(email)
-        unless Professor.find_by_email(email)
-          pwd = generate_password
-          professor = Professor.create(:name => t.css('h4.people-details-h4').text.match(/(\S+\.?\s?)+/),
-                                       :email => email,
-                                       :username => email.match(/[^@]+/),
-                                       :role => match_role(t.css('span.people-details.p-people').text),
-                                       :password => pwd,
-                                       :password_confirmation => pwd)
-        end
+      # Verifica se o e-mail pertence ao domínio da UnB e se o e-mail já está cadastrado no banco de dados
+      if valid_email?(email) && !Professor.find_by_email(email)
+        create_teacher(t, email)
       end
     end
   end
@@ -130,6 +123,17 @@ class DashboardController < ApplicationController
   # Verifica se o e-mail pertence ao domínio da UnB (retorna 'true' se sim e 'false', caso contrário)
   def valid_email?(email)
     email =~ /\A[\w+\-.]+@unb\.br\z/i
+  end
+
+  # Cadastra um professor no banco de dados
+  def create_teacher(teacher, email)
+    pwd = generate_password
+    Professor.create(:name => teacher.css('h4.people-details-h4').text.match(/(\S+\.?\s?)+/),
+                     :email => email,
+                     :username => email.match(/[^@]+/),
+                     :role => match_role(teacher.css('span.people-details.p-people').text),
+                     :password => pwd,
+                     :password_confirmation => pwd)
   end
 
   # Gera uma string de caracteres aleatórios de tamanho adequado para salvar como senha do professor no BD.

@@ -42,7 +42,7 @@ class ResetSenhasController < ApplicationController
       @user = User.find_by(email: params[:email])
     end
 
-    # Confirma se o usuário instanciado acima é válido
+    # Confirma se o usuário instanciado acima é válido verificando o token que foi passado
     def valid_user
       unless @user && @user.authenticated?(:reset, params[:id])
       redirect_to root_url

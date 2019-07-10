@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>rails_best_practices.html - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../";
+  var index_rel_prefix = "../../../";
+</script>
+
+<script src="../../../js/jquery.js"></script>
+<script src="../../../js/darkfish.js"></script>
+
+<link href="../../../css/fonts.css" rel="stylesheet">
+<link href="../../../css/rdoc.css" rel="stylesheet">
+
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../3_1_7.html">3.1.7</a>
+  
+    <li><a href="../../../Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="../../../Guardfile.html">Guardfile</a>
+  
+    <li><a href="../../../README_md.html">README</a>
+  
+    <li><a href="../../../Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../app/assets/config/manifest_js.html">manifest.js</a>
+  
+    <li><a href="../../../app/assets/javascripts/application_js.html">application.js</a>
+  
+    <li><a href="../../../app/assets/javascripts/cable_js.html">cable.js</a>
+  
+    <li><a href="../../../app/assets/javascripts/disciplinas_coffee.html">disciplinas.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/historico_coffee.html">historico.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/home_coffee.html">home.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/popper_min_js.html">popper.min.js</a>
+  
+    <li><a href="../../../app/assets/javascripts/reset_senhas_coffee.html">reset_senhas.coffee</a>
+  
+    <li><a href="../../../app/assets/javascripts/sessions_coffee.html">sessions.coffee</a>
+  
+    <li><a href="../../../app/assets/stylesheets/application_scss.html">application.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/custom_scss.html">custom.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/disciplinas_scss.html">disciplinas.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/historico_scss.html">historico.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/home_scss.html">home.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/reset_senhas_scss.html">reset_senhas.scss</a>
+  
+    <li><a href="../../../app/assets/stylesheets/sessions_scss.html">sessions.scss</a>
+  
+    <li><a href="../../../app/views/admins/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../app/views/dados_bancarios/edit_html_haml.html">edit.html.haml</a>
+  
+    <li><a href="../../../app/views/dados_bancarios/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../app/views/dashboard/apagar_alunos_html_haml.html">apagar_alunos.html.haml</a>
+  
+    <li><a href="../../../app/views/dashboard/dados_bancarios_html_haml.html">dados_bancarios.html.haml</a>
+  
+    <li><a href="../../../app/views/dashboard/disciplinas_html_haml.html">disciplinas.html.haml</a>
+  
+    <li><a href="../../../app/views/dashboard/edit_user_html_haml.html">edit_user.html.haml</a>
+  
+    <li><a href="../../../app/views/dashboard/historico_html_haml.html">historico.html.haml</a>
+  
+    <li><a href="../../../app/views/dashboard/importar_professores_html_haml.html">importar_professores.html.haml</a>
+  
+    <li><a href="../../../app/views/dashboard/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../app/views/dashboard/monitorias_html_haml.html">monitorias.html.haml</a>
+  
+    <li><a href="../../../app/views/dashboard/turmas_html_haml.html">turmas.html.haml</a>
+  
+    <li><a href="../../../app/views/disciplinas/edit_html_haml.html">edit.html.haml</a>
+  
+    <li><a href="../../../app/views/disciplinas/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../app/views/faq/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../app/views/home/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../app/views/layouts/application_html_haml.html">application.html.haml</a>
+  
+    <li><a href="../../../app/views/monitorias/edit_html_haml.html">edit.html.haml</a>
+  
+    <li><a href="../../../app/views/monitorias/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../app/views/monitorias/show_html_haml.html">show.html.haml</a>
+  
+    <li><a href="../../../app/views/professors/identityconfirmation_html_haml.html">identityconfirmation.html.haml</a>
+  
+    <li><a href="../../../app/views/professors/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../app/views/professors/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../app/views/reset_senhas/edit_html_haml.html">edit.html.haml</a>
+  
+    <li><a href="../../../app/views/reset_senhas/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../app/views/sessions/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../app/views/sobre/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../app/views/turmas/edit_html_haml.html">edit.html.haml</a>
+  
+    <li><a href="../../../app/views/turmas/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../app/views/user_mailer/reset_senha_html_haml.html">reset_senha.html.haml</a>
+  
+    <li><a href="../../../app/views/user_mailer/reset_senha_text_haml.html">reset_senha.text.haml</a>
+  
+    <li><a href="../../../app/views/users/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../config_ru.html">config.ru</a>
+  
+    <li><a href="../../../config/credentials_yml_enc.html">credentials.yml.enc</a>
+  
+    <li><a href="../../../config/initializers/devise_rb_bak.html">devise.rb.bak</a>
+  
+    <li><a href="../../../coverage/assets/0_10_2/application_css.html">application.css</a>
+  
+    <li><a href="../../../coverage/assets/0_10_2/application_js.html">application.js</a>
+  
+    <li><a href="../../../coverage/index_html.html">index.html</a>
+  
+    <li><a href="../../../database_sqlite3.html">database.sqlite3</a>
+  
+    <li><a href="../../../development_sqlite3.html">development.sqlite3</a>
+  
+    <li><a href="../../../features/apagarAluno_feature.html">apagarAluno.feature</a>
+  
+    <li><a href="../../../features/apagarDadosBancarios_feature.html">apagarDadosBancarios.feature</a>
+  
+    <li><a href="../../../features/apagarTurma_feature.html">apagarTurma.feature</a>
+  
+    <li><a href="../../../features/cadastrarDadosBancarios_feature.html">cadastrarDadosBancarios.feature</a>
+  
+    <li><a href="../../../features/cadastrarTurma_feature.html">cadastrarTurma.feature</a>
+  
+    <li><a href="../../../features/disciplinaCRUD_feature.html">disciplinaCRUD.feature</a>
+  
+    <li><a href="../../../features/editarDadosBancarios_feature.html">editarDadosBancarios.feature</a>
+  
+    <li><a href="../../../features/editarMonitoria_feature.html">editarMonitoria.feature</a>
+  
+    <li><a href="../../../features/editarPerfilAluno_feature.html">editarPerfilAluno.feature</a>
+  
+    <li><a href="../../../features/editarPerfilProfessor_feature.html">editarPerfilProfessor.feature</a>
+  
+    <li><a href="../../../features/editarTurma_feature.html">editarTurma.feature</a>
+  
+    <li><a href="../../../features/historicoDisciplinas_feature.html">historicoDisciplinas.feature</a>
+  
+    <li><a href="../../../features/importarProfessor_feature.html">importarProfessor.feature</a>
+  
+    <li><a href="../../../features/inscreverMonitoria_feature.html">inscreverMonitoria.feature</a>
+  
+    <li><a href="../../../features/loginAdmin_feature.html">loginAdmin.feature</a>
+  
+    <li><a href="../../../features/loginAluno_feature.html">loginAluno.feature</a>
+  
+    <li><a href="../../../features/loginProfessor_feature.html">loginProfessor.feature</a>
+  
+    <li><a href="../../../features/menuInscricao_feature.html">menuInscricao.feature</a>
+  
+    <li><a href="../../../features/paginaFAQ_feature.html">paginaFAQ.feature</a>
+  
+    <li><a href="../../../features/paginaSobre_feature.html">paginaSobre.feature</a>
+  
+    <li><a href="../../../features/registrarAluno_feature.html">registrarAluno.feature</a>
+  
+    <li><a href="../../../features/registrarProfessor_feature.html">registrarProfessor.feature</a>
+  
+    <li><a href="../../../features/removerMonitoria_feature.html">removerMonitoria.feature</a>
+  
+    <li><a href="../../../features/remuneracaoMonitoria_feature.html">remuneracaoMonitoria.feature</a>
+  
+    <li><a href="../../../features/resetSenha_feature.html">resetSenha.feature</a>
+  
+    <li><a href="../../../features/step_definitions/selectProfessores_feature.html">selectProfessores.feature</a>
+  
+    <li><a href="../../../features/step_definitions/selectProfessoresEmail_feature.html">selectProfessoresEmail.feature</a>
+  
+    <li><a href="../../../features/step_definitions/web_steps_rb_bak.html">web_steps.rb.bak</a>
+  
+    <li><a href="../../../lib/tasks/cucumber_rake.html">cucumber.rake</a>
+  
+    <li><a href="../../../log/development_log.html">development.log</a>
+  
+    <li><a href="../../../log/test_log.html">test.log</a>
+  
+    <li><a href="../../../package_json.html">package.json</a>
+  
+    <li><a href="../../../public/404_html.html">404.html</a>
+  
+    <li><a href="../../../public/422_html.html">422.html</a>
+  
+    <li><a href="../../../public/500_html.html">500.html</a>
+  
+    <li><a href="../../../public/apple-touch-icon-precomposed_png.html">apple-touch-icon-precomposed.png</a>
+  
+    <li><a href="../../../public/apple-touch-icon_png.html">apple-touch-icon.png</a>
+  
+    <li><a href="../../../public/favicon_ico.html">favicon.ico</a>
+  
+    <li><a href="../../../public/robots_txt.html">robots</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/01ec14bd4eaa8bcb4c0664ac6306cc_html.html">01ec14bd4eaa8bcb4c0664ac6306cc.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/040453e670f9bf522378f941c96f38_html.html">040453e670f9bf522378f941c96f38.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/055a0c50f8c1e92a6f3c24d30dac6a_html.html">055a0c50f8c1e92a6f3c24d30dac6a.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/0ccdc5e209326f5ba10da9355ef84f_html.html">0ccdc5e209326f5ba10da9355ef84f.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/0d46c87422d532452609598d5f8c47_html.html">0d46c87422d532452609598d5f8c47.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/1071711a744caadaaa863708dad5e9_html.html">1071711a744caadaaa863708dad5e9.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/1c677e9cfd633c3e93817ff7c1a15a_html.html">1c677e9cfd633c3e93817ff7c1a15a.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/1c7b765e9577d7b1dc1affa1630fe6_html.html">1c7b765e9577d7b1dc1affa1630fe6.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/1f47b915a3e737084dc724f5fec6b4_html.html">1f47b915a3e737084dc724f5fec6b4.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/23054ad7560d3d6c36e866afa24c2d_html.html">23054ad7560d3d6c36e866afa24c2d.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/278f2eb8569e9825cfdce041762792_html.html">278f2eb8569e9825cfdce041762792.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/27a60a0b6c493713edf55324ed371f_html.html">27a60a0b6c493713edf55324ed371f.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/27fb36e589a98d110ef94cd6bec375_html.html">27fb36e589a98d110ef94cd6bec375.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/2800da9f36824e81c2b5cb1a1f210c_html.html">2800da9f36824e81c2b5cb1a1f210c.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/28f48e0bc2718ddf87752d15b58a00_html.html">28f48e0bc2718ddf87752d15b58a00.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/2d7d56ee14ab81b2c6b0e1ae868680_html.html">2d7d56ee14ab81b2c6b0e1ae868680.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/2e1c8ec09f76d3a53a3e010231b052_html.html">2e1c8ec09f76d3a53a3e010231b052.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/329dcb56769718d2f61bf2e5f74ab5_html.html">329dcb56769718d2f61bf2e5f74ab5.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/331c3bef8ae3ce50f5858864fcb5aa_html.html">331c3bef8ae3ce50f5858864fcb5aa.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/33355de1575c867d3ed8db2e7722ef_html.html">33355de1575c867d3ed8db2e7722ef.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/46681a8a2ee3ff427d616ff12def2e_html.html">46681a8a2ee3ff427d616ff12def2e.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/4ed0c03b53dbc8320da88e78874655_html.html">4ed0c03b53dbc8320da88e78874655.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/50c34aa43c43b2299d123a625a6a2d_html.html">50c34aa43c43b2299d123a625a6a2d.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/559869901c694d8d8f52f93007c8b2_html.html">559869901c694d8d8f52f93007c8b2.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/55eb1f9721e7ed41457bc5abc27a88_html.html">55eb1f9721e7ed41457bc5abc27a88.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/59459d8ae6eb34ed02b9dd3b6d4020_html.html">59459d8ae6eb34ed02b9dd3b6d4020.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/595e3046b28835d106b73141d7d1a6_html.html">595e3046b28835d106b73141d7d1a6.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/5a21d52dd29f5622c474c543ff68d5_html.html">5a21d52dd29f5622c474c543ff68d5.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/5c0b636975596928f8b77e7baf0a75_html.html">5c0b636975596928f8b77e7baf0a75.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/5d36ff147a3a44225ef1cb91451c81_html.html">5d36ff147a3a44225ef1cb91451c81.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/7dc0dd94f601e507e2a20bad6adcf1_html.html">7dc0dd94f601e507e2a20bad6adcf1.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/7fd6e678f85fc75a23bb4b633aa3e3_html.html">7fd6e678f85fc75a23bb4b633aa3e3.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/822a688837410a4dbe41e94175fc46_html.html">822a688837410a4dbe41e94175fc46.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/850ea56abefb40879e8c013c620fd5_html.html">850ea56abefb40879e8c013c620fd5.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/8bcf108573b56afb7ff6e7e655f595_html.html">8bcf108573b56afb7ff6e7e655f595.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/93ea273fd0ad4fa595f1db9e2a82e0_html.html">93ea273fd0ad4fa595f1db9e2a82e0.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/98022fd3f31a663d9ada369e6ce8a5_html.html">98022fd3f31a663d9ada369e6ce8a5.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/9b4f173399330bebfc580e18b32ea7_html.html">9b4f173399330bebfc580e18b32ea7.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/9db8fb682c445978a05f6a7a85ac66_html.html">9db8fb682c445978a05f6a7a85ac66.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/a1167d51039467f42565c78e85fc2e_html.html">a1167d51039467f42565c78e85fc2e.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/a7c8e5306369685dc160701bbafa8a_html.html">a7c8e5306369685dc160701bbafa8a.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/a7e103887213c0025de06484d00a2b_html.html">a7e103887213c0025de06484d00a2b.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/acdc4fbf88a3b25747925b2562a2a5_html.html">acdc4fbf88a3b25747925b2562a2a5.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/af5f51b7abd01d5c1a8f00b7b9c753_html.html">af5f51b7abd01d5c1a8f00b7b9c753.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/b160658c0e8de3e670a0907df5b6eb_html.html">b160658c0e8de3e670a0907df5b6eb.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/b7d8c514f5e8bd0868c1b710cde3a7_html.html">b7d8c514f5e8bd0868c1b710cde3a7.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/b91d709250c07c97692dd31f5b4b79_html.html">b91d709250c07c97692dd31f5b4b79.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/b9c1f5660417cda34951ecc9dc4c46_html.html">b9c1f5660417cda34951ecc9dc4c46.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/bluff-min_js.html">bluff-min.js</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/bluff_graph_js.html">bluff_graph.js</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/c8375f6f7ed82e7b7b2d20016a90cc_html.html">c8375f6f7ed82e7b7b2d20016a90cc.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/cane_html.html">cane.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/cane_js.html">cane.js</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/churn_html.html">churn.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/dfae316f755278431fda5897e122f6_html.html">dfae316f755278431fda5897e122f6.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/e69fe44d1fdcdb8f05658c18de375a_html.html">e69fe44d1fdcdb8f05658c18de375a.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/e6ff2c1091173fd03646752d4e3089_html.html">e6ff2c1091173fd03646752d4e3089.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/excanvas_js.html">excanvas.js</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/f10a50c6367a9a77f7ace844dcd5e1_html.html">f10a50c6367a9a77f7ace844dcd5e1.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/f11ae08f856710b5a709da4fce59ae_html.html">f11ae08f856710b5a709da4fce59ae.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/f407b7f3a72740360d5e3528b669e5_html.html">f407b7f3a72740360d5e3528b669e5.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/f59fa284e8df20bf4edcf78955495b_html.html">f59fa284e8df20bf4edcf78955495b.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/fd66af30a271015bd9aa06477d7656_html.html">fd66af30a271015bd9aa06477d7656.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/flay_html.html">flay.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/flay_js.html">flay.js</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/flog_html.html">flog.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/flog_js.html">flog.js</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/highcharts_js.html">highcharts.js</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/highcharts_graph_js.html">highcharts_graph.js</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/hotspots_html.html">hotspots.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/index_html.html">index.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/js-class_js.html">js-class.js</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/rails_best_practices_html.html">rails_best_practices.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/rails_best_practices_js.html">rails_best_practices.js</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/reek_html.html">reek.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/reek_js.html">reek.js</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/roodi_html.html">roodi.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/roodi_js.html">roodi.js</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/saikuro_html.html">saikuro.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/standalone-framework_js.html">standalone-framework.js</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/stats_html.html">stats.html</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/stats_js.html">stats.js</a>
+  
+    <li><a href="../../../tmp/metric_fu/output/utils_js.html">utils.js</a>
+  
+    <li><a href="../../../tmp/metric_fu/scratch/churn/8c378214231ffb2ad17120989a2a01a922f63d60_json.html">8c378214231ffb2ad17120989a2a01a922f63d60.json</a>
+  
+    <li><a href="../../../tmp/restart_txt.html">restart</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page tmp/metric_fu/output/rails_best_practices.html">
+
+<p>&lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Strict//EN” “<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd</a>”&gt; &lt;html lang=&#39;en&#39; xml:lang=&#39;en&#39; xmlns=&#39;<a href="http://www.w3.org/1999/xhtml">www.w3.org/1999/xhtml</a>&#39;&gt;</p>
+
+<pre>&lt;head&gt;
+  &lt;meta content=&#39;text/html; charset=utf-8&#39; http-equiv=&#39;Content-Type&#39; /&gt;
+  &lt;meta content=&#39;en&#39; http-equiv=&#39;Content-Language&#39; /&gt;
+  &lt;title&gt;metrics&lt;/title&gt;
+  &lt;style&gt;</pre>
+
+<p>Copyright © 2008, Yahoo! Inc. All rights reserved. Code licensed under the BSD License: <a href="http://developer.yahoo.net/yui/license.txt">developer.yahoo.net/yui/license.txt</a> version: 2.5.2</p>
+
+<p>html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;}li{list-style:none;}caption,th{text-align:left;}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal;}q:before,q:after{content:&#39;&#39;;}abbr,acronym {border:0;font-variant:normal;}sup {vertical-align:text-top;}sub {vertical-align:text-bottom;}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;}input,textarea,select{*font-size:100%;}legend{color:#000;}</p>
+
+<pre>    --------------------------------------------------------------
+
+buttons.css
+  Gives you some great CSS-only buttons.
+
+Created by Kevin Hale [particletree.com]
+  particletree.com/features/rediscovering-the-button-element
+
+See Readme.txt in this folder for instructions.</pre>
+<hr>
+
+<p>button {</p>
+
+<pre>display:block;
+float:left;
+margin:0 0.583em 0.667em 0;
+padding:5px 10px 5px 7px;   /* Links */
+
+border:1px solid #dedede;
+border-top:1px solid #eee;
+border-left:1px solid #eee;
+
+background-color:#f5f5f5;
+font-family:&quot;Lucida Grande&quot;, Tahoma, Arial, Verdana, sans-serif;
+font-size:100%;
+line-height:130%;
+text-decoration:none;
+font-weight:bold;
+color:#565656;
+cursor:pointer;</pre>
+
+<p>} button {</p>
+
+<pre>width:auto;
+overflow:visible;
+padding:4px 10px 3px 7px;   /* IE6 */</pre>
+
+<p>} <a href="type">button</a> {</p>
+
+<pre>padding:4px 10px 4px 7px;   /* Firefox */
+line-height:17px;           /* Safari */</pre>
+
+<p>}</p>
+
+<pre>:first-child+html button[type] {
+ padding:4px 10px 3px 7px;   /* IE7 */</pre>
+
+<p>} button img {</p>
+
+<pre>margin:0 3px -3px 0 !important;
+padding:0;
+border:none;
+width:16px;
+height:16px;
+float:none;</pre>
+
+<p>}</p>
+
+<p>/* Button colors ————————————————————– */</p>
+
+<p>/* Standard */ button:hover {</p>
+
+<pre>background-color:#dff4ff;
+border:1px solid #c2e1ef;
+color:#336699;</pre>
+
+<p>}</p>
+
+<p>/* Positive */ body .positive {</p>
+
+<pre>color:#529214;</pre>
+
+<p>} button.positive:hover {</p>
+
+<pre>background-color:#E6EFC2;
+border:1px solid #C6D880;
+color:#529214;</pre>
+
+<p>}</p>
+
+<p>/* Negative */ body .negative {</p>
+
+<pre>color:#d12f19;</pre>
+
+<p>} button.negative:hover {</p>
+
+<pre>background:#fbe3e4;
+border:1px solid #fbc2c4;
+color:#d12f19;</pre>
+
+<p>}</p>
+
+<pre>  html {
+background-color: #e0e0e0; }</pre>
+
+<p>body {</p>
+
+<pre>font-size: 100%;
+font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+color: #333333; }</pre>
+
+<p>a {</p>
+
+<pre>color: #ed1556;
+text-decoration: none; }
+a:hover {
+  color: #ffffff;
+  background-color: #ed1556; }</pre>
+
+<p>header, content, footer {</p>
+
+<pre>margin: 0 auto;
+background: #eeeeee;
+padding: 0 2em;
+z-index: 0;
+position: relative;
+font-size: 1em; }</pre>
+
+<p>header {</p>
+
+<pre>background: #ffffff; }
+#header h1 {
+  font-weight: bold;
+  font-size: 1.5em; }
+#header address.watermark {
+  position: absolute;
+  font-weight: bold;
+  right: 3em;
+  top: 0;
+  font-size: .75em;
+  color: #cccccc; }
+  #header address.watermark a {
+    color: #cccccc;
+    font-weight: bold;
+    font-size: 2em; }
+    #header address.watermark a:hover {
+      background: transparent;
+      color: #aaaaaa; }</pre>
+
+<p>content {</p>
+
+<pre>padding-top: 1em;
+padding-bottom: 2em; }
+#content strong {
+  font-weight: bold; }
+#content em {
+  font-style: italic; }
+#content h1, #content h2, #content h3, #content h4, #content h5, #content h6 {
+  color: #4e4e4e; }
+#content h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: .75em;
+  padding: .25em 0;
+  line-height: 1.2;
+  border-bottom: 1px solid #c0c0c0; }
+#content h2 {
+  font-weight: bold;
+  font-size: 1.5em;
+  margin: 1em 0 .2em; }
+#content h3 {
+  font-weight: bold;
+  font-size: 1.25em;
+  margin: .25em 0; }
+#content h4, #content h5, #content h6 {
+  font-weight: bold;
+  margin-top: .5em; }
+#content code, #content pre, #content textarea, #content input {
+  font-family: Monaco, Deja Vu Sans Mono, Inconsolata, Consolas, monospace; }
+#content form p {
+  margin-top: 1em;
+  position: relative; }
+  #content form p.checkbox label {
+    margin-top: 0 !important; }
+#content form input.text, #content form textarea {
+  width: 30em;
+  padding: .2em .4em;
+  color: #4e4e4e; }
+#content form input.text {
+  height: 1.4em; }
+#content form label {
+  float: left;
+  display: block;
+  margin-top: .5em;
+  width: 8em;
+  margin-right: .75em; }
+#content form .with_errors label {
+  background: red;
+  color: white;
+  position: relative;
+  top: -.7em; }
+#content form .with_errors.required label {
+  position: static;
+  margin-right: .25em;
+  padding: 0 .2em; }
+#content form .with_errors input, #content form .with_errors textarea {
+  border: 2px solid #f22;
+  background: #fee;
+  color: #222222; }
+#content form .required label {
+  float: none;
+  display: block;
+  width: auto;
+  position: relative;
+  font-weight: bold;
+  margin-top: 1em;
+  text-indent: -.65em; }
+  #content form .required label:before {
+    content: &quot;* &quot;;
+    color: #ed1556; }
+#content form .required input.text {
+  width: 25.6em;
+  font-size: 24px;
+  font-weight: bold; }
+#content form .normal {
+  margin-top: 2em; }
+#content form h2.notifier label {
+  float: none;
+  width: auto;
+  margin-right: 0; }
+  #content form h2.notifier label .warning {
+    font-size: .5em;
+    font-weight: normal;
+    color: #999999; }
+#content form fieldset {
+  padding-bottom: 1em;
+  margin-left: 1.35em;
+  border-bottom: 1px solid #c0c0c0;
+  margin-bottom: 1em; }
+  #content form fieldset h3 {
+    margin-top: 1em;
+    margin-bottom: 0; }
+  #content form fieldset p.normal {
+    margin-top: 1em; }
+  #content form fieldset p label {
+    width: 6.7em; }
+#content form p.submit {
+  margin-top: 2em; }
+  #content form p.submit:after {
+    display: block;
+    clear: both;
+    float: none;
+    content: &quot;.&quot;;
+    text-indent: -9999em;
+    text-align: left; }
+  #content form p.submit.destroy button,     #content form p.submit.manual-build button {
+    float: none;
+    display: inline; }
+  #content form p.submit.manual-build button {
+    margin-right: 0; }
+#content #build form, #content #last_build form {
+  font-size: .75em; }
+  #content #build form p.submit,     #content #last_build form p.submit {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: .5em;
+    top: 1.25em; }
+#content .blank_slate p,   #content .error p {
+  position: relative;
+  top: .3em; }
+#content .blank_slate h1,   #content .error h1 {
+  border-width: 0;
+  margin: 0;
+  padding: 0; }
+  #content .blank_slate h1 button,     #content .error h1 button {
+    float: none;
+    border: 0 none;
+    background: transparent;
+    display: inline;
+    color: #ed1556;
+    padding: 0.25em 0;
+    margin: 0; }
+    #content .blank_slate h1 button:hover,       #content .error h1 button:hover {
+      background: #ed1556;
+      color: #ffffff; }
+#content .error dt {
+  margin-top: 1.4em;
+  margin-bottom: .3em;
+  font-size: 1.75em;
+  font-family: Georgia, Times New Roman, serif; }
+#content .error dd {
+  line-height: 1.4; }
+#content .error .backtrace {
+  margin: 1em 0;
+  overflow: scroll;
+  height: 30em;
+  border: 1px solid #c0c0c0;
+  line-height: 1.6; }
+#content #projects {
+  margin: 1em 0 2em;
+  border-top: 1px solid #c0c0c0; }
+  #content #projects li {
+    position: relative;
+    border-bottom: 1px solid #c0c0c0; }
+    #content #projects li.odd {
+      background: #e6e6e6; }
+    #content #projects li.building {
+      background: transparent url(/spinner.gif) no-repeat scroll right; }
+    #content #projects li a {
+      font-size: 2em;
+      padding: .25em;
+      line-height: 1.2;
+      font-weight: bold;
+      display: block; }
+      #content #projects li a.success {
+        color: #337022; }
+      #content #projects li a.failed {
+        color: #ff1100; }
+    #content #projects li .meta {
+      position: absolute;
+      right: .6em;
+      top: 1.5em;
+      font-size: 0.8em;
+      color: #999999;
+      text-align: right; }
+    #content #projects li.building .meta {
+      right: 1.6em; }
+    #content #projects li.success .meta {
+      color: #337022; }
+    #content #projects li.failed .meta {
+      color: #ff1100; }
+#content #previous_builds li a {
+  display: block;
+  padding: .25em;
+  margin-bottom: .25em;
+  border-width: 1px;
+  border-style: solid; }
+  #content #previous_builds li a strong {
+    font-size: 1.3em; }
+  #content #previous_builds li a .attribution {
+    font-size: .9em; }
+#content #projects li.success a,   #content #previous_builds li.success a {
+  background-color: #bbf8aa;
+  border-color: #99d688;
+  color: #337022; }
+  #content #projects li.success a .attribution,     #content #previous_builds li.success a .attribution {
+    color: #77b466; }
+  #content #projects li.success a:hover,     #content #previous_builds li.success a:hover {
+    background-color: #ddffcc; }
+#content #projects li.failed a,   #content #previous_builds li.failed a {
+  background-color: #ffbbaa;
+  border-color: #dd9988;
+  color: #ff1100; }
+  #content #projects li.failed a .attribution,     #content #previous_builds li.failed a .attribution {
+    color: #bb7766; }
+  #content #projects li.failed a:hover,     #content #previous_builds li.failed a:hover {
+    background-color: #ffddcc; }
+#content #build, #content #last_build {
+  position: relative; }
+  #content #build h1, #content #build blockquote,     #content #last_build h1, #content #last_build blockquote {
+    border-width: 0 1px;
+    border-style: solid; }
+  #content #build h1,     #content #last_build h1 {
+    border-top-width: 1px; }
+  #content #build blockquote,     #content #last_build blockquote {
+    bottom-bottom-width: 1px;
+    line-height: 1.4; }
+  #content #build.success h1, #content #build.success blockquote,     #content #last_build.success h1, #content #last_build.success blockquote {
+    background-color: #bbf8aa;
+    border-color: #99d688 #ccffbb #ccffbb #99d688; }
+  #content #build.success h1,     #content #last_build.success h1 {
+    color: #337022; }
+  #content #build.success .meta,     #content #last_build.success .meta {
+    color: #77b466; }
+  #content #build.failed h1, #content #build.failed blockquote,     #content #last_build.failed h1, #content #last_build.failed blockquote {
+    background-color: #ffbbaa;
+    border-color: #dd9988 #ffccbb #ffccbb #dd9988; }
+  #content #build.failed h1,     #content #last_build.failed h1 {
+    color: #ff1100; }
+  #content #build.failed .meta,     #content #last_build.failed .meta {
+    color: #bb7766; }
+  #content #build h1,     #content #last_build h1 {
+    margin-top: .5em;
+    margin-bottom: 0;
+    padding: .25em;
+    color: #337022; }
+  #content #build blockquote,     #content #last_build blockquote {
+    padding: .75em;
+    margin-bottom: 2em; }
+    #content #build blockquote .meta,       #content #last_build blockquote .meta {
+      margin-top: 1em;
+      display: block;
+      font-size: .9em; }
+  #content #build pre.output,     #content #last_build pre.output {
+    background: #111;
+    color: #fff;
+    padding: .5em;
+    overflow: auto;
+    max-height: 50em;
+    font-size: .825em; }
+    #content #build pre.output .color30,       #content #last_build pre.output .color30 {
+      color: #333; }
+    #content #build pre.output .color31,       #content #last_build pre.output .color31 {
+      color: #e33; }
+    #content #build pre.output .color32,       #content #last_build pre.output .color32 {
+      color: #3e3; }
+    #content #build pre.output .color33,       #content #last_build pre.output .color33 {
+      color: #ee3; }
+    #content #build pre.output .color34,       #content #last_build pre.output .color34 {
+      color: #33e; }
+    #content #build pre.output .color35,       #content #last_build pre.output .color35 {
+      color: #e3e; }
+    #content #build pre.output .color36,       #content #last_build pre.output .color36 {
+      color: #3ee; }
+    #content #build pre.output .color37,       #content #last_build pre.output .color37 {
+      color: #fff; }
+#content #push_path {
+  display: block;
+  margin-top: 1em;
+  margin-left: 2em; }
+#content div#graph {
+  width: 100%;
+  height: 600px; }</pre>
+
+<p>a.success {</p>
+
+<pre>color: #bbf8aa; }
+a.success:hover {
+  background-color: #bbf8aa;
+  color: white; }</pre>
+
+<p>a.failed {</p>
+
+<pre>color: #ffbbaa; }
+a.failed:hover {
+  background-color: #ffbbaa;
+  color: white; }</pre>
+
+<p>footer {</p>
+
+<pre>padding: 1.5em 2.5em;
+border-top: 1px solid #ccc;
+font-size: .8em;
+color: #666;
+text-align: right; }
+#footer strong {
+  font-weight: bold; }
+
+  table {
+margin-top: 20px;
+border-collapse: collapse;
+border: 1px solid #666;
+background: #fff;
+margin-bottom: 20px;</pre>
+
+<p>}</p>
+
+<p>table tr.light {</p>
+
+<pre>background: #fff;</pre>
+
+<p>}</p>
+
+<p>table tr.dark {</p>
+
+<pre>background: #f9f9f9;</pre>
+
+<p>}</p>
+
+<p>table tr:hover {</p>
+
+<pre>background: #FFFFC0;</pre>
+
+<p>}</p>
+
+<p>table td, table th {</p>
+
+<pre>padding: 4px;
+font-size: 11px;</pre>
+
+<p>} table th {</p>
+
+<pre>text-align: center;
+color: #337022;
+background: #DDFFCC;
+font-weight: bold;
+border: #99D688 1px solid;</pre>
+
+<p>}</p>
+
+<p>table td {</p>
+
+<pre>border: #d0d0d0 1px solid;</pre>
+
+<p>}</p>
+
+<p>table td.score {</p>
+
+<pre>text-align: right;</pre>
+
+<p>}</p>
+
+<p>.warning {</p>
+
+<pre>background: yellow;</pre>
+
+<p>}</p>
+
+<pre>  .bluff-tooltip {
+background: #fff;
+border: 1px solid #d1edf5;
+padding: 8px 8px 6px;</pre>
+
+<p>} .bluff-tooltip .color {</p>
+
+<pre>display: block;
+height: 4px;
+width: 30px;
+margin: 0 0 4px;
+overflow: hidden;</pre>
+
+<p>} .bluff-tooltip .data {</p>
+
+<pre>font-weight: bold;</pre>
+
+<p>}</p>
+
+<pre>  &lt;/style&gt;
+  &lt;link REL=&quot;SHORTCUT ICON&quot; HREF=&quot;/favicon.ico&quot;&gt;
+  &lt;script language=&quot;javascript&quot; src=&quot;utils.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+  &lt;script language=&quot;javascript&quot; src=&quot;js-class.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+  &lt;script language=&quot;javascript&quot; src=&quot;bluff-min.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+  &lt;script language=&quot;javascript&quot; src=&quot;excanvas.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+  &lt;script language=&quot;javascript&quot; src=&quot;standalone-framework.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+  &lt;script language=&quot;javascript&quot; src=&quot;highcharts.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div id=&#39;header&#39;&gt;
+    &lt;h1&gt;&lt;a href=&quot;/&quot;&gt;metrics&lt;/a&gt; | &lt;a href=&quot;index.html&quot;&gt;MCIC2&lt;/a&gt;&lt;/h1&gt;
+    &lt;address class=&#39;watermark&#39;&gt;
+      built with
+      &lt;a href=&#39;https://github.com/metricfu/metric_fu&#39;&gt;MetricFu&lt;/a&gt;
+    &lt;/address&gt;
+  &lt;/div&gt;
+  &lt;div id=&#39;content&#39;&gt;
+    &lt;h3&gt;Rails Best Practices Results&lt;/h3&gt;</pre>
+
+<p>&lt;p&gt;&lt;a href=“<a href="http://github.com/railsbp/rails_best_practices">rails_best_practices</a">github.com/railsbp/rails_best_practices”>rails_best_practices</a</a>&gt; is a code metric tool for rails projects.&lt;/p&gt;</p>
+
+<p>&lt;div id=“graph_container”&gt;&lt;/div&gt; &lt;script language=“javascript” src=“rails_best_practices.js?1562637764” type=“text/javascript”&gt;&lt;/script&gt;</p>
+
+<p>&lt;table&gt;</p>
+
+<pre>&lt;tr&gt;
+  &lt;th&gt;File Path&lt;/th&gt;
+  &lt;th&gt;Warning&lt;/th&gt;
+&lt;/tr&gt;
+
+  &lt;tr class=&#39;light&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/views/monitorias/show.html.haml&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/views/monitorias/show.html.haml:68&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/07/24/move-code-into-controller/&gt;move code into controller&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;dark&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/views/monitorias/show.html.haml&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/views/monitorias/show.html.haml:68&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/07/24/move-code-into-controller/&gt;move code into controller&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;light&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/views/monitorias/show.html.haml&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/views/monitorias/show.html.haml:68&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/07/24/move-code-into-controller/&gt;move code into controller&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;dark&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/views/monitorias/show.html.haml&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/views/monitorias/show.html.haml:72&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/07/24/move-code-into-controller/&gt;move code into controller&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;light&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/views/monitorias/new.html.haml&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/views/monitorias/new.html.haml:36&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/07/24/move-code-into-controller/&gt;move code into controller&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;dark&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/views/monitorias/new.html.haml&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/views/monitorias/new.html.haml:36&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/07/24/move-code-into-controller/&gt;move code into controller&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;light&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/views/dashboard/historico.html.haml&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/views/dashboard/historico.html.haml:89&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/07/24/move-code-into-controller/&gt;move code into controller&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;dark&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/views/dashboard/historico.html.haml&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/views/dashboard/historico.html.haml:89&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/07/24/move-code-into-controller/&gt;move code into controller&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;light&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/views/dashboard/historico.html.haml&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/views/dashboard/historico.html.haml:90&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/07/24/move-code-into-controller/&gt;move code into controller&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;dark&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/views/dashboard/historico.html.haml&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/views/dashboard/historico.html.haml:90&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/07/24/move-code-into-controller/&gt;move code into controller&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;light&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/views/dashboard/monitorias.html.haml&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/views/dashboard/monitorias.html.haml:91&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/07/24/move-code-into-controller/&gt;move code into controller&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;dark&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/views/dashboard/monitorias.html.haml&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/views/dashboard/monitorias.html.haml:91&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/07/24/move-code-into-controller/&gt;move code into controller&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;light&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/views/dashboard/monitorias.html.haml&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/views/dashboard/monitorias.html.haml:147&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/07/24/move-code-into-controller/&gt;move code into controller&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;dark&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/views/dashboard/monitorias.html.haml&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/views/dashboard/monitorias.html.haml:147&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/07/24/move-code-into-controller/&gt;move code into controller&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;light&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/views/dashboard/dados_bancarios.html.haml&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/views/dashboard/dados_bancarios.html.haml:91&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/07/24/move-code-into-controller/&gt;move code into controller&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;dark&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/views/dashboard/dados_bancarios.html.haml&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/views/dashboard/dados_bancarios.html.haml:91&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/07/24/move-code-into-controller/&gt;move code into controller&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;light&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/controllers/dados_bancarios_controller.rb&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/controllers/dados_bancarios_controller.rb:6&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/07/21/move-model-logic-into-the-model/&gt;move model logic into model (@dados_bancarios use_count &gt; 4)&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;dark&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/controllers/monitorias_controller.rb&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/controllers/monitorias_controller.rb:11&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/07/21/move-model-logic-into-the-model/&gt;move model logic into model (@monitoria use_count &gt; 4)&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;light&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/controllers/dashboard_controller.rb&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/controllers/dashboard_controller.rb:53&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/07/21/move-model-logic-into-the-model/&gt;move model logic into model (@user use_count &gt; 4)&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;dark&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/helpers/reset_senhas_helper.rb&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/helpers/reset_senhas_helper.rb:1&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2011/04/09/remove-empty-helpers/&gt;remove empty helpers&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;light&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/helpers/disciplinas_helper.rb&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/helpers/disciplinas_helper.rb:1&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2011/04/09/remove-empty-helpers/&gt;remove empty helpers&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;dark&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/helpers/home_helper.rb&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/helpers/home_helper.rb:1&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2011/04/09/remove-empty-helpers/&gt;remove empty helpers&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;light&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/helpers/historico_helper.rb&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/helpers/historico_helper.rb:1&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2011/04/09/remove-empty-helpers/&gt;remove empty helpers&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;dark&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/controllers/turmas_controller.rb&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/controllers/turmas_controller.rb:53&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =&gt;remove unused methods (TurmasController#find_turma)&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;light&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/models/turma.rb&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/models/turma.rb:27&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =&gt;remove unused methods (Turma#show_disciplinas)&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;dark&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/config/routes.rb&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/config/routes.rb:5&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2011/08/19/restrict-auto-generated-routes/&gt;restrict auto-generated routes users (only: [:new, :create, :update])&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;light&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/config/routes.rb&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/config/routes.rb:6&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2011/08/19/restrict-auto-generated-routes/&gt;restrict auto-generated routes professors (except: [:show, :edit, :destroy])&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;dark&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/config/routes.rb&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/config/routes.rb:7&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2011/08/19/restrict-auto-generated-routes/&gt;restrict auto-generated routes sessions (only: [:new, :create, :destroy])&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;light&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/config/routes.rb&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/config/routes.rb:8&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2011/08/19/restrict-auto-generated-routes/&gt;restrict auto-generated routes admins (only: [:new, :create, :index])&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;dark&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/config/routes.rb&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/config/routes.rb:9&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2011/08/19/restrict-auto-generated-routes/&gt;restrict auto-generated routes dados_bancarios (except: [:show, :index])&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;light&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/config/routes.rb&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/config/routes.rb:10&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2011/08/19/restrict-auto-generated-routes/&gt;restrict auto-generated routes disciplinas (except: [:show, :index])&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;dark&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/config/routes.rb&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/config/routes.rb:11&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2011/08/19/restrict-auto-generated-routes/&gt;restrict auto-generated routes turmas (except: [:show, :index])&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;light&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/config/routes.rb&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/config/routes.rb:12&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2011/08/19/restrict-auto-generated-routes/&gt;restrict auto-generated routes monitorias (except: [:index])&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;dark&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/mailers/professor_mailer.rb&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/mailers/professor_mailer.rb:3&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/12/02/remove-trailing-whitespace/&gt;remove trailing whitespace&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;light&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/controllers/disciplinas_controller.rb&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/controllers/disciplinas_controller.rb:3&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/12/02/remove-trailing-whitespace/&gt;remove trailing whitespace&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;dark&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/views/professors/identityconfirmation.html.haml&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/views/professors/identityconfirmation.html.haml:5&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/12/02/remove-trailing-whitespace/&gt;remove trailing whitespace&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;light&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/views/professor_mailer/key_email.html.erb&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/views/professor_mailer/key_email.html.erb:8&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/12/02/remove-trailing-whitespace/&gt;remove trailing whitespace&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;dark&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/views/professor_mailer/key_email.text.erb&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/views/professor_mailer/key_email.text.erb:3&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/12/02/remove-trailing-whitespace/&gt;remove trailing whitespace&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;light&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/views/monitorias/edit.html.haml&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/views/monitorias/edit.html.haml:48&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/12/02/remove-trailing-whitespace/&gt;remove trailing whitespace&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;dark&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/views/monitorias/new.html.haml&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/views/monitorias/new.html.haml:27&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/12/02/remove-trailing-whitespace/&gt;remove trailing whitespace&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;tr class=&#39;light&#39;&gt;
+    &lt;td&gt;&lt;a href=&#39;file:///home/pedro/Documentos/ES_Genanena/MCIC2/app/views/disciplinas/edit.html.haml&#39;&gt;/home/pedro/Documentos/ES_Genanena/MCIC2/app/views/disciplinas/edit.html.haml:8&lt;/a&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;a href =https://rails-bestpractices.com/posts/2010/12/02/remove-trailing-whitespace/&gt;remove trailing whitespace&lt;/a&gt;&lt;/td&gt;
+  &lt;/tr&gt;</pre>
+
+<p>&lt;/table&gt;</p>
+
+<p>&lt;p&gt;Generated on 2019-07-08 23:02:44 -0300&lt;/p&gt;</p>
+
+<pre>  &lt;/div&gt;
+
+  &lt;script language=&quot;javascript&quot; src=&quot;bluff_graph.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;</pre>
+
+<p>&lt;/html&gt;</p>
+
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
