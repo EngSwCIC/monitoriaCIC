@@ -266,6 +266,7 @@ GEM
     rack (2.0.5)
     rack-test (1.0.0)
       rack (>= 1.0, < 3)
+    railroady (1.5.3)
     rails (5.2.0)
       actioncable (= 5.2.0)
       actionmailer (= 5.2.0)
@@ -437,6 +438,7 @@ DEPENDENCIES
   metric_fu!
   nokogiri
   puma (~> 3.11)
+  railroady
   rails (~> 5.2.0)
   rails-controller-testing
   rspec-rails
