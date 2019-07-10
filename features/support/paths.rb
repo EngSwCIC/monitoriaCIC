@@ -68,6 +68,9 @@ module NavigationHelpers
     when /^página de dados bancários$/
       dashboard_dados_bancarios_path
 
+    when /^página de histórico$/
+      dashboard_historico_path
+
     when /^página de cadastro de dados bancários$/
       new_dados_bancario_path
 
