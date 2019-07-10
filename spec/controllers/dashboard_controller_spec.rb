@@ -80,15 +80,16 @@ describe DashboardController do
 	
 	@monitoria1 = FactoryBot.create(:monitoria, fk_matricula: '140080384')
         @monitoria2 = FactoryBot.create(:monitoria, id: '2', fk_matricula: '140080385')
-        @all_monitorias = Monitoria.find_each
+	@monitoria3 = FactoryBot.create(:monitoria, id: '3', fk_status_monitoria_id: '4', fk_matricula: '140080386')
+        @all_monitorias = Monitoria.find_each 
       end
       it 'should render the views/dashboard/historico.html.haml' do
         get :historico
         expect(response).to render_template(:historico)
       end
 
-      it 'should return an array with all the Monitorias of a given User' do
-        expect(Monitoria).to receive(:find_each).and_return(@all_monitorias)
+      it 'should return an array with all the Monitorias of a given User where fk_status_monitoria_id equal to 4' do
+        expect(Monitoria).to receive(:find_each).and_return(@mostrar)
         get :historico
       end
     end
