@@ -2,13 +2,22 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="development" uuid="ca4cda17-c56c-4f85-8770-c05abf7ca629">
-      <database-info product="SQLite" version="3.20.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.20.1.1" />
+      <database-info product="SQLite" version="3.20.1" jdbc-version="2.1" driver-name="SQLite JDBC" driver-version="3.20.1.1" dbms="SQLITE" exact-version="3.20.1" />
       <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <introspection-schemas>*:main</introspection-schemas>
     </data-source>
     <data-source name="test" uuid="cbeb7a19-7f85-46f9-bb2f-85118a2fad61">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
       <introspection-schemas>*:main</introspection-schemas>
+    </data-source>
+    <data-source name="Rails MonitoriaCIC: development" uuid="85548f4b-7014-4a51-9f7e-1e80c87e07c0">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
+    </data-source>
+    <data-source name="Rails MonitoriaCIC: cucumber" uuid="dc82fa75-97ec-43d6-bca0-5da1aebb813b">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
+    </data-source>
+    <data-source name="Rails MonitoriaCIC: test" uuid="87e8e026-3c06-4fa5-963c-efc0381e5b2e">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="SQLITE" exact-version="0" />
     </data-source>
   </component>
 </project>

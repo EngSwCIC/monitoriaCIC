@@ -48,10 +48,18 @@ gem 'jquery-rails'
 # # Uses the Devise Gem for Login/Logout
 # gem 'devise'
 
+# Uses nokogiri gem
+gem 'nokogiri'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
+# Uses railroady gem
+group :development, :test do
+  gem 'railroady'
+end
+
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
@@ -78,7 +86,10 @@ group :test do
   gem 'guard-rspec'
   gem 'rails-controller-testing'
   gem 'factory_bot_rails'
-  gem 'simplecov', :require => false
+  gem 'simplecov'
+
+  # Used for metrics
+  gem 'metric_fu', git: 'https://github.com/metricfu/metric_fu.git'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -72,6 +72,28 @@ describe DashboardController do
       end
     end
 
+    describe '#historico' do
+      before :each do
+        @user = FactoryBot.create(:user, matricula: '140080384')
+        allow_any_instance_of(DashboardController).to receive(:current_user)
+          .and_return(@user)
+	
+	@monitoria1 = FactoryBot.create(:monitoria, fk_matricula: '140080384')
+        @monitoria2 = FactoryBot.create(:monitoria, id: '2', fk_matricula: '140080385')
+	@monitoria3 = FactoryBot.create(:monitoria, id: '3', fk_status_monitoria_id: '4', fk_matricula: '140080386')
+        @all_monitorias = Monitoria.find_each 
+      end
+      it 'should render the views/dashboard/historico.html.haml' do
+        get :historico
+        expect(response).to render_template(:historico)
+      end
+
+      it 'should return an array with all the Monitorias of a given User where fk_status_monitoria_id equal to 4' do
+        expect(Monitoria).to receive(:find_each).and_return(@mostrar)
+        get :historico
+      end
+    end
+
     describe '#apagar_alunos' do
       it 'should call the model method that finds all the Users in order of :matricula' do
         expect(User).to receive(:order).with(:matricula).and_return(User.order(:matricula))

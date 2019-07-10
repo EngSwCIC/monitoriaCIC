@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="development">
-  <database-model serializer="dbm" rdbms="SQLITE" format-version="4.8">
+  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.15">
     <root id="1">
-      <ServerVersion>3.20.1</ServerVersion>
+      <ServerVersion>3.25.1</ServerVersion>
     </root>
     <schema id="2" parent="1" name="main">
       <Current>1</Current>
@@ -440,7 +440,7 @@
     </column>
     <column id="111" parent="18" name="rootpage">
       <Position>4</Position>
-      <DataType>integer|0s</DataType>
+      <DataType>int|0s</DataType>
     </column>
     <column id="112" parent="18" name="sql">
       <Position>5</Position>
@@ -600,77 +600,85 @@
       <Position>11</Position>
       <DataType>datetime|0s</DataType>
     </column>
-    <index id="146" parent="24" name="users_email_unique">
+    <column id="146" parent="24" name="reset_digest">
+      <Position>12</Position>
+      <DataType>varchar|0s</DataType>
+    </column>
+    <column id="147" parent="24" name="reset_sent_at">
+      <Position>13</Position>
+      <DataType>datetime|0s</DataType>
+    </column>
+    <index id="148" parent="24" name="users_email_unique">
       <ColNames>email</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="147" parent="24" name="users_cpf_unique">
+    <index id="149" parent="24" name="users_cpf_unique">
       <ColNames>cpf</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="148" parent="24" name="users_rg_unique">
+    <index id="150" parent="24" name="users_rg_unique">
       <ColNames>rg</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="149" parent="24" name="users_matricula_unique">
+    <index id="151" parent="24" name="users_matricula_unique">
       <ColNames>matricula</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="150" parent="24" name="fk_banco">
+    <index id="152" parent="24" name="fk_banco">
       <ColNames>fk_banco</ColNames>
       <ColumnCollations></ColumnCollations>
     </index>
-    <key id="151" parent="24">
+    <key id="153" parent="24">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="152" parent="25" name="id">
+    <column id="154" parent="25" name="id">
       <Position>1</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="153" parent="25" name="t_total">
+    <column id="155" parent="25" name="t_total">
       <Position>2</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <column id="154" parent="25" name="t_ocupadas">
+    <column id="156" parent="25" name="t_ocupadas">
       <Position>3</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <column id="155" parent="25" name="t_restantes">
+    <column id="157" parent="25" name="t_restantes">
       <Position>4</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <column id="156" parent="25" name="c_total">
+    <column id="158" parent="25" name="c_total">
       <Position>5</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <column id="157" parent="25" name="c_ocupadas">
+    <column id="159" parent="25" name="c_ocupadas">
       <Position>6</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <column id="158" parent="25" name="c_restantes">
+    <column id="160" parent="25" name="c_restantes">
       <Position>7</Position>
       <DataType>integer|0s</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>0</DefaultExpression>
     </column>
-    <key id="159" parent="25">
+    <key id="161" parent="25">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>

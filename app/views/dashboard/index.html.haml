@@ -49,12 +49,26 @@
                 %span{'data-feather': "dollar-sign"}
                 Dados Bancários
 
+        -if current_user.kind_of?(User)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_historico_path}
+                %span{'data-feather': "film"}
+                Histórico
+
+
         -if current_user.kind_of?(Admin)
           %ul.nav.flex-column.mb-2
             %li.nav-item
               %a.nav-link{href: dashboard_apagar_alunos_path}
                 %span{'data-feather': "trash"}
                 Apagar alunos
+        -if current_user.kind_of?(Admin)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_importar_professores_path}
+                %span{'data-feather': "users"}
+                Importar lista de professores
 
         -if current_user.kind_of?(Admin)
           %ul.nav.flex-column.mb-2

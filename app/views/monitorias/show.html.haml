@@ -93,8 +93,10 @@
                           Pendente
                         - elsif monitor.fk_status_monitoria_id == 2
                           Rejeitado
-                        - else
+                        - elsif monitor.fk_status_monitoria_id == 3
                           Aceito
+                        - else
+                          Encerrado
                       %hr
                       =link_to "Alterar Situaçao", edit_monitoria_path(monitor.id), class: 'btn btn-outline-primary unb-blue btn-block'
       .col-1
