@@ -17,7 +17,7 @@ class Monitoria < ApplicationRecord
  	# end
 
  	def self.all_status
-    	return [['Pendente', 1], ['Recusado', 2], ['Aceito', 3]]
+    	return [['Pendente', 1], ['Recusado', 2], ['Aceito', 3], ['Encerrado', 4]]
  	end
  	validates_presence_of :remuneracao
  	validates_presence_of :fk_matricula

@@ -57,7 +57,7 @@ describe Monitoria do
 
   describe '#all_status' do
     it 'retorna array com as situaçoes' do
-      @status = [['Pendente', 1], ['Recusado', 2], ['Aceito', 3]]
+      @status = [['Pendente', 1], ['Recusado', 2], ['Aceito', 3], ['Encerrado', 4]]
       expect(Monitoria.all_status).to eq @status
     end
   end

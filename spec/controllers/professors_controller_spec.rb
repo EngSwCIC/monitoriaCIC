@@ -3,6 +3,13 @@
 require 'rails_helper'
 
 describe ProfessorsController do
+  describe '#index' do
+    it 'should render the views/professors/index.html.haml view' do
+      get :index
+      expect(response).to render_template(:index)
+    end
+  end
+
   describe '#new' do
     it 'should render the views/professors/new.html.haml' do
       get :new
@@ -114,6 +121,37 @@ describe ProfessorsController do
         )
       end
     end
+  end
+
+  describe '#identityconfirmation' do
+    fixtures 'professor'
+      before :each do
+        @info = {
+          name: 'Genaina Nunes Rodrigues',
+          username: 'grodrigues',
+          email: 'genaina@unb.br',
+          role: '4',
+          password: '110492',
+          password_confirmation: '110492'
+        }
+
+        @params = Hash.new
+        @params[:professor] = @info
+        @params[:id] = 0
+
+        @professor = professor(:some_professor)
+      end
+
+      it 'calls the method that locates the Professor' do
+        allow(Professor).to receive(:find_by_email).and_return @professor
+        post :identityconfirmation, params: @params
+      end
+
+      it 'redirects the professor to the professor confirmation screen' do
+        post :identityconfirmation, params: @params
+
+        expect(response).to render_template(:identityconfirmation)
+      end
   end
 
   describe '#update' do
