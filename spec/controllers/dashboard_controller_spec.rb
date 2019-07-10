@@ -83,13 +83,13 @@ describe DashboardController do
         @all_monitorias = Monitoria.find_each
       end
       it 'should render the views/dashboard/historico.html.haml' do
-        get :monitorias
-        expect(response).to render_template(:monitorias)
+        get :historico
+        expect(response).to render_template(:historico)
       end
 
       it 'should return an array with all the Monitorias of a given User' do
         expect(Monitoria).to receive(:find_each).and_return(@all_monitorias)
-        get :monitorias
+        get :historico
       end
     end
 
