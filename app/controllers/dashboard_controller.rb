@@ -122,27 +122,27 @@ class DashboardController < ApplicationController
     disciplinas = []
 
     tbls_disciplinas.each do |d|
-      cod_disciplina = d.css('td')[0].text
-      nome_disciplina = d.css('td')[1].text.titleize
-      link_disciplina = d.css('td')[1].css('a')[0][:href]
-
-      info_disciplina = raspar_pagina_disciplina(caminho = link_disciplina)
-      creditos = info_disciplina[:creditos]
-      turmas = info_disciplina[:turmas]
-
-      disciplinas << {
-        :cod_disciplina => cod_disciplina,
-        :nome_disciplina => nome_disciplina,
-        :c_prat => creditos[:c_prat],
-        :c_teor => creditos[:c_teor],
-        :c_est => creditos[:c_est],
-        :c_ext => creditos[:c_ext],
-        :turmas => turmas
-      }
+      
+      disciplinas << extrai_campos_disciplina(d)
 
     end
 
     disciplinas
+
+  end
+
+  def extrai_campos_disciplina(node)
+  
+    link_disciplina = node.css('td')[1].css('a')[0][:href]
+
+    info_disciplina = raspar_pagina_disciplina(caminho = link_disciplina)
+
+    {
+      :cod_disciplina => node.css('td')[0].text,
+      :nome_disciplina => node.css('td')[1].text.titleize,
+      :creditos => info_disciplina[:creditos],
+      :turmas => info_disciplina[:turmas]
+    }
 
   end
 
@@ -158,14 +158,6 @@ class DashboardController < ApplicationController
       .css('tr:nth-child(4) > td')
       .text.split('-').map {|str| str.to_i}
 
-    turmas = []
-    tabelas.drop(1).each do |t|
-      turmas << {
-        :nome_turma => t.css('td.turma').text,
-        :nome_professor => t.css('tbody > tr > td:nth-child(5) td').text
-      }
-    end
-
     {
       :creditos => {
         :c_prat => c_prat,
@@ -173,30 +165,50 @@ class DashboardController < ApplicationController
         :c_est => c_est,
         :c_ext => c_ext
       },
-      :turmas => turmas
+      :turmas => extrai_turmas(tabelas)
     }
 
   end
 
+  def extrai_turmas(node)
+    turmas = []
+    node.drop(1).each do |t|
+      turmas << extrai_campos_turma(t)
+    end
+    turmas
+  end
+
+  def extrai_campos_turma(node)
+    {
+      :nome_turma => node.css('td.turma').text,
+      :nome_professor => node.css('tbody > tr > td:nth-child(5) td').text
+    }
+  end
 
   def carregar_disciplinas(disciplinas)
     disciplinas.each do |d|
 
       if !Disciplina.find_by_cod_disciplina(d[:cod_disciplina])
 
-        Disciplina.create(
-          :cod_disciplina => d[:cod_disciplina],
-          :nome => d[:nome_disciplina],
-          :c_prat => d[:c_prat],
-          :c_teor => d[:c_teor],
-          :c_est => d[:c_est],
-          :c_ext => d[:c_ext]
+        criar_disciplina(
+          d[:cod_disciplina],
+          d[:nome_disciplina],
+          d[:creditos]
         )
-
       end
-
     end
+  end
 
+  
+  def criar_disciplina(cod_disciplina, nome, creditos)
+    Disciplina.create(
+      :cod_disciplina => cod_disciplina,
+      :nome => nome,
+      :c_prat => creditos[:c_prat],
+      :c_teor => creditos[:c_teor],
+      :c_est => creditos[:c_est],
+      :c_ext => creditos[:c_ext]
+    )
   end
 
 
