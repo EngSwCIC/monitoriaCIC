@@ -85,6 +85,9 @@ class DashboardController < ApplicationController
     @disciplinas = Disciplina.all
   end
 
+  ##
+  # Método para raspar as disciplinas do site do MatrículaWeb
+  # e carregá-las no modelo.
 
   def raspar_disciplinas
     disciplinas = raspar_matriculaweb_disciplinas
@@ -110,6 +113,10 @@ class DashboardController < ApplicationController
   end
 
 
+  ##
+  # Método que faz a requisição da página das disciplinas.
+  #
+  # Retorna uma lista de hashes com os dados das disciplinas.
 
   def raspar_matriculaweb_disciplinas(url = "https://matriculaweb.unb.br/graduacao/oferta_dis.aspx?cod=116")
     require 'open-uri'
@@ -131,6 +138,9 @@ class DashboardController < ApplicationController
 
   end
 
+  ##
+  # Método que realiza as extrações dos dados da disciplina.
+  # Retorna um hash com as informações da disciplina.
   def extrai_campos_disciplina(node)
   
     link_disciplina = node.css('td')[1].css('a')[0][:href]
@@ -146,6 +156,9 @@ class DashboardController < ApplicationController
 
   end
 
+  ##
+  # Método para fazer a requisição da página da oferta de uma disciplina específica.
+  # Retorna um hash com as informações de créditos e turmas das disciplinas.
   def raspar_pagina_disciplina(caminho, url_base = "https://matriculaweb.unb.br/graduacao/")
     require 'open-uri'
     require 'openssl'
@@ -170,6 +183,9 @@ class DashboardController < ApplicationController
 
   end
 
+  ##
+  # Método para raspagem das turmas da disciplina.
+  # Retorna uma lista de hashes das turmas.
   def extrai_turmas(node)
     turmas = []
     node.drop(1).each do |t|
@@ -178,6 +194,10 @@ class DashboardController < ApplicationController
     turmas
   end
 
+  ##
+  # Método para extração das informações da turma da página da oferta da
+  # disciplina no MatrículoWeb.
+  # Retorna um hash com nome da turma e nome do professor.
   def extrai_campos_turma(node)
     {
       :nome_turma => node.css('td.turma').text,
@@ -185,6 +205,8 @@ class DashboardController < ApplicationController
     }
   end
 
+  ##
+  # Método para carregar as disciplinas no modelo.
   def carregar_disciplinas(disciplinas)
     disciplinas.each do |d|
 
@@ -199,7 +221,8 @@ class DashboardController < ApplicationController
     end
   end
 
-  
+  ##
+  # Método para criar uma disciplina no modelo.
   def criar_disciplina(cod_disciplina, nome, creditos)
     Disciplina.create(
       :cod_disciplina => cod_disciplina,
