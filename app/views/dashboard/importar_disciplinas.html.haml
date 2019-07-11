@@ -1,0 +1,116 @@
+%br
+%br
+.container-fluid
+  .row
+    %nav.col-md-2.d-none.d-md-block.bg-light.sidebar{style: 'margin-top: 40px'}
+      .sidebar-sticky
+        %ul.nav.flex-column
+          %li.nav-item
+            %a.nav-link.active{href: dashboard_path}
+              %span{'data-feather': "home"}
+              Dashboard
+              %span.sr-only (current)
+          -if current_user.kind_of?(Admin)
+            %li.nav-item
+              %a.nav-link{href: dashboard_disciplinas_path}
+                %span{'data-feather': "file"}
+                Disciplinas
+          - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
+            %li.nav-item
+              %a.nav-link{href: dashboard_monitorias_path}
+                %span{'data-feather': "github"}
+                Monitoria
+
+          -if current_user.kind_of?(Professor)
+            %ul.nav.flex-column.mb-2
+              %li.nav-item
+                %a.nav-link{href: dashboard_turmas_path}
+                  %span{'data-feather': "edit"}
+                  Turmas
+
+        -unless current_user.kind_of?(Admin)
+          %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+            Menu
+            %span do usuário
+            %a.d-flex.align-items-center.text-muted{href: "#"}
+              %span{'data-feather': "plus-circle"}
+
+        -if current_user.kind_of?(User) || current_user.kind_of?(Professor)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_edit_user_path}
+                %span{'data-feather': "settings"}
+                Editar Perfil
+
+        -if current_user.kind_of?(User)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_dados_bancarios_path}
+                %span{'data-feather': "dollar-sign"}
+                Dados Bancários
+
+        -if current_user.kind_of?(Admin)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_apagar_alunos_path}
+                %span{'data-feather': "trash"}
+                Apagar alunos
+
+        -if current_user.kind_of?(Admin)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_importar_disciplinas_path}
+                %span{'data-feather': "truck"}
+                Importar lista de disciplinas
+
+
+    %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
+      .row
+        .col
+          %h2 Importar lista de disciplinas
+          %hr
+          -if flash[:danger]
+            .alert.alert-danger
+              = flash[:danger]
+          -if flash[:notice]
+            .alert.alert-success
+              = flash[:notice]
+      %br
+      .row
+        .col
+          .row
+            .col-8
+              .row
+                - @disciplinas.each do |d|
+                  .col-12
+                    .card{style: 'width: 100%;'}
+                    .card-body
+                      %h5.card-title=d.nome
+                      %hr
+                      Código da Disciplina: <b>#{d.cod_disciplina}</b>
+                      %table.table
+                        %thead
+                          %tr
+                            %th
+                              Prático
+                            %th
+                              Teórico
+                            %th
+                              Estudos
+                            %th
+                              Extensão
+                        %tbody
+                          %tr
+                            %td=d.c_prat
+                            %td=d.c_teor
+                            %td=d.c_est
+                            %td=d.c_ext
+
+
+            .col-4
+              Clique no botão abaixo para importar a lista de disciplinas a partir do
+              %a{href: 'https://matriculaweb.unb.br/graduacao/'}site do MatriculaWeb
+              %hr
+                = link_to "Importar disciplinas", dashboard_raspar_disciplinas_path,
+                :class => "btn btn-outline-primary btn-block"
+        .col-1
