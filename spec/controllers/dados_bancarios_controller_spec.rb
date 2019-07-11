@@ -221,7 +221,7 @@ describe DadosBancariosController do
         @params[:id] = "1"
 
         @db_dados_bancarios = FactoryBot.create(:dados_bancarios, id: 1)
-        @db_user = FactoryBot.create(:user, fk_banco: 1)
+        @db_user = FactoryBot.build(:user, fk_banco: 1)
       end
 
       it 'calls the Sessions Helper method that returns the User' do

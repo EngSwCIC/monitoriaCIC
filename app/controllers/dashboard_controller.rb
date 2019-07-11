@@ -85,6 +85,9 @@ class DashboardController < ApplicationController
     @disciplinas = Disciplina.all
   end
 
+  ##
+  # Método para raspar as disciplinas do site do MatrículaWeb
+  # e carregá-las no modelo.
 
   def raspar_disciplinas
     disciplinas = raspar_matriculaweb_disciplinas
@@ -110,6 +113,10 @@ class DashboardController < ApplicationController
   end
 
 
+  ##
+  # Método que faz a requisição da página das disciplinas.
+  #
+  # Retorna uma lista de hashes com os dados das disciplinas.
 
   def raspar_matriculaweb_disciplinas(url = "https://matriculaweb.unb.br/graduacao/oferta_dis.aspx?cod=116")
     require 'open-uri'
@@ -122,23 +129,8 @@ class DashboardController < ApplicationController
     disciplinas = []
 
     tbls_disciplinas.each do |d|
-      cod_disciplina = d.css('td')[0].text
-      nome_disciplina = d.css('td')[1].text.titleize
-      link_disciplina = d.css('td')[1].css('a')[0][:href]
-
-      info_disciplina = raspar_pagina_disciplina(caminho = link_disciplina)
-      creditos = info_disciplina[:creditos]
-      turmas = info_disciplina[:turmas]
-
-      disciplinas << {
-        :cod_disciplina => cod_disciplina,
-        :nome_disciplina => nome_disciplina,
-        :c_prat => creditos[:c_prat],
-        :c_teor => creditos[:c_teor],
-        :c_est => creditos[:c_est],
-        :c_ext => creditos[:c_ext],
-        :turmas => turmas
-      }
+      
+      disciplinas << extrai_campos_disciplina(d)
 
     end
 
@@ -146,6 +138,27 @@ class DashboardController < ApplicationController
 
   end
 
+  ##
+  # Método que realiza as extrações dos dados da disciplina.
+  # Retorna um hash com as informações da disciplina.
+  def extrai_campos_disciplina(node)
+  
+    link_disciplina = node.css('td')[1].css('a')[0][:href]
+
+    info_disciplina = raspar_pagina_disciplina(caminho = link_disciplina)
+
+    {
+      :cod_disciplina => node.css('td')[0].text,
+      :nome_disciplina => node.css('td')[1].text.titleize,
+      :creditos => info_disciplina[:creditos],
+      :turmas => info_disciplina[:turmas]
+    }
+
+  end
+
+  ##
+  # Método para fazer a requisição da página da oferta de uma disciplina específica.
+  # Retorna um hash com as informações de créditos e turmas das disciplinas.
   def raspar_pagina_disciplina(caminho, url_base = "https://matriculaweb.unb.br/graduacao/")
     require 'open-uri'
     require 'openssl'
@@ -158,14 +171,6 @@ class DashboardController < ApplicationController
       .css('tr:nth-child(4) > td')
       .text.split('-').map {|str| str.to_i}
 
-    turmas = []
-    tabelas.drop(1).each do |t|
-      turmas << {
-        :nome_turma => t.css('td.turma').text,
-        :nome_professor => t.css('tbody > tr > td:nth-child(5) td').text
-      }
-    end
-
     {
       :creditos => {
         :c_prat => c_prat,
@@ -173,30 +178,60 @@ class DashboardController < ApplicationController
         :c_est => c_est,
         :c_ext => c_ext
       },
-      :turmas => turmas
+      :turmas => extrai_turmas(tabelas)
     }
 
   end
 
+  ##
+  # Método para raspagem das turmas da disciplina.
+  # Retorna uma lista de hashes das turmas.
+  def extrai_turmas(node)
+    turmas = []
+    node.drop(1).each do |t|
+      turmas << extrai_campos_turma(t)
+    end
+    turmas
+  end
 
+  ##
+  # Método para extração das informações da turma da página da oferta da
+  # disciplina no MatrículoWeb.
+  # Retorna um hash com nome da turma e nome do professor.
+  def extrai_campos_turma(node)
+    {
+      :nome_turma => node.css('td.turma').text,
+      :nome_professor => node.css('tbody > tr > td:nth-child(5) td').text
+    }
+  end
+
+  ##
+  # Método para carregar as disciplinas no modelo.
   def carregar_disciplinas(disciplinas)
     disciplinas.each do |d|
 
       if !Disciplina.find_by_cod_disciplina(d[:cod_disciplina])
 
-        Disciplina.create(
-          :cod_disciplina => d[:cod_disciplina],
-          :nome => d[:nome_disciplina],
-          :c_prat => d[:c_prat],
-          :c_teor => d[:c_teor],
-          :c_est => d[:c_est],
-          :c_ext => d[:c_ext]
+        criar_disciplina(
+          d[:cod_disciplina],
+          d[:nome_disciplina],
+          d[:creditos]
         )
-
       end
-
     end
+  end
 
+  ##
+  # Método para criar uma disciplina no modelo.
+  def criar_disciplina(cod_disciplina, nome, creditos)
+    Disciplina.create(
+      :cod_disciplina => cod_disciplina,
+      :nome => nome,
+      :c_prat => creditos[:c_prat],
+      :c_teor => creditos[:c_teor],
+      :c_est => creditos[:c_est],
+      :c_ext => creditos[:c_ext]
+    )
   end
 
 
