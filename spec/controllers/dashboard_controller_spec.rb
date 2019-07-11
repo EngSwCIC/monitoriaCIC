@@ -182,6 +182,30 @@ describe DashboardController do
       end
     end
 
+    describe '#importar_disciplinas' do
+      it 'should call the model method that get and returns all Disciplinas' do
+        expect(Disciplina).to receive(:all).and_return(Disciplina.all)
+        get :importar_disciplinas
+        expect(response).to render_template(:importar_disciplinas)
+      end
+    end
+
+
+    describe '#raspar_disciplinas' do
+      it 'should call the method raspar_matriculaweb_disciplinas that handles the web scraping and render importar_disciplinas page' do
+        get :raspar_disciplinas
+        expect(response).to redirect_to('/dashboard/importar_disciplinas')
+
+        tradutores = Disciplina.find_by_cod_disciplina(116459)
+        expect(tradutores.nome).to match(/Tradutores/)
+
+        engsoft = Disciplina.find_by_cod_disciplina(116441)
+        expect(engsoft.nome).to match(/Engenharia De Software/)
+        expect(engsoft.c_teor).to eq(4)
+      end
+    end
+
+    
     describe '#importar_professores' do
       it 'should call the model method that get and returns all Professors' do
         expect(Professor).to receive(:all).and_return(Professor.all)
@@ -205,6 +229,7 @@ describe DashboardController do
         expect(vander.name).to match(/Vander Ramos Alves /)
       end
     end
+
   end
 
   describe 'Not Logged User' do
