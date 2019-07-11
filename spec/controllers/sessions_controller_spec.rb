@@ -3,17 +3,9 @@ require 'rails_helper'
 describe SessionsController do
 	describe 'create' do
 		before :each do
-      @user = FactoryBot.create(
-				:user,
-        id: '12',
-        email: 'jm.duda@uol.com.br',
-        password: 'joao123',
-        password_confirmation: 'joao123'
-      )
-			@info = {
-				email: 'jm.duda@uol.com.br',
-				password: 'joao123',
-			}
+      @user = FactoryBot.build(:user)
+
+			@info = { email: @user.email, password: @user.password }
 			@params = Hash.new
 			@params[:user] = @info
       @session = {}
