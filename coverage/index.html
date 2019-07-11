@@ -14,18 +14,18 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-07-11T09:29:59-03:00">2019-07-11T09:29:59-03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-07-11T09:37:35-03:00">2019-07-11T09:37:35-03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="red">14.97%</span></span>
+    (<span class="covered_percent"><span class="red">15.74%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.32
+         1.35
        </span>
     </span> hits/line)
   </h2>
@@ -33,8 +33,8 @@
   <div>
     <b>35</b> files in total.
     <b>788</b> relevant lines. 
-    <span class="green"><b>118</b> lines covered</span> and
-    <span class="red"><b>670</b> lines missed </span>
+    <span class="green"><b>124</b> lines covered</span> and
+    <span class="red"><b>664</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -92,12 +92,12 @@
       
       <tr>
         <td class="strong"><a href="#40dcc13d2669422c22fe13b2497552c0e084a33f" class="src_link" title="app/controllers/dados_bancarios_controller.rb">app/controllers/dados_bancarios_controller.rb</a></td>
-        <td class="yellow strong">82.86 %</td>
+        <td class="green strong">100.0 %</td>
         <td>64</td>
         <td>35</td>
-        <td>29</td>
-        <td>6</td>
-        <td>2.5</td>
+        <td>35</td>
+        <td>0</td>
+        <td>3.3</td>
       </tr>
       
       <tr>
@@ -409,11 +409,11 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="red">5.64%</span></span>
+    (<span class="covered_percent"><span class="red">6.7%</span></span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.16
+         0.21
        </span>
     </span> hits/line)
   </h2>
@@ -421,8 +421,8 @@
   <div>
     <b>15</b> files in total.
     <b>567</b> relevant lines. 
-    <span class="green"><b>32</b> lines covered</span> and
-    <span class="red"><b>535</b> lines missed </span>
+    <span class="green"><b>38</b> lines covered</span> and
+    <span class="red"><b>529</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -460,12 +460,12 @@
       
       <tr>
         <td class="strong"><a href="#40dcc13d2669422c22fe13b2497552c0e084a33f" class="src_link" title="app/controllers/dados_bancarios_controller.rb">app/controllers/dados_bancarios_controller.rb</a></td>
-        <td class="yellow strong">82.86 %</td>
+        <td class="green strong">100.0 %</td>
         <td>64</td>
         <td>35</td>
-        <td>29</td>
-        <td>6</td>
-        <td>2.5</td>
+        <td>35</td>
+        <td>0</td>
+        <td>3.3</td>
       </tr>
       
       <tr>
@@ -1260,11 +1260,11 @@
         <div class="source_table" id="40dcc13d2669422c22fe13b2497552c0e084a33f">
   <div class="header">
     <h3>app/controllers/dados_bancarios_controller.rb</h3>
-    <h4><span class="yellow">82.86 %</span> covered</h4>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
       <b>35</b> relevant lines. 
-      <span class="green"><b>29</b> lines covered</span> and
-      <span class="red"><b>6</b> lines missed.</span>
+      <span class="green"><b>35</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
   
@@ -1535,26 +1535,26 @@
           <code class="ruby">  def destroy</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="45">
-          
+        <li class="covered" data-hits="5" data-linenumber="45">
+          <span class="hits">5</span>
           
           <code class="ruby">    @user = current_user</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="46">
-          
+        <li class="covered" data-hits="5" data-linenumber="46">
+          <span class="hits">5</span>
           
           <code class="ruby">    @dados_bancarios = DadosBancarios.find(params[:id])</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="47">
-          
+        <li class="covered" data-hits="5" data-linenumber="47">
+          <span class="hits">5</span>
           
           <code class="ruby">    @dados_bancarios.delete</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="48">
-          
+        <li class="covered" data-hits="5" data-linenumber="48">
+          <span class="hits">5</span>
           
           <code class="ruby">    @user.update(fk_banco: nil)</code>
         </li>
@@ -1565,14 +1565,14 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="50">
-          
+        <li class="covered" data-hits="5" data-linenumber="50">
+          <span class="hits">5</span>
           
           <code class="ruby">    flash[:notice] = &#39;Dados bancários apagados com sucesso!&#39;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="51">
-          
+        <li class="covered" data-hits="5" data-linenumber="51">
+          <span class="hits">5</span>
           
           <code class="ruby">    redirect_to dashboard_dados_bancarios_path</code>
         </li>
