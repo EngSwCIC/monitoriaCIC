@@ -183,6 +183,30 @@ describe DashboardController do
         end
       end
     end
+
+    describe '#importar_professores' do
+      it 'should call the model method that get and returns all Professors' do
+        expect(Professor).to receive(:all).and_return(Professor.all)
+        get :importar_professores
+        expect(response).to render_template(:importar_professores)
+      end
+    end
+
+    describe '#scrape_professores' do
+      it 'should call the method web_scraper that handles the web scraping and render importar_professores page' do
+        get :scrape_professores
+        expect(response).to redirect_to('/dashboard/importar_professores')
+
+        alba = Professor.find_by_email('alves@unb.br')
+        expect(alba.name).to match(/Alba Cristina Magalhaes Alves de Melo/)
+
+        rezende = Professor.find_by_email('prezende@unb.br')
+        expect(rezende.name).to match(/Pedro Antonio Dourado Rezende/)
+
+        vander = Professor.find_by_email('valves@unb.br')
+        expect(vander.name).to match(/Vander Ramos Alves /)
+      end
+    end
   end
 
   describe 'Not Logged User' do
