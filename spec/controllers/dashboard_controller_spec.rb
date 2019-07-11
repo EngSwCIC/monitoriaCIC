@@ -53,9 +53,8 @@ describe DashboardController do
 
     describe '#monitorias' do
       before :each do
-        @user = FactoryBot.create(:user, matricula: '140080384')
         allow_any_instance_of(DashboardController).to receive(:current_user)
-          .and_return(@user)
+                                                          .and_return(@user)
 
         @monitoria1 = FactoryBot.create(:monitoria, fk_matricula: '140080384')
         @monitoria2 = FactoryBot.create(:monitoria, id: '2', fk_matricula: '140080385')
@@ -74,14 +73,13 @@ describe DashboardController do
 
     describe '#historico' do
       before :each do
-        @user = FactoryBot.create(:user, matricula: '140080384')
         allow_any_instance_of(DashboardController).to receive(:current_user)
-          .and_return(@user)
-	
-	@monitoria1 = FactoryBot.create(:monitoria, fk_matricula: '140080384')
+                                                          .and_return(@user)
+
+        @monitoria1 = FactoryBot.create(:monitoria, fk_matricula: '140080384')
         @monitoria2 = FactoryBot.create(:monitoria, id: '2', fk_matricula: '140080385')
-	@monitoria3 = FactoryBot.create(:monitoria, id: '3', fk_status_monitoria_id: '4', fk_matricula: '140080386')
-        @all_monitorias = Monitoria.find_each 
+        @monitoria3 = FactoryBot.create(:monitoria, id: '3', fk_status_monitoria_id: '4', fk_matricula: '140080386')
+        @all_monitorias = Monitoria.find_each
       end
       it 'should render the views/dashboard/historico.html.haml' do
         get :historico
@@ -108,7 +106,7 @@ describe DashboardController do
 
     describe '#deletar_aluno' do
       before :each do
-        @user = FactoryBot.create(:user, matricula: '140080279', fk_banco: 10)
+        @user = FactoryBot.build(:user, fk_banco: 10)
         @dados_bancarios = FactoryBot.create(:dados_bancarios, id: 10)
         @monitoria = FactoryBot.create(:monitoria, id: '11', fk_matricula: '140080279')
         @params = {}
@@ -169,7 +167,7 @@ describe DashboardController do
         it 'tries to delete a User without informing a :matricula' do
           @params[:user][:matricula] = ''
           expect(User).to receive(:find_by_matricula).with(nil)
-                                                    .and_return(nil)
+                              .and_return(nil)
           post :deletar_aluno, params: @params
           expect(flash[:danger]).to eq('Digite uma matrícula para deletar algum aluno.')
         end
@@ -177,7 +175,7 @@ describe DashboardController do
         it "tries to delete a User that doesn't exist" do
           @params[:user][:matricula] = '140082078'
           expect(User).to receive(:find_by_matricula).with(@params[:user][:matricula])
-                             .and_return(nil)
+                              .and_return(nil)
           post :deletar_aluno, params: @params
           expect(flash[:danger]).to eq('Aluno de matrícula 140082078 não existe.')
         end
