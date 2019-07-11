@@ -41,6 +41,9 @@ module NavigationHelpers
     when /^página de nova monitoria$/
       new_monitoria_path
 
+    when /^página de importar disciplinas$/
+      dashboard_importar_disciplinas_path
+
     when /^página de informações da disciplina (.*)$/
       disciplina_path(Disciplina.find($1))
 

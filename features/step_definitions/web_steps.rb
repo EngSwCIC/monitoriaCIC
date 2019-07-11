@@ -167,6 +167,13 @@ Dado /^(?:|que) está na página de disciplinas$/ do
   )
 end
 
+Dado /^(?:|que) está na página de dashboard do usuário$/ do
+  steps %(
+    Então eu devo estar na página de dashboard do usuário
+  )
+end
+
+
 Quando /^(?:|eu )aperto em "([^"]*)"$/ do |button|
   click_button(button)
 end
