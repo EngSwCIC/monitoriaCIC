@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_09_232923) do
+ActiveRecord::Schema.define(version: 2019_10_25_183553) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name", null: false
@@ -37,15 +37,15 @@ ActiveRecord::Schema.define(version: 2019_06_09_232923) do
     t.string "descricao", limit: 45
   end
 
-  create_table "disciplinas", primary_key: "cod_disciplina", force: :cascade do |t|
+  create_table "disciplinas", force: :cascade do |t|
     t.string "nome", null: false
     t.integer "fk_tipo_disciplina_id", default: 2, null: false
     t.integer "c_prat", default: 0, null: false
     t.integer "c_teor", default: 0, null: false
     t.integer "c_est", default: 0, null: false
     t.integer "c_ext", default: 0, null: false
-    t.index ["cod_disciplina"], name: "disciplinas_cod_disciplina_index"
     t.index ["fk_tipo_disciplina_id"], name: "fk_disciplinas_tipo_disciplina1_idx"
+    t.index [nil], name: "disciplinas_cod_disciplina_index"
   end
 
   create_table "migrations", force: :cascade do |t|
@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2019_06_09_232923) do
     t.index ["fk_turmas_id"], name: "fk_monitoria_turmas1_idx"
   end
 
-  create_table "password_resets", id: false, force: :cascade do |t|
+  create_table "password_resets", force: :cascade do |t|
     t.string "email", null: false
     t.string "token", null: false
     t.datetime "created_at"
