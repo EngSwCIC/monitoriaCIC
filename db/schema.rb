@@ -44,8 +44,9 @@ ActiveRecord::Schema.define(version: 2019_10_25_183553) do
     t.integer "c_teor", default: 0, null: false
     t.integer "c_est", default: 0, null: false
     t.integer "c_ext", default: 0, null: false
+    t.integer "cod_disciplina", default: 0, null: false
+    t.index ["cod_disciplina"], name: "disciplinas_cod_disciplina_index"
     t.index ["fk_tipo_disciplina_id"], name: "fk_disciplinas_tipo_disciplina1_idx"
-    t.index [nil], name: "disciplinas_cod_disciplina_index"
   end
 
   create_table "migrations", force: :cascade do |t|
