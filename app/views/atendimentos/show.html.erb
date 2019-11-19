@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Motivo:</strong>
+  <%= @atendimento.motivo %>
+</p>
+
+<p>
+  <strong>Dia:</strong>
+  <%= @atendimento.dia %>
+</p>
+
+<p>
+  <strong>Descricao:</strong>
+  <%= @atendimento.descricao %>
+</p>
+
+<p>
+  <strong>Aluno atendido:</strong>
+  <%= @atendimento.aluno_atendido %>
+</p>
+
+<%= link_to 'Edit', edit_atendimento_path(@atendimento) %> |
+<%= link_to 'Back', atendimentos_path %>
