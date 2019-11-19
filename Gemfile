@@ -29,7 +29,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Uses HAML templates
 gem 'haml'
-
+gem 'haml-rails'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

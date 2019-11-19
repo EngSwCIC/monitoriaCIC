@@ -1,0 +1,33 @@
+%h1 Listing tarefas
+
+%table
+  %thead
+    %tr
+      %th Titulo
+      %th Descricao
+      %th Nota
+      %th Feito
+      %th Inicio
+      %th Fim
+      %th Monitoria
+      %th
+      %th
+      %th
+
+  %tbody
+    - @tarefas.each do |tarefa|
+      %tr
+        %td= tarefa.titulo
+        %td= tarefa.descricao
+        %td= tarefa.nota
+        %td= tarefa.feito
+        %td= tarefa.inicio
+        %td= tarefa.fim
+        %td= tarefa.monitoria
+        %td= link_to 'Show', tarefa
+        %td= link_to 'Edit', edit_tarefa_path(tarefa)
+        %td= link_to 'Destroy', tarefa, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Tarefa', new_tarefa_path

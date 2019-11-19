@@ -1,0 +1,31 @@
+= form_for @tarefa do |f|
+  - if @tarefa.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@tarefa.errors.count, "error")} prohibited this tarefa from being saved:"
+      %ul
+        - @tarefa.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :titulo
+    = f.text_field :titulo
+  .field
+    = f.label :descricao
+    = f.text_field :descricao
+  .field
+    = f.label :nota
+    = f.text_field :nota
+  .field
+    = f.label :feito
+    = f.check_box :feito
+  .field
+    = f.label :inicio
+    = f.datetime_select :inicio
+  .field
+    = f.label :fim
+    = f.datetime_select :fim
+  .field
+    = f.label :monitoria
+    = f.text_field :monitoria
+  .actions
+    = f.submit 'Save'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_25_183553) do
+ActiveRecord::Schema.define(version: 2019_11_19_134000) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name", null: false
@@ -104,6 +104,19 @@ ActiveRecord::Schema.define(version: 2019_10_25_183553) do
 
   create_table "status_turma", force: :cascade do |t|
     t.string "nome", limit: 45
+  end
+
+  create_table "tarefas", force: :cascade do |t|
+    t.string "titulo"
+    t.string "descricao"
+    t.decimal "nota"
+    t.boolean "feito"
+    t.datetime "inicio"
+    t.datetime "fim"
+    t.integer "monitoria_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["monitoria_id"], name: "index_tarefas_on_monitoria_id"
   end
 
   create_table "tipo_disciplina", force: :cascade do |t|
