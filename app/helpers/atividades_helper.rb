@@ -1,0 +1,2 @@
+module AtividadesHelper
+end
