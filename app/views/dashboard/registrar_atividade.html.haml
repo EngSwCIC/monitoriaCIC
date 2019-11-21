@@ -44,7 +44,7 @@
         -if current_user.kind_of?(User) || current_user.kind_of?(Professor)
           %ul.nav.flex-column.mb-2
             %li.nav-item
-              %a.nav-link.active{href: dashboard_edit_user_path}
+              %a.nav-link{href: dashboard_edit_user_path}
                 %span{'data-feather': "settings"}
                 Editar Perfil
 
@@ -62,39 +62,39 @@
                 %span{'data-feather': "film"}
                 Histórico
 
+        -if current_user.kind_of?(User)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link.active{href: dashboard_historico_path}
+                %span{'data-feather': "file-text"}
+                Registrar Atividade
 
-  .col-1
-    .col-6
-      = form_tag atividades_path, :method => :post do
-        - if flash[:danger]
-          %div{class: "alert alert-danger"}
-            - flash[:danger].each do |msg|
-              %ul
-                %li
-                  =msg
-        - if flash[:notice]
-          .alert.alert-success
-            %ul
-              %li
-                = flash[:notice]
-        .form-group.row
-          = label :atividade, :titulo, 'Titulo', :class => "col-sm-3 col-form-label"
-          .col-sm-9
-            = text_field :atividade, :titulo, :class => "form-control", :autocomplete => "off"
 
-        .form-group.row
-          = label :atividade, :mensagem, 'Mensagem', :class => "col-sm-3 col-form-label"
-          .col-sm-9
-            = text_field :atividade, :matricula, :class => "form-control", :autocomplete => "off"
+  %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
+    .row
+      .col-10
+        %h2 Registrar Atividade
+        %hr
+        -if current_user.kind_of?(User)
+          - # ------------------------ Formulário de registro de atividades ------------------------ #
+          = form_tag user_path(@user), method: :put do
+            .form-group.row
+              = label :atividade, :titulo, 'Título', class: 'col-sm-3 col-form-label'
+              .col-sm-9
+                = text_field :atividade, :titulo, class: 'form-control', autocomplete: 'off'
+            .form-group.row
+              = label :atividade, :mensagem, 'Descrição', class: 'col-sm-3 col-form-label'
+              .col-sm-9
+                = text_field :atividade, :matricula, class: 'form-control', autocomplete: 'off'
+            .form-group.row
+              = label :atividade, :data, 'Data', class: 'col-sm-3 col-form-label', autocomplete: 'off'
+              .col-sm-9
+                = text_field :atividade, :data, class: 'form-control', autocomplete: 'off'
+            .form-group.row
+              = label :atividade, :matricula_monitor, 'Matrícula', class: 'col-sm-3 col-form-label', autocomplete: 'off'
+              .col-sm-9
+                = text_field :atividade, :matricula, class: 'form-control', autocomplete: 'off'
 
-        .form-group.row
-          = label :atividade, :data, 'Data'
-          .col-sm-9
-            = text_field :atividade, :data, :class => "form-control", :autocomplete => "off"
-
-        .row
-          .col
-            = label :atividade, :matricula_monitor, 'Matricula'
-            = text_field :atividade, :matricula, :class => "form-control", :autocomplete => "off"
-
-        = submit_tag 'Registrar-se', :class => "btn btn-outline-primary float-right"
+            %br
+            = submit_tag 'Registrar atividade', class: 'btn btn-outline-primary float-right'
+      .col-2
