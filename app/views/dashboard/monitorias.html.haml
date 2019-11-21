@@ -62,6 +62,13 @@
                 %span{'data-feather': "film"}
                 Histórico
 
+        -if current_user.kind_of?(User)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_registrar_atividade_path}
+                %span{'data-feather': "file-text"}
+                Registrar Atividade
+
     %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
       .row
         .col-10

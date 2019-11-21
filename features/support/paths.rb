@@ -68,6 +68,9 @@ module NavigationHelpers
     when /^página de editar perfil do usuário$/
       dashboard_edit_user_path
 
+    when /^página de registrar atividade$/
+      dashboard_registrar_atividade_path
+
     when /^página de dados bancários$/
       dashboard_dados_bancarios_path
 
