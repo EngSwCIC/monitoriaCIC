@@ -71,6 +71,9 @@ module NavigationHelpers
     when /^página de registrar atividade$/
       dashboard_registrar_atividade_path
 
+    when /^página de atividades$/
+      dashboard_atividades_path
+
     when /^página de dados bancários$/
       dashboard_dados_bancarios_path
 
