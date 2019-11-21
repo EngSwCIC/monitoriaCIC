@@ -26,6 +26,14 @@ class AtividadesController < ApplicationController
   def create
     @atividade = Atividade.new(atividade_params)
 
+    if !@atividade.errors.any?
+      flash[:notice] = "Registro de atividade realizado com sucesso!"
+      redirect_to dashboard_path
+    else
+      flash[:danger] = @user.errors.full_messages
+      redirect_to new_user_path
+    end
+
     respond_to do |format|
       if @atividade.save
         format.html { redirect_to @atividade, notice: 'Atividade was successfully created.' }

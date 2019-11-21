@@ -14,6 +14,15 @@ class DashboardController < ApplicationController
     end
   end
 
+   def registrar_atividade
+    if current_user.kind_of?(User)
+      @user = current_user
+    else
+      flash[:danger] = "Apenas alunos podem registrar atividades!"
+      redirect_to dashboard_path
+    end
+  end
+
   def dados_bancarios; end
 
   def turmas; end
