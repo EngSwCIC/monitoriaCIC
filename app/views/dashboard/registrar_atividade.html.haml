@@ -84,7 +84,7 @@
         %hr
         -if current_user.kind_of?(User)
           - # ------------------------ Formulário de registro de atividades ------------------------ #
-          = form_tag user_path(@user), method: :put do
+          = form_tag atividades_path, method: :post do
             .form-group.row
               = label :atividade, :titulo, 'Título', class: 'col-sm-3 col-form-label'
               .col-sm-9
@@ -96,11 +96,11 @@
             .form-group.row
               = label :atividade, :data, 'Data', class: 'col-sm-3 col-form-label', autocomplete: 'off'
               .col-sm-9
-                = text_field :atividade, :data, class: 'form-control', autocomplete: 'off'
+                = text_field :atividade, :data, class: 'form-control', type: 'date', autocomplete: 'off'
             .form-group.row
               = label :atividade, :matricula_monitor, 'Matrícula', class: 'col-sm-3 col-form-label', autocomplete: 'off'
               .col-sm-9
-                = text_field :atividade, :matricula, class: 'form-control', autocomplete: 'off'
+                = text_field :atividade, :matricula_monitor, class: 'form-control', autocomplete: 'off'
 
             %br
             = submit_tag 'Registrar atividade', class: 'btn btn-outline-primary float-right'

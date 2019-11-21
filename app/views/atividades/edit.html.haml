@@ -1,0 +1,23 @@
+%br
+%main.container{role: "main"}
+  .row
+    .col-2
+    .col
+      %h1.text-center
+        Editar atividade
+      %hr
+      %p.lead.text-center
+        Atenção, apenas é permitida a mudança do Titulo e da mensagem!
+      = form_tag atividade_path(@atividade), method: :put do
+        .form-group.row
+          = label :atividade, :titulo, 'Titulo', class: 'col-sm-2 col-form-label'
+          .col-sm-10
+            = text_field :atividade, :titulo, class: 'form-control', autocomplete: 'off'
+
+        .form-group.row
+          = label :atividade, :mensagem, 'Descrição', class: 'col-sm-2 col-form-label'
+          .col-sm-10
+            = text_field :atividade, :mensagem, class: 'form-control', autocomplete: 'off'
+
+        = submit_tag 'Atualizar atividade', class: 'btn btn-outline-success btn-block'
+    .col-2

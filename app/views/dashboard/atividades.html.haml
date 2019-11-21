@@ -93,15 +93,15 @@
           %p.lead
             Adicione, edite ou apague suas atividades registradas aqui!
           %br
-          - if current_user.fk_banco == nil #Trocar para analisar se o banco de registros é nulo
+          - @atividade = Atividade.find_by matricula_monitor: current_user.matricula
+          - if @atividade == nil #Trocar para analisar se o banco de registros é nulo
             %p.text-justify
               Você ainda não possui atividades registradas. Se você deseja registrar uma atividade, clique no botão.
             %a.btn.btn-outline-success{href: dashboard_registrar_atividade_path} Registrar
           - else
             %p.text-justify
               Você possui atividades registradas. Caso você deseje editar seus registros, basta clicar no botão
-              "Editar". Caso deseje apagar apagar seus registros do sistema, basta clicar em "Apagar".
-            - @fk_banco = DadosBancarios.find(current_user.fk_banco)
+              "Editar".
             %table.table
               %thead
                 %tr
@@ -111,13 +111,11 @@
               %tbody
                 %tr
                   %td
-                    = @fk_banco.codigo
+                    = @atividade.titulo
                   %td
-                    = @fk_banco.agencia
+                    = @atividade.data
                   %td
-                    = @fk_banco.conta_corrente
+                    = @atividade.mensagem
                   %td
-                    %a.btn.btn-outline-warning.btn-block.btn-sm.editar-dados{ href: edit_dados_bancario_path(@fk_banco.id) } Editar
-                  %td
-                    = link_to "Apagar", dados_bancario_path(@fk_banco.id), method: :delete, class: 'btn btn-outline-danger btn-block btn-sm'
+                    %a.btn.btn-outline-warning.btn-block.btn-sm.editar-dados{ href: edit_atividade_path(@atividade.id) } Editar
         .col-2

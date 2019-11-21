@@ -26,14 +26,6 @@ class AtividadesController < ApplicationController
   def create
     @atividade = Atividade.new(atividade_params)
 
-    if !@atividade.errors.any?
-      flash[:notice] = "Registro de atividade realizado com sucesso!"
-      redirect_to dashboard_path
-    else
-      flash[:danger] = @user.errors.full_messages
-      redirect_to new_user_path
-    end
-
     respond_to do |format|
       if @atividade.save
         format.html { redirect_to @atividade, notice: 'Atividade was successfully created.' }
@@ -48,25 +40,26 @@ class AtividadesController < ApplicationController
   # PATCH/PUT /atividades/1
   # PATCH/PUT /atividades/1.json
   def update
-    respond_to do |format|
-      if @atividade.update(atividade_params)
-        format.html { redirect_to @atividade, notice: 'Atividade was successfully updated.' }
-        format.json { render :show, status: :ok, location: @atividade }
-      else
-        format.html { render :edit }
-        format.json { render json: @atividade.errors, status: :unprocessable_entity }
-      end
+    @atividade = Atividade.find(params[:id])
+    @atividade.update_attributes(atividade_params)
+
+    if !@atividade.errors.any?
+      flash[:notice] = 'Atividade atualizada com sucesso!'
+    elsif
+      flash[:danger] = @atividade.errors.full_messages
     end
+
+    redirect_to dashboard_atividades_path
   end
 
   # DELETE /atividades/1
   # DELETE /atividades/1.json
   def destroy
-    @atividade.destroy
-    respond_to do |format|
-      format.html { redirect_to atividades_url, notice: 'Atividade was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @atividade = Atividade.find(params[:id])
+    @atividade.delete
+
+    flash[:notice] = 'Atividade apagada com sucesso!'
+    redirect_to dashboard_atividades_path 
   end
 
   private
