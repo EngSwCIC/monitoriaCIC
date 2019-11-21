@@ -4,7 +4,7 @@ class AtendimentosController < ApplicationController
   # GET /atendimentos
   # GET /atendimentos.json
   def index
-    @atendimentos = Atendimento.all
+    @atendimentos = Atendimento.where(monitor_id: current_user.id)
   end
 
   # GET /atendimentos/1
@@ -15,6 +15,7 @@ class AtendimentosController < ApplicationController
   # GET /atendimentos/new
   def new
     @atendimento = Atendimento.new
+    @user = current_user
   end
 
   # GET /atendimentos/1/edit
@@ -69,6 +70,6 @@ class AtendimentosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def atendimento_params
-      params.require(:atendimento).permit(:motivo_id, :dia, :descricao, :aluno_atendido)
+      params.require(:atendimento).permit(:motivo_id, :dia, :descricao, :aluno_atendido, :monitor_id)
     end
 end

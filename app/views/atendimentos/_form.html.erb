@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :motivo_id %>
-    <%= form.text_field :motivo_id %>
+    <%= form.text_field :motivo_id %> 
   </div>
 
   <div class="field">
@@ -30,6 +30,8 @@
     <%= form.label :aluno_atendido %>
     <%= form.text_field :aluno_atendido %>
   </div>
+
+  <%= form.hidden_field :monitor_id, :value => @user.id %>
 
   <div class="actions">
     <%= form.submit %>
