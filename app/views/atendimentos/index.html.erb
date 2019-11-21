@@ -16,7 +16,7 @@
   <tbody>
     <% @atendimentos.each do |atendimento| %>
       <tr>
-        <td><%= atendimento.motivo %></td>
+        <td><%= atendimento.motivo.nome %></td>
         <td><%= atendimento.dia %></td>
         <td><%= atendimento.descricao %></td>
         <td><%= atendimento.aluno_atendido %></td>
