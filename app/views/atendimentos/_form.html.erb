@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= form.label :motivo_id %>
-    <%= form.text_field :motivo_id %> 
+    <%= form.select(:class_name,Motivo::CLASS_LIST)%> 
   </div>
 
   <div class="field">
