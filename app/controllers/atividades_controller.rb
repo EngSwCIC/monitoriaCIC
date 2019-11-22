@@ -28,10 +28,10 @@ class AtividadesController < ApplicationController
 
     if !@atividade.errors.any?
       flash[:notice] = "Registro de atividade realizado com sucesso!"
-      redirect_to dashboard_path
+      redirect_to dashboard_atividades_path
     else
-      flash[:danger] = @user.errors.full_messages
-      redirect_to new_user_path
+      flash[:danger] = @atividade.errors.first[1]
+      redirect_to dashboard_atividades_path
     end
   end
 

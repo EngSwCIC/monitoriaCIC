@@ -75,10 +75,9 @@
           =flash[:notice]
       - if flash[:danger]
         %div{class: "alert alert-danger"}
-          - flash[:danger].each do |msg|
-            %ul
-              %li
-                =msg
+          %ul
+          %li
+            = flash[:danger]
       .row
         .col-10
           %h2 Minhas Atividades
