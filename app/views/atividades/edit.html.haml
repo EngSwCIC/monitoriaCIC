@@ -4,10 +4,10 @@
     .col-2
     .col
       %h1.text-center
-        Editar atividade
+        Editar Atividade
       %hr
       %p.lead.text-center
-        Atenção, apenas é permitida a mudança do Titulo e da mensagem!
+        Atenção, apenas é permitida a mudança do Titulo e da Mensagem!
       = form_tag atividade_path(@atividade), method: :put do
         .form-group.row
           = label :atividade, :titulo, 'Titulo', class: 'col-sm-2 col-form-label'

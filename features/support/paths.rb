@@ -69,7 +69,7 @@ module NavigationHelpers
       dashboard_edit_user_path
 
     when /^página de registrar atividade$/
-      dashboard_registrar_atividade_path
+      new_atividade_path
 
     when /^página de atividades$/
       dashboard_atividades_path

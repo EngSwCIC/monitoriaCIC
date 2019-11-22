@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :sessions
   resources :admins
   resources :dados_bancarios
+  resources :atividades
   resources :disciplinas
   resources :turmas
   resources :monitorias do
