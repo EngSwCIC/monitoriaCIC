@@ -18,7 +18,7 @@ Cenário: Monitor registra uma atividade (Happy Path)
   | Dia                         | 21/11/2019                                     |
   | Matricula                   | 123456789                                      |
   E aperta em "Registrar-se"
-  Então o monitor deve estar na página de atendimentos
+  Então o monitor deve estar na página de atividades
   E o monitor deve ver "Registro realizado com sucesso!"
 
 Cenário: Monitor não completa o formulário com os campos obrigatórios (Sad Path)

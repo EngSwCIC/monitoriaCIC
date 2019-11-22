@@ -45,7 +45,7 @@ class AtividadesController < ApplicationController
     if !@atividade.errors.any?
       flash[:notice] = 'Atividade atualizada com sucesso!'
     elsif
-      flash[:danger] = @atividade.errors.full_messages
+      flash[:danger] = @atividade.errors.first[1]
     end
 
     redirect_to dashboard_atividades_path
