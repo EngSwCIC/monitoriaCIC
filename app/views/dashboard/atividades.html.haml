@@ -65,13 +65,6 @@
         -if current_user.kind_of?(User)
           %ul.nav.flex-column.mb-2
             %li.nav-item
-              %a.nav-link{href: dashboard_registrar_atividade_path}
-                %span{'data-feather': "file-text"}
-                Registrar Atividade
-
-        -if current_user.kind_of?(User)
-          %ul.nav.flex-column.mb-2
-            %li.nav-item
               %a.nav-link.active{href: dashboard_atividades_path}
                 %span{'data-feather': "file-text"}
                 Minhas Atividades
@@ -93,15 +86,18 @@
           %p.lead
             Adicione, edite ou apague suas atividades registradas aqui!
           %br
-          - @atividade = Atividade.find_by matricula_monitor: current_user.matricula
-          - if @atividade == nil #Trocar para analisar se o banco de registros é nulo
+          - @atividades = Atividade.where(matricula_monitor: current_user.matricula )
+          - if @atividades == nil #Trocar para analisar se o banco de registros é nulo
             %p.text-justify
               Você ainda não possui atividades registradas. Se você deseja registrar uma atividade, clique no botão.
-            %a.btn.btn-outline-success{href: dashboard_registrar_atividade_path} Registrar
+            %a.btn.btn-outline-success{href: new_atividade_path} Registrar
           - else
             %p.text-justify
               Você possui atividades registradas. Caso você deseje editar seus registros, basta clicar no botão
               "Editar".
+            %p.text-justify
+              Para criar outras atividades, clique no botão adicionar.
+            %a.btn.btn-outline-success{href: new_atividade_path} Adicionar
             %table.table
               %thead
                 %tr
@@ -109,13 +105,15 @@
                   %th Data
                   %th Descrição
               %tbody
-                %tr
-                  %td
-                    = @atividade.titulo
-                  %td
-                    = @atividade.data
-                  %td
-                    = @atividade.mensagem
-                  %td
-                    %a.btn.btn-outline-warning.btn-block.btn-sm.editar-dados{ href: edit_atividade_path(@atividade.id) } Editar
+                - @atividades.each do |atividade|
+                  %tr
+                    %td
+                      = atividade.titulo
+                    %td
+                      = atividade.data
+                    %td
+                      = atividade.mensagem
+                    %td
+                      %a.btn.btn-outline-warning.btn-block.btn-sm.editar-dados{ href: edit_atividade_path(atividade.id) } Editar
+
         .col-2

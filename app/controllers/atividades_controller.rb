@@ -24,22 +24,21 @@ class AtividadesController < ApplicationController
   # POST /atividades
   # POST /atividades.json
   def create
-    @atividade = Atividade.new(atividade_params)
+    @atividade = Atividade.create(atividade_params)
 
-    respond_to do |format|
-      if @atividade.save
-        format.html { redirect_to @atividade, notice: 'Atividade was successfully created.' }
-        format.json { render :show, status: :created, location: @atividade }
-      else
-        format.html { render :new }
-        format.json { render json: @atividade.errors, status: :unprocessable_entity }
-      end
+    if !@atividade.errors.any?
+      flash[:notice] = "Registro de atividade realizado com sucesso!"
+      redirect_to dashboard_path
+    else
+      flash[:danger] = @user.errors.full_messages
+      redirect_to new_user_path
     end
   end
 
   # PATCH/PUT /atividades/1
   # PATCH/PUT /atividades/1.json
   def update
+
     @atividade = Atividade.find(params[:id])
     @atividade.update_attributes(atividade_params)
 
@@ -55,11 +54,11 @@ class AtividadesController < ApplicationController
   # DELETE /atividades/1
   # DELETE /atividades/1.json
   def destroy
-    @atividade = Atividade.find(params[:id])
-    @atividade.delete
-
-    flash[:notice] = 'Atividade apagada com sucesso!'
-    redirect_to dashboard_atividades_path 
+    @atividade.destroy
+    respond_to do |format|
+      format.html { redirect_to atividades_url, notice: 'Atividade was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
