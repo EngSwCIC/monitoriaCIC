@@ -20,11 +20,13 @@ class AtendimentosController < ApplicationController
 
   # GET /atendimentos/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /atendimentos
   # POST /atendimentos.json
   def create
+    @user = current_user
     @atendimento = Atendimento.new(atendimento_params)
 
     respond_to do |format|
