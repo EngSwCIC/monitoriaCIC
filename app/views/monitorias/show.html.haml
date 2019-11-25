@@ -99,4 +99,6 @@
                           Encerrado
                       %hr
                       =link_to "Alterar Situaçao", edit_monitoria_path(monitor.id), class: 'btn btn-outline-primary unb-blue btn-block'
+                      %hr
+                      =link_to "Visualizar Tarefa", new_tarefa_path(monitoria_id: monitor.id), class: 'btn btn-outline-primary unb-blue btn-block'
       .col-1
