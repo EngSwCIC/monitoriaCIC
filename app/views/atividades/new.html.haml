@@ -1,0 +1,31 @@
+%br
+%main.container{role: "main"}
+  .row
+    .col-2
+    .col
+      %h1.text-center
+        Registrar Atividade
+      %hr
+      = form_tag new_atividade_path, method: :post do
+        .form-group.row
+          = label :atividade, :titulo, 'Titulo', class: 'col-sm-2 col-form-label'
+          .col-sm-10
+            = text_field :atividade, :titulo, class: 'form-control', autocomplete: 'off'
+
+        .form-group.row
+          = label :atividade, :mensagem, 'Descrição', class: 'col-sm-2 col-form-label'
+          .col-sm-10
+            = text_field :atividade, :mensagem, class: 'form-control', autocomplete: 'off'
+
+        .form-group.row
+          = label :atividade, :matricula_monitor, 'Matrícula do Monitor', class: 'col-sm-2 col-form-label'
+          .col-sm-10
+            = text_field :atividade, :matricula_monitor, class: 'form-control', autocomplete: 'off'
+
+        .form-group.row
+          = label :atividade, :data, 'Data', class: 'col-sm-2 col-form-label'
+          .col-sm-10
+            = date_field :atividade, :data, class: 'form-control', autocomplete: 'off'
+
+        = submit_tag 'Registrar Atividade', class: 'btn btn-outline-success btn-block'
+    .col-2

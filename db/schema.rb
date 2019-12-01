@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_21_154635) do
+ActiveRecord::Schema.define(version: 2019_11_20_225259) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name", null: false
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(version: 2019_11_21_154635) do
     t.integer "monitor_id"
     t.index ["monitor_id"], name: "index_atendimentos_on_monitor_id"
     t.index ["motivo_id"], name: "index_atendimentos_on_motivo_id"
+  create_table "atividades", force: :cascade do |t|
+    t.string "titulo"
+    t.text "mensagem"
+    t.string "matricula_monitor"
+    t.date "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "bolsas", force: :cascade do |t|

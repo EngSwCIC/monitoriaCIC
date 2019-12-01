@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="development">
-  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.15">
+  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.16">
     <root id="1">
       <ServerVersion>3.25.1</ServerVersion>
     </root>
     <schema id="2" parent="1" name="main">
       <Current>1</Current>
-      <Visible>1</Visible>
     </schema>
     <collation id="3" parent="1" name="BINARY"/>
     <collation id="4" parent="1" name="NOCASE"/>
@@ -70,7 +69,6 @@
     </column>
     <index id="33" parent="6" name="admins_email_unique">
       <ColNames>email</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="34" parent="6">
@@ -99,7 +97,6 @@
     <index id="39" parent="7" name="sqlite_autoindex_ar_internal_metadata_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>key</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="40" parent="7">
@@ -207,11 +204,9 @@
     </column>
     <index id="60" parent="11" name="disciplinas_cod_disciplina_index">
       <ColNames>cod_disciplina</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <index id="61" parent="11" name="fk_disciplinas_tipo_disciplina1_idx">
       <ColNames>fk_tipo_disciplina_id</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <key id="62" parent="11">
       <ColNames>cod_disciplina</ColNames>
@@ -279,23 +274,18 @@
     </column>
     <index id="75" parent="13" name="fk_matricula_UNIQUE">
       <ColNames>fk_matricula</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <index id="76" parent="13" name="fk_monitoria_users_idx">
       <ColNames>fk_matricula</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <index id="77" parent="13" name="fk_monitoria_disciplinas1_idx">
       <ColNames>fk_cod_disciplina</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <index id="78" parent="13" name="fk_monitoria_turmas1_idx">
       <ColNames>fk_turmas_id</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <index id="79" parent="13" name="fk_monitoria_status_monitoria1_idx">
       <ColNames>fk_status_monitoria_id</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <key id="80" parent="13">
       <ColNames>id</ColNames>
@@ -317,11 +307,9 @@
     </column>
     <index id="84" parent="14" name="password_resets_email_index">
       <ColNames>email</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <index id="85" parent="14" name="password_resets_token_index">
       <ColNames>token</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <column id="86" parent="15" name="id">
       <Position>1</Position>
@@ -352,7 +340,6 @@
     </column>
     <index id="92" parent="15" name="fk_periodos_descricao_periodo1_idx">
       <ColNames>fk_id_descricao</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <key id="93" parent="15">
       <ColNames>id</ColNames>
@@ -403,7 +390,6 @@
     </column>
     <index id="103" parent="16" name="professors_username_unique">
       <ColNames>username</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="104" parent="16">
@@ -418,7 +404,6 @@
     <index id="106" parent="17" name="sqlite_autoindex_schema_migrations_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>version</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="107" parent="17">
@@ -534,15 +519,12 @@
     </column>
     <index id="131" parent="23" name="fk_turmas_disciplinas1_idx">
       <ColNames>fk_cod_disciplina</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <index id="132" parent="23" name="fk_turmas_status_turma1_idx">
       <ColNames>fk_status_turma_id</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <index id="133" parent="23" name="fk_turmas_vagas1_idx">
       <ColNames>fk_vagas_id</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <key id="134" parent="23">
       <ColNames>id</ColNames>
@@ -610,27 +592,22 @@
     </column>
     <index id="148" parent="24" name="users_email_unique">
       <ColNames>email</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <index id="149" parent="24" name="users_cpf_unique">
       <ColNames>cpf</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <index id="150" parent="24" name="users_rg_unique">
       <ColNames>rg</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <index id="151" parent="24" name="users_matricula_unique">
       <ColNames>matricula</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <index id="152" parent="24" name="fk_banco">
       <ColNames>fk_banco</ColNames>
-      <ColumnCollations></ColumnCollations>
     </index>
     <key id="153" parent="24">
       <ColNames>id</ColNames>

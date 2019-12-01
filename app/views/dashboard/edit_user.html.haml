@@ -69,6 +69,13 @@
                 %span{'data-feather': "film"}
                 Meus Atendimentos
 
+        -if current_user.kind_of?(User)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_atividades_path}
+                %span{'data-feather': "file-text"}
+                Minhas Atividades
+
 
   %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
     .row

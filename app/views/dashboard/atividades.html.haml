@@ -58,58 +58,63 @@
         -if current_user.kind_of?(User)
           %ul.nav.flex-column.mb-2
             %li.nav-item
-              %a.nav-link.active{href: dashboard_historico_path}
+              %a.nav-link{href: dashboard_historico_path}
                 %span{'data-feather': "film"}
                 Histórico
 
         -if current_user.kind_of?(User)
           %ul.nav.flex-column.mb-2
             %li.nav-item
-              %a.nav-link{href: dashboard_atendimentos_path}
-                %span{'data-feather': "film"}
-                Meus Atendimentos
-
-        -if current_user.kind_of?(User)
-          %ul.nav.flex-column.mb-2
-            %li.nav-item
-              %a.nav-link{href: dashboard_atividades_path}
-                %span{'data-feather': "film"}
+              %a.nav-link.active{href: dashboard_atividades_path}
+                %span{'data-feather': "file-text"}
                 Minhas Atividades
 
     %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
+      - if flash[:notice]
+        .alert.alert-success
+          =flash[:notice]
+      - if flash[:danger]
+        %div{class: "alert alert-danger"}
+          %ul
+          %li
+            = flash[:danger]
       .row
         .col-10
-          %h1 Histórico
+          %h2 Minhas Atividades
           %hr
-          -if flash[:danger]
-            .alert.alert-danger
-              = flash[:danger]
-          -if flash[:notice]
-            .alert.alert-success
-              = flash[:notice]
-
-          - if current_user.class == User
-            %p.lead
-              Aqui você pode verificar o histórico de disciplinas das quais você já foi monitor.
-            %p.lead
-              Você já foi monitor em <b>#{pluralize(@mostrar.count, "turma")}</b>.
+          %p.lead
+            Adicione, edite ou apague suas atividades registradas aqui!
+          %br
+          - @atividades = Atividade.where(matricula_monitor: current_user.matricula )
+          - if @atividades == nil #Trocar para analisar se o banco de registros é nulo
+            %p.text-justify
+              Você ainda não possui atividades registradas. Se você deseja registrar uma atividade, clique no botão.
+            %a.btn.btn-outline-success{href: new_atividade_path} Registrar
+          - else
+            %p.text-justify
+              Você possui atividades registradas. Caso você deseje editar seus registros, basta clicar no botão
+              "Editar".
+            %p.text-justify
+              Para criar outras atividades, clique no botão adicionar.
+            %a.btn.btn-outline-success{href: new_atividade_path} Adicionar
             %br
-            .row
-            %h4 Inscrições
-            %hr
-            .row
-              - @mostrar.each do |m|
-                .col-0
-                  - d = Disciplina.find(m.fk_cod_disciplina)
-                  - t = Turma.find(m.fk_turmas_id)
-                  - status = "Encerrado"
-                .card
-                  .card-body
-                    %h5.card-title
-                      Monitoria Encerrada
-                    %hr
-                    Disciplina: <b>#{d.nome}</b>
-                    %br
-                    Turma: <b>#{t.turma}
-                    %br
-                    Status da monitoria: <b>#{status}</b>
+            %br
+            %table.table
+              %thead
+                %tr
+                  %th Título
+                  %th Data
+                  %th Descrição
+              %tbody
+                - @atividades.each do |atividade|
+                  %tr
+                    %td
+                      = atividade.titulo
+                    %td
+                      = atividade.data
+                    %td
+                      = atividade.mensagem
+                    %td
+                      %a.btn.btn-outline-warning.btn-block.btn-sm.editar-dados{ href: edit_atividade_path(atividade.id) } Editar
+
+        .col-2
