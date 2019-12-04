@@ -4,7 +4,14 @@ class TarefasController < ApplicationController
   # GET /tarefas
   # GET /tarefas.json
   def index
-    @tarefas = Tarefa.all
+    @tarefas = []
+    @monitoria_id = params[:monitoria_id].to_i
+    @all_tarefas = Tarefa.all
+    @all_tarefas.each do |tarefa|
+      if tarefa.monitoria_id == @monitoria_id
+        @tarefas.push(tarefa)
+      end
+    end
   end
 
   # GET /tarefas/1
@@ -14,8 +21,7 @@ class TarefasController < ApplicationController
 
   # GET /tarefas/new
   def new
-    @monitoria_id = params[:monitoria_id]
-    @tarefa = Tarefa.new(:monitoria_id => 1)
+    @tarefa = Tarefa.new(:monitoria_id => params[:monitoria_id])
   end
 
   # GET /tarefas/1/edit

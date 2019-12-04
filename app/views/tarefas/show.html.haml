@@ -20,8 +20,8 @@
   = @tarefa.fim
 %p
   %b Monitoria:
-  = @tarefa.monitoria
+  = @tarefa.monitoria.id
 
 = link_to 'Edit', edit_tarefa_path(@tarefa)
 \|
-= link_to 'Back', tarefas_path
+= link_to 'Back', tarefas_path(monitoria_id: @tarefa.monitoria.id)
