@@ -35,7 +35,6 @@ Rails.application.routes.draw do
   match "/dashboard/importar_professores", to: "dashboard#importar_professores", via: 'get'
   match "/dashboard/scrape_professores", to: "dashboard#scrape_professores", via: 'get'
   match "/dashboard/atendimentos", to: "dashboard#atendimentos", via: 'get'
-  match "/dashboard/registrar_atividade", to: "dashboard#registrar_atividade", via: 'get'
   match "/dashboard/atividades", to: "dashboard#atividades", via: 'get'
   match "/faq", to: "faq#index", :via => 'get'
   match "/sobre", to: "sobre#index", :via => 'get'
