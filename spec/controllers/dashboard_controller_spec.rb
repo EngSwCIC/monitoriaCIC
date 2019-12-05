@@ -92,6 +92,18 @@ describe DashboardController do
       end
     end
 
+    describe '#atendimentos' do
+      it 'should render the views/dashboard/atendimentos.html.haml as a User' do
+        get :atendimentos
+        expect(response).to render_template(:atendimentos)
+      end
+
+      # deve mostrar apenas os atendimentos do usuario logado
+      #it 'should render only the atendimentos of logged User' do
+        
+      #end
+    end
+
     describe '#apagar_alunos' do
       it 'should call the model method that finds all the Users in order of :matricula' do
         expect(User).to receive(:order).with(:matricula).and_return(User.order(:matricula))
