@@ -98,7 +98,7 @@ describe AtividadesController do
         put :update, params: @params
       end
 
-      it 'should set de flash and redirect the user to the Dados Bancarios page' do
+      it 'should set de flash and redirect the user to the Atividades page' do
         allow(Atividade).to receive(:find).with(@params[:id]).and_return(@db_atividades)
         put :update, params: @params
         expect(flash[:notice]).to eq('Atividade atualizada com sucesso!')

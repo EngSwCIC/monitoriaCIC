@@ -33,7 +33,7 @@ class AtendimentosController < ApplicationController
       flash[:notice] = "Registro de atendimento realizado com sucesso!"
       redirect_to dashboard_atendimentos_path
     else
-      flash[:danger] = @atendimento.errors.first[1]
+      flash[:danger] = @atendimento.errors.full_messages
       redirect_to dashboard_atendimentos_path
     end
   end
