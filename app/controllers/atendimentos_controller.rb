@@ -21,6 +21,7 @@ class AtendimentosController < ApplicationController
   # GET /atendimentos/1/edit
   def edit
     @user = current_user
+    
   end
 
   # POST /atendimentos
@@ -43,7 +44,7 @@ class AtendimentosController < ApplicationController
   def update
     respond_to do |format|
       if @atendimento.update(atendimento_params)
-        format.html { redirect_to @atendimento, notice: 'Atendimento was successfully updated.' }
+        format.html { redirect_to dashboard_atendimentos_path, notice: 'Atendimento was successfully updated.' }
         format.json { render :show, status: :ok, location: @atendimento }
       else
         format.html { render :edit }
