@@ -123,6 +123,17 @@ Dado /^(?:|que )o banco possui uma turma cadastrada$/ do
   )
 end
 
+Dado /^(?:|que )o banco possui uma tarefa$/ do
+  Tarefa.create!(
+    id: 1,
+    titulo: 'Corrigir tarefas de alunos',
+    descricao: 'Corrigir, dar notas e enviar no moodle as avaliações e feedbacks da tarefa 1, realizada ontem.',
+    inicio: "2019-12-05 12:13:00",
+    fim: "2019-12-05 12:14:00",
+    monitoria_id: 1
+  )
+end
+
 Dado /^(?:|que )o banco possui duas turmas cadastradas$/ do
   Turma.create!(
       id: 1,

@@ -59,6 +59,10 @@ module NavigationHelpers
     when /^página de cadastro de tarefas$/
       #tarefas_path(monitoria_id:1)
       new_tarefa_path
+
+    when /^página de avaliação$/
+      edit_tarefa_path(Tarefa.find(1))
+
     when /^página da tarefa$/
       tarefa_path(Tarefa.find(1))
     

@@ -14,27 +14,27 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-12-04T13:44:09-03:00">2019-12-04T13:44:09-03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-12-05T08:58:33-03:00">2019-12-05T08:58:33-03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="yellow">81.2%</span></span>
+    (<span class="covered_percent"><span class="yellow">80.31%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         22.5
+         22.25
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>38</b> files in total.
-    <b>633</b> relevant lines. 
+    <b>640</b> relevant lines. 
     <span class="green"><b>514</b> lines covered</span> and
-    <span class="red"><b>119</b> lines missed </span>
+    <span class="red"><b>126</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -203,10 +203,10 @@
       <tr>
         <td class="strong"><a href="#db82ada52d3358a561bf45abfad38ac1ee43276a" class="src_link" title="app/controllers/tarefas_controller.rb">app/controllers/tarefas_controller.rb</a></td>
         <td class="red strong">0.0 %</td>
-        <td>75</td>
-        <td>51</td>
+        <td>83</td>
+        <td>58</td>
         <td>0</td>
-        <td>51</td>
+        <td>58</td>
         <td>0.0</td>
       </tr>
       
@@ -439,20 +439,20 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="red">76.61%</span></span>
+    (<span class="covered_percent"><span class="red">75.4%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         7.55
+         7.43
        </span>
     </span> hits/line)
   </h2>
   <a name="Controllers"></a>
   <div>
     <b>16</b> files in total.
-    <b>436</b> relevant lines. 
+    <b>443</b> relevant lines. 
     <span class="green"><b>334</b> lines covered</span> and
-    <span class="red"><b>102</b> lines missed </span>
+    <span class="red"><b>109</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -601,10 +601,10 @@
       <tr>
         <td class="strong"><a href="#db82ada52d3358a561bf45abfad38ac1ee43276a" class="src_link" title="app/controllers/tarefas_controller.rb">app/controllers/tarefas_controller.rb</a></td>
         <td class="red strong">0.0 %</td>
-        <td>75</td>
-        <td>51</td>
+        <td>83</td>
+        <td>58</td>
         <td>0</td>
-        <td>51</td>
+        <td>58</td>
         <td>0.0</td>
       </tr>
       
@@ -5467,9 +5467,9 @@
     <h3>app/controllers/tarefas_controller.rb</h3>
     <h4><span class="red">0.0 %</span> covered</h4>
     <div>
-      <b>51</b> relevant lines. 
+      <b>58</b> relevant lines. 
       <span class="green"><b>0</b> lines covered</span> and
-      <span class="red"><b>51</b> lines missed.</span>
+      <span class="red"><b>58</b> lines missed.</span>
     </div>
   </div>
   
@@ -5515,79 +5515,79 @@
         <li class="missed" data-hits="0" data-linenumber="7">
           
           
-          <code class="ruby">    @tarefas = Tarefa.all</code>
+          <code class="ruby">    @tarefas = []</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="8">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    @monitoria_id = params[:monitoria_id].to_i</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="9">
+        <li class="missed" data-hits="0" data-linenumber="9">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">    @all_tarefas = Tarefa.all</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="10">
+        <li class="missed" data-hits="0" data-linenumber="10">
           
           
-          <code class="ruby">  # GET /tarefas/1</code>
+          <code class="ruby">    @all_tarefas.each do |tarefa|</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="11">
+        <li class="missed" data-hits="0" data-linenumber="11">
           
           
-          <code class="ruby">  # GET /tarefas/1.json</code>
+          <code class="ruby">      if tarefa.monitoria_id == @monitoria_id</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="12">
           
           
-          <code class="ruby">  def show</code>
+          <code class="ruby">        @tarefas.push(tarefa)</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="13">
           
           
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="14">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="15">
+          
+          
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="14">
+        <li class="never" data-hits="" data-linenumber="16">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="15">
+        <li class="never" data-hits="" data-linenumber="17">
           
           
-          <code class="ruby">  # GET /tarefas/new</code>
+          <code class="ruby">  # GET /tarefas/1</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="16">
+        <li class="never" data-hits="" data-linenumber="18">
           
           
-          <code class="ruby">  def new</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="17">
-          
-          
-          <code class="ruby">    @monitoria_id = params[:monitoria_id]</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="18">
-          
-          
-          <code class="ruby">    @tarefa = Tarefa.new(:monitoria_id =&gt; 1)</code>
+          <code class="ruby">  # GET /tarefas/1.json</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="19">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">  def show</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="20">
@@ -5596,331 +5596,379 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="21">
-          
-          
-          <code class="ruby">  # GET /tarefas/1/edit</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="22">
-          
-          
-          <code class="ruby">  def edit</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="23">
+        <li class="missed" data-hits="0" data-linenumber="21">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="24">
+        <li class="never" data-hits="" data-linenumber="22">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="25">
+        <li class="never" data-hits="" data-linenumber="23">
           
           
-          <code class="ruby">  # POST /tarefas</code>
+          <code class="ruby">  # GET /tarefas/new</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="26">
+        <li class="missed" data-hits="0" data-linenumber="24">
           
           
-          <code class="ruby">  # POST /tarefas.json</code>
+          <code class="ruby">  def new</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="25">
+          
+          
+          <code class="ruby">    @monitoria_id = params[:monitoria_id]</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="26">
+          
+          
+          <code class="ruby">    @tarefa = Tarefa.new(:monitoria_id =&gt; params[:monitoria_id])</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="27">
           
           
-          <code class="ruby">  def create</code>
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="28">
+        <li class="never" data-hits="" data-linenumber="28">
           
           
-          <code class="ruby">    @tarefa = Tarefa.new(tarefa_params)</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="29">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  # GET /tarefas/1/edit</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="30">
           
           
-          <code class="ruby">    respond_to do |format|</code>
+          <code class="ruby">  def edit</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="31">
           
           
-          <code class="ruby">      if @tarefa.save</code>
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="32">
+        <li class="never" data-hits="" data-linenumber="32">
           
           
-          <code class="ruby">        format.html { redirect_to @tarefa, notice: &#39;Tarefa was successfully created.&#39; }</code>
+          <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="33">
+        <li class="never" data-hits="" data-linenumber="33">
           
           
-          <code class="ruby">        format.json { render :show, status: :created, location: @tarefa }</code>
+          <code class="ruby">  # POST /tarefas</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="34">
+        <li class="never" data-hits="" data-linenumber="34">
           
           
-          <code class="ruby">      else</code>
+          <code class="ruby">  # POST /tarefas.json</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="35">
           
           
-          <code class="ruby">        format.html { render :new }</code>
+          <code class="ruby">  def create</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="36">
           
           
-          <code class="ruby">        format.json { render json: @tarefa.errors, status: :unprocessable_entity }</code>
+          <code class="ruby">    @tarefa = Tarefa.new(tarefa_params)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="37">
+        <li class="never" data-hits="" data-linenumber="37">
           
           
-          <code class="ruby">      end</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="38">
           
           
-          <code class="ruby">    end</code>
+          <code class="ruby">    respond_to do |format|</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="39">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">      if @tarefa.save</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="40">
+        <li class="missed" data-hits="0" data-linenumber="40">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">        format.html { redirect_to @tarefa, notice: &#39;Tarefa was successfully created.&#39; }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="41">
+        <li class="missed" data-hits="0" data-linenumber="41">
           
           
-          <code class="ruby">  # PATCH/PUT /tarefas/1</code>
+          <code class="ruby">        format.json { render :show, status: :created, location: @tarefa }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="42">
-          
-          
-          <code class="ruby">  # PATCH/PUT /tarefas/1.json</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="43">
-          
-          
-          <code class="ruby">  def update</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="44">
-          
-          
-          <code class="ruby">    respond_to do |format|</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="45">
-          
-          
-          <code class="ruby">      if @tarefa.update(tarefa_params)</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="46">
-          
-          
-          <code class="ruby">        format.html { redirect_to @tarefa, notice: &#39;Tarefa was successfully updated.&#39; }</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="47">
-          
-          
-          <code class="ruby">        format.json { render :show, status: :ok, location: @tarefa }</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="48">
+        <li class="missed" data-hits="0" data-linenumber="42">
           
           
           <code class="ruby">      else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="49">
+        <li class="missed" data-hits="0" data-linenumber="43">
           
           
-          <code class="ruby">        format.html { render :edit }</code>
+          <code class="ruby">        format.html { render :new }</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="50">
+        <li class="missed" data-hits="0" data-linenumber="44">
           
           
           <code class="ruby">        format.json { render json: @tarefa.errors, status: :unprocessable_entity }</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="51">
+        <li class="missed" data-hits="0" data-linenumber="45">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="52">
+        <li class="missed" data-hits="0" data-linenumber="46">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="53">
+        <li class="missed" data-hits="0" data-linenumber="47">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="54">
+        <li class="never" data-hits="" data-linenumber="48">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="55">
+        <li class="never" data-hits="" data-linenumber="49">
           
           
-          <code class="ruby">  # DELETE /tarefas/1</code>
+          <code class="ruby">  # PATCH/PUT /tarefas/1</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="56">
+        <li class="never" data-hits="" data-linenumber="50">
           
           
-          <code class="ruby">  # DELETE /tarefas/1.json</code>
+          <code class="ruby">  # PATCH/PUT /tarefas/1.json</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="57">
+        <li class="missed" data-hits="0" data-linenumber="51">
           
           
-          <code class="ruby">  def destroy</code>
+          <code class="ruby">  def update</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="58">
-          
-          
-          <code class="ruby">    @tarefa.destroy</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="59">
+        <li class="missed" data-hits="0" data-linenumber="52">
           
           
           <code class="ruby">    respond_to do |format|</code>
         </li>
       
+        <li class="missed" data-hits="0" data-linenumber="53">
+          
+          
+          <code class="ruby">      if @tarefa.update(tarefa_params)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="54">
+          
+          
+          <code class="ruby">        format.html { redirect_to @tarefa, notice: &#39;Tarefa was successfully updated.&#39; }</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="55">
+          
+          
+          <code class="ruby">        format.json { render :show, status: :ok, location: @tarefa }</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="56">
+          
+          
+          <code class="ruby">      else</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="57">
+          
+          
+          <code class="ruby">        format.html { render :edit }</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="58">
+          
+          
+          <code class="ruby">        format.json { render json: @tarefa.errors, status: :unprocessable_entity }</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="59">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
         <li class="missed" data-hits="0" data-linenumber="60">
           
           
-          <code class="ruby">      format.html { redirect_to tarefas_url, notice: &#39;Tarefa was successfully destroyed.&#39; }</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="61">
           
           
-          <code class="ruby">      format.json { head :no_content }</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="62">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="63">
-          
-          
           <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="62">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="63">
+          
+          
+          <code class="ruby">  # DELETE /tarefas/1</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="64">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  # DELETE /tarefas/1.json</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="65">
           
           
-          <code class="ruby">  private</code>
+          <code class="ruby">  def destroy</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="66">
+        <li class="missed" data-hits="0" data-linenumber="66">
           
           
-          <code class="ruby">    # Use callbacks to share common setup or constraints between actions.</code>
+          <code class="ruby">    @tarefa.destroy</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="67">
           
           
-          <code class="ruby">    def set_tarefa</code>
+          <code class="ruby">    respond_to do |format|</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="68">
           
           
-          <code class="ruby">      @tarefa = Tarefa.find(params[:id])</code>
+          <code class="ruby">      format.html { redirect_to dashboard_monitorias_path , notice: &#39;Tarefa was successfully destroyed.&#39; }</code>
         </li>
       
         <li class="missed" data-hits="0" data-linenumber="69">
           
           
+          <code class="ruby">      format.json { head :no_content }</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="70">
+          
+          
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="70">
+        <li class="missed" data-hits="0" data-linenumber="71">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="72">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="71">
-          
-          
-          <code class="ruby">    # Never trust parameters from the scary internet, only allow the white list through.</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="72">
-          
-          
-          <code class="ruby">    def tarefa_params</code>
-        </li>
-      
         <li class="missed" data-hits="0" data-linenumber="73">
           
           
-          <code class="ruby">      params.require(:tarefa).permit(:titulo, :descricao, :nota, :feito, :inicio, :fim, :monitoria_id)</code>
+          <code class="ruby">  private</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="74">
+        <li class="never" data-hits="" data-linenumber="74">
+          
+          
+          <code class="ruby">    # Use callbacks to share common setup or constraints between actions.</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="75">
+          
+          
+          <code class="ruby">    def set_tarefa</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="76">
+          
+          
+          <code class="ruby">      @tarefa = Tarefa.find(params[:id])</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="77">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="75">
+        <li class="never" data-hits="" data-linenumber="78">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="79">
+          
+          
+          <code class="ruby">    # Never trust parameters from the scary internet, only allow the white list through.</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="80">
+          
+          
+          <code class="ruby">    def tarefa_params</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="81">
+          
+          
+          <code class="ruby">      params.require(:tarefa).permit(:titulo, :descricao, :nota, :feito, :inicio, :fim, :monitoria_id)</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="82">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="83">
           
           
           <code class="ruby">end</code>
