@@ -27,16 +27,14 @@ class AtendimentosController < ApplicationController
   # POST /atendimentos.json
   def create
     @user = current_user
-    @atendimento = Atendimento.new(atendimento_params)
+    @atendimento = Atendimento.create(atendimento_params)
 
-    respond_to do |format|
-      if @atendimento.save
-        format.html { redirect_to @atendimento, notice: 'Atendimento was successfully created.' }
-        format.json { render :show, status: :created, location: @atendimento }
-      else
-        format.html { render :new }
-        format.json { render json: @atendimento.errors, status: :unprocessable_entity }
-      end
+    if !@atendimento.errors.any?
+      flash[:notice] = "Registro de atendimento realizado com sucesso!"
+      redirect_to dashboard_atendimentos_path
+    else
+      flash[:danger] = @atendimento.errors.first[1]
+      redirect_to dashboard_atendimentos_path
     end
   end
 
