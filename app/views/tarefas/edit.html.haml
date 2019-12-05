@@ -1,7 +1,7 @@
 %h1 Editing tarefa
 
-= render 'form'
+= render 'formedit'
 
-= link_to 'Show', @tarefa
+= link_to 'Detalhes', @tarefa
 \|
-= link_to 'Back', tarefas_path(monitoria_id: @tarefa.monitoria.id)
+= link_to 'Voltar', tarefas_path(monitoria_id: @tarefa.monitoria.id)

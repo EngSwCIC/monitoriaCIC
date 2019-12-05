@@ -5,20 +5,11 @@
       %ul
         - @tarefa.errors.full_messages.each do |message|
           %li= message
-
   .field
-    = f.label :titulo
-    = f.text_field :titulo
+    = f.label :nota
+    = f.text_field :nota
   .field
-    = f.label :descricao
-    = f.text_field :descricao
-  .field
-    = f.label :inicio
-    = f.datetime_select :inicio
-  .field
-    = f.label :fim
-    = f.datetime_select :fim
-  .field
-    = f.hidden_field :monitoria_id
+    = f.label :feito
+    = f.check_box :feito
   .actions
     = f.submit 'Salvar'

@@ -7,21 +7,21 @@
   %b Descricao:
   = @tarefa.descricao
 %p
-  %b Nota:
-  = @tarefa.nota
-%p
-  %b Feito:
-  = @tarefa.feito
-%p
   %b Inicio:
   = @tarefa.inicio
 %p
   %b Fim:
   = @tarefa.fim
+-# %p
+-#   %b Monitoria:
+-#   = @tarefa.monitoria.id
 %p
-  %b Monitoria:
-  = @tarefa.monitoria.id
+  %b Nota:
+  = @tarefa.nota
+%p
+  %b Feito:
+  = @tarefa.feito
 
-= link_to 'Edit', edit_tarefa_path(@tarefa)
+= link_to 'Avaliar', edit_tarefa_path(@tarefa)
 \|
-= link_to 'Back', tarefas_path(monitoria_id: @tarefa.monitoria.id)
+= link_to 'Voltar', tarefas_path(monitoria_id: @tarefa.monitoria.id)

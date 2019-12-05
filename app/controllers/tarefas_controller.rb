@@ -17,10 +17,12 @@ class TarefasController < ApplicationController
   # GET /tarefas/1
   # GET /tarefas/1.json
   def show
+
   end
 
   # GET /tarefas/new
   def new
+    @monitoria_id = params[:monitoria_id]
     @tarefa = Tarefa.new(:monitoria_id => params[:monitoria_id])
   end
 
@@ -63,7 +65,7 @@ class TarefasController < ApplicationController
   def destroy
     @tarefa.destroy
     respond_to do |format|
-      format.html { redirect_to tarefas_url, notice: 'Tarefa was successfully destroyed.' }
+      format.html { redirect_to dashboard_monitorias_path , notice: 'Tarefa was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
