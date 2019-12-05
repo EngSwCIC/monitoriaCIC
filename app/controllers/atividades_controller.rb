@@ -54,11 +54,11 @@ class AtividadesController < ApplicationController
   # DELETE /atividades/1
   # DELETE /atividades/1.json
   def destroy
-    @atividade.destroy
-    respond_to do |format|
-      format.html { redirect_to atividades_url, notice: 'Atividade was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @atividade = Atividade.find(params[:id])
+    @atividade.delete
+
+    flash[:notice] = 'Atividade apagada com sucesso!'
+    redirect_to dashboard_atividades_path
   end
 
   private
