@@ -1,4 +1,5 @@
 class AtividadesController < ApplicationController
+  before_action :user_logged
   before_action :set_atividade, only: [:show, :edit, :update, :destroy]
 
   # GET /atividades
@@ -59,6 +60,13 @@ class AtividadesController < ApplicationController
 
     flash[:notice] = 'Atividade apagada com sucesso!'
     redirect_to dashboard_atividades_path
+  end
+
+  private
+  def user_logged
+    if !logged_in?
+      redirect_to new_session_path, notice: "Você precisa estar logado para acessar essa página"
+    end
   end
 
   private

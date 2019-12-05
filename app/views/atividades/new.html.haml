@@ -6,7 +6,7 @@
       %h1.text-center
         Registrar Atividade
       %hr
-      = form_tag new_atividade_path, method: :post do
+      = form_tag atividades_path, method: :post do
         .form-group.row
           = label :atividade, :titulo, 'Titulo', class: 'col-sm-2 col-form-label'
           .col-sm-10
