@@ -47,31 +47,22 @@ describe Atendimento do
             @record.valid?                              # run validations
             expect(@record.errors[:dia]).to_not include("can't be blank")
         end
-        
-        it 'should validate :dia is a date type' do
-            # Sad Path
-            @record.dia = 1
-            @record.valid?
-            expect(@record.errors[:dia]).to_not be_a(Date)
-
-            # Happy Path
-            @record.dia = Date.parse('04-12-2019')  
-            @record.valid?
-            expect(@record.errors[:dia]).to be_a(Date)
-            
-        end
     end
 
     describe '#descricao' do
-        #it 'should not validate the presence of :descricao' do
-            
-        #end
+        it 'should not validate the presence of :descricao' do
+            @record.descricao = ''  # valid state
+            @record.valid?                              # run validations
+            expect(@record.errors[:descricao]).to_not include("can't be blank")
+        end
     end
 
     describe '#aluno_atendido' do
-        #it 'should not validate the presence of :aluno_atendido' do
-            
-        #end
+        it 'should not validate the presence of :aluno_atendido' do
+            @record.aluno_atendido = ''  # valid state
+            @record.valid?                              # run validations
+            expect(@record.errors[:aluno_atendido]).to_not include("can't be blank")
+        end
     end
 
 end
