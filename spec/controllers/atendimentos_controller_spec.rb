@@ -42,6 +42,9 @@ describe AtendimentosController do
 
         it 'should redirect the user to the Dashboard page' do
             post :create, params: @params
+
+            expect(flash[:notice]).to eq('Registro de atendimento realizado com sucesso!')
+            
             expect(subject).to redirect_to '/dashboard/atendimentos'
         end
 
@@ -63,6 +66,7 @@ describe AtendimentosController do
     end
 
     describe '#update' do
+        
         before :each do
             @info = {
                 descricao: 'Descricao alterada'
@@ -74,7 +78,7 @@ describe AtendimentosController do
     
             @db_atendimentos = FactoryBot.create(:atendimento, id: 1)
         end
-  
+
         it 'should call the instance method that updates the Atendimento attributes' do
             ActionController::Parameters.permit_all_parameters = true
             @atendimentos_params = ActionController::Parameters.new(@params[:atendimento])
@@ -115,9 +119,37 @@ describe AtendimentosController do
                 .and_return(@db_atendimentos.update_attributes(@atendimentos_params))
             put :update, params: @params
             expect(flash[:danger]).to include(
-                "Campo obrigatório 'Dia' não preenchido! Registro não realizado."
+                "can't be blank"
             )
             expect(subject).to redirect_to('/dashboard/atendimentos')
+        end
+    end
+
+    describe '#destroy' do
+        before :each do
+            @params = {}
+            @params[:id] = "1"
+            
+            @db_atendimentos = FactoryBot.create(:atendimento, id: 1)
+        end
+  
+  
+        it 'calls the model method that finds the  Atendimento' do
+          expect(Atendimento).to receive(:find).with(@params[:id])
+            .and_return(@db_atendimentos)
+          delete :destroy, params: @params
+        end
+  
+        it 'calls the instance method that deletes the Atendimento' do
+          allow(Atendimento).to receive(:find).with(@params[:id]).and_return(@db_atendimentos)
+          expect(@db_atendimentos).to receive(:delete).and_return(@db_atendimentos.delete)
+          delete :destroy, params: @params
+        end
+  
+        it 'should set the flash and redirect the user' do
+          delete :destroy, params: @params
+          expect(flash[:notice]).to eq('Atendimento apagado com sucesso!')
+          expect(subject).to redirect_to('/dashboard/atendimentos')
         end
     end
 end

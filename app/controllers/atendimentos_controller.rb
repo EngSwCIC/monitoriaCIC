@@ -42,25 +42,26 @@ class AtendimentosController < ApplicationController
   # PATCH/PUT /atendimentos/1
   # PATCH/PUT /atendimentos/1.json
   def update
-    respond_to do |format|
-      if @atendimento.update(atendimento_params)
-        format.html { redirect_to dashboard_atendimentos_path, notice: 'Atendimento was successfully updated.' }
-        format.json { render :show, status: :ok, location: @atendimento }
-      else
-        format.html { render :edit }
-        format.json { render json: @atendimento.errors, status: :unprocessable_entity }
-      end
+    @atendimento = Atendimento.find(params[:id])
+    @atendimento.update_attributes(atendimento_params)
+
+    if !@atendimento.errors.any?
+      flash[:notice] = 'Atendimento atualizado com sucesso!'
+    elsif
+      flash[:danger] = @atendimento.errors.first[1]
     end
+
+    redirect_to dashboard_atendimentos_path
   end
 
   # DELETE /atendimentos/1
   # DELETE /atendimentos/1.json
   def destroy
-    @atendimento.destroy
-    respond_to do |format|
-      format.html { redirect_to atendimentos_url, notice: 'Atendimento was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @atendimento = Atendimento.find(params[:id])
+    @atendimento.delete
+
+    flash[:notice] = 'Atendimento apagado com sucesso!'
+    redirect_to dashboard_atendimentos_path
   end
 
   private
