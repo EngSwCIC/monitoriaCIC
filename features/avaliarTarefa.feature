@@ -10,7 +10,7 @@
       E que eu estou na página de login de usuários
       E que o "professor" está logado
 
-    Cenário: O professor designa uma tarefa para o monitor (Happy Path)
+    Cenário: O professor avalia uma tarefa do monitor (Happy Path)
       Quando eu clico em "Monitoria"
       Então eu devo estar na página de monitoria
       Quando eu clico em "Ver lista de monitores"
