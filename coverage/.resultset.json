@@ -1,27 +1,27 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/helpers/application_helper.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/helpers/disciplinas_helper.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/helpers/disciplinas_helper.rb": [
         1,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/helpers/historico_helper.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/helpers/historico_helper.rb": [
         1,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/helpers/home_helper.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/helpers/home_helper.rb": [
         1,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/helpers/reset_senhas_helper.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/helpers/reset_senhas_helper.rb": [
         1,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/helpers/sessions_helper.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/helpers/sessions_helper.rb": [
         1,
         1,
         5,
@@ -43,11 +43,11 @@
         null,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/helpers/tarefas_helper.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/helpers/tarefas_helper.rb": [
         1,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/controllers/admins_controller.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/controllers/admins_controller.rb": [
         1,
         1,
         null,
@@ -63,13 +63,13 @@
         null,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/controllers/application_controller.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/controllers/application_controller.rb": [
         1,
         1,
         1,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/controllers/dados_bancarios_controller.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/controllers/dados_bancarios_controller.rb": [
         1,
         1,
         null,
@@ -135,7 +135,7 @@
         null,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/controllers/dashboard_controller.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/controllers/dashboard_controller.rb": [
         1,
         1,
         null,
@@ -443,7 +443,7 @@
         null,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/controllers/disciplinas_controller.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/controllers/disciplinas_controller.rb": [
         1,
         1,
         1,
@@ -512,17 +512,17 @@
         null,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/controllers/faq_controller.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/controllers/faq_controller.rb": [
         1,
         1,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/controllers/home_controller.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/controllers/home_controller.rb": [
         1,
         1,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/controllers/monitorias_controller.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/controllers/monitorias_controller.rb": [
         1,
         1,
         1,
@@ -590,7 +590,7 @@
         null,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/controllers/professors_controller.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/controllers/professors_controller.rb": [
         1,
         null,
         null,
@@ -641,7 +641,7 @@
         null,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/controllers/reset_senhas_controller.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/controllers/reset_senhas_controller.rb": [
         1,
         1,
         1,
@@ -707,7 +707,7 @@
         null,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/controllers/sessions_controller.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/controllers/sessions_controller.rb": [
         1,
         1,
         null,
@@ -737,12 +737,12 @@
         null,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/controllers/sobre_controller.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/controllers/sobre_controller.rb": [
         1,
         1,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/controllers/turmas_controller.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/controllers/turmas_controller.rb": [
         1,
         null,
         1,
@@ -810,7 +810,7 @@
         null,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/controllers/users_controller.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/controllers/users_controller.rb": [
         1,
         null,
         1,
@@ -848,7 +848,7 @@
         null,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/models/dados_bancarios.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/models/dados_bancarios.rb": [
         1,
         1,
         null,
@@ -865,7 +865,7 @@
         1,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/models/disciplina.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/models/disciplina.rb": [
         1,
         1,
         1,
@@ -891,12 +891,12 @@
         null,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/models/application_record.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/models/application_record.rb": [
         1,
         1,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/models/monitoria.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/models/monitoria.rb": [
         1,
         null,
         1,
@@ -927,7 +927,7 @@
         null,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/models/professor.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/models/professor.rb": [
         1,
         1,
         null,
@@ -961,7 +961,12 @@
         1,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/models/turma.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/models/tarefa.rb": [
+        1,
+        1,
+        null
+      ],
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/models/turma.rb": [
         1,
         1,
         1,
@@ -1029,7 +1034,7 @@
         null,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/models/user.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/models/user.rb": [
         1,
         1,
         1,
@@ -1140,14 +1145,14 @@
         null,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/models/admin.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/models/admin.rb": [
         1,
         1,
         null,
         1,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/mailers/professor_mailer.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/mailers/professor_mailer.rb": [
         1,
         1,
         null,
@@ -1159,13 +1164,13 @@
         null,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/mailers/application_mailer.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/mailers/application_mailer.rb": [
         1,
         1,
         1,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/mailers/user_mailer.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/mailers/user_mailer.rb": [
         1,
         null,
         null,
@@ -1179,118 +1184,113 @@
         null,
         null
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/models/tarefa.rb": [
-        0,
-        0,
-        0
-      ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/controllers/historico_controller.rb": [
-        0,
-        null,
-        0
-      ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/controllers/tarefas_controller.rb": [
-        0,
-        0,
-        null,
-        null,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
-        null,
-        0,
-        null,
-        0,
-        null,
-        null,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
-        0,
-        0,
-        null,
-        null,
-        null,
-        0,
-        0,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        null,
-        null,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
-        null,
-        0,
-        0,
-        0,
-        null,
-        null,
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/channels/application_cable/channel.rb": [
         0,
         0,
         0,
         0
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/jobs/application_job.rb": [
-        0,
-        0
-      ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/channels/application_cable/connection.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/channels/application_cable/connection.rb": [
         0,
         0,
         0,
         0
       ],
-      "/home/ian/Documents/Aulas 2019.2/ES/monitoriaCIC/app/channels/application_cable/channel.rb": [
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/controllers/historico_controller.rb": [
+        0,
+        null,
+        0
+      ],
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/controllers/tarefas_controller.rb": [
         0,
         0,
+        null,
+        null,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        0,
+        null,
+        0,
+        null,
+        null,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        0,
+        0,
+        null,
+        null,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null,
+        0,
+        0,
+        0,
+        0
+      ],
+      "/mnt/d/vitor/Documents/unb/7_SEMESTRE/es/monitoriaCIC/app/jobs/application_job.rb": [
         0,
         0
       ]
     },
-    "timestamp": 1575547113
+    "timestamp": 1575988892
   }
 }

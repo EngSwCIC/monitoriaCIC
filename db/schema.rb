@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_19_134000) do
+ActiveRecord::Schema.define(version: 2019_12_10_130811) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name", null: false
@@ -107,8 +107,8 @@ ActiveRecord::Schema.define(version: 2019_11_19_134000) do
   end
 
   create_table "tarefas", force: :cascade do |t|
-    t.string "titulo"
-    t.string "descricao"
+    t.string "titulo", null: false
+    t.string "descricao", null: false
     t.decimal "nota"
     t.boolean "feito"
     t.datetime "inicio"
