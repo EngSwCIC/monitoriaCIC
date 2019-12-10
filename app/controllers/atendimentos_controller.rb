@@ -1,18 +1,9 @@
 class AtendimentosController < ApplicationController
-  before_action :set_atendimento, only: [:show, :edit, :update, :destroy]
-
-  # GET /atendimentos
-  # GET /atendimentos.json
-  def index
-    @atendimentos = Atendimento.where(monitor_id: current_user.id)
-  end
-
-  # GET /atendimentos/1
-  # GET /atendimentos/1.json
-  def show
-  end
+  before_action :set_atendimento, only: [:edit, :update, :destroy]
 
   # GET /atendimentos/new
+  ##
+  # busca o usuário logado para associá-lo ao novo atendimento.
   def new
     @atendimento = Atendimento.new
     @user = current_user
@@ -20,23 +11,25 @@ class AtendimentosController < ApplicationController
 
   # GET /atendimentos/1/edit
   def edit
-    @user = current_user
-    
+    @user = current_user    
   end
 
   # POST /atendimentos
   # POST /atendimentos.json
+  # Método para criar um atendimento, associando o atendimento ao usuário logado,
+  # que será passado pelo atendimento_params
+  # Retorna para a pagina dashboard/atendimentos
   def create
     @user = current_user
     @atendimento = Atendimento.create(atendimento_params)
 
     if !@atendimento.errors.any?
       flash[:notice] = "Registro de atendimento realizado com sucesso!"
-      redirect_to dashboard_atendimentos_path
     else
       flash[:danger] = @atendimento.errors.full_messages
-      redirect_to dashboard_atendimentos_path
     end
+
+    redirect_to dashboard_atendimentos_path
   end
 
   # PATCH/PUT /atendimentos/1
