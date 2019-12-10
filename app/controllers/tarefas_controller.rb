@@ -34,29 +34,24 @@ class TarefasController < ApplicationController
   # POST /tarefas.json
   def create
     @tarefa = Tarefa.new(tarefa_params)
-
-    respond_to do |format|
-      if @tarefa.save
-        format.html { redirect_to @tarefa, notice: 'Tarefa was successfully created.' }
-        format.json { render :show, status: :created, location: @tarefa }
-      else
-        format.html { render :new }
-        format.json { render json: @tarefa.errors, status: :unprocessable_entity }
-      end
+    if @tarefa.save
+      redirect_to dashboard_monitorias_path, notice: "Tarefa atribuida com sucesso!"
+    else
+      flash[:danger] = "Ocorreu um erro ao atribuir a tarefa."
+      redirect_to dashboard_monitorias_path
     end
+
+    
   end
 
   # PATCH/PUT /tarefas/1
   # PATCH/PUT /tarefas/1.json
   def update
-    respond_to do |format|
-      if @tarefa.update(tarefa_params)
-        format.html { redirect_to @tarefa, notice: 'Tarefa was successfully updated.' }
-        format.json { render :show, status: :ok, location: @tarefa }
-      else
-        format.html { render :edit }
-        format.json { render json: @tarefa.errors, status: :unprocessable_entity }
-      end
+    if @tarefa.update(tarefa_params)
+      redirect_to dashboard_monitorias_path, notice: "Tarefa atualizada!"
+    else
+      flash[:danger] = "Ocorreu um erro ao atualizar a tarefa."
+      redirect_to dashboard_monitorias_path
     end
   end
 
@@ -64,10 +59,7 @@ class TarefasController < ApplicationController
   # DELETE /tarefas/1.json
   def destroy
     @tarefa.destroy
-    respond_to do |format|
-      format.html { redirect_to dashboard_monitorias_path , notice: 'Tarefa was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to dashboard_monitorias_path, notice: "Tarefa removida!"
   end
 
   private
