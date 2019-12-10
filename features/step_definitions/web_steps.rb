@@ -59,6 +59,30 @@ Dado /^(?:|que )o banco possui uma monitoria$/ do
   )
 end
 
+Dado /^(?:|que )o banco possui duas monitorias$/ do
+  Monitoria.create!(
+    id: 1,
+    remuneracao: 'Remunerado',
+    fk_matricula: '140080279',
+    fk_cod_disciplina: 1,
+    fk_turmas_id: 1,
+    descricao_status: "Nota: SS. IRA: 3",
+    prioridade: 1,
+    fk_status_monitoria_id: 3
+  )
+
+  Monitoria.create!(
+    id: 2,
+    remuneracao: 'Remunerado',
+    fk_matricula: '140080299',
+    fk_cod_disciplina: 1,
+    fk_turmas_id: 1,
+    descricao_status: "Nota: SS. IRA: 3",
+    prioridade: 1,
+    fk_status_monitoria_id: 1
+  )
+end
+
 Dado /^(?:|que eu )possuo dados bancários cadastrados$/ do
   @dados_bancarios = {
     codigo: 'Banco do Brasil',
@@ -96,6 +120,17 @@ Dado /^(?:|que )o banco possui uma turma cadastrada$/ do
     fk_status_turma_id: 3,
     qnt_bolsas: 4,
     fk_vagas_id: 1
+  )
+end
+
+Dado /^(?:|que )o banco possui uma tarefa$/ do
+  Tarefa.create!(
+    id: 1,
+    titulo: 'Corrigir tarefas de alunos',
+    descricao: 'Corrigir, dar notas e enviar no moodle as avaliações e feedbacks da tarefa 1, realizada ontem.',
+    inicio: "2019-12-05 12:13:00",
+    fim: "2019-12-05 12:14:00",
+    monitoria_id: 1
   )
 end
 
