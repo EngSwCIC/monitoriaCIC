@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :atendimentos
+  resources :atendimentos, only: [:new, :create, :edit, :update, :destroy]
   resources :motivos
  # resources :atividades #plural
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
