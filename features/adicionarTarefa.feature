@@ -22,4 +22,4 @@
       | Titulo         | Corrigir Trabalho           |
       | Descricao      | Corrigir varios trabalhos   |
       E aperto em "Salvar"
-      Então eu devo estar na página da tarefa
+      Então eu devo estar na página de monitoria

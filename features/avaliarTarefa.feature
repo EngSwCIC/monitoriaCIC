@@ -22,4 +22,4 @@
       Quando eu preencho o formulário com:
       | Nota    | 10     |
       E aperto em "Salvar"
-      Então eu devo estar na página da tarefa
+      Então eu devo estar na página de monitoria
