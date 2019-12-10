@@ -14,7 +14,7 @@
       <img src="./assets/0.10.2/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2019-12-10T14:41:32+00:00">2019-12-10T14:41:32+00:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2019-12-10T15:19:27+00:00">2019-12-10T15:19:27+00:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         22.29
+         22.26
        </span>
     </span> hits/line)
   </h2>
@@ -107,7 +107,7 @@
         <td>124</td>
         <td>118</td>
         <td>6</td>
-        <td>22.4</td>
+        <td>22.3</td>
       </tr>
       
       <tr>
@@ -167,7 +167,7 @@
         <td>25</td>
         <td>25</td>
         <td>0</td>
-        <td>3.2</td>
+        <td>3.1</td>
       </tr>
       
       <tr>
@@ -287,7 +287,7 @@
         <td>10</td>
         <td>9</td>
         <td>1</td>
-        <td>2.3</td>
+        <td>2.1</td>
       </tr>
       
       <tr>
@@ -443,7 +443,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         7.43
+         7.4
        </span>
     </span> hits/line)
   </h2>
@@ -505,7 +505,7 @@
         <td>124</td>
         <td>118</td>
         <td>6</td>
-        <td>22.4</td>
+        <td>22.3</td>
       </tr>
       
       <tr>
@@ -565,7 +565,7 @@
         <td>25</td>
         <td>25</td>
         <td>0</td>
-        <td>3.2</td>
+        <td>3.1</td>
       </tr>
       
       <tr>
@@ -891,7 +891,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.81
+         1.69
        </span>
     </span> hits/line)
   </h2>
@@ -973,7 +973,7 @@
         <td>10</td>
         <td>9</td>
         <td>1</td>
-        <td>2.3</td>
+        <td>2.1</td>
       </tr>
       
       <tr>
@@ -3264,8 +3264,8 @@
           <code class="ruby">      if valid_email?(email) &amp;&amp; !Professor.find_by_email(email)</code>
         </li>
       
-        <li class="covered" data-hits="50" data-linenumber="256">
-          <span class="hits">50</span>
+        <li class="covered" data-hits="48" data-linenumber="256">
+          <span class="hits">48</span>
           
           <code class="ruby">        create_teacher(t, email)</code>
         </li>
@@ -3336,14 +3336,14 @@
           <code class="ruby">  def create_teacher(teacher, email)</code>
         </li>
       
-        <li class="covered" data-hits="50" data-linenumber="268">
-          <span class="hits">50</span>
+        <li class="covered" data-hits="48" data-linenumber="268">
+          <span class="hits">48</span>
           
           <code class="ruby">    pwd = generate_password</code>
         </li>
       
-        <li class="covered" data-hits="50" data-linenumber="269">
-          <span class="hits">50</span>
+        <li class="covered" data-hits="48" data-linenumber="269">
+          <span class="hits">48</span>
           
           <code class="ruby">    Professor.create(:name =&gt; teacher.css(&#39;h4.people-details-h4&#39;).text.match(/(\S+\.?\s?)+/),</code>
         </li>
@@ -3408,14 +3408,14 @@
           <code class="ruby">  def generate_password</code>
         </li>
       
-        <li class="covered" data-hits="50" data-linenumber="280">
-          <span class="hits">50</span>
+        <li class="covered" data-hits="48" data-linenumber="280">
+          <span class="hits">48</span>
           
           <code class="ruby">    require &#39;securerandom&#39;</code>
         </li>
       
-        <li class="covered" data-hits="50" data-linenumber="281">
-          <span class="hits">50</span>
+        <li class="covered" data-hits="48" data-linenumber="281">
+          <span class="hits">48</span>
           
           <code class="ruby">    SecureRandom.base64(9)</code>
         </li>
@@ -3444,8 +3444,8 @@
           <code class="ruby">  def match_role(role)</code>
         </li>
       
-        <li class="covered" data-hits="50" data-linenumber="286">
-          <span class="hits">50</span>
+        <li class="covered" data-hits="48" data-linenumber="286">
+          <span class="hits">48</span>
           
           <code class="ruby">    case role</code>
         </li>
@@ -3480,8 +3480,8 @@
           <code class="ruby">    when /adjunto/i</code>
         </li>
       
-        <li class="covered" data-hits="36" data-linenumber="292">
-          <span class="hits">36</span>
+        <li class="covered" data-hits="34" data-linenumber="292">
+          <span class="hits">34</span>
           
           <code class="ruby">      4</code>
         </li>
@@ -4620,20 +4620,20 @@
           <code class="ruby">    if !@professor.errors.any?</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="15">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="2" data-linenumber="15">
+          <span class="hits">2</span>
           
           <code class="ruby">      flash[:notice] = &quot;Registro realizado com sucesso!&quot;</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="16">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="2" data-linenumber="16">
+          <span class="hits">2</span>
           
           <code class="ruby">      log_in(@professor)</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="17">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="2" data-linenumber="17">
+          <span class="hits">2</span>
           
           <code class="ruby">      redirect_to dashboard_path</code>
         </li>
@@ -4644,14 +4644,14 @@
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="19">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="19">
+          <span class="hits">4</span>
           
           <code class="ruby">      flash[:danger] = @professor.errors.full_messages</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="20">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="4" data-linenumber="20">
+          <span class="hits">4</span>
           
           <code class="ruby">      redirect_to new_professor_path</code>
         </li>
@@ -6810,8 +6810,8 @@
           <code class="ruby">  def log_in(user)</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="3">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="3" data-linenumber="3">
+          <span class="hits">3</span>
           
           <code class="ruby">    session[:user_id] = user.email</code>
         </li>

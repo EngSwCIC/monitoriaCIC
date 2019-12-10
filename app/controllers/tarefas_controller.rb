@@ -23,7 +23,7 @@ class TarefasController < ApplicationController
   # GET /tarefas/new
   def new
     @monitoria_id = params[:monitoria_id]
-    @tarefa = Tarefa.new(:monitoria_id => params[:monitoria_id])
+    @tarefa = Tarefa.new(:monitoria_id => @monitoria_id)
   end
 
   # GET /tarefas/1/edit
