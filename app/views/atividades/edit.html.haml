@@ -6,6 +6,8 @@
       %h1.text-center
         Editar Atividade
       %hr
+      - ## Formulario para edição de atividades, nenhum campo pode ser deixado em branco
+      - ## O aluno tem que estar logado para editar uma de suas atividades
       %p.lead.text-center
         Atenção, apenas é permitida a mudança do Titulo e da Mensagem!
       = form_tag atividade_path(@atividade), method: :put do

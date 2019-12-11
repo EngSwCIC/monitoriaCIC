@@ -6,6 +6,8 @@
       %h1.text-center
         Registrar Atividade
       %hr
+      - ## Formulario para registro de atividade, nenhum campo pode ficar em branco
+      - ## O usuario deve estar logado para registrar uma atividade
       = form_tag atividades_path, method: :post do
         .form-group.row
           = label :atividade, :titulo, 'Titulo', class: 'col-sm-2 col-form-label'

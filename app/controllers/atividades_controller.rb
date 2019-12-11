@@ -14,6 +14,7 @@ class AtividadesController < ApplicationController
   end
 
   # GET /atividades/new
+  #Associa o registro de atividade ao usuario logado
   def new
     @atividade = Atividade.new
   end
@@ -24,6 +25,9 @@ class AtividadesController < ApplicationController
 
   # POST /atividades
   # POST /atividades.json
+  # Método para criar o registro de uma atividade, associando a atividade ao usuário logado,
+  # que será passado pelo atividade_params
+  # Criando ou não, retorna para o dashboard
   def create
     @atividade = Atividade.create(atividade_params)
 
@@ -38,6 +42,8 @@ class AtividadesController < ApplicationController
 
   # PATCH/PUT /atividades/1
   # PATCH/PUT /atividades/1.json
+  # Método para editar o registro de uma atividade, passando pelo atividade_params a atividade atualizada associada
+  # ao usuario que foi capturada por params[:id]
   def update
 
     @atividade = Atividade.find(params[:id])
@@ -54,6 +60,7 @@ class AtividadesController < ApplicationController
 
   # DELETE /atividades/1
   # DELETE /atividades/1.json
+  # Metodo utilizado para apagar uma atividade, utilizando seu id como paramentro
   def destroy
     @atividade = Atividade.find(params[:id])
     @atividade.delete
@@ -63,6 +70,7 @@ class AtividadesController < ApplicationController
   end
 
   private
+  # verifica se o usuario está logado para poder acessar a pagina de registro
   def user_logged
     if !logged_in?
       redirect_to new_session_path, notice: "Você precisa estar logado para acessar essa página"
