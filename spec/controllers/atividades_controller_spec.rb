@@ -3,6 +3,11 @@
 require 'rails_helper'
 
 describe AtividadesController do
+  describe 'User Logged' do
+    before :each do
+      allow_any_instance_of(AtividadesController).to receive(:user_logged).and_return(true)
+    end
+
     describe '#new' do
       it 'should render the views/atividades/new.html.erb' do
         get :new
@@ -98,7 +103,7 @@ describe AtividadesController do
         put :update, params: @params
       end
 
-      it 'should set de flash and redirect the user to the Atividades page' do
+      it 'should set de flash and redirect the user to the Dados Bancarios page' do
         allow(Atividade).to receive(:find).with(@params[:id]).and_return(@db_atividades)
         put :update, params: @params
         expect(flash[:notice]).to eq('Atividade atualizada com sucesso!')
@@ -162,5 +167,5 @@ describe AtividadesController do
         expect(subject).to redirect_to('/dashboard/atividades')
       end
     end
-
+  end
 end
