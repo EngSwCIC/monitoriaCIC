@@ -20,7 +20,9 @@
           = flash[:notice]
       = form_tag atendimentos_path, method: :post do
         = hidden_field :atendimento, :monitor_id, value: @user.id
-
+      -## View do formulario para registrar um atendimento, deve ter o id do motivo
+      -## O usuario deve estar logado para registrar o atendimento
+    
         .form-group.row
           = label :atendimento, :motivo_id, "Motivo", class: "col-sm-3 col-form-label"
           .col-sm-9

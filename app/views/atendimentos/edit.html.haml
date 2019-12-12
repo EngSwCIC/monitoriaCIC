@@ -7,6 +7,9 @@
         Editar atendimento
       %hr
       %p.lead.text-center
+      -## View do formulario para editar um atendimento, deve ter o id do motivo
+      -## O usuario deve estar logado para editar o atendimento
+      -## Campos do formulario
       = form_tag atendimento_path(@atendimento), method: :put do
         .form-group.row
           = label :atendimento, :motivo_id, 'Motivo', class: 'col-sm-2 col-form-label'

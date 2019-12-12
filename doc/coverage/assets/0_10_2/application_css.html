@@ -11,8 +11,11 @@
   var index_rel_prefix = "../../../";
 </script>
 
-<script src="../../../js/jquery.js"></script>
-<script src="../../../js/darkfish.js"></script>
+<script src="../../../js/navigation.js" defer></script>
+<script src="../../../js/search.js" defer></script>
+<script src="../../../js/search_index.js" defer></script>
+<script src="../../../js/searcher.js" defer></script>
+<script src="../../../js/darkfish.js" defer></script>
 
 <link href="../../../css/fonts.css" rel="stylesheet">
 <link href="../../../css/rdoc.css" rel="stylesheet">
@@ -216,8 +219,6 @@
   
     <li><a href="../../../config/credentials_yml_enc.html">credentials.yml.enc</a>
   
-    <li><a href="../../../config/initializers/devise_rb_bak.html">devise.rb.bak</a>
-  
     <li><a href="../../../coverage/assets/0_10_2/application_css.html">application.css</a>
   
     <li><a href="../../../coverage/assets/0_10_2/application_js.html">application.js</a>
@@ -296,9 +297,9 @@
   
     <li><a href="../../../features/statusEncerrado_feature.html">statusEncerrado.feature</a>
   
-    <li><a href="../../../features/step_definitions/web_steps_rb_bak.html">web_steps.rb.bak</a>
-  
     <li><a href="../../../lib/tasks/cucumber_rake.html">cucumber.rake</a>
+  
+    <li><a href="../../../log/development_log.html">development.log</a>
   
     <li><a href="../../../log/test_log.html">test.log</a>
   
@@ -320,6 +321,8 @@
   
     <li><a href="../../../tmp/development_secret_txt.html">development_secret</a>
   
+    <li><a href="../../../tmp/restart_txt.html">restart</a>
+  
   </ul>
 </div>
 
@@ -328,27 +331,25 @@
 
 <main role="main" aria-label="Page coverage/assets/0.10.2/application.css">
 
-<pre>  -----------------------------------------------------------------------
+<p>/* ———————————————————————–</p>
 
-Blueprint CSS Framework 0.9
+<pre>Blueprint CSS Framework 0.9
 http://blueprintcss.org
 
-    Copyright (c) 2007-Present. See LICENSE for more info.
-    See README for instructions on how to use Blueprint.
-    For credits and origins, see AUTHORS.
-    This is a compressed file. See the sources in the &#39;src&#39; directory.</pre>
-<hr>
+  * Copyright (c) 2007-Present. See LICENSE for more info.
+  * See README for instructions on how to use Blueprint.
+  * For credits and origins, see AUTHORS.
+  * This is a compressed file. See the sources in the &#39;src&#39; directory.</pre>
 
-<pre class="ruby"><span class="ruby-identifier">reset</span>.<span class="ruby-identifier">css</span>
-</pre>
+<p>———————————————————————– */</p>
+
+<p>/* reset.css */</p>
 
 <p>html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, dialog, figure, footer, header, hgroup, nav, section {margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;} article, aside, dialog, figure, footer, header, hgroup, nav, section {display:block;} body {line-height:1.5;} table {border-collapse:separate;border-spacing:0;} caption, th, td {text-align:left;font-weight:normal;} table, td, th {vertical-align:middle;} blockquote:before, blockquote:after, q:before, q:after {content:“”;} blockquote, q {quotes:“” “”;} a img {border:none;}</p>
 
 <p>/* typography.css */ html {font-size:100.01%;} body {font-size:82%;color:#222;background:#fff;font-family:“Helvetica Neue”, Arial, Helvetica, sans-serif;} h1, h2, h3, h4, h5, h6 {font-weight:normal;color:#111;} h1 {font-size:3em;line-height:1;margin-bottom:0.5em;} h2 {font-size:2em;margin-bottom:0.75em;} h3 {font-size:1.5em;line-height:1;margin-bottom:1em;} h4 {font-size:1.2em;line-height:1.25;margin-bottom:1.25em;} h5 {font-size:1em;font-weight:bold;margin-bottom:1.5em;} h6 {font-size:1em;font-weight:bold;} h1 img, h2 img, h3 img, h4 img, h5 img, h6 img {margin:0;} p {margin:0 0 1.5em;} p img.left {float:left;margin:1.5em 1.5em 1.5em 0;padding:0;} p img.right {float:right;margin:1.5em 0 1.5em 1.5em;} a:focus, a:hover {color:#000;} a {color:#009;text-decoration:underline;} blockquote {margin:1.5em;color:#666;font-style:italic;} strong {font-weight:bold;} em, dfn {font-style:italic;} dfn {font-weight:bold;} sup, sub {line-height:0;} abbr, acronym {border-bottom:1px dotted #666;} address {margin:0 0 1.5em;font-style:italic;} del {color:#666;} pre {margin:1.5em 0;white-space:pre;} pre, code, tt {font:1em &#39;andale mono&#39;, &#39;lucida console&#39;, monospace;line-height:1.5;} li ul, li ol {margin:0;} ul, ol {margin:0 1.5em 1.5em 0;padding-left:3.333em;} ul {list-style-type:disc;} ol {list-style-type:decimal;} dl {margin:0 0 1.5em 0;} dl dt {font-weight:bold;} dd {margin-left:1.5em;} table {margin-bottom:1.4em;width:100%;} th {font-weight:bold;} thead th {background:#c3d9ff;} th, td, caption {padding:4px 10px 4px 5px;} tr.even td {background:#efefef;} tfoot {font-style:italic;} caption {background:#eee;} .small {font-size:.8em;margin-bottom:1.875em;line-height:1.875em;} .large {font-size:1.2em;line-height:2.5em;margin-bottom:1.25em;} .hide {display:none;} .quiet {color:#666;} .loud {color:#000;} .highlight {background:#ff0;} .added {background:#060;color:#fff;} .removed {background:#900;color:#fff;} .first {margin-left:0;padding-left:0;} .last {margin-right:0;padding-right:0;} .top {margin-top:0;padding-top:0;} .bottom {margin-bottom:0;padding-bottom:0;}</p>
 
-<p>/* forms.css */ label {font-weight:bold;} fieldset {padding:1.4em;margin:0 0 1.5em 0;border:1px solid ccc;} legend {font-weight:bold;font-size:1.2em;} <a href="type=text">input</a>, <a href="type=password">input</a>, input.text, input.title, textarea, select {background-color:#fff;border:1px solid bbb;} <a href="type=text">input</a>:focus, <a href="type=password">input</a>:focus, input.text:focus, input.title:focus, textarea:focus, select:focus {border-color:#666;} <a href="type=text">input</a>, <a href="type=password">input</a>, input.text, input.title, textarea, select {margin:0.5em 0;} input.text, input.title {width:300px;padding:5px;} input.title {font-size:1.5em;} textarea {width:390px;height:250px;padding:5px;} <a href="type=checkbox">input</a>, <a href="type=radio">input</a>, input.checkbox, input.radio {position:relative;top:.25em;} form.inline {line-height:3;} form.inline p {margin-bottom:0;} .error, .notice, .success {padding:.8em;margin-bottom:1em;border:2px solid ddd;} .error {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;} .notice {background:#FFF6BF;color:#514721;border-color:#FFD324;} .success {background:#E6EFC2;color:#264409;border-color:#C6D880;} .error a {color:#8a1f11;} .notice a {color:#514721;} .success a {color:#264409;} .box {padding:1.5em;margin-bottom:1.5em;background:#E5ECF9;} hr {background:#ddd;color:#ddd;clear:both;float:none;width:100%;height:.1em;margin:0 0 1.45em;border:none;} hr.space {background:#fff;color:#fff;visibility:hidden;} .clearfix:after, .container:after {content:“0020”;display:block;height:0;clear:both;visibility:hidden;overflow:hidden;} .clearfix, .container {display:block;} .clear {clear:both;} /* github.com style © Vasily Polovnyov &lt;vast@whiteants.net&gt;</p>
-
-<pre>/</pre>
+<p>/* forms.css */ label {font-weight:bold;} fieldset {padding:1.4em;margin:0 0 1.5em 0;border:1px solid ccc;} legend {font-weight:bold;font-size:1.2em;} <a href="type=text">input</a>, <a href="type=password">input</a>, input.text, input.title, textarea, select {background-color:#fff;border:1px solid bbb;} <a href="type=text">input</a>:focus, <a href="type=password">input</a>:focus, input.text:focus, input.title:focus, textarea:focus, select:focus {border-color:#666;} <a href="type=text">input</a>, <a href="type=password">input</a>, input.text, input.title, textarea, select {margin:0.5em 0;} input.text, input.title {width:300px;padding:5px;} input.title {font-size:1.5em;} textarea {width:390px;height:250px;padding:5px;} <a href="type=checkbox">input</a>, <a href="type=radio">input</a>, input.checkbox, input.radio {position:relative;top:.25em;} form.inline {line-height:3;} form.inline p {margin-bottom:0;} .error, .notice, .success {padding:.8em;margin-bottom:1em;border:2px solid ddd;} .error {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;} .notice {background:#FFF6BF;color:#514721;border-color:#FFD324;} .success {background:#E6EFC2;color:#264409;border-color:#C6D880;} .error a {color:#8a1f11;} .notice a {color:#514721;} .success a {color:#264409;} .box {padding:1.5em;margin-bottom:1.5em;background:#E5ECF9;} hr {background:#ddd;color:#ddd;clear:both;float:none;width:100%;height:.1em;margin:0 0 1.45em;border:none;} hr.space {background:#fff;color:#fff;visibility:hidden;} .clearfix:after, .container:after {content:“0020”;display:block;height:0;clear:both;visibility:hidden;overflow:hidden;} .clearfix, .container {display:block;} .clear {clear:both;} /* github.com style © Vasily Polovnyov &lt;vast@whiteants.net&gt; */</p>
 
 <p>pre code { }</p>
 
@@ -479,20 +480,21 @@ font-weight: bold</pre>
 
 <p>} /*</p>
 
-<pre> jQuery UI CSS Framework @VERSION
-
- Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
- Dual licensed under the MIT or GPL Version 2 licenses.
- http://jquery.org/license
-
- http://docs.jquery.com/UI/Theming/API
-/</pre>
+<pre>* jQuery UI CSS Framework @VERSION
+*
+* Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
+* Dual licensed under the MIT or GPL Version 2 licenses.
+* http://jquery.org/license
+*
+* http://docs.jquery.com/UI/Theming/API
+*/</pre>
 
 <p>/* Layout helpers ———————————-*/</p>
 
 <p>.ui-helper-hidden { display: none; } .ui-helper-hidden-accessible { position: absolute; left: -99999999px; } .ui-helper-reset { margin: 0; padding: 0; border: 0; outline: 0; line-height: 1.3; text-decoration: none; font-size: 100%; list-style: none; } .ui-helper-clearfix:after { content: “.”; display: block; height: 0; clear: both; visibility: hidden; } .ui-helper-clearfix { display: inline-block; } /* required comment for clearfix to work in Opera */</p>
-
-<pre>html .ui-helper-clearfix { height:1%; }</pre>
+<ul><li>
+<p>html .ui-helper-clearfix { height:1%; }</p>
+</li></ul>
 
 <p>.ui-helper-clearfix { display:block; } /* end clearfix */ .ui-helper-zfix { width: 100%; height: 100%; top: 0; left: 0; position: absolute; opacity: 0; filter:Alpha(Opacity=0); }</p>
 
@@ -508,16 +510,16 @@ font-weight: bold</pre>
 
 <p>/*</p>
 
-<pre> jQuery UI CSS Framework @VERSION
-
- Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
- Dual licensed under the MIT or GPL Version 2 licenses.
- http://jquery.org/license
-
- http://docs.jquery.com/UI/Theming/API
-
- To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Verdana,Arial,sans-serif&amp;fwDefault=normal&amp;fsDefault=1.1em&amp;cornerRadius=4px&amp;bgColorHeader=cccccc&amp;bgTextureHeader=03_highlight_soft.png&amp;bgImgOpacityHeader=75&amp;borderColorHeader=aaaaaa&amp;fcHeader=222222&amp;iconColorHeader=222222&amp;bgColorContent=ffffff&amp;bgTextureContent=01_flat.png&amp;bgImgOpacityContent=75&amp;borderColorContent=aaaaaa&amp;fcContent=222222&amp;iconColorContent=222222&amp;bgColorDefault=e6e6e6&amp;bgTextureDefault=02_glass.png&amp;bgImgOpacityDefault=75&amp;borderColorDefault=d3d3d3&amp;fcDefault=555555&amp;iconColorDefault=888888&amp;bgColorHover=dadada&amp;bgTextureHover=02_glass.png&amp;bgImgOpacityHover=75&amp;borderColorHover=999999&amp;fcHover=212121&amp;iconColorHover=454545&amp;bgColorActive=ffffff&amp;bgTextureActive=02_glass.png&amp;bgImgOpacityActive=65&amp;borderColorActive=aaaaaa&amp;fcActive=212121&amp;iconColorActive=454545&amp;bgColorHighlight=fbf9ee&amp;bgTextureHighlight=02_glass.png&amp;bgImgOpacityHighlight=55&amp;borderColorHighlight=fcefa1&amp;fcHighlight=363636&amp;iconColorHighlight=2e83ff&amp;bgColorError=fef1ec&amp;bgTextureError=02_glass.png&amp;bgImgOpacityError=95&amp;borderColorError=cd0a0a&amp;fcError=cd0a0a&amp;iconColorError=cd0a0a&amp;bgColorOverlay=aaaaaa&amp;bgTextureOverlay=01_flat.png&amp;bgImgOpacityOverlay=0&amp;opacityOverlay=30&amp;bgColorShadow=aaaaaa&amp;bgTextureShadow=01_flat.png&amp;bgImgOpacityShadow=0&amp;opacityShadow=30&amp;thicknessShadow=8px&amp;offsetTopShadow=-8px&amp;offsetLeftShadow=-8px&amp;cornerRadiusShadow=8px
-/</pre>
+<pre>* jQuery UI CSS Framework @VERSION
+*
+* Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
+* Dual licensed under the MIT or GPL Version 2 licenses.
+* http://jquery.org/license
+*
+* http://docs.jquery.com/UI/Theming/API
+*
+* To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Verdana,Arial,sans-serif&amp;fwDefault=normal&amp;fsDefault=1.1em&amp;cornerRadius=4px&amp;bgColorHeader=cccccc&amp;bgTextureHeader=03_highlight_soft.png&amp;bgImgOpacityHeader=75&amp;borderColorHeader=aaaaaa&amp;fcHeader=222222&amp;iconColorHeader=222222&amp;bgColorContent=ffffff&amp;bgTextureContent=01_flat.png&amp;bgImgOpacityContent=75&amp;borderColorContent=aaaaaa&amp;fcContent=222222&amp;iconColorContent=222222&amp;bgColorDefault=e6e6e6&amp;bgTextureDefault=02_glass.png&amp;bgImgOpacityDefault=75&amp;borderColorDefault=d3d3d3&amp;fcDefault=555555&amp;iconColorDefault=888888&amp;bgColorHover=dadada&amp;bgTextureHover=02_glass.png&amp;bgImgOpacityHover=75&amp;borderColorHover=999999&amp;fcHover=212121&amp;iconColorHover=454545&amp;bgColorActive=ffffff&amp;bgTextureActive=02_glass.png&amp;bgImgOpacityActive=65&amp;borderColorActive=aaaaaa&amp;fcActive=212121&amp;iconColorActive=454545&amp;bgColorHighlight=fbf9ee&amp;bgTextureHighlight=02_glass.png&amp;bgImgOpacityHighlight=55&amp;borderColorHighlight=fcefa1&amp;fcHighlight=363636&amp;iconColorHighlight=2e83ff&amp;bgColorError=fef1ec&amp;bgTextureError=02_glass.png&amp;bgImgOpacityError=95&amp;borderColorError=cd0a0a&amp;fcError=cd0a0a&amp;iconColorError=cd0a0a&amp;bgColorOverlay=aaaaaa&amp;bgTextureOverlay=01_flat.png&amp;bgImgOpacityOverlay=0&amp;opacityOverlay=30&amp;bgColorShadow=aaaaaa&amp;bgTextureShadow=01_flat.png&amp;bgImgOpacityShadow=0&amp;opacityShadow=30&amp;thicknessShadow=8px&amp;offsetTopShadow=-8px&amp;offsetLeftShadow=-8px&amp;cornerRadiusShadow=8px
+*/</pre>
 
 <p>/* Component containers ———————————-*/ .ui-widget { font-family: Verdana,Arial,sans-serif; font-size: 1.1em; } .ui-widget .ui-widget { font-size: 1em; } .ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button { font-family: Verdana,Arial,sans-serif; font-size: 1em; } .ui-widget-content { border: 1px solid aaaaaa; background: ffffff url(images/ui-bg_flat_75_ffffff_40x100.png) 50% 50% repeat-x; color: #222222; } .ui-widget-content a { color: #222222; } .ui-widget-header { border: 1px solid aaaaaa; background: cccccc url(images/ui-bg_highlight-soft_75_cccccc_1x100.png) 50% 50% repeat-x; color: #222222; font-weight: bold; } .ui-widget-header a { color: #222222; }</p>
 
@@ -537,20 +539,18 @@ font-weight: bold</pre>
 
 <p>/* Overlays */ .ui-widget-overlay { background: aaaaaa url(images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x; opacity: .30;filter:Alpha(Opacity=30); } .ui-widget-shadow { margin: -8px 0 0 -8px; padding: 8px; background: aaaaaa url(images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x; opacity: .30;filter:Alpha(Opacity=30); -moz-border-radius: 8px; -webkit-border-radius: 8px; border-radius: 8px; } /*</p>
 
-<pre>   ColorBox Core Style:
-   The following CSS is consistent between example themes and should not be altered.
-/</pre>
+<pre>ColorBox Core Style:
+The following CSS is consistent between example themes and should not be altered.</pre>
 
-<p>colorbox, cboxOverlay, cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;} cboxOverlay{position:fixed; width:100%; height:100%;} cboxMiddleLeft, cboxBottomLeft{clear:left;} cboxContent{position:relative;} cboxLoadedContent{overflow:auto;} cboxTitle{margin:0;} cboxLoadingOverlay, cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%; height:100%;} cboxPrevious, cboxNext, cboxClose, cboxSlideshow{cursor:pointer;} .cboxPhoto{float:left; margin:auto; border:0; display:block; max-width:none;} .cboxIframe{width:100%; height:100%; display:block; border:0;} colorbox, cboxContent, cboxLoadedContent{box-sizing:content-box;}</p>
+<p>*/ colorbox, cboxOverlay, cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;} cboxOverlay{position:fixed; width:100%; height:100%;} cboxMiddleLeft, cboxBottomLeft{clear:left;} cboxContent{position:relative;} cboxLoadedContent{overflow:auto;} cboxTitle{margin:0;} cboxLoadingOverlay, cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%; height:100%;} cboxPrevious, cboxNext, cboxClose, cboxSlideshow{cursor:pointer;} .cboxPhoto{float:left; margin:auto; border:0; display:block; max-width:none;} .cboxIframe{width:100%; height:100%; display:block; border:0;} colorbox, cboxContent, cboxLoadedContent{box-sizing:content-box;}</p>
 
 <p>/*</p>
 
-<pre>   User Style:
-   Change the following styles to modify the appearance of ColorBox.  They are
-   ordered &amp; tabbed in a way that represents the nesting of the generated HTML.
-/</pre>
+<pre>User Style:
+Change the following styles to modify the appearance of ColorBox.  They are
+ordered &amp; tabbed in a way that represents the nesting of the generated HTML.</pre>
 
-<p>cboxOverlay{background:#000;} colorbox{}</p>
+<p>*/ cboxOverlay{background:#000;} colorbox{}</p>
 
 <pre>#cboxTopLeft{width:14px; height:14px; background:url(colorbox/controls.png) no-repeat 0 0;}
 #cboxTopCenter{height:14px; background:url(colorbox/border.png) repeat-x top left;}
@@ -854,7 +854,7 @@ text-align: right; }
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.0.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 
