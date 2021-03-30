@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_21_154635) do
+
+ActiveRecord::Schema.define(version: 2019_12_10_130811) do
+
 
   create_table "admins", force: :cascade do |t|
     t.string "name", null: false
@@ -65,8 +67,9 @@ ActiveRecord::Schema.define(version: 2019_11_21_154635) do
     t.integer "c_teor", default: 0, null: false
     t.integer "c_est", default: 0, null: false
     t.integer "c_ext", default: 0, null: false
+    t.integer "cod_disciplina", default: 0, null: false
+    t.index ["cod_disciplina"], name: "disciplinas_cod_disciplina_index"
     t.index ["fk_tipo_disciplina_id"], name: "fk_disciplinas_tipo_disciplina1_idx"
-    t.index [nil], name: "disciplinas_cod_disciplina_index"
   end
 
   create_table "migrations", force: :cascade do |t|
@@ -130,6 +133,19 @@ ActiveRecord::Schema.define(version: 2019_11_21_154635) do
 
   create_table "status_turma", force: :cascade do |t|
     t.string "nome", limit: 45
+  end
+
+  create_table "tarefas", force: :cascade do |t|
+    t.string "titulo", null: false
+    t.string "descricao", null: false
+    t.decimal "nota"
+    t.boolean "feito"
+    t.datetime "inicio"
+    t.datetime "fim"
+    t.integer "monitoria_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["monitoria_id"], name: "index_tarefas_on_monitoria_id"
   end
 
   create_table "tipo_disciplina", force: :cascade do |t|

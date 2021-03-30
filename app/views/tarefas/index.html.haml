@@ -1,0 +1,34 @@
+%h1 Lista de tarefas
+
+- if @tarefas != []
+  %table
+    %thead
+      %tr
+        %th Titulo
+        %th Descricao
+        %th Inicio
+        %th Fim
+        %th Nota
+        %th Feito
+        %th
+        %th
+        %th
+
+    %tbody
+      - @tarefas.each do |tarefa|
+        %tr
+          %td= tarefa.titulo
+          %td= tarefa.descricao
+          %td= tarefa.inicio
+          %td= tarefa.fim
+          %td= tarefa.nota
+          %td= tarefa.feito
+          %td= link_to 'Avaliar', edit_tarefa_path(tarefa)
+          %td= link_to 'Detalhes', tarefa
+          %td= link_to 'Deletar', tarefa, method: :delete, data: { confirm: 'Are you sure?' }
+- else 
+  %h2= "Cadastre uma tarefa"
+
+%br
+
+= link_to 'Designar tarefa', new_tarefa_path(monitoria_id: @monitoria_id)
