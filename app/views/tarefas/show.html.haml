@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Titulo:
+  = @tarefa.titulo
+%p
+  %b Descricao:
+  = @tarefa.descricao
+%p
+  %b Inicio:
+  = @tarefa.inicio
+%p
+  %b Fim:
+  = @tarefa.fim
+-# %p
+-#   %b Monitoria:
+-#   = @tarefa.monitoria.id
+%p
+  %b Nota:
+  = @tarefa.nota
+%p
+  %b Feito:
+  = @tarefa.feito
+
+= link_to 'Avaliar', edit_tarefa_path(@tarefa)
+\|
+= link_to 'Voltar', tarefas_path(monitoria_id: @tarefa.monitoria.id)

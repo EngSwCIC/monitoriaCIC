@@ -97,6 +97,9 @@
                           Aceito
                         - else
                           Encerrado
+                      - if monitor.fk_status_monitoria_id == 3
+                        %hr
+                        =link_to "Tarefas", tarefas_path(monitoria_id: monitor.id), class: 'btn btn-outline-primary unb-blue btn-block'
                       %hr
                       =link_to "Alterar Situaçao", edit_monitoria_path(monitor.id), class: 'btn btn-outline-primary unb-blue btn-block'
       .col-1
