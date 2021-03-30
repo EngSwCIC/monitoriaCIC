@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_25_183553) do
+ActiveRecord::Schema.define(version: 2019_11_21_154635) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name", null: false
@@ -20,6 +20,27 @@ ActiveRecord::Schema.define(version: 2019_10_25_183553) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["email"], name: "admins_email_unique", unique: true
+  end
+
+  create_table "atendimentos", force: :cascade do |t|
+    t.integer "motivo_id"
+    t.date "dia"
+    t.string "descricao"
+    t.string "aluno_atendido"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "monitor_id"
+    t.index ["monitor_id"], name: "index_atendimentos_on_monitor_id"
+    t.index ["motivo_id"], name: "index_atendimentos_on_motivo_id"
+  end
+
+  create_table "atividades", force: :cascade do |t|
+    t.string "titulo"
+    t.text "mensagem"
+    t.string "matricula_monitor"
+    t.date "data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "bolsas", force: :cascade do |t|
@@ -66,6 +87,12 @@ ActiveRecord::Schema.define(version: 2019_10_25_183553) do
     t.index ["fk_matricula"], name: "fk_monitoria_users_idx"
     t.index ["fk_status_monitoria_id"], name: "fk_monitoria_status_monitoria1_idx"
     t.index ["fk_turmas_id"], name: "fk_monitoria_turmas1_idx"
+  end
+
+  create_table "motivos", force: :cascade do |t|
+    t.string "nome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "password_resets", force: :cascade do |t|

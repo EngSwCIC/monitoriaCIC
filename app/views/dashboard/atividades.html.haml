@@ -1,0 +1,127 @@
+%br
+%br
+.container-fluid
+  .row
+    %nav.col-md-2.d-none.d-md-block.bg-light.sidebar{style: 'margin-top: 40px'}
+      .sidebar-sticky
+        %ul.nav.flex-column
+          %li.nav-item
+            %a.nav-link{href: dashboard_path}
+              %span{'data-feather': "home"}
+              Dashboard
+              %span.sr-only (current)
+          -if current_user.kind_of?(Admin)
+            %li.nav-item
+              %a.nav-link{href: dashboard_disciplinas_path}
+                %span{'data-feather': "file"}
+                Disciplinas
+          - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
+            %li.nav-item
+              %a.nav-link{href: dashboard_monitorias_path}
+                %span{'data-feather': "github"}
+                Monitoria
+
+          -if current_user.kind_of?(Professor)
+            %ul.nav.flex-column.mb-2
+              %li.nav-item
+                %a.nav-link{href: dashboard_turmas_path}
+                  %span{'data-feather': "edit"}
+                  Turmas
+
+          -if current_user.kind_of?(Admin)
+            %ul.nav.flex-column.mb-2
+              %li.nav-item
+                %a.nav-link{href: dashboard_apagar_alunos_path}
+                  %span{'data-feather': "trash"}
+                  Apagar alunos
+
+        %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+          Menu
+          %span do usuário
+          %a.d-flex.align-items-center.text-muted{href: "#"}
+            %span{'data-feather': "plus-circle"}
+
+        -if current_user.kind_of?(User) || current_user.kind_of?(Professor)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_edit_user_path}
+                %span{'data-feather': "settings"}
+                Editar Perfil
+
+        -if current_user.kind_of?(User)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_dados_bancarios_path}
+                %span{'data-feather': "dollar-sign"}
+                Dados Bancários
+
+        -if current_user.kind_of?(User)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_historico_path}
+                %span{'data-feather': "film"}
+                Histórico
+        
+        -if current_user.kind_of?(User)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_atendimentos_path}
+                %span{'data-feather': "film"}
+                Meus Atendimentos
+
+        -if current_user.kind_of?(User)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_atividades_path}
+                %span{'data-feather': "film"}
+                Minhas Atividades
+    
+    %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
+      - if flash[:notice]
+        .alert.alert-success
+          =flash[:notice]
+      - if flash[:danger]
+        %div{class: "alert alert-danger"}
+          %ul
+          %li
+            = flash[:danger]
+      .row
+        .col-10
+          %h2 Minhas Atividades
+          %hr
+          %p.lead
+            Adicione, edite ou apague suas atividades registradas aqui!
+          %br
+          - @atividades = Atividade.where(matricula_monitor: current_user.matricula )
+          - if @atividades == nil #Trocar para analisar se o banco de registros é nulo
+            %p.text-justify
+              Você ainda não possui atividades registradas. Se você deseja registrar uma atividade, clique no botão.
+            %a.btn.btn-outline-success{href: new_atividade_path} Registrar
+          - else
+            %p.text-justify
+              Você possui atividades registradas. Caso você deseje editar seus registros, basta clicar no botão
+              "Editar".
+            %p.text-justify
+              Para criar outras atividades, clique no botão adicionar.
+            %a.btn.btn-outline-success{href: new_atividade_path} Adicionar
+            %br
+            %br
+            %table.table
+              %thead
+                %tr
+                  %th Título
+                  %th Data
+                  %th Descrição
+              %tbody
+                - @atividades.each do |atividade|
+                  %tr
+                    %td
+                      = atividade.titulo
+                    %td
+                      = atividade.data
+                    %td
+                      = atividade.mensagem
+                    %td
+                      %a.btn.btn-outline-warning.btn-block.btn-sm.editar-dados{ href: edit_atividade_path(atividade.id) } Editar
+
+        .col-2

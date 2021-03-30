@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Atendimentos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Motivo</th>
+      <th>Dia</th>
+      <th>Dcricao</th>
+      <th>Aluno atendido</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @atendimentos.each do |atendimento| %>
+      <tr>
+        <td><%= atendimento.motivo.nome %></td>
+        <td><%= atendimento.dia %></td>
+        <td><%= atendimento.descricao %></td>
+        <td><%= atendimento.aluno_atendido %></td>
+        <td><%= link_to 'Show', atendimento %></td>
+        <td><%= link_to 'Edit', edit_atendimento_path(atendimento) %></td>
+        <td><%= link_to 'Destroy', atendimento, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Atendimento', new_atendimento_path %>

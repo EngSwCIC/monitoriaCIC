@@ -1,0 +1,37 @@
+%br
+%main.container{role: "main"}
+  .row
+    .col-2
+    .col
+      %h1.text-center
+        Editar atendimento
+      %hr
+      %p.lead.text-center
+      -## View do formulario para editar um atendimento, deve ter o id do motivo
+      -## O usuario deve estar logado para editar o atendimento
+      -## Campos do formulario
+      = form_tag atendimento_path(@atendimento), method: :put do
+        .form-group.row
+          = label :atendimento, :motivo_id, 'Motivo', class: 'col-sm-2 col-form-label'
+          .col-sm-10
+            = text_field :atendimento, :motivo_id, class: 'form-control', autocomplete: 'off'
+
+        .form-group.row
+          = label :atendimento, :dia, 'Dia', class: 'col-sm-2 col-form-label'
+          .col-sm-10
+            = date_select :atendimento, :dia, class: 'form-control', autocomplete: 'off'
+
+        .form-group.row
+          = label :atendimento, :descricao, 'Descrição', class: 'col-sm-2 col-form-label'
+          .col-sm-10
+            = text_field :atendimento, :descricao, class: 'form-control', autocomplete: 'off'
+
+        .form-group.row
+          = label :atendimento, :aluno_atendido, 'Aluno Atendido', class: 'col-sm-2 col-form-label'
+          .col-sm-10
+            = text_field :atendimento, :aluno_atendido, class: 'form-control', autocomplete: 'off'
+
+        = hidden_field :atendimento, :monitor_id, value: @user.id
+
+        = submit_tag 'Atualizar atendimento', class: 'btn btn-outline-success btn-block'
+    .col-2

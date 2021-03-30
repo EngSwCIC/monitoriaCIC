@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :atendimentos, only: [:new, :create, :edit, :update, :destroy]
+  resources :motivos
+ # resources :atividades #plural
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "home#index"
 
@@ -7,6 +10,7 @@ Rails.application.routes.draw do
   resources :sessions
   resources :admins
   resources :dados_bancarios
+  resources :atividades
   resources :disciplinas
   resources :turmas
   resources :monitorias do
@@ -30,6 +34,13 @@ Rails.application.routes.draw do
   match "/dashboard/raspar_disciplinas", to: "dashboard#raspar_disciplinas", via: 'get'
   match "/dashboard/importar_professores", to: "dashboard#importar_professores", via: 'get'
   match "/dashboard/scrape_professores", to: "dashboard#scrape_professores", via: 'get'
+
+  match "/dashboard/atendimentos", to: "dashboard#atendimentos", via: [:get, :post]
+  match "/dashboard/registrar_atividade", to: "dashboard#registrar_atividade", via: 'get'
+
+  match "/dashboard/atendimentos", to: "dashboard#atendimentos", via: 'get'
+
+  match "/dashboard/atividades", to: "dashboard#atividades", via: 'get'
   match "/faq", to: "faq#index", :via => 'get'
   match "/sobre", to: "sobre#index", :via => 'get'
   match "/professors/confirm", to: "professors#identityconfirmation", :via => 'post', as: 'confirmation'

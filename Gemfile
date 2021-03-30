@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'webdrivers', '~> 4.0'
+
 # Uses HAML templates
 gem 'haml'
 
