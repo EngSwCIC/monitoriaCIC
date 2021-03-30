@@ -11,8 +11,11 @@
   var index_rel_prefix = "./";
 </script>
 
-<script src="./js/jquery.js"></script>
-<script src="./js/darkfish.js"></script>
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
 
 <link href="./css/fonts.css" rel="stylesheet">
 <link href="./css/rdoc.css" rel="stylesheet">
@@ -135,7 +138,7 @@
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/professors_controller.rb, line 8</span>
+            <pre><span class="ruby-comment"># File app/controllers/professors_controller.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
   <span class="ruby-ivar">@professor</span> = <span class="ruby-constant">Professor</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">professor_params</span>)
 
@@ -171,15 +174,17 @@
 
         <div class="method-description">
           
-          
+          <p>usando como pagina de confirmacao dos professores</p>
           
           
 
           
           <div class="method-source-code" id="identityconfirmation-source">
-            <pre><span class="ruby-comment"># File app/controllers/professors_controller.rb, line 20</span>
+            <pre><span class="ruby-comment"># File app/controllers/professors_controller.rb, line 24</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">identityconfirmation</span>
+  <span class="ruby-comment"># procura o professor selecionado na lista</span>
   <span class="ruby-ivar">@professor</span> = <span class="ruby-constant">Professor</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">:name</span> <span class="ruby-operator">=&gt;</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:professor</span>][<span class="ruby-value">:name</span>])[<span class="ruby-value">0</span>]
+  <span class="ruby-comment"># faz o envio do e-mail de confirmação para o respectivo professor</span>
   <span class="ruby-constant">ProfessorMailer</span>.<span class="ruby-identifier">with</span>(<span class="ruby-value">professor:</span> <span class="ruby-ivar">@professor</span>).<span class="ruby-identifier">key_email</span>.<span class="ruby-identifier">deliver_now</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -205,14 +210,15 @@
 
         <div class="method-description">
           
-          
+          <p>usando como pagina de selecao de professores (issue: select de professores)</p>
           
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/professors_controller.rb, line 2</span>
+            <pre><span class="ruby-comment"># File app/controllers/professors_controller.rb, line 4</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
+  <span class="ruby-comment"># conteudo do select de professores</span>
   <span class="ruby-ivar">@professor</span> = <span class="ruby-constant">Professor</span>.<span class="ruby-identifier">all</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -244,7 +250,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/professors_controller.rb, line 6</span>
+            <pre><span class="ruby-comment"># File app/controllers/professors_controller.rb, line 9</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new</span> ; <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -275,7 +281,7 @@
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/professors_controller.rb, line 25</span>
+            <pre><span class="ruby-comment"># File app/controllers/professors_controller.rb, line 31</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
   <span class="ruby-ivar">@professor</span> = <span class="ruby-constant">Professor</span>.<span class="ruby-identifier">find_by_email</span>(<span class="ruby-identifier">session</span>[<span class="ruby-value">:user_id</span>])
   <span class="ruby-ivar">@professor</span>.<span class="ruby-identifier">update_attributes</span>(<span class="ruby-identifier">professor_params</span>)
@@ -325,7 +331,7 @@
 
           
           <div class="method-source-code" id="professor_params-source">
-            <pre><span class="ruby-comment"># File app/controllers/professors_controller.rb, line 40</span>
+            <pre><span class="ruby-comment"># File app/controllers/professors_controller.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">professor_params</span>
   <span class="ruby-identifier">params</span>.<span class="ruby-identifier">require</span>(<span class="ruby-value">:professor</span>).<span class="ruby-identifier">permit</span>(<span class="ruby-value">:id</span>, <span class="ruby-value">:name</span>, <span class="ruby-value">:username</span>, <span class="ruby-value">:email</span>, <span class="ruby-value">:role</span>, <span class="ruby-value">:password</span>, <span class="ruby-value">:password_confirmation</span>)
 <span class="ruby-keyword">end</span></pre>
@@ -348,7 +354,7 @@
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.1.0.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.0.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

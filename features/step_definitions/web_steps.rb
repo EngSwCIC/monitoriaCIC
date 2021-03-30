@@ -20,6 +20,16 @@ Dado /^(?:|que )o banco possui um adminstrador$/ do
   Admin.create!(@adm)
 end
 
+Dado /^(?:|que )o aluno possui uma atividade registrada$/ do
+  @ativ = {
+    titulo: 'Titulo antes da edicao',
+    mensagem: 'mensagem antes da edicao',
+    data: '2019-12-25',
+    matricula_monitor: '140080279'
+  }
+  Atividade.create!(@ativ)
+end
+
 Dado /^(?:|que )o banco possui um aluno e um professor$/ do
   @aluno = {
     id: 1,

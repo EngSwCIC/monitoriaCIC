@@ -21,6 +21,7 @@ Disciplina.create([{id:1, nome: "APC",
                     fk_tipo_disciplina_id: 1, c_prat: 2, c_teor: 4, 
                     cod_disciplina: 1}])
 
+
 Disciplina.create([{id:2, nome: "ED", 
                     fk_tipo_disciplina_id: 1, c_prat: 2, c_teor: 2, 
                     cod_disciplina: 2}])
@@ -41,3 +42,4 @@ Disciplina.create([{id:2, nome: "ED",
 ######################
 # Turma.create([{id:1, turma: "A", professor: "Carla", fk_cod_disciplina: 1}])
 ######################
+

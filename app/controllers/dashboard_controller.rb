@@ -18,6 +18,12 @@ class DashboardController < ApplicationController
 
   def turmas; end
 
+  ##
+  # Método chama a view dashboard/atendimentos para renderizar todos os atendimentos
+  def atendimentos; end
+
+  def atividades; end
+
   def monitorias
     @user = current_user
     @monitorias = Array.new
