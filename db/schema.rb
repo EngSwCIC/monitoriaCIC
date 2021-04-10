@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 2019_12_10_130811) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "admins", force: :cascade do |t|
     t.string "name", null: false
@@ -25,13 +26,13 @@ ActiveRecord::Schema.define(version: 2019_12_10_130811) do
   end
 
   create_table "atendimentos", force: :cascade do |t|
-    t.integer "motivo_id"
+    t.bigint "motivo_id"
     t.date "dia"
     t.string "descricao"
     t.string "aluno_atendido"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "monitor_id"
+    t.bigint "monitor_id"
     t.index ["monitor_id"], name: "index_atendimentos_on_monitor_id"
     t.index ["motivo_id"], name: "index_atendimentos_on_motivo_id"
   end
@@ -142,7 +143,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_130811) do
     t.boolean "feito"
     t.datetime "inicio"
     t.datetime "fim"
-    t.integer "monitoria_id"
+    t.bigint "monitoria_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["monitoria_id"], name: "index_tarefas_on_monitoria_id"
@@ -193,4 +194,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_130811) do
     t.integer "c_restantes", default: 0, null: false
   end
 
+  add_foreign_key "atendimentos", "motivos"
+  add_foreign_key "atendimentos", "users", column: "monitor_id"
+  add_foreign_key "tarefas", "monitoria", column: "monitoria_id"
 end
