@@ -27,8 +27,6 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'webdrivers', '~> 4.0'
-
 # Uses HAML templates
 gem 'haml'
 gem 'haml-rails'
@@ -81,7 +79,7 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
-  gem 'webdrivers'
+  gem 'webdrivers', '~> 4.0'
 
   # Adds the RSpec stuff
   gem 'rspec-rails' # RSpec
