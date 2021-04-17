@@ -4,6 +4,7 @@
     Cenário de Fundo:
       Dado que o banco possui um aluno e um professor
       E que o banco possui uma disciplina
+      E que o banco possui uma disciplina que nao permite monitoria
       E que o banco possui duas turmas cadastradas
       E que o banco possui uma monitoria
       E que eu estou na página de login de usuários
@@ -32,3 +33,8 @@
       E aperto em "Cadastrar"
       Então eu devo estar na página de monitoria
       E eu devo ver "Ocorreu um erro ao cadastrar a monitoria. Nenhuma monitoria cadastrada."
+
+    Cenário: O aluno tenta aplicar aplicar para uma monitoria que nao aceita monitores (Sad Path)
+      Quando eu clico em "Monitoria"
+      Então eu devo estar na página de monitoria
+      E o link "link_3" não deve existir
