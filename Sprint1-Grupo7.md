@@ -32,7 +32,7 @@ Parte 1 - Alocação das monitorias remuneradas.
 Existe um limite máximos de bolsas, separar no máximo de disciplinas possível, das que sobrarem alocar as matérias que precisam de mais monitores como por exemplo Algoritmos e Programação de Computadores, Estrutura de Dados e Laboratório de Circutios Lógicos. 
 Apos alocado, habilitar para fazer a Revisão.
 
-## Implementações sprint 1
+## Implementações Sprint 1
 ***
 
 **Equipe de desenvolvimento 1** - Criação das histórias de usuário e cenários para a funcionalidade de alocação de bolsas. (4 pontos)
