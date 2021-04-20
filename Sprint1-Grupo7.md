@@ -49,7 +49,7 @@ Após alocado, habilitar para ser feita a Revisão.
 
 - Product Owner - Carlos Eduardo.
 
-- Equipe de desenvolvimento 1 (João Gabriel, João Victor e Andrey). 
+- Equipe de desenvolvimento 1 (João Gabriel, João Victor e Andrey Galvão). 
     - Alocação de bolsas.
     
 - Equipe de desenvolvimento 2 (João Francisco e Carlos Eduardo).
