@@ -29,8 +29,8 @@ Alocação das vagas de monitoria.
 
 Parte 1 - Alocação das monitorias remuneradas.
 
-Existe um limite máximos de bolsas, separar no máximo de disciplinas possível, das que sobrarem alocar as matérias que precisam de mais monitores como por exemplo Algoritmos e Programação de Computadores, Estrutura de Dados e Laboratório de Circutios Lógicos. 
-Apos alocado, habilitar para fazer a Revisão.
+Existe um limite máximo de bolsas, separar no máximo de disciplinas possível, das que sobrarem alocar nas matérias que precisam de mais monitores, como por exemplo, Algoritmos e Programação de Computadores, Estrutura de Dados e Laboratório de Circutios Lógicos. 
+Após alocado, habilitar para ser feita a Revisão.
 
 ## Implementações Sprint 1
 ***
