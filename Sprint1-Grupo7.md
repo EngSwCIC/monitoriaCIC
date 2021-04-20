@@ -42,7 +42,7 @@ Apos alocado, habilitar para fazer a Revisão.
 **Toda a equipe** - Criação do Markdown com todas as informações do projeto. (2 pontos)
 
 
-## Papeis
+## Papéis
 ***
 
 - Scrum Master - João Francisco.
