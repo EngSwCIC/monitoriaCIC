@@ -9,6 +9,15 @@
       E que eu estou na página de login de usuários
       E que o "professor" está logado
 
+    Cenário: O professor confere que todos os campos foram preenchidos (Happy Path)
+      Quando eu clico em "Monitoria"
+      Então eu devo estar na página de monitoria
+      Quando eu clico em "Ver lista de monitores"
+      Então eu devo estar na página de monitores da turma
+      E eu devo ver que possui o campo "Menção"
+      E eu devo ver que possui o campo "IRA"
+      E eu devo ver que possui o campo "Histórico Escolar"
+
     Cenário: O professor altera a situação de uma aplicação de um monitor (Happy Path)
       Quando eu clico em "Monitoria"
       Então eu devo estar na página de monitoria
