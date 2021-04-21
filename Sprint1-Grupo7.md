@@ -1,6 +1,6 @@
 # 2020/2 - Grupo 7 (Sprint 1)
 ## Resumo da Sprint
-***
+
 * Número da sprint: 1
 * Data de início: 09/04/2021
 * Data de conclusão: 20/04/2021
@@ -8,9 +8,8 @@
 
 
 ## Informações do Grupo
-***
 
-* Andrey Galvão Mendes - 180097911
+* Ândrey Galvão Mendes - 180097911
     - ***@Askonty***
 * Carlos Eduardo de Oliveira Ribeiro - 180099094
     - ***@Cadu-or***
@@ -23,17 +22,15 @@
 
 
 ## Projeto
-***
 
 Alocação das vagas de monitoria.
 
 Parte 1 - Alocação das monitorias remuneradas.
 
-Existe um limite máximo de bolsas, separar no máximo de disciplinas possível, das que sobrarem alocar nas matérias que precisam de mais monitores, como por exemplo, Algoritmos e Programação de Computadores, Estrutura de Dados e Laboratório de Circutios Lógicos. 
+Existe um limite máximo de bolsas, essas bolsas devem ser distribuídas no máximo de disciplinas possível, das que sobrarem alocar nas matérias que precisam de uma quantidade maior de monitores, como por exemplo, Algoritmos e Programação de Computadores, Estrutura de Dados e Laboratório de Circutios Lógicos. 
 Após alocado, habilitar para ser feita a Revisão.
 
 ## Implementações Sprint 1
-***
 
 **Equipe de desenvolvimento 1** - Criação das histórias de usuário e cenários para a funcionalidade de alocação de bolsas. (4 pontos)
 
@@ -43,7 +40,6 @@ Após alocado, habilitar para ser feita a Revisão.
 
 
 ## Papéis
-***
 
 - Scrum Master - João Francisco.
 
@@ -56,7 +52,6 @@ Após alocado, habilitar para ser feita a Revisão.
     - Habilitar para fazer a revisão das bolsas alocadas.
 
 ## Política de Branching
-***
 
  - Branch Master: Branch na qual está o código em nivel de produção.
  - Branch Develop: Branch na qual são desenvolvidas os novos recursos do projeto.  
