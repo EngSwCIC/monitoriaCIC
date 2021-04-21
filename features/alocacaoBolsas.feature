@@ -5,7 +5,7 @@
 		Dado que o banco possui varias disciplinas.
 		E que o banco possui varias turmas.
 		E que possui um numero N de bolsas.
-		E o "admin" está logado
+		E o "admin" está logado.
 
 	Cenário: Eu enquanto administrador, defino a quantidade de bolsas que serão alocadas (Happy path)
 		Dado que serão alocadas novas bolsas.
