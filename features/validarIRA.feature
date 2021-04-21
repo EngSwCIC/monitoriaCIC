@@ -21,3 +21,18 @@ monitoria remunerada, que se inscreveram na monitoria da minha disciplina.
     O IRA informado é o mesmo que está no meu histórico
     E o meu IRA é maior ou igual a 3,5
     Então a minha aplicação de monitoria tem o IRA válido.
+ 
+  Cenário: O aluno aplica para monitoria voluntária ou remunerada com um IRA não verídico (Sad Path)
+    Quando eu estiver efetuando o processo de aplicação de monitoria
+    Eu não informo o meu IRA atual
+    E eu envio o meu histórico atualizado
+    O IRA informado não é o mesmo que está no meu histórico
+    Então a minha aplicação de monitoria tem o IRA inválido.
+
+  Cenário: O aluno aplica para monitoria remunerada com um IRA verídico e não válido (Sad Path)
+    Quando eu estiver efetuando o processo de aplicação de monitoria
+    Eu informo o meu IRA atual
+    E eu envio o meu histórico atualizado
+    O IRA informado é o mesmo que está no meu histórico
+    E o meu IRA é menor a 3,5
+    Então a minha aplicação de monitoria tem o IRA inválido.
