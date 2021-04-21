@@ -30,3 +30,6 @@ cucumber:
 
 cucumber:
   <<: *test
+
+cucumber:
+  <<: *test

@@ -1,3 +1,4 @@
+# language: pt
 Funcionalidade: Eu, enquanto coordenador, sou capaz de editar o número de vagas de uma turma cadastrada.
 	Cenário de Fundo:
 		Dado que o banco possui um administrador

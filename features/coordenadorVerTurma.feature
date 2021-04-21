@@ -1,3 +1,4 @@
+# language: pt
 Funcionalidade: Eu, enquanto coodenador, sou capaz de ver todas as turmas criadas.
 	Cenário de Fundo:
 		Dado que o banco possui um administrador
