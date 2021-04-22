@@ -121,6 +121,10 @@ Dado /^(?:|que )o banco possui uma disciplina$/ do
     :c_ext => 0)
 end
 
+# Dado /^(?:|que )o banco possui uma disciplina que nao permite monitoria$/ do
+#   # TODO: implementar disciplina que não permite monitoria e inserir aqui
+# end
+
 Dado /^(?:|que )o banco possui uma turma cadastrada$/ do
   Turma.create!(
     id: 1,
@@ -291,6 +295,10 @@ Então /^(?:|eu )devo ver todas as mensagens de falha para registro de professor
     E eu devo ver "Password confirmation must be between 6 and 12 characters"
   )
 end
+
+# Então /^o link "([^"]*)" não deve existir$/ do
+#   # TODO: implementar esse step
+# end
 
 Então /^(?:|eu )devo ver todas as mensagens de falha para registro de alunos$/ do
   steps %(
