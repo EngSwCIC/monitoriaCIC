@@ -10,11 +10,13 @@
               %span{'data-feather': "home"}
               Dashboard
               %span.sr-only (current)
+
           -if current_user.kind_of?(Admin)
             %li.nav-item
               %a.nav-link{href: dashboard_disciplinas_path}
                 %span{'data-feather': "file"}
                 Disciplinas
+
           - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
             %li.nav-item
               %a.nav-link.active{href: dashboard_monitorias_path}
