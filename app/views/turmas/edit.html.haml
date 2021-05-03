@@ -24,6 +24,11 @@
             = text_field :turma, :professor, class: 'form-control-plaintext', readonly: 'readonly', value: current_user.name
 
         .form-group.row
+          = label :turma, :professor_auxiliar, 'Professor Auxiliar', class: 'col-sm-2 col-form-label'
+          .col-sm-10
+            = select :turma , :professor_auxiliar, options_for_select(["#{@turma.professor_auxiliar}"] + Professor.all.map { |p| p.name }.filter  { |p| p != @turma.professor_auxiliar && p != current_user.name} + ["Nenhum"]), {}, class: 'custom-select'
+
+        .form-group.row
           = label :turma, :disciplina, 'Disciplina', class: 'col-sm-2 col-form-label'
           .col-sm-10
             = select :turma, :fk_cod_disciplina, options_for_select(Turma.sel_disciplinas), {}, class: 'custom-select'
@@ -33,6 +38,6 @@
           .col-sm-10
             = select :turma, :qnt_bolsas, options_for_select(Turma.qnt_bolsas), {}, class: 'custom-select'
 
-        = submit_tag 'Atualizar turma', class: 'btn btn-outline-success btn-block'
+          = submit_tag 'Atualizar turma', class: 'btn btn-outline-success btn-block'
 
-.col-2
+  .col-2
