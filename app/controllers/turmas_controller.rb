@@ -47,7 +47,7 @@ class TurmasController < ApplicationController
 
   private
   def turma_params
-    params.require(:turma).permit(:id, :turma, :professor, :fk_cod_disciplina, :qnt_bolsas, :fk_vagas_id)
+    params.require(:turma).permit(:id, :turma, :professor, :professor_auxiliar, :fk_cod_disciplina, :qnt_bolsas, :fk_vagas_id)
   end
 
   def find_turma

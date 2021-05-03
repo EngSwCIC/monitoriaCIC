@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_130811) do
+ActiveRecord::Schema.define(version: 2021_05_03_200951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -160,6 +160,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_130811) do
     t.integer "fk_status_turma_id", default: 3, null: false
     t.integer "qnt_bolsas", default: 0, null: false
     t.integer "fk_vagas_id", null: false
+    t.string "professor_auxiliar"
     t.index ["fk_cod_disciplina"], name: "fk_turmas_disciplinas1_idx"
     t.index ["fk_status_turma_id"], name: "fk_turmas_status_turma1_idx"
     t.index ["fk_vagas_id"], name: "fk_turmas_vagas1_idx"
