@@ -59,6 +59,8 @@ class TurmasController < ApplicationController
     @turmas_buscadas = Turma.find_each do |turma|
       if turma.professor == professor.name
         @turmas << turma
+      elsif turma.professor_auxiliar == professor.name
+        @turmas << turma
       end
     end
     @turmas
