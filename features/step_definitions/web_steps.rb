@@ -57,37 +57,46 @@ Dado /^(?:|que )o banco possui um aluno e um professor$/ do
 end
 
 Dado /^(?:|que )o banco possui uma monitoria$/ do
+
+  file = fixture_file_upload('files/historico.pdf', 'application/pdf')
   Monitoria.create!(
     id: 1,
     remuneracao: 'Remunerado',
     fk_matricula: '140080279',
     fk_cod_disciplina: 1,
     fk_turmas_id: 1,
-    descricao_status: "Nota: SS. IRA: 3",
+    ira: '3',
+    mencao: 'SS',
+    historico_escolar: file,
     prioridade: 1,
     fk_status_monitoria_id: 1
   )
 end
 
 Dado /^(?:|que )o banco possui duas monitorias$/ do
+
+  file = fixture_file_upload('files/historico.pdf', 'application/pdf')
   Monitoria.create!(
     id: 1,
     remuneracao: 'Remunerado',
     fk_matricula: '140080279',
     fk_cod_disciplina: 1,
     fk_turmas_id: 1,
-    descricao_status: "Nota: SS. IRA: 3",
+    ira: '3',
+    mencao: 'SS',
+    historico_escolar: file,
     prioridade: 1,
     fk_status_monitoria_id: 3
   )
-
   Monitoria.create!(
     id: 2,
     remuneracao: 'Remunerado',
     fk_matricula: '140080299',
     fk_cod_disciplina: 1,
     fk_turmas_id: 1,
-    descricao_status: "Nota: SS. IRA: 3",
+    ira: '3',
+    mencao: 'SS',
+    historico_escolar: file,
     prioridade: 1,
     fk_status_monitoria_id: 1
   )
@@ -233,6 +242,10 @@ end
 
 Quando /^(?:|eu )preencho "([^"]*)" com "([^"]*)"$/ do |field, value|
   fill_in(field, :with => value)
+end
+
+Quando /^(?:|eu )faço upload do meu histórico"$/ do 
+  attach_file(:historico_escolar, File.join(RAILS_ROOT, 'spec', 'fixtures', 'files', 'historico.pdf'))
 end
 
 Quando /^(?:|eu )escolho o "([^"]*)" do seletor "([^"]*)"$/ do |value, field|
