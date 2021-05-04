@@ -15,6 +15,11 @@
               %a.nav-link{href: dashboard_disciplinas_path}
                 %span{'data-feather': "file"}
                 Disciplinas
+            %li.nav-item
+              %a.nav-link{href: dashboard_monitorias_revisar_path}
+                %span{'data-feather': "file"}
+                Revisar vagas de monitoria
+
           - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
             %li.nav-item
               %a.nav-link{href: dashboard_monitorias_path}

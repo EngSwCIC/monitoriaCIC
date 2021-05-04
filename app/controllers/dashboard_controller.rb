@@ -42,6 +42,10 @@ class DashboardController < ApplicationController
     @disciplinas = Disciplina.find_each
   end
 
+  def revisar_monitorias
+    @vagas_monitorias = Monitoria.find_each
+  end
+
   def apagar_alunos
     @users = User.order(:matricula)
   end

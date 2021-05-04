@@ -1,0 +1,106 @@
+%br
+%br
+.container-fluid
+  .row
+    %nav.col-md-2.d-none.d-md-block.bg-light.sidebar{style: 'margin-top: 40px'}
+      .sidebar-sticky
+        %ul.nav.flex-column
+          %li.nav-item
+            %a.nav-link{href: dashboard_path}
+              %span{'data-feather': "home"}
+              Dashboard
+              %span.sr-only (current)
+          -if current_user.kind_of? Admin
+            %li.nav-item
+              %a.nav-link{href: dashboard_disciplinas_path}
+                %span{'data-feather': "file"}
+                Disciplinas
+            %li.nav-item
+              %a.nav-link{href: dashboard_monitorias_revisar_path}
+                %span{'data-feather': "file"}
+                Revisar vagas de monitoria
+          - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
+            %li.nav-item
+              %a.nav-link.active{href: dashboard_monitorias_path}
+                %span{'data-feather': "github"}
+                Monitoria
+
+          -if current_user.kind_of?(Professor)
+            %ul.nav.flex-column.mb-2
+              %li.nav-item
+                %a.nav-link{href: dashboard_turmas_path}
+                  %span{'data-feather': "edit"}
+                  Turmas
+
+          -if current_user.kind_of?(Admin)
+            %ul.nav.flex-column.mb-2
+              %li.nav-item
+                %a.nav-link{href: dashboard_apagar_alunos_path}
+                  %span{'data-feather': "trash"}
+                  Apagar alunos
+
+        -unless current_user.kind_of?(Admin)
+          %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+            Menu
+            %span do usuário
+            %a.d-flex.align-items-center.text-muted{href: "#"}
+              %span{'data-feather': "plus-circle"}
+
+        -if current_user.kind_of?(User) || current_user.kind_of?(Professor)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_edit_user_path}
+                %span{'data-feather': "settings"}
+                Editar Perfil
+
+        -if current_user.kind_of?(User)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_dados_bancarios_path}
+                %span{'data-feather': "dollar-sign"}
+                Dados Bancários
+
+    %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
+      .col-1
+      .col
+        -if flash[:danger]
+          .alert.alert-danger
+            - flash[:danger]
+        -if flash[:notice]
+          .alert.alert-success
+            = flash[:notice]
+        =form_tag dashboard_monitorias_revisar_path, method: :get do
+          = label 'filtro', "Tipo de remuneração:  "
+          = select "get", "remuneracao", options_for_select(Monitoria.all_remuneracao, @remuneracao), class: 'custom-select', onchange: "location.href = '#{root_url}'"
+          = submit_tag 'Filtrar', class: "btn btn-outline-primary"
+        %br
+        %br
+        - Disciplina.all.each do |d|
+          -#%h2 Candidatos a monitor em #{d.nome}
+          - Turma.all.each do |turma|
+            .row
+              - @monitorias.each do |monitoria|
+                -if monitoria.fk_cod_disciplina == d.cod_disciplina
+                  .col-3
+                    .card
+                      .card-body
+                        %h5.card-title
+                          Aluno: <b>#{@alunos.select { |aluno| aluno.matricula==monitoria.fk_matricula}[0].name}</b>
+                        %br
+                        Disciplina: <b>#{d.nome}</b>
+                        %h5
+                        Turma: <b>#{turma.turma}</b>
+                        %br
+                        Matrícula: <b>#{monitoria.fk_matricula}</b>
+                        %br
+                        Remuneração: <b>#{monitoria.remuneracao}</b>
+                        %br
+                        Descrição: <b>#{monitoria.descricao_status}</b>
+                        %br
+                        =form_tag dashboard_monitorias_revisar_path, method: :put do
+                          = label "status", "Status: "
+                          = select "put", monitoria.id, options_for_select(Monitoria.all_status, monitoria.fk_status_monitoria_id), class: 'custom-select'
+                          %br
+                          = submit_tag 'Atualizar', id: monitoria.id, class: "btn btn-outline-primary btn-block"
+                    %br
+      .col-1
