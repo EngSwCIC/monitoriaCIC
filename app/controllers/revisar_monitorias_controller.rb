@@ -27,19 +27,34 @@ class RevisarMonitoriasController < ApplicationController
 
 	def show
 		@alunos = User.find_each
-		@monitorias = Monitoria.all
-	end
 
-	def edit	
-	end
-
-	def update
-		if @monitoria.update monitoria_params
-			redirect_to dashboard_monitorias_path, notice: "Situaçao atualizada!"
+		@turmas = Turma.all
+		@remuneracao = 'Todas'
+		get_params = params[:get]
+		if get_params && get_params.has_key?(:remuneracao)
+			@remuneracao = params[:get][:remuneracao]
+		end
+		if @remuneracao != 'Todas'
+			@monitorias = Monitoria.find_by_remuneracao @remuneracao
 		else
-			render 'edit'
+			@monitorias = Monitoria.all
 		end
 	end
+
+	def edit
+		# @monitoria.fk_status_monitoria_id = params[:put][@monitoria.id]
+		monitoria_id = params[:put].keys[0]
+	  @monitoria.update(fk_status_monitoria_id: params[:put][monitoria_id])
+			redirect_to dashboard_monitorias_revisar_path, notice: "Situaçao atualizada!"
+
+	end
+	# def update
+	# 	if @monitoria.update monitoria_params
+	# 		redirect_to dashboard_monitorias_path, notice: "Situaçao atualizada!"
+	# 	else
+	# 		render 'edit'
+	# 	end
+	# end
 
 	def destroy
 		@monitoria.destroy
@@ -56,7 +71,7 @@ class RevisarMonitoriasController < ApplicationController
 	end
 
 	def find_monitoria
-		@monitoria = Monitoria.find(params[:id])
+		@monitoria = Monitoria.find(params[:put].keys[0])
 	end
 
 	def logged_in

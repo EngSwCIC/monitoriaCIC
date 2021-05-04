@@ -69,13 +69,15 @@
         -if flash[:notice]
           .alert.alert-success
             = flash[:notice]
-        <%= f.select :remuneracao, Monitoria. %>
+        =form_tag dashboard_monitorias_revisar_path, method: :get do
+          = label 'filtro', "Tipo de remuneração:  "
+          = select "get", "remuneracao", options_for_select(Monitoria.all_remuneracao, @remuneracao), class: 'custom-select', onchange: "location.href = '#{root_url}'"
+          = submit_tag 'Filtrar', class: "btn btn-outline-primary"
+        %br
+        %br
         - Disciplina.all.each do |d|
-          %h2 Candidatos a monitor em #{d.nome}
+          -#%h2 Candidatos a monitor em #{d.nome}
           - Turma.all.each do |turma|
-            %h5
-              Turma: #{turma.turma}
-            %br
             .row
               - @monitorias.each do |monitoria|
                 -if monitoria.fk_cod_disciplina == d.cod_disciplina
@@ -85,25 +87,20 @@
                         %h5.card-title
                           Aluno: <b>#{@alunos.select { |aluno| aluno.matricula==monitoria.fk_matricula}[0].name}</b>
                         %br
+                        Disciplina: <b>#{d.nome}</b>
+                        %h5
+                        Turma: <b>#{turma.turma}</b>
+                        %br
                         Matrícula: <b>#{monitoria.fk_matricula}</b>
                         %br
                         Remuneração: <b>#{monitoria.remuneracao}</b>
                         %br
                         Descrição: <b>#{monitoria.descricao_status}</b>
                         %br
-                        Status:
-                        %b
-                          - if monitoria.fk_status_monitoria_id == 1
-                            Pendente
-                          - elsif monitoria.fk_status_monitoria_id == 2
-                            Rejeitado
-                          - elsif monitoria.fk_status_monitoria_id == 3
-                            Aceito
-                          - else
-                            Encerrado
-                        -# - if monitor.fk_status_monitoria_id == 3
-                          -#%hr
-                          -# =link_to "Tarefas", tarefas_path(monitoria_id: monitor.id), class: 'btn btn-outline-primary unb-blue btn-block'
-                        -#%hr
-                        -# =link_to "Alterar Situaçao", edit_monitoria_path(monitor.id), class: 'btn btn-outline-primary unb-blue btn-block'
+                        =form_tag dashboard_monitorias_revisar_path, method: :put do
+                          = label "status", "Status: "
+                          = select "put", monitoria.id, options_for_select(Monitoria.all_status, monitoria.fk_status_monitoria_id), class: 'custom-select'
+                          %br
+                          = submit_tag 'Atualizar', id: monitoria.id, class: "btn btn-outline-primary btn-block"
+                    %br
       .col-1
