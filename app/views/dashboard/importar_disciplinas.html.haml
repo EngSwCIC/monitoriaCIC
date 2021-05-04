@@ -108,9 +108,14 @@
 
 
             .col-4
-              Clique no botão abaixo para importar a lista de disciplinas a partir do
-              %a{href: 'https://matriculaweb.unb.br/graduacao/'}site do MatriculaWeb
-              %hr
-                = link_to "Importar disciplinas", dashboard_raspar_disciplinas_path,
-                :class => "btn btn-outline-primary btn-block"
+              Envie um arquivo .HTML do site SIGAA com a lista de turmas e aperte o botão para
+              fazer importação automática
+              = form_with url: dashboard_raspar_disciplinas_path, local: true, multipart: :true do |form|
+                = form.file_field :arquivo_turmas
+                = form.submit "Importar disciplinas"
+              -# Clique no botão abaixo para importar a lista de disciplinas a partir do
+              -# %a{href: 'https://matriculaweb.unb.br/graduacao/'}site do MatriculaWeb
+              -# %hr
+              -#   = link_to "Importar disciplinas", dashboard_raspar_disciplinas_path,
+              -#   :class => "btn btn-outline-primary btn-block"
         .col-1

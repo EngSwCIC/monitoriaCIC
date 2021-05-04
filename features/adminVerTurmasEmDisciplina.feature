@@ -9,8 +9,8 @@ Cenário de Fundo:
     Dado que o banco possui um adminstrador
     E que o "admin" está logado
     E que as seguintes disciplinas existem:
-    |nome|
-    |ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES|
+    |nome|                                          |id |
+    |ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES       | 1 |
 
     E que eu estou na página da turma "ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES"
 

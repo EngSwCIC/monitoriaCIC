@@ -32,7 +32,7 @@ Rails.application.routes.draw do
   match "/dashboard/apagar_alunos", to: "dashboard#apagar_alunos", via: 'get'
   match "/dashboard/deletar_aluno", to: "dashboard#deletar_aluno", via: 'post'
   match "/dashboard/importar_disciplinas", to: "dashboard#importar_disciplinas", via: 'get'
-  match "/dashboard/raspar_disciplinas", to: "dashboard#raspar_disciplinas", via: 'get'
+  match "/dashboard/raspar_disciplinas", to: "dashboard#raspar_disciplinas", via: [:get, :post]
   match "/dashboard/importar_professores", to: "dashboard#importar_professores", via: 'get'
   match "/dashboard/scrape_professores", to: "dashboard#scrape_professores", via: 'get'
 

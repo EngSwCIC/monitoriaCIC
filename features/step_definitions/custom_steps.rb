@@ -16,7 +16,14 @@ end
 
 Dado('que as seguintes disciplinas existem:') do |table|
     table.hashes.each do |valores|
-        Disciplina.create!(valores)
+        disciplina = Disciplina.new valores
+        if disciplina.save
+            d = Disciplina.find_by(valores)
+            log(d.id)
+        else
+            log("naum funfa")
+		end
+        # Disciplina.create!(valores)
     end
 end
 
@@ -34,19 +41,23 @@ end
 
 Então('eu devo ver:') do |table|
     # table is a Cucumber::MultilineArgument::DataTable
-    table.each do |item|
-        steps %(
-            Então eu devo ver #{item}
-        )
+    table.raw.each do |elem|
+        text = elem[0]
+        if page.respond_to? :should
+            page.should have_content(text)
+        else
+            assert page.has_content?(text)
+        end
     end
 end
 
 Então('eu devo ver os seguintes itens somente uma vez:') do |table|
-    table.each do |text|
+    table.raw.each do |elem|
+        text = elem[0]
         if page.respond_to? :should
-            page.should have_content(text, count: 1)
+            page.should have_content(/^#{text}$/, count: 1)
         else
-            assert page.has_content?(text, count: 1)
+            assert page.has_content?(/^#{text}$/, count: 1)
         end
     end
 end
