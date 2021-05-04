@@ -47,7 +47,7 @@ class MonitoriasController < ApplicationController
 
 	private
 	def monitoria_params
-		params.require(:monitoria).permit(:remuneracao, :fk_matricula, :fk_cod_disciplina, :fk_turmas_id, :descricao_status, :prioridade, :fk_status_monitoria_id)
+		params.require(:monitoria).permit(:remuneracao, :fk_matricula, :fk_cod_disciplina, :fk_turmas_id, :descricao_status, :prioridade, :prioridade_auxiliar, :fk_status_monitoria_id)
 	end
 
 	def find_monitor

@@ -46,6 +46,19 @@
           .col-sm-9
             = select :monitoria, :fk_status_monitoria_id, options_for_select(Monitoria.all_status), {}, class: 'custom-select'
         
+        -@turma = Turma.find(@monitoria.fk_turmas_id)
+        -if @turma.professor == current_user.name
+          .form-group.row
+            = label :monitoria, :prioridade, "Preferência", class: "col-sm-3 col-form-label"
+            .col-sm-9
+              = select :monitoria, :prioridade, options_for_select(Monitoria.all_prioridades), {}, class: 'custom-select'
+        
+        -if @turma.professor_auxiliar == current_user.name
+          .form-group.row
+            = label :monitoria, :prioridade_auxiliar, "Preferência", class: "col-sm-3 col-form-label"
+            .col-sm-9
+              = select :monitoria, :prioridade_auxiliar, options_for_select(Monitoria.all_prioridades), {}, class: 'custom-select'
+
         %br
         = submit_tag 'Atualizar', class: "btn btn-outline-primary btn-block"
     .col-3

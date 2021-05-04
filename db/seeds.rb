@@ -11,6 +11,7 @@ Professor.destroy_all
 User.destroy_all
 Turma.destroy_all
 Disciplina.destroy_all
+Monitoria.destroy_all
 
 ######################
 #Admin.create(id: 1, name: "Admin UnB", email: "secretaria@cic.unb.br", password: "123456",
@@ -41,6 +42,16 @@ Professor.create!(id: 2, name: "Carla", email: "carla@unb.br", username: "carla"
 ######################
 
 ######################
-# Turma.create([{id:1, turma: "A", professor: "Carla", fk_cod_disciplina: 1}])
+Turma.create([{id:1, turma: "A", professor: "Carla", professor_auxiliar: "Genaina", fk_cod_disciplina: 1, fk_vagas_id: 1}])
 ######################
+
+Monitoria.create!(
+  remuneracao: 'Remunerado',
+  fk_matricula: '140080279',
+  fk_cod_disciplina: 1,
+  fk_turmas_id: 1,
+  descricao_status: "Nota: SS. IRA: 3",
+  prioridade: 1,
+  fk_status_monitoria_id: 3
+)
 
