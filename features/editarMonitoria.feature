@@ -14,9 +14,9 @@
       Então eu devo estar na página de monitoria
       Quando eu clico em "Ver lista de monitores"
       Então eu devo estar na página de monitores da turma
-      E eu devo ver que possui o campo "Menção"
-      E eu devo ver que possui o campo "IRA"
-      E eu devo ver que possui o campo "Histórico Escolar"
+      E eu devo ver "Menção"
+      E eu devo ver "IRA"
+      E eu devo ver "Histórico Escolar"
 
     Cenário: O professor altera a situação de uma aplicação de um monitor (Happy Path)
       Quando eu clico em "Monitoria"
