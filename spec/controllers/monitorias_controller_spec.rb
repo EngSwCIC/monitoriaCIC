@@ -70,12 +70,15 @@ describe MonitoriasController do
     describe 'POST #create' do
       describe 'happy path' do
         before :each do
+          file = fixture_file_upload('files/historico.pdf', 'application/pdf')
           @info = {
             remuneracao: 'Voluntária',
             fk_matricula: '140080384',
             fk_cod_disciplina: '1',
             fk_turmas_id: '1',
-            descricao_status: 'Nota: SS, IRA: 3',
+            mencao: 'SS',
+            ira: '3',
+            historico_escolar: file,
             prioridade: '1',
             fk_status_monitoria_id: '1'
           }
@@ -111,12 +114,15 @@ describe MonitoriasController do
 
       describe 'sad path' do
         before :each do
+          file = fixture_file_upload('files/historico.pdf', 'application/pdf')
           @invalid_info = {
             remuneracao: 'Voluntária',
             fk_matricula: '140080384',
             fk_cod_disciplina: '1',
             fk_turmas_id: '1',
-            descricao_status: 'Nota: SS, IRA: 3',
+            mencao: 'SS',
+            ira: '3',
+            historico_escolar: file,
             prioridade: '1',
             fk_status_monitoria_id: '1'
           }
@@ -140,12 +146,15 @@ describe MonitoriasController do
       describe 'happy path' do
         before :each do
           @db_monitoria = FactoryBot.create(:monitoria, id: '1')
+          file = fixture_file_upload('files/historico.pdf', 'application/pdf')
           @info = {
             remuneracao: 'Voluntária',
             fk_matricula: '140080384',
             fk_cod_disciplina: '1',
             fk_turmas_id: '1',
-            descricao_status: 'Nota: SS, IRA: 3',
+            mencao: 'SS',
+            ira: '3',
+            historico_escolar: file,
             prioridade: '1',
             fk_status_monitoria_id: '1'
           }
