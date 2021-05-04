@@ -80,7 +80,7 @@
           - Turma.all.each do |turma|
             .row
               - @monitorias.each do |monitoria|
-                -if monitoria.fk_cod_disciplina == d.cod_disciplina
+                -if monitoria.fk_cod_disciplina == d.cod_disciplina and monitoria.fk_turmas_id == turma.id
                   .col-3
                     .card
                       .card-body
