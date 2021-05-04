@@ -27,7 +27,7 @@ Funcionalidade: Como administrador consigo revisar as alocacoes de vagas de moni
   Entao eu devo estar na pagina de revisão de monitorias
   Entao o seletor "put_2" deve ter o valor "Recusado"
 
-  Cenário: Eu enquanto administrador nao posso revisar se nao houverem monitorias
+  Cenário: Eu enquanto administrador nao posso revisar se nao houverem monitorias(Sad Path)
   Quando eu clico em "Revisar vagas de monitoria"
   Entao eu devo estar na pagina de revisão de monitorias
   E eu devo ver "Aluno: Bernardo Costa Nascimento"
@@ -36,3 +36,11 @@ Funcionalidade: Como administrador consigo revisar as alocacoes de vagas de moni
   E eu aperto em "Filtrar"
   Entao eu não devo ver "Aluno: "
 
+  Cenário: Eu enquanto administrador nao posso revisar monitorias encerradas(Sad Path)
+    Quando eu clico em "Revisar vagas de monitoria"
+    Entao eu devo estar na pagina de revisão de monitorias
+    E eu devo ver "Aluno: Bernardo Costa Nascimento"
+    E o seletor "put_2" deve ter o valor "Aceito"
+    Quando eu escolho o "Encerrado" do seletor "put_2"
+    E eu aperto em "Atualizar"
+    Entao eu não devo ver "Aluno: "
