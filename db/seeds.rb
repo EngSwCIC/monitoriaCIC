@@ -13,8 +13,8 @@ Turma.destroy_all
 Disciplina.destroy_all
 
 ######################
-#Admin.create(id: 1, name: "Admin UnB", email: "secretaria@cic.unb.br", password: "123456",
-#    remember_token: nil, created_at: '2018-06-04 18:12:09.050792', updated_at: '2018-06-04 18:12:09.050792')
+Admin.create(id: 1, name: "Admin UnB", email: "secretaria@cic.unb.br", password: "123456",
+    remember_token: nil, created_at: '2018-06-04 18:12:09.050792', updated_at: '2018-06-04 18:12:09.050792')
 
 ######################
 Disciplina.create!([{id:1, nome: "APC", 
@@ -31,16 +31,16 @@ Disciplina.create!([{id:2, nome: "ED",
 User.create!(id: 1, name: "Aluno", email: "aluno1@gmail.com", password: "123456", password_confirmation: '123456',
                 cpf: "03638481182", rg: "2645178", matricula: "140080279")
 
-# User.create(id: 2, name: "Aluno2", email: "aluno2@gmail.com", password: "123456",
-#                 cpf: "03638481111", rg: "2645111", matricula: "140080211",
-#                 fk_banco: nil, remember_token: nil, created_at: '2018-06-04 19:02:24.831795',
-#                 updated_at: '2018-06-04 19:02:24.831795')
+ User.create(id: 2, name: "Aluno2", email: "aluno2@gmail.com", password: "123456",
+                 cpf: "03638481111", rg: "2645111", matricula: "140080211",
+                 fk_banco: nil, remember_token: nil, created_at: '2018-06-04 19:02:24.831795',
+                 updated_at: '2018-06-04 19:02:24.831795')
 
 Professor.create!(id: 1, name: "Genaina", email: "genaina@unb.br", username: "genaina", password: "123456", password_confirmation: '123456', role: 1)
 Professor.create!(id: 2, name: "Carla", email: "carla@unb.br", username: "carla", password: "123456", password_confirmation: '123456', role: 1)
 ######################
 
 ######################
-# Turma.create([{id:1, turma: "A", professor: "Carla", fk_cod_disciplina: 1}])
+ Turma.create([{id:1, turma: "A", professor: "Carla", fk_cod_disciplina: 1}])
 ######################
 
