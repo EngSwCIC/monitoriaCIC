@@ -76,7 +76,6 @@
         %br
         %br
         - Disciplina.all.each do |d|
-          -#%h2 Candidatos a monitor em #{d.nome}
           - Turma.all.each do |turma|
             .row
               - @monitorias.each do |monitoria|
