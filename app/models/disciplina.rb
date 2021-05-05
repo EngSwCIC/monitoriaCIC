@@ -13,6 +13,8 @@ class Disciplina < ApplicationRecord
  	validates_presence_of :c_teor
  	validates_presence_of :c_est
  	validates_presence_of :c_ext
+	validates_uniqueness_of :nome
+	validates_uniqueness_of :cod_disciplina
 
 
  	validates :nome, format: { without: /['"!¹@²#³$£%¢¨¬&\*\(\)\-_\+=§`´\[\]{}\^~ªº°\?\/:;>.<,\|\\]+/, message: 'apenas letras, números e espaços'}

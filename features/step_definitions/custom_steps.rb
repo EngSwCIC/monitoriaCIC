@@ -16,14 +16,14 @@ end
 
 Dado('que as seguintes disciplinas existem:') do |table|
     table.hashes.each do |valores|
-        disciplina = Disciplina.new valores
-        if disciplina.save
-            d = Disciplina.find_by(valores)
-            log(d.id)
-        else
-            log("naum funfa")
-		end
-        # Disciplina.create!(valores)
+        valores[:fk_tipo_disciplina_id] = 1
+        valores[:c_prat] = 0
+        valores[:c_teor] = 0
+        valores[:cod_disciplina] = valores[:cod_disciplina].match(/CIC(\d+)/)[1].to_i
+        Disciplina.create!(valores)
+        # Disciplina.create!([{nome: nome, 
+        #     fk_tipo_disciplina_id: 1, c_prat: 0, c_teor: 0, 
+        #     cod_disciplina: codigo}])
     end
 end
 

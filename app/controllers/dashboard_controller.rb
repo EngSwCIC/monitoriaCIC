@@ -101,7 +101,7 @@ class DashboardController < ApplicationController
         turma = Hash.new()
         infoDisciplinaTurma = t.at_css('tr.componentescur').css('td')
         turma[:nomeDisciplina] = infoDisciplinaTurma[0].to_s.match(/^\s+\S+ - (.+)+ -/)[1]
-        turma[:codigoDisciplina] = infoDisciplinaTurma[0].to_s.match(/^\s+(\S+) -/)[1]
+        turma[:codigoDisciplina] = infoDisciplinaTurma[0].to_s.match(/^\s+CIC(\S+) -/)[1].to_i
         turma[:codigoTurma] = infoDisciplinaTurma[1].to_s.match(/^\s+(\S+)\s/)[1]
         turma[:situacao] = infoDisciplinaTurma[2].to_s.match(/<td>\s+(.+?)\s+<\/td>/)[1]
         # puts 'DEBUG   ' + turma[:nomeDisciplina] + ' ' + turma[:codigoDisciplina] + ' ' + turma[:codigoTurma] + ' ' + turma[:situacao]
@@ -137,12 +137,10 @@ class DashboardController < ApplicationController
   end
 
   def criar_disciplina_com_valores_padroes (nome, codigo)
-    if (!Disciplina.exists?(nome: nome))
+    if (!Disciplina.exists?(cod_disciplina: codigo))
       Disciplina.create([{nome: nome, 
           fk_tipo_disciplina_id: 1, c_prat: 0, c_teor: 0, 
           cod_disciplina: codigo}])
-    else
-      raise "Aviso: Uma ou mais disciplinas já estão presentes no banco de dados"
     end
   end
 
@@ -165,7 +163,10 @@ class DashboardController < ApplicationController
   end
 
   def raspar_disciplinas
-    # E se apertarem o botão sem arquivo nenhum??
+    if (params[:arquivo_turmas] == nil)
+      raise "Por favor, selecionar um arquivo"
+    end
+    
     array_de_turmas = parse_turmas_file(params[:arquivo_turmas])
     array_de_turmas.each do |hash|
       criar_professor_com_valores_padroes(hash[:nomeProfessor1])
@@ -180,10 +181,6 @@ class DashboardController < ApplicationController
       criar_turma_a_partir_de_parametros(hash[:codigoTurma], hash[:nomeDisciplina], hash[:nomeProfessor1], hash[:nomeProfessor2])
     end
     flash[:notice] = "Disciplinas importadas com sucesso!"
-
-
-    # disciplinas = raspar_matriculaweb_disciplinas
-    # carregar_disciplinas(disciplinas)
 
     redirect_to dashboard_importar_disciplinas_path
   rescue StandardError => e
