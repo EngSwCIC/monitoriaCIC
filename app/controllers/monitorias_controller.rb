@@ -45,6 +45,13 @@ class MonitoriasController < ApplicationController
 		redirect_to dashboard_monitorias_path, notice: "Monitoria removida!"
 	end
 
+	def is_admin
+		if !current_user.kind_of?(Admin)
+			flash[:danger] = "Acesso negado."
+				redirect_to dashboard_disciplinas_path
+		end
+	end
+
 	private
 	def monitoria_params
 		params.require(:monitoria).permit(:remuneracao, :fk_matricula, :fk_cod_disciplina, :fk_turmas_id, :descricao_status, :prioridade, :fk_status_monitoria_id)

@@ -177,6 +177,34 @@ describe MonitoriasController do
           expect(flash[:notice]).to eq('Situaçao atualizada!')
           expect(subject).to redirect_to('/dashboard/monitorias')
         end
+        it "coordenador altera situação da monitoria" do
+          allow_any_instance_of(MonitoriasController).to receive(:is_admin).and_return(true)
+          expect(@db_monitoria.update(open: false, fk_status_monitoria_id: '2')).to be true
+        end
+      end
+      describe 'sad path' do
+        before :each do
+          @db_monitoria = FactoryBot.create(:monitoria, id: '1')
+          @info = {
+            remuneracao: 'Voluntária',
+            fk_matricula: '140080384',
+            fk_cod_disciplina: '1',
+            fk_turmas_id: '1',
+            descricao_status: 'Nota: SS, IRA: 3',
+            prioridade: '1',
+            fk_status_monitoria_id: '1',
+            open: true
+          }
+
+          @params = {}
+          @params[:monitoria] = @info
+          @params[:id] = '1'
+        end
+
+        it "coordenador não altera situação da monitoria" do
+          allow_any_instance_of(MonitoriasController).to receive(:is_admin).and_return true
+          expect(@db_monitoria.update(fk_status_monitoria_id: '2')).to be false
+        end  
       end
     end
 
