@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   end
   resources :reset_senhas, only: [:new, :create, :edit, :update]
 
+  match "/turmas/show/:id", to: "turmas#show", via: 'get'
+
   match "/dashboard", to: "dashboard#index", via: 'get'
   match "/dashboard/edit_user", to: "dashboard#edit_user", via: 'get'
   match "/dashboard/dados_bancarios", to: "dashboard#dados_bancarios", via: 'get'
@@ -45,5 +47,6 @@ Rails.application.routes.draw do
   match "/faq", to: "faq#index", :via => 'get'
   match "/sobre", to: "sobre#index", :via => 'get'
   match "/professors/confirm", to: "professors#identityconfirmation", :via => 'post', as: 'confirmation'
+  match "/turmas/show/:id/:nome", to: "turmas#show", :via => 'get', as: 'show_turmas'
 
 end
