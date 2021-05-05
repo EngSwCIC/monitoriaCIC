@@ -27,12 +27,14 @@ class Monitoria < ApplicationRecord
  	end
 
 	def set_media
-		if self.prioridade != nil
+		if self.prioridade != nil && self.prioridade_auxiliar == nil
+			puts "tenhos prioridade"
 			self.media = self.prioridade
 		elsif self.prioridade == nil && self.prioridade_auxiliar != nil
+				puts "tenho auxiliar"
 				self.media = self.prioridade_auxiliar 
 		elsif self.prioridade_auxiliar != nil && self.prioridade != nil
- 			self.media = (self.prioridade + self.prioridade_auxiliar)/2
+ 			self.media = (self.prioridade.to_f + self.prioridade_auxiliar.to_f)/2
 		end
 		# save!
 	end
