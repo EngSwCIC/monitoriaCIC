@@ -13,8 +13,8 @@ Turma.destroy_all
 Disciplina.destroy_all
 
 ######################
-#Admin.create(id: 1, name: "Admin UnB", email: "secretaria@cic.unb.br", password: "123456",
-#    remember_token: nil, created_at: '2018-06-04 18:12:09.050792', updated_at: '2018-06-04 18:12:09.050792')
+Admin.create(id: 1, name: "Admin UnB", email: "secretaria@cic.unb.br", password: "123456",
+   remember_token: nil, created_at: '2018-06-04 18:12:09.050792', updated_at: '2018-06-04 18:12:09.050792')
 
 ######################
 Disciplina.create([{id:1, nome: "APC", 

@@ -271,6 +271,7 @@ Então /^(?:|eu )devo ver "([^"]*)"$/ do |text|
   else
     assert page.has_content?(text)
   end
+
 end
 
 Então /^(?:|eu )não devo ver "([^"]*)"$/ do |text|
@@ -367,4 +368,49 @@ Então("o usuario não deve receber um email de confirmação") do
   
   email = ActionMailer::Base.deliveries.first
   email.should == nil
+end
+
+
+
+Dado('que usuÃ¡rio estÃ¡ logado com o perfil de Coordenador') do
+  
+  
+end
+
+
+
+# end
+Quando('o usuÃ¡rio acessa o menu {string}') do |string|
+
+  # expect(page).to have_link("Disciplinas", visible: true)
+
+  page.should have_content(string)
+ 
+end
+
+Quando('aciona o botÃ£o {string}') do |string|
+
+  f.
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Quando('estÃ¡ na pÃ¡gina de ediÃ§Ã£o de disciplina') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Quando('preenche os campo checked') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Quando('envia o formulario para atualizar a disciplina') do
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Quando('a disciplina Ã© atualizada no sistema') do
+ 
+  pending # Write code here that turns the phrase above into concrete actions
+end
+
+Então('o usuÃ¡rio deve ver a mensagem {string} na pÃ¡gina de listagem de disciplinas.') do |string|
+  pending # Write code here that turns the phrase above into concrete actions
 end

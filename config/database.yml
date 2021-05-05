@@ -11,22 +11,33 @@ default: &default
   timeout: 5000
 
 development:
-  <<: *default
-  database: monitoriacic_development
+    adapter: postgresql
+    encoding: utf8
+    database: monitoriacic_development
+    username: postgres
+    password: lucas
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test: &test
-  <<: *default
-  database: monitoriacic_test
+    adapter: postgresql
+    encoding: utf8
+    database: monitoriacic_development
+    username: postgres
+    password: lucas
 
 production:
-  <<: *default
-  database: monitoriacic_production
+    adapter: postgresql
+    encoding: utf8
+    database: monitoriacic_development
+    username: postgres
+    password: lucas
 
 cucumber:
-  <<: *test
+    adapter: postgresql
+    encoding: utf8
+    database: monitoriacic_development
+    username: postgres
+    password: lucas
 
-cucumber:
-  <<: *test

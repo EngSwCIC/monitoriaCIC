@@ -216,10 +216,10 @@ class DashboardController < ApplicationController
   def carregar_disciplinas(disciplinas)
     disciplinas.each do |d|
 
-      if !Disciplina.find_by_cod_disciplina(d[:cod_disciplina])
+      if !Disciplina.find_by_id_disciplina(d[:id])
 
         criar_disciplina(
-          d[:cod_disciplina],
+          d[:id],
           d[:nome_disciplina],
           d[:creditos]
         )
@@ -229,8 +229,9 @@ class DashboardController < ApplicationController
 
   ##
   # Método para criar uma disciplina no modelo.
-  def criar_disciplina(cod_disciplina, nome, creditos)
+  def criar_disciplina(id_disciplina,cod_disciplina, nome, creditos)
     Disciplina.create(
+      :id=> id_disciplina,
       :cod_disciplina => cod_disciplina,
       :nome => nome,
       :c_prat => creditos[:c_prat],
