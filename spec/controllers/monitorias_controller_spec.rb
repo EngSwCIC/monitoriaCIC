@@ -52,9 +52,9 @@ describe MonitoriasController do
 
     describe 'GET #edit' do
       it 'render edit template' do
-        monitoria = FactoryBot.create(:monitoria)
+        monitoria = FactoryBot.create(:monitoria, id: 99)
         params = {}
-        params[:id] = 1
+        params[:id] = 99
         get :edit, params: params
         expect(response).to render_template(:edit)
       end
@@ -147,6 +147,7 @@ describe MonitoriasController do
             fk_turmas_id: '1',
             descricao_status: 'Nota: SS, IRA: 3',
             prioridade: '1',
+            prioridade_auxiliar: '2',
             fk_status_monitoria_id: '1'
           }
 
@@ -176,6 +177,12 @@ describe MonitoriasController do
           put :update, params: @params
           expect(flash[:notice]).to eq('Situaçao atualizada!')
           expect(subject).to redirect_to('/dashboard/monitorias')
+        end
+
+        it 'espera encontrar média de prioridades' do
+          put :update, params: @params
+          @db_monitoria.reload
+          expect(@db_monitoria.media).to be(1.5)
         end
       end
     end

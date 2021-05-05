@@ -36,7 +36,6 @@ class Monitoria < ApplicationRecord
 		elsif self.prioridade_auxiliar != nil && self.prioridade != nil
  			self.media = (self.prioridade.to_f + self.prioridade_auxiliar.to_f)/2
 		end
-		# save!
 	end
 
  	validates_presence_of :remuneracao
