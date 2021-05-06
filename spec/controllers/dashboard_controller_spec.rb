@@ -242,6 +242,92 @@ describe DashboardController do
       end
     end
 
+    describe '#alocar_bolsa' do
+      describe 'Alunos aceitos e sobram bolsas em algumas turmas' do
+        before :each do
+          @user1 = FactoryBot.create(:user, id: 1, matricula: "180103016", cpf: "06745907160", rg: "3235843", email: "profjoao@gmail.com")
+          @user2 = FactoryBot.create(:user, id: 2, matricula: "159899212", cpf: "05716083102", rg: "3234243", email: "aluno2@gmail.com")
+          @user3 = FactoryBot.create(:user, id: 3, matricula: "134423123", cpf: "06459861196", rg: "3542681", email: "aluno3@gmail.com")
+          @user4 = FactoryBot.create(:user, id: 4, matricula: "123392837", cpf: "05400484107", rg: "3469171", email: "aluno4@gmail.com")
+          
+          @monitoria1 = FactoryBot.create(:monitoria, fk_status_monitoria_id: 1, fk_turmas_id: 1, remuneracao: 'Remunerado',
+                                          fk_matricula: "180103016")
+    
+          @monitoria2 = FactoryBot.create(:monitoria, id: 2, fk_status_monitoria_id: 1, fk_turmas_id: 2, remuneracao: 'Remunerado',
+                                          fk_matricula: "159899212")
+    
+          @monitoria3 = FactoryBot.create(:monitoria, id: 3, fk_status_monitoria_id: 1, fk_turmas_id: 1, remuneracao: 'Remunerado',
+                                          fk_matricula: "134423123")
+    
+          @monitoria4 = FactoryBot.create(:monitoria, id: 4, fk_status_monitoria_id: 1, fk_turmas_id: 2, remuneracao: 'Remunerado',
+                                          fk_matricula: "123392837")
+    
+          @turma1 = FactoryBot.create(:turma, id:1, qnt_bolsas: 4, turma: 'C')
+          @turma2 = FactoryBot.create(:turma, id:2, qnt_bolsas: 2, turma: 'B')
+    
+        end
+    
+        it 'Todos os pedidos de monitoria sao aceitos, pois existe bolsas suficiente para todos os alunos' do
+          get :alocar_bolsa
+          monitorias = Monitoria.where(remuneracao: "Remunerado")
+          monitorias.each_with_index do |monitoria|
+            expect(monitoria.fk_status_monitoria_id).to eq(3)
+          end
+        end
+        
+        it 'Numero de bolsas que sobraram nas turmas depois da alocacao' do
+          get :alocar_bolsa
+          @turmas = Turma.all_turmas
+          array = Array.new(@turmas.size)
+          @turmas.each_with_index do |a, i|
+            array[i] = a.qnt_bolsas
+          end
+          expect(array[0]).to eq(2)
+          expect(array[1]).to eq(0)
+        end
+      end
+
+      describe 'Aluno recusado por falta de vaga' do 
+        before :each do
+          @user1 = FactoryBot.create(:user, id: 1, matricula: "180103016", cpf: "06745907160", rg: "3235843", email: "profjoao@gmail.com")
+          @monitoria1 = FactoryBot.create(:monitoria, fk_status_monitoria_id: 1, fk_turmas_id: 1, remuneracao: 'Remunerado', fk_matricula: "111111111")
+          @turma1 = FactoryBot.create(:turma, id:1, qnt_bolsas: 0, turma: 'C')
+        end
+        
+        it 'Aluno recusado por não ter vaga na turma' do
+          get :alocar_bolsa
+          monitorias = Monitoria.where(remuneracao: "Remunerado")
+          monitorias.each_with_index do |monitoria|
+            expect(monitoria.fk_status_monitoria_id).to eq(2)
+          end
+        end
+      end
+
+      describe 'Aluno recusado por falta de vaga' do 
+        before :each do
+          @user1 = FactoryBot.create(:user, id: 1, matricula: "180103016", cpf: "06745907160", rg: "3235843", email: "profjoao@gmail.com")
+          @user2 = FactoryBot.create(:user, id: 2, matricula: "159899212", cpf: "05716083102", rg: "3343143", email: "aluno2@gmail.com")
+          @monitoria1 = FactoryBot.create(:monitoria, fk_status_monitoria_id: 1, fk_turmas_id: 1, remuneracao: 'Remunerado', fk_matricula: "180103016")
+          @monitoria2 = FactoryBot.create(:monitoria, id:2, fk_status_monitoria_id: 1, fk_turmas_id: 1, remuneracao: 'Remunerado', fk_matricula: "159899212")
+          @turma1 = FactoryBot.create(:turma, id:1, qnt_bolsas: 2, turma: 'A')
+        end
+        
+        it 'Alunos aceitos' do
+          get :alocar_bolsa
+          monitorias = Monitoria.where(remuneracao: "Remunerado")
+          monitorias.each_with_index do |monitoria|
+            expect(monitoria.fk_status_monitoria_id).to eq(3)
+          end
+        end
+
+        it 'Numero de bolsas que sobraram nas turmas depois da alocacao' do
+          get :alocar_bolsa
+          turma = Turma.find_by_id(@turma1.id)
+          expect(turma.qnt_bolsas).to eq(0)
+        end
+
+      end
+    end
   end
 
   describe 'Not Logged User' do
