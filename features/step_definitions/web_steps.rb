@@ -120,7 +120,7 @@ Dado /^(?:|que )o banco possui uma disciplina$/ do
     :c_teor => 2,
     :c_est => 4,
     :c_ext => 0,
-    :monitoria => "true")
+    :monitoria => true)
 end
 
 Dado /^(?:|que )o banco possui uma disciplina que nao permite monitoria$/ do

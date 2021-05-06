@@ -19,7 +19,7 @@ Admin.create(id: 1, name: "Admin UnB", email: "secretaria@cic.unb.br", password:
 ######################
 Disciplina.create([{nome: "APC", 
                     fk_tipo_disciplina_id: 1, c_prat: 2, c_teor: 4, 
-                    cod_disciplina: 1}])
+                    cod_disciplina: 1, monitoria: true}])
 
 
 Disciplina.create([{nome: "ED", 
