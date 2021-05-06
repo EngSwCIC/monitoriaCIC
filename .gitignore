@@ -65,3 +65,5 @@
 # *.ipr
 
 # End of https://www.gitignore.io/api/ruby,rails,rubymine
+
+/coverage/

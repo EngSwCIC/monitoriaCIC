@@ -1,37 +1,56 @@
-
 # language: pt
+  Funcionalidade: Eu, como Coordenador, quero poder editar o status de disponibilidade de uma turma para a monitoria, para indicar para os alunos quais disciplinas podem receber monitor.
 
-Épico: Coordenador pode selecionar as disciplinas e/ou turmas que podem ou não receber monitores 
+    Cenário de Fundo:
+      Dado que o banco possui um adminstrador
+      E que eu estou na página de login de usuários
+      E que o "admin" está logado
 
-Funcionalidade: Eu, como Coordenador, quero poder editar o status de disponibilidade de uma turma para a monitoria, para indicar para os alunos quais disciplinas podem receber monitor.
+      Cenário: Admin atualiza a disciplina 1 (happy path)
+        Dado que o banco possui uma disciplina
+        E que eu estou na página de disciplinas
+        Quando eu clico em "Editar Disciplina"
+        Então eu devo estar na página de edição de disciplina
+        Quando eu preencho o formulário com:
+          | Nome                  | Banco de Dados  |
+          | Créditos Práticos     | 2      |
+          | Créditos Teóricos     | 2      |
+          | Créditos Est          | 2      |
+          | Créditos Ext          | 2      |
+        E eu aperto em "Atualizar"
+        Então eu devo estar na página de disciplinas
+        E eu devo ver "Disciplina atualizada!"
 
-Cenário de Fundo:
-    Dado que usuário está logado com o perfil de Coordenador
-    E que o usuário está na página inicial de Coordenador
+      Cenário: Admin deixa o formulário de edição da disciplina 1 em branco (sad path)
+        Dado que o banco possui uma disciplina
+        E que eu estou na página de disciplinas
+        Quando eu clico em "Editar Disciplina"
+        Então eu devo estar na página de edição de disciplina
+        Quando eu preencho o formulário com:
+          | Nome                  | Banco de Dados  |
+          | Créditos Práticos     |       |
+          | Créditos Teóricos     |       |
+          | Créditos Est          |       |
+          | Créditos Ext          |       |
+        E eu aperto em "Atualizar"
+        Então eu devo ver "Ocorreu um erro ao atualizar a disciplina."
 
-Cenário: O coordenador atualiza uma disciplina (happy path)
-    Quando o usuário acessa o menu "Disciplinas"
-    E aciona o botão "Editar Disciplina"
-    Quando está na página de edição de disciplina
-    E preenche os campos <nome>,<creditosPraticos>,<creditosTeoricos>,<creditosEst>,<creditosExt>,<tipo>,<monitoria>
-    E envia o formulario para atualizar a disciplina
-    Quando a disciplina é atualizada no sistema
-    Então o usuário deve ver a mensagem "Disciplina atualizada!" na página de listagem de disciplinas.
+      Cenário: Admin disponibiliza monitoria para a disciplina 1 (happy path)
+        Dado que o banco possui uma disciplina que nao permite monitoria
+        E que eu estou na página de disciplinas
+        Quando eu clico em "Editar Disciplina"
+        Então eu devo estar na página de edição de disciplina
+        E eu marco a checkbox de "Monitoria"
+        E eu aperto em "Atualizar"
+        Então eu devo estar na página de disciplinas
+        E eu devo ver "Disciplina atualizada!"
 
-    Exemplos:
-    | nome | creditosPraticos  | creditosTeoricos  | creditosEst | creditosExt |     tipo         | monitoria |
-    |  APC  |        6         |         6        |      6      |       6    |  Obrigatória     |  checked  |
-    |  APC  |        6         |         6        |      6      |       6    |  Obrigatória     |  checked  |
-    |  BD  |        6          |         6         |      6       |       6     |  Obrigatória      |  uncheked  |
-
-Cenário: O coordenador atualiza o nome da disciplina com outra existente (sad path)
-    Quando que o usuário acessa o menu "Disciplinas"
-    E aciona o botão "Editar Disciplina"
-    Quando está na página de edição de disciplina
-    E preenche o campo nome com um <nome> já existente
-    E envia o formulario para atualizar a disciplina
-    Então a disciplina não é atualizada no sistema
-
-    Exemplos:
-        | nome |
-        | APC  |
+      Cenário: Admin indisponibiliza monitoria para a disciplina 1 (happy path)
+        Dado que o banco possui uma disciplina
+        E que eu estou na página de disciplinas
+        Quando eu clico em "Editar Disciplina"
+        Então eu devo estar na página de edição de disciplina
+        E eu marco a checkbox de "Monitoria"
+        E eu aperto em "Atualizar"
+        Então eu devo estar na página de disciplinas
+        E eu devo ver "Disciplina atualizada!"

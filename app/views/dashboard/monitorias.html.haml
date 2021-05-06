@@ -125,7 +125,7 @@
                   - @disciplinas = Disciplina.all_disciplinas
                   - @disciplinas.each do |disciplina|
                     - @turmas.each do |turma|
-                      - if disciplina.cod_disciplina == turma.fk_cod_disciplina
+                      - if ((disciplina.cod_disciplina == turma.fk_cod_disciplina) && (disciplina.monitoria == true))
                         .card
                           .card-body
                             %h5
