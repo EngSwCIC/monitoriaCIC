@@ -14,8 +14,8 @@ development:
     adapter: postgresql
     encoding: utf8
     database: monitoriacic_development
-    username: postgres
-    password: lucas
+    username: 
+    password: 
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -24,20 +24,20 @@ test: &test
     adapter: postgresql
     encoding: utf8
     database: monitoriacic_development
-    username: postgres
-    password: lucas
+    username: 
+    password: 
 
 production:
     adapter: postgresql
     encoding: utf8
     database: monitoriacic_development
-    username: postgres
-    password: lucas
+    username: 
+    password: 
 
 cucumber:
     adapter: postgresql
     encoding: utf8
     database: monitoriacic_development
-    username: postgres
-    password: lucas
+    username: 
+    password: 
 

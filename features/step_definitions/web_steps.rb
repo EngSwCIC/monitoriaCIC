@@ -112,6 +112,7 @@ end
 
 Dado /^(?:|que )o banco possui uma disciplina$/ do
   Disciplina.create!(
+    :id => 1,
     :cod_disciplina => 1,
     :nome => "Engenharia de Software",
     :fk_tipo_disciplina_id => 1,
@@ -256,6 +257,15 @@ Quando /^(?:|eu )aperto enter no teclado$/ do
   page.click('Ok')
 end
 
+Quando /^(?:|eu )marco a checkbox de "([^"]*)"$/ do |label|
+  page.has_checked_field?('checkbox').should be false
+
+  find('//*[@id="checkbox"]').check
+
+  page.has_checked_field?('checkbox').should be true
+
+end
+
 Então /^(?:|eu )devo estar na (.+)$/ do |page_name|
   current_path = URI.parse(current_url).path
   if current_path.respond_to? :should
@@ -372,17 +382,11 @@ end
 
 
 
-Dado('que usuÃ¡rio estÃ¡ logado com o perfil de Coordenador') do
-  
-  
-end
-
-
 
 # end
 Quando('o usuÃ¡rio acessa o menu {string}') do |string|
 
-  # expect(page).to have_link("Disciplinas", visible: true)
+  expect(page).to have_link("Disciplinas", visible: true)
 
   page.should have_content(string)
  
@@ -398,7 +402,7 @@ Quando('estÃ¡ na pÃ¡gina de ediÃ§Ã£o de disciplina') do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
-Quando('preenche os campo checked') do
+Quando('preenche o campo checked') do
   pending # Write code here that turns the phrase above into concrete actions
 end
 

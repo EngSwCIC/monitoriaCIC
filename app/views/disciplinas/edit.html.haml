@@ -13,10 +13,7 @@
     .col
       -if flash[:danger]
         .alert.alert-danger
-          - flash[:danger].each do |msg|
-            %ul
-              %li
-                =msg
+          = flash[:danger]
       -if flash[:notice]
         .alert.alert-success
           = flash[:notice]
@@ -47,10 +44,16 @@
           .col-sm-10
             = text_field :disciplina, :c_ext, :class => "form-control", :autocomplete => "off"
 
+
         .form-group.row
           = label :disciplina, :fk_tipo_disciplina_id, "Tipo", class: "col-sm-2 col-form-label"
           .col-sm-10
             = select :disciplina, :fk_tipo_disciplina_id, options_for_select(Disciplina.all_tipos)
+
+        .form-group.row
+          = label :disciplina, :monitoria, "Monitoria", class: "col-sm-2 col-form-label"
+          .col-sm-10
+            = check_box :disciplina, :monitoria, {:class => "form-control", :id => "checkbox"}
 
         %br
         = submit_tag 'Atualizar', class: "btn btn-outline-primary btn-block"

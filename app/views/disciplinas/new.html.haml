@@ -48,6 +48,11 @@
           .col-sm-10
             = select :disciplina, :fk_tipo_disciplina_id, options_for_select(Disciplina.all_tipos)
 
+        .form-group.row
+          = label :disciplina, :monitoria, "Monitoria", class: "col-sm-2 col-form-label"
+          .col-sm-10
+            = check_box :disciplina, :monitoria, {:class => "form-control"}
+
         %br
         = submit_tag 'Cadastrar', class: "btn btn-outline-primary btn-block"
     .col-3

@@ -1,24 +1,37 @@
 # language: pt
-# Dado que usuário está logado com o perfil de Coordenador
-
-Funcionalidade: Eu, como Coordenador, quero poder editar o status de disponibilidade de uma turma para a monitoria, para indicar para os alunos quais disciplinas podem receber monitor.
+  Funcionalidade: Eu, como Coordenador, quero poder editar o status de disponibilidade de uma turma para a monitoria, para indicar para os alunos quais disciplinas podem receber monitor.
 
     Cenário de Fundo:
-        Dado que o "admin" está logado
-        E eu estou na página de "dashboard" do usuário
-        # E que o admin está na página inicial de Coordenador
+      Dado que o banco possui um adminstrador
+      E que o banco possui uma disciplina
+      E que eu estou na página de login de usuários
+      E que o "admin" está logado
 
-    Cenário: O coordenador atualiza uma disciplina (happy path)
-        Quando o usuário acessa o menu "Disciplinas"
-        E aciona o botão "Editar Disciplina"
-        Quando está na página de edição de disciplina
-        E preenche os campo <monitoria>
-        E envia o formulario para atualizar a disciplina
-        Quando a disciplina é atualizada no sistema
-        Então o usuário deve ver a mensagem "Disciplina atualizada!" na página de listagem de disciplinas.
+    Cenário: Admin edita o status de disponibilidade da disciplina 1 (happy path)
+        Dado que está na página de disciplinas
+        Quando eu clico em "Editar Disciplina"
+        Então eu devo estar na página de edição de disciplina
+        Quando eu preencho o formulário com:
+          | Nome                  | Banco de Dados  |
+          | Créditos Práticos     | 2      |
+          | Créditos Teóricos     | 2      |
+          | Créditos Est          | 2      |
+          | Créditos Ext          | 2      |
+        E eu marco a checkbox de "Monitoria"
+        E eu aperto em "Atualizar"
+        Então eu devo estar na página de disciplinas
+        E eu devo ver "Disciplina atualizada!"
 
-    Exemplos:
-    | nome | creditosPraticos  | creditosTeoricos | creditosEst | creditosExt |     tipo         | monitoria |
-    |  APC  |        6         |         6        |      6      |       6    |  Obrigatória     |  checked  |
-    |  APC  |        6         |         6        |      6      |       6    |  Obrigatória     |  checked  |
-    |  BD  |        6          |         6        |      6      |       6    |  Obrigatória      |  uncheked  |
+      Cenário: Admin deixa o formulário de edição da disciplina 1 em branco (sad path)
+        Dado que está na página de disciplinas
+        Quando eu clico em "Editar Disciplina"
+        Então eu devo estar na página de edição de disciplina
+        Quando eu preencho o formulário com:
+          | Nome                  | Banco de Dados  |
+          | Créditos Práticos     |       |
+          | Créditos Teóricos     |       |
+          | Créditos Est          |       |
+          | Créditos Ext          |       |
+        E eu marco a checkbox de "Monitoria"
+        E eu aperto em "Atualizar"
+        Então eu devo ver "Ocorreu um erro ao atualizar a disciplina."

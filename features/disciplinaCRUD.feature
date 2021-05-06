@@ -21,7 +21,7 @@
         Dado que o "admin" está logado
         E que está na página de disciplinas
         Quando eu clico em "Editar Disciplina"
-        Então eu devo estar na página de edição da disciplina 1
+        Então eu devo estar na página de edição de disciplina
         Quando eu preencho o formulário com:
           | Nome                  | Banco de Dados  |
           | Créditos Práticos     | 2      |
