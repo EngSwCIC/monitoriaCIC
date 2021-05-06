@@ -76,11 +76,11 @@ describe Monitoria do
   describe '#scraping' do
 		
     it 'should make the scraping of the pdf and validate the data' do
-			expect(Monitoria.scraping('historico_180112601.pdf', 'CIC0002')).to eq('Recusado pela mencao')
-		end
+		expect(Monitoria.scraping('historico_180112601.pdf', 'CIC0002')).to eq('Recusado pela mencao')
+    end
 	
-		it 'should make the scraping of the pdf and validate the data' do
-			expect(Monitoria.scraping('historico_180112601.pdf', 'CIC0004')).to eq('Aceito')
-		end
+    it 'should make the scraping of the pdf and validate the data' do
+	        expect(Monitoria.scraping('historico_180112601.pdf', 'CIC0004')).to eq('Aceito')
+    end
   end
 end
