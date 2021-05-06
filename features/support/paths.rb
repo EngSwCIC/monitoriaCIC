@@ -68,7 +68,7 @@ module NavigationHelpers
     
 
     when /^página de edição de disciplina$/
-      edit_disciplina_path(Disciplina.find(1))
+      edit_disciplina_path(Disciplina.find(2))
 
     when /^página de nova disciplina$/
       new_disciplina_path

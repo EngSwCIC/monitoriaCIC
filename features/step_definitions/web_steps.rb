@@ -119,12 +119,22 @@ Dado /^(?:|que )o banco possui uma disciplina$/ do
     :c_prat => 4,
     :c_teor => 2,
     :c_est => 4,
-    :c_ext => 0)
+    :c_ext => 0,
+    :monitoria => "true")
 end
 
-# Dado /^(?:|que )o banco possui uma disciplina que nao permite monitoria$/ do
-#   # TODO: implementar disciplina que não permite monitoria e inserir aqui
-# end
+Dado /^(?:|que )o banco possui uma disciplina que nao permite monitoria$/ do
+  Disciplina.create!(
+    :id => 2,
+    :cod_disciplina => 1,
+    :nome => "Software Básico",
+    :fk_tipo_disciplina_id => 1,
+    :c_prat => 2,
+    :c_teor => 2,
+    :c_est => 0,
+    :c_ext => 0,
+    :monitoria => "false")
+end
 
 Dado /^(?:|que )o banco possui uma turma cadastrada$/ do
   Turma.create!(
@@ -380,41 +390,3 @@ Então("o usuario não deve receber um email de confirmação") do
   email.should == nil
 end
 
-
-
-
-# end
-Quando('o usuÃ¡rio acessa o menu {string}') do |string|
-
-  expect(page).to have_link("Disciplinas", visible: true)
-
-  page.should have_content(string)
- 
-end
-
-Quando('aciona o botÃ£o {string}') do |string|
-
-  f.
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Quando('estÃ¡ na pÃ¡gina de ediÃ§Ã£o de disciplina') do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Quando('preenche o campo checked') do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Quando('envia o formulario para atualizar a disciplina') do
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Quando('a disciplina Ã© atualizada no sistema') do
- 
-  pending # Write code here that turns the phrase above into concrete actions
-end
-
-Então('o usuÃ¡rio deve ver a mensagem {string} na pÃ¡gina de listagem de disciplinas.') do |string|
-  pending # Write code here that turns the phrase above into concrete actions
-end

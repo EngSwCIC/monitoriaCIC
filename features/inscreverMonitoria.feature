@@ -3,14 +3,12 @@
 
     Cenário de Fundo:
       Dado que o banco possui um aluno e um professor
-      E que o banco possui uma disciplina
-      E que o banco possui uma disciplina que nao permite monitoria
       E que o banco possui duas turmas cadastradas
-      E que o banco possui uma monitoria
       E que eu estou na página de login de usuários
       E que o "aluno" está logado
 
     Cenário: O aluno efetua o processo de aplicar para monitoria (Happy Path)
+      Dado que o banco possui uma disciplina
       Quando eu clico em "Monitoria"
       Então eu devo estar na página de monitoria
       Quando eu clico em "link_1"
@@ -23,6 +21,8 @@
       E eu devo ver "Aplicaçao para monitoria enviada com sucesso!"
 
     Cenário: O aluno tenta aplicar novamente para monitoria na mesma turma de uma dada disciplina (Sad Path)
+      Dado que o banco possui uma disciplina
+      E que o banco possui uma monitoria
       Quando eu clico em "Monitoria"
       Então eu devo estar na página de monitoria
       Quando eu clico em "link_2"
@@ -35,6 +35,7 @@
       E eu devo ver "Ocorreu um erro ao cadastrar a monitoria. Nenhuma monitoria cadastrada."
 
     Cenário: O aluno tenta aplicar aplicar para uma monitoria que nao aceita monitores (Sad Path)
+      Dado que o banco possui uma disciplina que nao permite monitoria
       Quando eu clico em "Monitoria"
       Então eu devo estar na página de monitoria
-      E o link "link_3" não deve existir
+      Então eu não devo ver "Aplicar para monitoria"

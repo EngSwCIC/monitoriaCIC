@@ -29,7 +29,7 @@ Disciplina.create([{nome: "ED",
 
 puts "Seed done."
 # User.create(id: 1, name: "Aluno1", email: "aluno1@gmail.com", password: "123456",
-#                 cpf: "03638481182", rg: "2645178", matricula: "140080279")
+                # cpf: "03638481182", rg: "2645178", matricula: "140080279")
 
 # User.create(id: 2, name: "Aluno2", email: "aluno2@gmail.com", password: "123456",
 #                 cpf: "03638481111", rg: "2645111", matricula: "140080211",
@@ -40,6 +40,6 @@ puts "Seed done."
 ######################
 
 ######################
-# Turma.create([{id:1, turma: "A", professor: "Carla", fk_cod_disciplina: 1}])
+# Turma.create([{turma: "A", professor: "Carla", fk_cod_disciplina: 1}])
 ######################
 

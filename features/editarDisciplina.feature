@@ -3,7 +3,7 @@
 
     Cenário de Fundo:
       Dado que o banco possui um adminstrador
-      E que o banco possui uma disciplina
+      E que o banco possui uma disciplina que nao permite monitoria
       E que eu estou na página de login de usuários
       E que o "admin" está logado
 
