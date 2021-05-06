@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       get 'new_from_disciplina'
     end
   end
+  resources :monitorias_remunerada
   resources :reset_senhas, only: [:new, :create, :edit, :update]
 
   match "/dashboard", to: "dashboard#index", via: 'get'
@@ -35,6 +36,12 @@ Rails.application.routes.draw do
   match "/dashboard/raspar_disciplinas", to: "dashboard#raspar_disciplinas", via: 'get'
   match "/dashboard/importar_professores", to: "dashboard#importar_professores", via: 'get'
   match "/dashboard/scrape_professores", to: "dashboard#scrape_professores", via: 'get'
+  match "/dashboard/vagas_monitoria", to: "dashboard#vagas_monitoria", via: 'get'
+  match "/dashboard/monitoria_remunerada", to: "dashboard#monitoria_remunerada", via: 'get'
+  match "/dashboard/alocar_bolsa", to: "dashboard#alocar_bolsa", :via => 'get'
+  match "/dashboard/monitorias_remunerada/candidatos", to: "monitorias_remunerada#show", via: 'get'
+  get 'monitorias_remunerada/edit'
+  get 'monitorias_remunerada/show'
 
   match "/dashboard/atendimentos", to: "dashboard#atendimentos", via: [:get, :post]
   match "/dashboard/registrar_atividade", to: "dashboard#registrar_atividade", via: 'get'
