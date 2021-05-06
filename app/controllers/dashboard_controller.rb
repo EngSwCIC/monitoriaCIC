@@ -111,6 +111,54 @@ class DashboardController < ApplicationController
     redirect_to dashboard_importar_professores_path
   end
 
+  def vagas_monitoria
+    @turmas = Turma.all_turmas
+    @monitorias = Monitoria.where(fk_status_monitoria_id: 1, remuneracao: "Remunerado")
+    @pendentes = @monitorias.size
+
+  end
+
+  def monitoria_remunerada
+    @turmas = Turma.all_turmas
+    @monitores = Monitoria.where(fk_status_monitoria_id: 3, remuneracao: "Remunerado")
+    @users = User.all
+  end
+
+  def alocar_bolsa
+    @monitorias = Monitoria.where(fk_status_monitoria_id: 1, remuneracao: "Remunerado")
+    @turmas = Turma.all_turmas
+    bolsas1 = Array.new(@turmas.size)
+
+    if @monitorias.size == 0
+      flash[:danger] = "Não existe monitorias a serem alocadas, ou as monitorias já foram alocadas!"
+    else
+      flash[:notice] = "Alunos alocados com sucesso!"
+    end
+
+    @turmas.each_with_index do |a, i|
+      bolsas1[i] = a.qnt_bolsas
+    end
+
+    @turmas.each_with_index do |turma, i|
+      @monitorias.each do |monitoria|
+        if bolsas1[i] > 0 and monitoria.fk_turmas_id == turma.id
+          bolsas1[i] = bolsas1[i] - 1
+          monitoria.update!(fk_status_monitoria_id: 3)
+
+        elsif monitoria.fk_turmas_id == turma.id and bolsas1[i] == 0
+          monitoria.update!(fk_status_monitoria_id: 2)
+        end
+      end
+    end
+
+    @turmas.each_with_index do |turma, i|
+      turma.update!(qnt_bolsas: bolsas1[i])
+    end
+    
+    redirect_to dashboard_vagas_monitoria_path
+
+  end
+
   private
   def user_logged
     if !logged_in?
