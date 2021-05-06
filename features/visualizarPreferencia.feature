@@ -14,7 +14,7 @@
 
     Cenário: O professor visualiza a preferência de um monitor (Happy Path)
       Devo visualizar, em cada card de Aluno, o campo de preferência
-      O campo de preferência deve conter a média harmônica das preferências dos professores
+      O campo de preferência deve conter a média das preferências dos professores
 
     Cenário de Fundo:
       Dado que o banco possui um aluno e um professor
