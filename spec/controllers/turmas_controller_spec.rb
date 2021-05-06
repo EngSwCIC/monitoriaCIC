@@ -74,7 +74,7 @@ describe TurmasController do
           fk_vagas_id: '1'
         }
 
-        @db_disciplina = FactoryBot.create(:disciplina, cod_disciplina: '1')
+        @db_disciplina = FactoryBot.create(:disciplina, id: '1', cod_disciplina: '1')
         @db_turma = FactoryBot.create(:turma, turma: 'A', fk_cod_disciplina: '1')
         @params = {}
         @params[:turma] = @invalid_info
@@ -129,6 +129,11 @@ describe TurmasController do
         put :update, params: @params
       end
 
+      it "coordenador altera situação da monitoria" do
+        allow_any_instance_of(TurmasController).to receive(:is_admin).and_return(true)
+        expect(@db_turma.update(qnt_bolsas: '2')).to be true
+      end
+
       it 'should set the flash and redirect the user' do
         allow(Turma).to receive(:find).and_return(@db_turma)
         put :update, params: @params
@@ -140,8 +145,10 @@ describe TurmasController do
       before :each do
         @db_turma1 = FactoryBot.create(:turma, id: '1', fk_cod_disciplina: '1', turma: 'A')
         @db_turma2 = FactoryBot.create(:turma, id: '2', fk_cod_disciplina: '1', turma: 'B')
-        @disciplina = FactoryBot.create(:disciplina, cod_disciplina: '1')
-
+        @disciplina = FactoryBot.create(:disciplina, id: '1', cod_disciplina: '1')
+        @monitoria1 = FactoryBot.create(:monitoria, id: '1', fk_status_monitoria_id: 3, open: false)
+        # @monitoria2 = FactoryBot.create(:monitoria, id: '2', fk_status_monitoria_id: 3)
+        
         @invalid_info = {
           turma: 'B',
           professor: 'Genaina Nunes Rodrigues',
@@ -152,6 +159,17 @@ describe TurmasController do
         @params = {}
         @params[:turma] = @invalid_info
         @params[:id] = '1'
+
+        @invalid_info2 = {
+          turma: 'A',
+          professor: 'Genaina Nunes Rodrigues',
+          fk_cod_disciplina: '1',
+          qnt_bolsas: '0',
+          fk_vagas_id: '1'
+        }
+        @params2 = {}
+        @params2[:turma] = @invalid_info2
+        @params2[:id] = '1'
       end
 
       it 'tries to update a Turma that is not unique for a given Disciplina' do
@@ -159,6 +177,14 @@ describe TurmasController do
         expect(flash[:danger]).to include(
           "Turma B não é a única para a disciplina Engenharia de Software"
         )
+      end
+
+      it 'tries to update a Turma for a small number than the accepted monitors' do
+        put :update, params: @params2
+        expect(flash[:notice]).to eq('Turma possui uma quantidade de alunos aceito maior que a nova quantidade de vagas disponiveis!')
+        # expect(flash[:danger]).to include(
+        #   "Turma possui uma quantidade de alunos aceito maior que a nova quantidade de vagas disponiveis!"
+        # )
       end
     end
   end

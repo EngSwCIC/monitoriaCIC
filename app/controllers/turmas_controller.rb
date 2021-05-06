@@ -22,15 +22,23 @@ class TurmasController < ApplicationController
 
   def update
     @turma = Turma.find(params[:id])
-    @turma.update_attributes(turma_params)
 
-    if !@turma.errors.any?
-      flash[:notice] = 'Turma atualizada com sucesso!'
+    @monitoria = Monitoria.where(fk_turmas_id: params[:id], fk_status_monitoria_id: 3)
+    if @monitoria.length <= turma_params[:qnt_bolsas].to_i || @monitoria.length == 0
+
+      @turma.update_attributes(turma_params)
+
+      if !@turma.errors.any?
+        flash[:notice] = 'Turma atualizada com sucesso!'
+      else
+        flash[:danger] = @turma.errors.full_messages
+      end
+
+      redirect_to dashboard_turmas_path
     else
-      flash[:danger] = @turma.errors.full_messages
+      flash[:notice] = 'Turma possui uma quantidade de alunos aceito maior que a nova quantidade de vagas disponiveis!'
+      redirect_to dashboard_turmas_path
     end
-
-    redirect_to dashboard_turmas_path
   end
 
   def destroy
@@ -63,4 +71,11 @@ class TurmasController < ApplicationController
     end
     @turmas
   end
+
+  def is_admin
+		if !current_user.kind_of?(Admin)
+			flash[:danger] = "Acesso negado."
+				redirect_to dashboard_disciplinas_path
+		end
+	end
 end

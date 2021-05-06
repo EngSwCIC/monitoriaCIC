@@ -58,7 +58,7 @@ class Turma < ActiveRecord::Base
     @turmas = Turma.where(fk_cod_disciplina: fk_cod_disciplina)
 
     @turmas.each do |t|
-      if t.turma == turma
+      if t.turma == turma && t.id != id
         errors.add(:turma, "#{turma} não é a única para a disciplina #{Disciplina.find(fk_cod_disciplina).nome}")
       end
     end
