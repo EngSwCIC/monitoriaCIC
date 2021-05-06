@@ -179,10 +179,22 @@ describe MonitoriasController do
           expect(subject).to redirect_to('/dashboard/monitorias')
         end
 
-        it 'espera encontrar média de prioridades' do
+        it 'espera encontrar média de prioridades quando os dois professores avaliam' do
           put :update, params: @params
           @db_monitoria.reload
           expect(@db_monitoria.media).to be(1.5)
+        end
+
+        it 'espera encontrar média de prioridades quando apenas o professor titular avalia' do
+          put :update, params: {id: 1, prioridade: 1, prioridade_auxiliar: nil }
+          @db_monitoria.reload
+          expect(@db_monitoria.media).to be(1.0)
+        end
+
+        it 'espera encontrar média de prioridades quando apenas o professor auxiliar avalia' do
+          put :update, params: {id: 1, prioridade: nil, prioridade_auxiliar: 2 }
+          @db_monitoria.reload
+          expect(@db_monitoria.media).to be(2.0)
         end
       end
     end
