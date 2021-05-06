@@ -125,7 +125,7 @@ end
 
 Dado /^(?:|que )o banco possui uma disciplina que nao permite monitoria$/ do
   Disciplina.create!(
-    :id => 2,
+    :id => 1,
     :cod_disciplina => 1,
     :nome => "Software Básico",
     :fk_tipo_disciplina_id => 1,
@@ -268,12 +268,7 @@ Quando /^(?:|eu )aperto enter no teclado$/ do
 end
 
 Quando /^(?:|eu )marco a checkbox de "([^"]*)"$/ do |label|
-  page.has_checked_field?('checkbox').should be false
-
-  find('//*[@id="checkbox"]').check
-
-  page.has_checked_field?('checkbox').should be true
-
+  find('//*[@id="checkbox"]').click
 end
 
 Então /^(?:|eu )devo estar na (.+)$/ do |page_name|
