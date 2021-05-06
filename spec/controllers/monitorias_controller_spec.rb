@@ -184,7 +184,7 @@ describe MonitoriasController do
       end
       describe 'sad path' do
         before :each do
-          @db_monitoria = FactoryBot.create(:monitoria, id: '1')
+          @db_monitoria = FactoryBot.create(:monitoria, id: '1', open: true)
           @info = {
             remuneracao: 'Voluntária',
             fk_matricula: '140080384',
@@ -192,8 +192,7 @@ describe MonitoriasController do
             fk_turmas_id: '1',
             descricao_status: 'Nota: SS, IRA: 3',
             prioridade: '1',
-            fk_status_monitoria_id: '1',
-            open: true
+            fk_status_monitoria_id: '1'
           }
 
           @params = {}
@@ -203,7 +202,10 @@ describe MonitoriasController do
 
         it "coordenador não altera situação da monitoria" do
           allow_any_instance_of(MonitoriasController).to receive(:is_admin).and_return true
-          expect(@db_monitoria.update(fk_status_monitoria_id: '2')).to be false
+          allow(Monitoria).to receive(:find).and_return(@db_monitoria)
+          put :update, params: @params
+          expect(flash[:notice]).to eq('Período de inscrição ainda aberto!')
+          expect(subject).to redirect_to('/dashboard/monitorias')
         end  
       end
     end

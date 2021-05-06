@@ -33,10 +33,14 @@ class MonitoriasController < ApplicationController
 	end
 
 	def update
-		if @monitoria.update monitoria_params
-			redirect_to dashboard_monitorias_path, notice: "Situaçao atualizada!"
+		if @monitoria.open == false
+			if @monitoria.update monitoria_params
+				redirect_to dashboard_monitorias_path, notice: "Situaçao atualizada!"
+			else
+				render 'edit'
+			end
 		else
-			render 'edit'
+			redirect_to dashboard_monitorias_path, notice: "Período de inscrição ainda aberto!"
 		end
 	end
 

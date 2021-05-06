@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_130811) do
+ActiveRecord::Schema.define(version: 2021_05_05_232744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_130811) do
     t.text "descricao_status"
     t.integer "prioridade"
     t.integer "fk_status_monitoria_id", null: false
+    t.boolean "open", default: true
     t.index ["fk_cod_disciplina"], name: "fk_monitoria_disciplinas1_idx"
     t.index ["fk_matricula"], name: "fk_matricula_UNIQUE"
     t.index ["fk_matricula"], name: "fk_monitoria_users_idx"
