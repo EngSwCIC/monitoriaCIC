@@ -121,8 +121,8 @@
                       - if current_user.kind_of?(Admin)
                         .row
                           .col-6
-                            %a.btn.btn-outline-warning.btn-block{href: edit_disciplina_path(d.cod_disciplina)}
+                            %a.btn.btn-outline-warning.btn-block{href: edit_disciplina_path(d.id)}
                               Editar Disciplina
                           .col-6
-                            =link_to "Apagar Disciplina", disciplina_path(d.cod_disciplina), method: :delete,
+                            =link_to "Apagar Disciplina", disciplina_path(d.id), method: :delete,
                             class: 'btn btn-outline-danger btn-block'
