@@ -205,6 +205,7 @@ describe DisciplinasController do
 		describe "DELETE #destroy" do
       before :each do
         @db_disciplina = FactoryBot.create(:disciplina, cod_disciplina: '10')
+        @db_turma = FactoryBot.create(:turma, fk_cod_disciplina: '10')
         @params = {}
         @params[:id] = '1'
       end
