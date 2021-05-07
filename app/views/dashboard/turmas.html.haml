@@ -102,39 +102,31 @@
                   %br
                   %a.btn.btn-outline-success.btn-block{href: new_turma_path} Cadastrar nova turma
         .col-2
-      .row.pt-5
-        .col-10
-          .row
-            .col
-              .row
-                .col
-                  %h2 Todas as Turmas
-                  %hr
-                  - if flash[:notice]
-                    .alert.alert-success
-                      =flash[:notice]
-                  - if flash[:danger]
-                    %div{class: "alert alert-danger"}
-                      - flash[:danger].each do |msg|
-                        %ul
-                          %li
-                            =msg
-
-                  %ul.list-group
-                    - @turmas = Turma.all
-                    - @turmas.each do |t|
-                      .col-6
-                        %li.list-group-item
-                          - d = Disciplina.find_by(cod_disciplina: t.fk_cod_disciplina)
-                          Disciplina:
-                          =d.nome
-                          %br
-                          Turma:
-                          =t.turma
-                          %br
-                          Bolsas:
-                          =t.qnt_bolsas
-                          %br
-                          %a.btn.btn-outline-warning.btn-block{ href: edit_turma_path(t.id), id: "edit_#{t.id}" }Editar dados
-                          = link_to "Apagar turma", turma_path(t.id), method: :delete, class: 'btn btn-outline-danger btn-block', id: "delete_#{t.id}"
+      - if current_user.kind_of?(Admin)
+        .row.pt-5
+          .col-10
+            .row
+              .col
+                .row
+                  .col
+                    %h2 Todas as Turmas
+                    %hr
+                    %ul.list-group
+                      .row
+                        - @turmas = Turma.all
+                        - @turmas.each do |t|
+                          .col-6.pb-3
+                            %li.list-group-item
+                              - d = Disciplina.find_by(cod_disciplina: t.fk_cod_disciplina)
+                              Disciplina:
+                              =d.nome
+                              %br
+                              Turma:
+                              =t.turma
+                              %br
+                              Bolsas:
+                              =t.qnt_bolsas
+                              %br
+                              %a.btn.btn-outline-warning.btn-block{ href: edit_turma_path(t.id), id: "edit_#{t.id}" }Editar dados
+                              = link_to "Apagar turma", turma_path(t.id), method: :delete, class: 'btn btn-outline-danger btn-block', id: "delete_#{t.id}"
         .col-2
