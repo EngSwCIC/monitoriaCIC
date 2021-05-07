@@ -47,6 +47,5 @@ Rails.application.routes.draw do
   match "/faq", to: "faq#index", :via => 'get'
   match "/sobre", to: "sobre#index", :via => 'get'
   match "/professors/confirm", to: "professors#identityconfirmation", :via => 'post', as: 'confirmation'
-  match "/turmas/show/:id/:nome", to: "turmas#show", :via => 'get', as: 'show_turmas'
 
 end

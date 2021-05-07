@@ -74,6 +74,9 @@
             
         .col-4
 
+        - if (@turmas.blank?)
+          %h5 Não há turmas cadastradas para esta disciplina
+
         .row
           - @turmas.each do |d|
             .col-6

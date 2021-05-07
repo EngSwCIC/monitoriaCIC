@@ -8,12 +8,11 @@ Funcionalidade: Ir para página de turmas de uma disciplina
 Cenário de Fundo:
     Dado que o banco possui um adminstrador
     E que o "admin" está logado
-    E que eu estou na página de disciplinas
 
 Cenário: Disciplina possui turmas
     Dado que as seguintes disciplinas existem:
-    |nome|
-    |ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES|
+    |nome|cod_disciplina|
+    |ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES|CIC0004|
 
     E que os seguintes professores existem:
     |name                       |username       |email              |password     |password_confirmation  | role |
@@ -21,16 +20,18 @@ Cenário: Disciplina possui turmas
 
     E que as seguintes turmas existem:
     |turma      |professor                  |fk_cod_disciplina  |fk_vagas_id    |
-    |TA01       |Guilherme Novaes Ramos     |1                  |1              |
+    |TA01       |Guilherme Novaes Ramos     |4                  |1              |
 
-    Quando eu clico em "Ver Turmas" dentro de "ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES"
-    Então eu devo estar na página da turma "ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES"
+    E que eu estou na página de disciplinas
+    Quando eu clico em "Ver Turmas" dentro da seção "ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES"
+    Então eu devo estar na página de informações da disciplina "ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES"
 
 Cenário: Disciplina não possui turmas
     Dado que as seguintes disciplinas existem:
-    |nome|
-    |ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES|
+    |nome|cod_disciplina|
+    |ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES|CIC0004|
 
-    Quando eu clico em "Ver Turmas" dentro de "ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES"
-    Então eu devo estar na página da turma "ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES"
-    E eu devo ver "Não há turmas cadastradas para essa disciplina"
+    E que eu estou na página de disciplinas
+    Quando eu clico em "Ver Turmas" dentro da seção "ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES"
+    Então eu devo estar na página de informações da disciplina "ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES"
+    E eu devo ver "Não há turmas cadastradas para esta disciplina"

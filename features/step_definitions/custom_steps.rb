@@ -62,6 +62,8 @@ Então('eu devo ver os seguintes itens somente uma vez:') do |table|
     end
 end
 
-Quando('eu clico em {string} dentro de {string}') do |link, parent|
-    with_scope(parent) { click_link(link) }
+Quando('eu clico em {string} dentro da seção {string}') do |link, parent|
+    within(:xpath, "//div[h5[text()='#{parent}']]") do
+        click_link(link)
+    end
 end

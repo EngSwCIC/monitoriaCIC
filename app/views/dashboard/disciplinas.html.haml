@@ -127,5 +127,5 @@
                             =link_to "Apagar Disciplina", disciplina_path(d.cod_disciplina), method: :delete,
                             class: 'btn btn-outline-danger btn-block'
                           .col-4
-                            %a.btn.btn-outline-primary.btn-block{href: show_turmas_path(d.id,d.nome)}
+                            %a.btn.btn-outline-primary.btn-block{href: disciplina_path(d.id)}
                               Ver Turmas

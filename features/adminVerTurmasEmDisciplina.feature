@@ -9,10 +9,8 @@ Cenário de Fundo:
     Dado que o banco possui um adminstrador
     E que o "admin" está logado
     E que as seguintes disciplinas existem:
-    |nome|                                          |id |
-    |ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES       | 1 |
-
-    E que eu estou na página da turma "ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES"
+    |nome                                           |cod_disciplina |id |
+    |ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES       |CIC0004        |1  |
 
 Cenário: Disciplina possui turmas
     Dado que os seguintes professores existem:
@@ -23,7 +21,7 @@ Cenário: Disciplina possui turmas
     |turma      |professor                  |fk_cod_disciplina  |fk_vagas_id    |
     |TA01       |Guilherme Novaes Ramos     |1                  |1              |
 
-    Quando eu clico em "Ver Turmas" dentro de "ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES"
+    E que eu estou na página de informações da disciplina "ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES"
     Então eu devo ver:
     |TA01|
 
@@ -31,4 +29,5 @@ Cenário: Disciplina possui turmas
     |Guilherme Novaes Ramos|
 
 Cenário: Disciplina não possui turmas
-    Então eu devo ver "Não há turmas cadastradas para essa disciplina"
+    Dado que eu estou na página de informações da disciplina "ALGORITMOS E PROGRAMAÇÃO DE COMPUTADORES"
+    Então eu devo ver "Não há turmas cadastradas para esta disciplina"

@@ -8,11 +8,6 @@ class TurmasController < ApplicationController
     @turma = Turma.find(params[:id])
   end
 
-  def show
-    @turmas = Turma.where(fk_cod_disciplina: params[:id])
-    @disciplina = params[:nome]
-  end
-
   def create
     @turma = Turma.create(turma_params)
 
