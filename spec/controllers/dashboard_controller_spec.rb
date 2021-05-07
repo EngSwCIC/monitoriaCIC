@@ -202,19 +202,52 @@ describe DashboardController do
       end
     end
 
-
     describe '#raspar_disciplinas' do
-      it 'should call the method raspar_matriculaweb_disciplinas that handles the web scraping and render importar_disciplinas page' do
-        get :raspar_disciplinas
-        expect(response).to redirect_to('/dashboard/importar_disciplinas')
 
-        tradutores = Disciplina.find_by_cod_disciplina(116459)
-        expect(tradutores.nome).to match(/Tradutores/)
+      describe 'Happy path' do
 
-        engsoft = Disciplina.find_by_cod_disciplina(116441)
-        expect(engsoft.nome).to match(/Engenharia De Software/)
-        expect(engsoft.c_teor).to eq(4)
+        before :each do
+          @file = fixture_file_upload('spec/fixtures/turmas_test_happy.html', 'text/html')
+        end
+
+        it 'should call the method parse_turmas_file' do
+          expect_any_instance_of(DashboardController).to receive(:parse_turmas_file)
+          post :raspar_disciplinas, params: {arquivo_turmas: @file}, as: :json
+          # expect(response).to redirect_to('/dashboard/importar_disciplinas')
+        end
+
+        it 'should call the method criar_professor_com_valores_padroes at least once' do
+          expect_any_instance_of(DashboardController).to receive(:criar_professor_com_valores_padroes).at_least(:once)
+          post :raspar_disciplinas, params: {arquivo_turmas: @file}, as: :json
+        end
+
+        it 'should call the method criar_disciplina_com_valores_padroes at least once' do
+          expect_any_instance_of(DashboardController).to receive(:criar_disciplina_com_valores_padroes).at_least(:once)
+          post :raspar_disciplinas, params: {arquivo_turmas: @file}, as: :json
+        end
+
+        it 'should call the method criar_turma_a_partir_de_parametros at least once' do
+          expect_any_instance_of(DashboardController).to receive(:criar_turma_a_partir_de_parametros).at_least(:once)
+          post :raspar_disciplinas, params: {arquivo_turmas: @file}, as: :json
+        end
+
+        it 'should render the importar_disciplinas view' do
+          post :raspar_disciplinas, params: {arquivo_turmas: @file}, as: :json
+          expect(response).to redirect_to('/dashboard/importar_disciplinas')
+        end
+
       end
+
+      describe 'Sad path' do
+
+        it 'should redirect back to importar_disciplinas and show an error message if no file is selected' do
+          post :raspar_disciplinas, params: {arquivo_turmas: nil}, as: :json
+          expect(response).to redirect_to('/dashboard/importar_disciplinas')
+          expect(flash[:danger]).to eq('Por favor, selecionar um arquivo')
+        end
+
+      end
+
     end
 
     

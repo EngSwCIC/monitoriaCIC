@@ -156,6 +156,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_130811) do
   create_table "turmas", force: :cascade do |t|
     t.string "turma", null: false
     t.string "professor", null: false
+    t.string "professor_aux", default: ""
     t.integer "fk_cod_disciplina", null: false
     t.integer "fk_status_turma_id", default: 3, null: false
     t.integer "qnt_bolsas", default: 0, null: false

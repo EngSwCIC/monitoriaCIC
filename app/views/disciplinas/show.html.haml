@@ -1,0 +1,92 @@
+%br
+%br
+.container-fluid
+  .row
+    %nav.col-md-2.d-none.d-md-block.bg-light.sidebar{style: 'margin-top: 40px'}
+      .sidebar-sticky
+        %ul.nav.flex-column
+          %li.nav-item
+            %a.nav-link{href: dashboard_path}
+              %span{'data-feather': "home"}
+              Dashboard
+              %span.sr-only (current)
+          -if current_user.kind_of?(Admin)
+            %li.nav-item
+              %a.nav-link.active{href: dashboard_disciplinas_path}
+                %span{'data-feather': "file"}
+                Disciplinas
+          - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
+            %li.nav-item
+              %a.nav-link{href: dashboard_monitorias_path}
+                %span{'data-feather': "github"}
+                Monitoria
+
+          -if current_user.kind_of?(Professor)
+            %ul.nav.flex-column.mb-2
+              %li.nav-item
+                %a.nav-link{href: dashboard_turmas_path}
+                  %span{'data-feather': "edit"}
+                  Turmas
+
+          -if current_user.kind_of?(Admin)
+            %ul.nav.flex-column.mb-2
+              %li.nav-item
+                %a.nav-link{href: dashboard_apagar_alunos_path}
+                  %span{'data-feather': "trash"}
+                  Apagar alunos
+
+          -if current_user.kind_of?(Admin)
+            %ul.nav.flex-column.mb-2
+              %li.nav-item
+                %a.nav-link{href: dashboard_importar_professores_path}
+                  %span{'data-feather': "users"}
+                  Importar lista de professores
+
+        -unless current_user.kind_of?(Admin)
+          %h6.sidebar-heading.d-flex.justify-content-between.align-items-center.px-3.mt-4.mb-1.text-muted
+            Menu
+            %span do usuário
+            %a.d-flex.align-items-center.text-muted{href: "#"}
+              %span{'data-feather': "plus-circle"}
+
+        -if current_user.kind_of?(User) || current_user.kind_of?(Professor)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_edit_user_path}
+                %span{'data-feather': "settings"}
+                Editar Perfil
+
+        -if current_user.kind_of?(User)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_dados_bancarios_path}
+                %span{'data-feather': "dollar-sign"}
+                Dados Bancários
+
+    %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
+      .row
+        .col-3
+        .col.text-center
+          %h1 Lista de Turmas
+          %hr
+          %p.text-center
+          %h5.card-title=@disciplina
+            
+        .col-4
+
+        - if (@turmas.blank?)
+          %h5 Não há turmas cadastradas para esta disciplina
+
+        .row
+          - @turmas.each do |d|
+            .col-6
+              .card{style: 'width: 100%;'}
+                .card-body
+                  %h5
+                    Turma: 
+                    =d.turma
+                    %br
+                    Professor:
+                    =d.professor  
+              %br 
+          

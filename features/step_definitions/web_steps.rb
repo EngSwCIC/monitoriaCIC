@@ -181,7 +181,8 @@ Dado /^(?:|que o )"([^"]*)" está logado$/ do |user_type|
     )
   when "admin"
     steps %(
-      Quando eu preencho o formulário de login com:
+      Quando estou na página de login de usuários
+      E eu preencho o formulário de login com:
         | user_email    | secretaria@cic.unb.br |
         | user_password | 110492                |
       E eu aperto em "Login"
