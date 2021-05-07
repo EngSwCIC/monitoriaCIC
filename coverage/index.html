@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2021-05-06T11:19:23-03:00">2021-05-06T11:19:23-03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2021-05-07T20:32:41-03:00">2021-05-07T20:32:41-03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="red">
-  69.73%
+  69.68%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         15.16
+         15.13
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>750</b> relevant lines,
-    <span class="green"><b>523</b> lines covered</span> and
-    <span class="red"><b>227</b> lines missed. </span>
+    <b>752</b> relevant lines,
+    <span class="green"><b>524</b> lines covered</span> and
+    <span class="red"><b>228</b> lines missed. </span>
     (<span class="red">
-  69.73%
+  69.68%
 </span>
 )
   </div>
@@ -512,12 +512,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#688715a27d5d949fc4b0b31522c1736cf4f1eff7" class="src_link" title="app/models/disciplina.rb">app/models/disciplina.rb</a></td>
-            <td class="green strong cell--number t-file__coverage">93.75 %</td>
-            <td class="cell--number">24</td>
+            <td class="yellow strong cell--number t-file__coverage">88.89 %</td>
+            <td class="cell--number">28</td>
+            <td class="cell--number">18</td>
             <td class="cell--number">16</td>
-            <td class="cell--number">15</td>
-            <td class="cell--number">1</td>
-            <td class="cell--number">0.94</td>
+            <td class="cell--number">2</td>
+            <td class="cell--number">0.89</td>
             
           </tr>
         
@@ -946,14 +946,14 @@
     <span class="group_name">Models</span>
     (<span class="covered_percent">
       <span class="yellow">
-  87.57%
+  87.13%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         59.67
+         58.98
        </span>
     </span> hits/line
     )
@@ -966,11 +966,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>169</b> relevant lines,
-    <span class="green"><b>148</b> lines covered</span> and
-    <span class="red"><b>21</b> lines missed. </span>
+    <b>171</b> relevant lines,
+    <span class="green"><b>149</b> lines covered</span> and
+    <span class="red"><b>22</b> lines missed. </span>
     (<span class="yellow">
-  87.57%
+  87.13%
 </span>
 )
   </div>
@@ -1050,12 +1050,12 @@
         
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#688715a27d5d949fc4b0b31522c1736cf4f1eff7" class="src_link" title="app/models/disciplina.rb">app/models/disciplina.rb</a></td>
-            <td class="green strong cell--number t-file__coverage">93.75 %</td>
-            <td class="cell--number">24</td>
+            <td class="yellow strong cell--number t-file__coverage">88.89 %</td>
+            <td class="cell--number">28</td>
+            <td class="cell--number">18</td>
             <td class="cell--number">16</td>
-            <td class="cell--number">15</td>
-            <td class="cell--number">1</td>
-            <td class="cell--number">0.94</td>
+            <td class="cell--number">2</td>
+            <td class="cell--number">0.89</td>
             
           </tr>
         
@@ -16092,8 +16092,8 @@
   <div class="header">
     <h3>app/models/disciplina.rb</h3>
     <h4>
-      <span class="green">
-  93.75%
+      <span class="yellow">
+  88.89%
 </span>
 
       lines covered
@@ -16102,9 +16102,9 @@
     
 
     <div class="t-line-summary">
-      <b>16</b> relevant lines.
-      <span class="green"><b>15</b> lines covered</span> and
-      <span class="red"><b>1</b> lines missed.</span>
+      <b>18</b> relevant lines.
+      <span class="green"><b>16</b> lines covered</span> and
+      <span class="red"><b>2</b> lines missed.</span>
     </div>
 
     
@@ -16209,7 +16209,7 @@
 
             
 
-            <code class="ruby">	</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -16220,40 +16220,40 @@
 
             
 
-            <code class="ruby"> 	validates_presence_of :nome</code>
+            <code class="ruby">	def self.com_monitoria</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="11">
-            <span class="hits">1</span>
+          <li class="missed" data-hits="0" data-linenumber="11">
+            
             
 
             
 
-            <code class="ruby"> 	validates_presence_of :fk_tipo_disciplina_id</code>
+            <code class="ruby">		return where(monitoria: true)</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="12">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="12">
+            
             
 
             
 
-            <code class="ruby"> 	validates_presence_of :c_prat</code>
+            <code class="ruby">	end</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="13">
-            <span class="hits">1</span>
+          <li class="never" data-hits="" data-linenumber="13">
+            
             
 
             
 
-            <code class="ruby"> 	validates_presence_of :c_teor</code>
+            <code class="ruby">	</code>
           </li>
         </div>
       
@@ -16264,7 +16264,7 @@
 
             
 
-            <code class="ruby"> 	validates_presence_of :c_est</code>
+            <code class="ruby"> 	validates_presence_of :nome</code>
           </li>
         </div>
       
@@ -16275,29 +16275,29 @@
 
             
 
-            <code class="ruby"> 	validates_presence_of :c_ext</code>
+            <code class="ruby"> 	validates_presence_of :fk_tipo_disciplina_id</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="16">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="16">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby"> 	validates_presence_of :c_prat</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="17">
-            
-            
-
+          <li class="covered" data-hits="1" data-linenumber="17">
+            <span class="hits">1</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby"> 	validates_presence_of :c_teor</code>
           </li>
         </div>
       
@@ -16308,7 +16308,7 @@
 
             
 
-            <code class="ruby"> 	validates :nome, format: { without: /[\d]+|[&#39;&quot;!¹@²#³$£%¢¨¬&amp;\*\(\)\-_\+=§`´\[\]{}\^~ªº°\?\/:;&gt;.&lt;,\|\\]+/, message: &#39;apenas letras e espaços&#39;}</code>
+            <code class="ruby"> 	validates_presence_of :c_est</code>
           </li>
         </div>
       
@@ -16319,45 +16319,12 @@
 
             
 
-            <code class="ruby"> 	validates :c_prat, format: { with: /\A[\d]+\z/, message: &quot;apenas numeros&quot; }</code>
+            <code class="ruby"> 	validates_presence_of :c_ext</code>
           </li>
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="20">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby"> 	validates :c_teor, format: { with: /\A[\d]+\z/, message: &quot;apenas numeros&quot; }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="21">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby"> 	validates :c_est, format: { with: /\A[\d]+\z/, message: &quot;apenas numeros&quot; }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="covered" data-hits="1" data-linenumber="22">
-            <span class="hits">1</span>
-            
-
-            
-
-            <code class="ruby"> 	validates :c_ext, format: { with: /\A[\d]+\z/, message: &quot;apenas numeros&quot; }</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="never" data-hits="" data-linenumber="23">
+          <li class="never" data-hits="" data-linenumber="20">
             
             
 
@@ -16368,7 +16335,84 @@
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="24">
+          <li class="never" data-hits="" data-linenumber="21">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="22">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby"> 	validates :nome, format: { without: /[\d]+|[&#39;&quot;!¹@²#³$£%¢¨¬&amp;\*\(\)\-_\+=§`´\[\]{}\^~ªº°\?\/:;&gt;.&lt;,\|\\]+/, message: &#39;apenas letras e espaços&#39;}</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="23">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby"> 	validates :c_prat, format: { with: /\A[\d]+\z/, message: &quot;apenas numeros&quot; }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="24">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby"> 	validates :c_teor, format: { with: /\A[\d]+\z/, message: &quot;apenas numeros&quot; }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="25">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby"> 	validates :c_est, format: { with: /\A[\d]+\z/, message: &quot;apenas numeros&quot; }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="26">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby"> 	validates :c_ext, format: { with: /\A[\d]+\z/, message: &quot;apenas numeros&quot; }</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="27">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="28">
             
             
 
