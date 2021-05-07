@@ -147,7 +147,6 @@ describe TurmasController do
         @db_turma2 = FactoryBot.create(:turma, id: '2', fk_cod_disciplina: '1', turma: 'B')
         @disciplina = FactoryBot.create(:disciplina, id: '1', cod_disciplina: '1')
         @monitoria1 = FactoryBot.create(:monitoria, id: '1', fk_status_monitoria_id: 3, open: false)
-        # @monitoria2 = FactoryBot.create(:monitoria, id: '2', fk_status_monitoria_id: 3)
         
         @invalid_info = {
           turma: 'B',
@@ -182,9 +181,6 @@ describe TurmasController do
       it 'tries to update a Turma for a small number than the accepted monitors' do
         put :update, params: @params2
         expect(flash[:notice]).to eq('Turma possui uma quantidade de alunos aceito maior que a nova quantidade de vagas disponiveis!')
-        # expect(flash[:danger]).to include(
-        #   "Turma possui uma quantidade de alunos aceito maior que a nova quantidade de vagas disponiveis!"
-        # )
       end
     end
   end
