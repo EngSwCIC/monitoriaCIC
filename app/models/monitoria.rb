@@ -1,5 +1,20 @@
 class Monitoria < ApplicationRecord
 
+    after_save :send_resultado_monitoria_user
+    after_save :send_resultado_monitoria_prof
+    
+    def send_resultado_monitoria_user
+    	if(self.fk_status_monitoria_id == 3)
+    		MonitoriaMailer.with(resultado: self).resultado_monitoria_user.deliver_now!
+    	end
+    end
+    
+    def send_resultado_monitoria_prof
+    	if(self.fk_status_monitoria_id == 3)
+    		MonitoriaMailer.with(resultado: self).resultado_monitoria_prof.deliver_now!
+    	end
+    end
+
 	def self.all_disciplinas
  		@disciplinas = Array.new
  		Disciplina.find_each do |d|
