@@ -125,6 +125,7 @@ end
 
 Dado /^(?:|que )o banco possui uma disciplina$/ do
   Disciplina.create!(
+    id: 1,
     :cod_disciplina => 1,
     :nome => "Engenharia de Software",
     :fk_tipo_disciplina_id => 1,
