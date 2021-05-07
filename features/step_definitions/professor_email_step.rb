@@ -1,29 +1,35 @@
 Dado('que o banco possui varias disciplinas.') do
-  Disciplina
+  @disciplina = Disciplina.find_by_id(1)
 end
 
 Dado('que o banco possui varias turmas.') do
-  pending # Write code here that turns the phrase above into concrete actions
+  @turma = Turma.find_by_id(1)
 end
 
 Dado('que o banco possui alunos e professores.') do
-  pending # Write code here that turns the phrase above into concrete actions
+  @user = User.find_by_id(1)
+  @prof1 = Professor.find_by_id(1)
+  @prof2 = Professor.find_by_id(2)
 end
 
 Dado('que o banco possui as monitorias processadas por aluno\/turma.') do
-  pending # Write code here that turns the phrase above into concrete actions
+  @monitoria = Monitoria.find_by_id(1)
 end
 
 Dado('que o nome do professor e da turma estão na lista') do
-  pending # Write code here that turns the phrase above into concrete actions
+  @monitoria = Monitoria.find_by_id(1)
+  @user = User.find_by_matricula(@monitoria.fk_matricula)
+  @turma = Turma.find(@monitoria.fk_turmas_id)
+  @professor = Professor.find_by_name(@turma.professor)
 end
 
 Dado('que um ou vários alunos foram processados para essa turma') do
-  pending # Write code here that turns the phrase above into concrete actions
+  @monitoria = Monitoria.find_by_id(1)
+  @user = User.find_by_matricula(@monitoria.fk_matricula)
 end
 
 Dado('que estou na página de processamento') do
-  pending # Write code here that turns the phrase above into concrete actions
+  check(1+1==3)
 end
 
 Quando('eu apertar o botão {string}') do |string|
