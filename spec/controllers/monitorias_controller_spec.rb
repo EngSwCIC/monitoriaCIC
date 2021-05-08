@@ -76,7 +76,6 @@ describe MonitoriasController do
             fk_cod_disciplina: '1',
             fk_turmas_id: '1',
             descricao_status: 'Nota: SS, IRA: 3',
-            prioridade: '1',
             fk_status_monitoria_id: '1'
           }
 
@@ -89,6 +88,11 @@ describe MonitoriasController do
           expect_any_instance_of(MonitoriasController).to receive(:monitoria_params)
             .and_return @params[:monitoria]
           post :create, params: @params
+        end
+
+        it 'Cria monitoria com média de prioridade 0' do
+          post :create, params: @params
+          expect(@monitoria.media).to be(0.0)
         end
 
         it 'Cria monitoria no banco' do
@@ -179,10 +183,23 @@ describe MonitoriasController do
           expect(subject).to redirect_to('/dashboard/monitorias')
         end
 
-        it 'espera encontrar média de prioridades' do
+        it 'espera encontrar média de prioridades quando os dois professores avaliam' do
           put :update, params: @params
           @db_monitoria.reload
           expect(@db_monitoria.media).to be(1.5)
+        end
+        it 'espera encontrar média de prioridades quando apenas o professor titular avalia' do
+          @params[:monitoria][:prioridade_auxiliar] = nil
+          put :update, params: @params
+          @db_monitoria.reload
+          expect(@db_monitoria.media).to be(1.0)
+        end
+
+        it 'espera encontrar média de prioridades quando apenas o professor auxiliar avalia' do
+          @params[:monitoria][:prioridade] = nil
+          put :update, params: @params
+          @db_monitoria.reload
+          expect(@db_monitoria.media).to be(2.0)
         end
       end
     end
