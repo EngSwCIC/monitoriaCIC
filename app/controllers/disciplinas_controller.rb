@@ -24,6 +24,7 @@ class DisciplinasController < ApplicationController
 		if @disciplina.update disciplina_params
 			redirect_to dashboard_disciplinas_path, notice: "Disciplina atualizada!"
 		else
+			flash[:danger] = "Ocorreu um erro ao atualizar a disciplina."
 			render 'edit'
 		end
 	end
@@ -45,7 +46,7 @@ class DisciplinasController < ApplicationController
 
 	private
 	def disciplina_params
-		params.require(:disciplina).permit(:nome, :fk_tipo_disciplina_id, :c_prat, :c_teor, :c_est, :c_ext)
+		params.require(:disciplina).permit(:nome, :fk_tipo_disciplina_id, :c_prat, :c_teor, :c_est, :c_ext, :monitoria)
 	end
 
 	def find_disciplina

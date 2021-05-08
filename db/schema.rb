@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_130811) do
+
+ActiveRecord::Schema.define(version: 2021_05_05_021717) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +71,7 @@ ActiveRecord::Schema.define(version: 2019_12_10_130811) do
     t.integer "c_est", default: 0, null: false
     t.integer "c_ext", default: 0, null: false
     t.integer "cod_disciplina", default: 0, null: false
+    t.boolean "monitoria", default: false
     t.index ["cod_disciplina"], name: "disciplinas_cod_disciplina_index"
     t.index ["fk_tipo_disciplina_id"], name: "fk_disciplinas_tipo_disciplina1_idx"
   end

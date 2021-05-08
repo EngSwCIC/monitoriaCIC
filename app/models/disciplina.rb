@@ -7,6 +7,10 @@ class Disciplina < ApplicationRecord
 		order(:nome).all
 	end
 
+	def self.com_monitoria
+		return where(monitoria: true)
+	end
+	
  	validates_presence_of :nome
  	validates_presence_of :fk_tipo_disciplina_id
  	validates_presence_of :c_prat
