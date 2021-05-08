@@ -64,4 +64,6 @@
 # .idea/misc.xml
 # *.ipr
 
+/coverage
+
 # End of https://www.gitignore.io/api/ruby,rails,rubymine

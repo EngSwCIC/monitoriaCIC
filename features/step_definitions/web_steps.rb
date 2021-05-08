@@ -31,6 +31,8 @@ Dado /^(?:|que )o aluno possui uma atividade registrada$/ do
 end
 
 Dado /^(?:|que )o banco possui um aluno e um professor$/ do
+  User.destroy_all
+  Professor.destroy_all
   @aluno = {
     id: 1,
     name: 'Bernardo Costa Nascimento',
@@ -57,6 +59,7 @@ Dado /^(?:|que )o banco possui um aluno e um professor$/ do
 end
 
 Dado /^(?:|que )o banco possui uma monitoria$/ do
+  Monitoria.destroy_all
   Monitoria.create!(
     id: 1,
     remuneracao: 'Remunerado',
@@ -243,8 +246,9 @@ Quando /^(?:|eu )preencho o formulário de login com:$/ do |table|
   table.rows_hash.each {|field, value| fill_in field, :with => value}
 end
 
-Quando /^(?:|eu )preencho o formulário com:$/ do |table|
-  table.rows_hash.each {|field, value| fill_in field, :with => value}
+Quando /^(?:|eu )preencho o formulário do login com:$/ do |table|
+    fill_in 'user_email', :with => table.rows_hash[:user_email]
+    fill_in 'user_password', :with => table.rows_hash[:user_password]
 end
 
 Quando /^(?:|eu )aperto enter no teclado$/ do

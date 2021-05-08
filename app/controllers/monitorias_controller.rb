@@ -33,10 +33,15 @@ class MonitoriasController < ApplicationController
 	end
 
 	def update
-		if @monitoria.update monitoria_params
-			redirect_to dashboard_monitorias_path, notice: "Situaçao atualizada!"
+		if ((monitoria_params[:prioridade_auxiliar] == "" && monitoria_params[:prioridade] == nil ) || (monitoria_params[:prioridade] == "" && monitoria_params[:prioridade] == nil))
+			flash[:danger] = "Para atualizar, escolha uma preferêcia."
+			redirect_to dashboard_monitorias_path
 		else
-			render 'edit'
+			if @monitoria.update monitoria_params
+				redirect_to dashboard_monitorias_path, notice: "Situaçao atualizada!"
+			else
+				render 'edit'
+			end
 		end
 	end
 
@@ -47,7 +52,7 @@ class MonitoriasController < ApplicationController
 
 	private
 	def monitoria_params
-		params.require(:monitoria).permit(:remuneracao, :fk_matricula, :fk_cod_disciplina, :fk_turmas_id, :descricao_status, :prioridade, :fk_status_monitoria_id)
+		params.require(:monitoria).permit(:remuneracao, :fk_matricula, :fk_cod_disciplina, :fk_turmas_id, :descricao_status, :prioridade, :prioridade_auxiliar, :fk_status_monitoria_id)
 	end
 
 	def find_monitor
