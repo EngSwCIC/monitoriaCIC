@@ -6,6 +6,7 @@
       E que o banco possui uma disciplina cadastrada
       E que o banco possui uma turma cadastrada
       E que o banco possui pelo menos uma monitoria cadastrada
+      E que eu estou na página de login de usuários
       E que o "professor" está logado
       E que o professor esta na página de alterar monitoria
 
@@ -29,5 +30,5 @@
       Quando eu não escolho uma opção do seletor "Preferência"
       E eu aperto em "Atualizar"
       Então eu devo estar na página de monitoria
-      E devo ver "Situaçao Atualizada!"
-      E a preferência atribuída para o monitor deve ser 1, opção padrão do seletor, ou a média de 1 com a preferência de outro professor.
+      E devo ver "Para atualizar, escolha uma preferêcia."
+      E a preferência atribuída para o monitor deve ser 0.0, ou a preferência de outro professor.

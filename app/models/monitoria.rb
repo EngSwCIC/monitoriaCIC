@@ -23,15 +23,13 @@ class Monitoria < ApplicationRecord
  	end
 
 	def self.all_prioridades
-		return [['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]]
+		return [['Selecionar', nil],['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]]
  	end
 
 	def set_media
 		if self.prioridade != nil && self.prioridade_auxiliar == nil
-			puts "tenhos prioridade"
 			self.media = self.prioridade
 		elsif self.prioridade == nil && self.prioridade_auxiliar != nil
-				puts "tenho auxiliar"
 				self.media = self.prioridade_auxiliar 
 		elsif self.prioridade_auxiliar != nil && self.prioridade != nil
  			self.media = (self.prioridade.to_f + self.prioridade_auxiliar.to_f)/2

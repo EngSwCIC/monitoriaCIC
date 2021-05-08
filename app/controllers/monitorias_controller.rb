@@ -33,10 +33,15 @@ class MonitoriasController < ApplicationController
 	end
 
 	def update
-		if @monitoria.update monitoria_params
-			redirect_to dashboard_monitorias_path, notice: "Situaçao atualizada!"
+		if (monitoria_params[:prioridade_auxiliar] == "" || monitoria_params[:prioridade] == "")
+			flash[:danger] = "Para atualizar, escolha uma preferêcia."
+			redirect_to dashboard_monitorias_path
 		else
-			render 'edit'
+			if @monitoria.update monitoria_params
+				redirect_to dashboard_monitorias_path, notice: "Situaçao atualizada!"
+			else
+				render 'edit'
+			end
 		end
 	end
 
