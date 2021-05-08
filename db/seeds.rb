@@ -41,6 +41,6 @@ Professor.create!(id: 2, name: "Carla", email: "carla@unb.br", username: "carla"
 ######################
 
 ######################
-Turma.create([{id:1, turma: "A", professor: "Carla", fk_cod_disciplina: 1}])
+#Turma.create([{id:1, turma: "A", professor: "Carla", fk_cod_disciplina: 1}])
 ######################
 
