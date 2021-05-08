@@ -54,6 +54,7 @@ describe Monitoria do
 			expect{@monitoria.save}.to_not raise_error
 		end
 	end
+	
 
   describe '#all_status' do
     it 'retorna array com as situaçoes' do
