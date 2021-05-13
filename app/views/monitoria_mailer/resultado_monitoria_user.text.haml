@@ -1,10 +1,10 @@
 Resultado da monitoria
 
 Parabéns 
-= @user.name
+= User.find_by_matricula(@resultado.fk_matricula).name
 
 Você foi escolhido(a) para ser monitor da disciplina 
-= @disciplina.nome
+= Disciplina.find(Turma.find(@resultado.fk_turmas_id).fk_cod_disciplina).nome
 
 na turma
-= @turma.turma
+= Turma.find(@resultado.fk_turmas_id).turma

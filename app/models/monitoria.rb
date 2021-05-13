@@ -5,13 +5,13 @@ class Monitoria < ApplicationRecord
     
     def send_resultado_monitoria_user
     	if(self.fk_status_monitoria_id == 3)
-    		MonitoriaMailer.with(resultado: self).resultado_monitoria_user.deliver_now!
+    		MonitoriaMailer.with(resultado: self).send("resultado_monitoria_user", User.find_by_matricula(self.fk_matricula)).deliver_now!
     	end
     end
     
     def send_resultado_monitoria_prof
     	if(self.fk_status_monitoria_id == 3)
-    		MonitoriaMailer.with(resultado: self).resultado_monitoria_prof.deliver_now!
+    		MonitoriaMailer.with(resultado: self).send("resultado_monitoria_prof", Professor.find_by_name(Turma.find(self.fk_turmas_id).professor)).deliver_now!
     	end
     end
 

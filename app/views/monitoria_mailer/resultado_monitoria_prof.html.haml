@@ -1,10 +1,10 @@
 %h1 Resultado da monitoria
 
 %p Parabéns 
-= @professor.name
+= Professor.find_by_name(Turma.find(@resultado.fk_turmas_id).professor).name
 
 %p O aluno(a)
-= @user.name
+= User.find_by_matricula(@resultado.fk_matricula).name
 
 %p foi escolhido(a) para ser monitor da monitoria
-= @disciplina.nome
+= Disciplina.find(Turma.find(@resultado.fk_turmas_id).fk_cod_disciplina).nome
