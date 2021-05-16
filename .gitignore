@@ -56,6 +56,11 @@
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
 
+# Docker related files
+Dockerfile
+docker-compose.yml
+entrypoint.sh
+
 ### RubyMine Patch ###
 # Comment Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
 
