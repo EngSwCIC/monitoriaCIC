@@ -101,10 +101,10 @@ class DashboardController < ApplicationController
         turma = Hash.new()
         infoDisciplinaTurma = t.at_css('tr.componentescur').css('td')
         turma[:disciplina] = infoDisciplinaTurma[0].to_s.match(/^\s+\S+ - (.+)+ -/)[1]
-        turma[:codigo_disciplina] = infoDisciplinaTurma[0].to_s.match(/^\s+CIC(\S+) -/)[1].to_i
+        turma[:cod_disciplina] = infoDisciplinaTurma[0].to_s.match(/^\s+CIC(\S+) -/)[1].to_i
         turma[:codigo_turma] = infoDisciplinaTurma[1].to_s.match(/^\s+(\S+)\s/)[1]
         turma[:situacao] = infoDisciplinaTurma[2].to_s.match(/<td>\s+(.+?)\s+<\/td>/)[1]
-        # puts 'DEBUG   ' + turma[:nomeDisciplina] + ' ' + turma[:codigo_disciplina] + ' ' + turma[:codigoTurma] + ' ' + turma[:situacao]
+        # puts 'DEBUG   ' + turma[:nomeDisciplina] + ' ' + turma[:cod_disciplina] + ' ' + turma[:codigoTurma] + ' ' + turma[:situacao]
 
         infoProfessor = t.at_css('tr.componentescur').next_element.css('td') # Pulamos as quatro primeiras rows na tabela
         turma[:prof_principal] = infoProfessor[0].css('i').to_s.match(/<i>(.+?) \(.+\)/)
@@ -136,37 +136,23 @@ class DashboardController < ApplicationController
     end
   end
 
-  def criar_disciplina_com_valores_padroes (nome, codigo)
-    if (!Disciplina.exists?(cod_disciplina: codigo))
-      Disciplina.create([{nome: nome, 
-          fk_tipo_disciplina_id: 1, c_prat: 0, c_teor: 0, 
-          cod_disciplina: codigo}])
-    end
-  end
-
   def raspar_disciplinas
     if (params[:arquivo_turmas] == nil)
       raise "Por favor, selecionar um arquivo"
     end
-    
     array_de_turmas = parse_turmas_file(params[:arquivo_turmas])
     array_de_turmas.each do |hash|
       criar_professor_com_valores_padroes(hash[:prof_principal])
       if (hash[:prof_auxiliar] != '')
         criar_professor_com_valores_padroes(hash[:prof_auxiliar])
       end
-      begin
-        criar_disciplina_com_valores_padroes(hash[:disciplina], hash[:codigo_disciplina])
-      rescue StandardError => e
-        flash[:danger] = "#{e.message}"
-      end
+      Disciplina.criar_disciplina_com_valores_padroes(hash)
       Turma.criar_turma_a_partir_de_parametros(hash)
     end
     flash[:notice] = "Disciplinas importadas com sucesso!"
-
-    redirect_to dashboard_importar_disciplinas_path
-  rescue StandardError => e
-    flash[:danger] = e.message
+  rescue StandardError => error
+    flash[:danger] = error.message
+  ensure
     redirect_to dashboard_importar_disciplinas_path
   end  
   
