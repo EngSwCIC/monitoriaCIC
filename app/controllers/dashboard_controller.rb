@@ -125,27 +125,14 @@ class DashboardController < ApplicationController
     return listaDeHashesDeTurmas
   end
 
-  def criar_professor_com_valores_padroes (nomeProfessor)
-    nomeFormatado = nomeProfessor.split.map(&:capitalize).join(' ') # Transforme a primeira letra de cada nome em maiúscula
-    if (!Professor.exists?(name: nomeFormatado))
-      usuarioPadrao = nomeFormatado.split.join('')[0...14]
-      emailPadrao = usuarioPadrao + '@unb.br'
-      senhaPadrao = '123456abc'
-      role = 1
-      Professor.create(name: nomeFormatado, email: emailPadrao, username: usuarioPadrao, password: senhaPadrao, password_confirmation: senhaPadrao, role: role)
-    end
-  end
-
   def raspar_disciplinas
     if (params[:arquivo_turmas] == nil)
       raise "Por favor, selecionar um arquivo"
     end
     array_de_turmas = parse_turmas_file(params[:arquivo_turmas])
     array_de_turmas.each do |hash|
-      criar_professor_com_valores_padroes(hash[:prof_principal])
-      if (hash[:prof_auxiliar] != '')
-        criar_professor_com_valores_padroes(hash[:prof_auxiliar])
-      end
+      Professor.criar_professor_com_valores_padroes(hash[:prof_principal])
+      Professor.criar_professor_com_valores_padroes(hash[:prof_auxiliar])
       Disciplina.criar_disciplina_com_valores_padroes(hash)
       Turma.criar_turma_a_partir_de_parametros(hash)
     end
