@@ -96,6 +96,7 @@ describe MonitoriasController do
         end
 
         it 'Cria monitoria no banco' do
+          Monitoria.destroy_all
           @monitoria = Monitoria.new(@params[:monitoria])
           post :create, params: @params
           expect(@monitoria.save).to be true
@@ -150,8 +151,6 @@ describe MonitoriasController do
             fk_cod_disciplina: '1',
             fk_turmas_id: '1',
             descricao_status: 'Nota: SS, IRA: 3',
-            prioridade: '1',
-            prioridade_auxiliar: '2',
             fk_status_monitoria_id: '1'
           }
 
@@ -185,19 +184,23 @@ describe MonitoriasController do
         end
 
         it 'espera encontrar média de prioridades quando os dois professores avaliam' do
+          @params[:monitoria][:prioridade_auxiliar] = 2
+          @params[:monitoria][:prioridade] = 1
           put :update, params: @params
           @db_monitoria.reload
           expect(@db_monitoria.media).to be(1.5)
         end
         it 'espera encontrar média de prioridades quando apenas o professor titular avalia' do
-          @params[:monitoria][:prioridade_auxiliar] = ""
+          @params[:monitoria][:prioridade] = 1
+          @params[:monitoria][:prioridade_auxiliar] = nil
           put :update, params: @params
           @db_monitoria.reload
           expect(@db_monitoria.media).to be(1.0)
         end
 
         it 'espera encontrar média de prioridades quando apenas o professor auxiliar avalia' do
-          @params[:monitoria][:prioridade] = ""
+          @params[:monitoria][:prioridade_auxiliar] = 2
+          @params[:monitoria][:prioridade_auxiliar] = nil
           put :update, params: @params
           @db_monitoria.reload
           expect(@db_monitoria.media).to be(2.0)

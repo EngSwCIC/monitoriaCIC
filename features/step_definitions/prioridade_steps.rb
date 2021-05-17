@@ -12,6 +12,8 @@ Dado /^(?:|que )o banco possui uma turma cadastrada com apenas um professor$/ do
 end
 
 Dado /^(?:|que )o banco possui uma turma cadastrada com dois professores$/ do
+  Disciplina.destroy_all
+  Turma.destroy_all
   Disciplina.create!([{id:1, nome: "APC", 
     fk_tipo_disciplina_id: 1, c_prat: 2, c_teor: 4, 
     cod_disciplina: 1}])
