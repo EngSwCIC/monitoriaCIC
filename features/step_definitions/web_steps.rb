@@ -54,8 +54,19 @@ Dado /^(?:|que )o banco possui um aluno e um professor$/ do
     password_confirmation: '123456'
   }
 
+  @professor2 = {
+    id: 2,
+    name: 'Carla Castanho',
+    username: 'ccastanho',
+    email: 'carla@unb.br',
+    role: 2,
+    password: '123456',
+    password_confirmation: '123456'
+  }
+
   User.create!(@aluno)
   Professor.create!(@professor)
+  Professor.create!(@professor2)
 end
 
 Dado /^(?:|que )o banco possui uma monitoria$/ do
@@ -67,7 +78,7 @@ Dado /^(?:|que )o banco possui uma monitoria$/ do
     fk_cod_disciplina: 1,
     fk_turmas_id: 1,
     descricao_status: "Nota: SS. IRA: 3",
-    prioridade: 1,
+    prioridade: "",
     fk_status_monitoria_id: 1
   )
 end
@@ -193,6 +204,13 @@ Dado /^(?:|que o )"([^"]*)" está logado$/ do |user_type|
     steps %(
       Quando eu preencho o formulário de login com:
         | user_email    | genaina@unb.br |
+        | user_password | 123456         |
+      E eu aperto em "Login"
+    )
+  when "professor auxiliar"
+    steps %(
+      Quando eu preencho o formulário de login com:
+        | user_email    | carla@unb.br |
         | user_password | 123456         |
       E eu aperto em "Login"
     )

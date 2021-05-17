@@ -33,7 +33,9 @@ class MonitoriasController < ApplicationController
 	end
 
 	def update
-		if ((monitoria_params[:prioridade_auxiliar] == "" && monitoria_params[:prioridade] == nil ) || (monitoria_params[:prioridade] == "" && monitoria_params[:prioridade] == nil))
+		if ((monitoria_params[:prioridade_auxiliar] == "" && monitoria_params[:prioridade] == nil ) ||
+			 (monitoria_params[:prioridade_auxiliar] == nil && monitoria_params[:prioridade] == ""))
+			
 			flash[:danger] = "Para atualizar, escolha uma preferêcia."
 			redirect_to dashboard_monitorias_path
 		else

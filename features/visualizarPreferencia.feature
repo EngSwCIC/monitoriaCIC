@@ -6,25 +6,17 @@
       E que o banco possui uma disciplina
       E que o banco possui uma turma cadastrada com dois professores
       E que o banco possui uma monitoria
-      E que dois professores deram uma preferência para o monitor
       E que eu estou na página de login de usuários
       E que o "professor" está logado
       E que o professor está na página de monitores da turma
+    
+    Cenário: O professor visualiza a preferência(Happy Path)
+      E eu devo ver "Preferência: 0.0"
 
-    Cenário: O professor visualiza a preferência de um monitor (Happy Path)
-      Devo visualizar, em cada card de Aluno, o campo de preferência
-      O campo de preferência deve conter a média das preferências dos professores
-
-    Cenário de Fundo:
-      Dado que o banco possui um aluno e um professor
-      E que o banco possui uma disciplina
-      E que o banco possui uma turma cadastrada com apenas um professor
-      E que o banco possui uma monitoria
+    Cenário: O professor visualiza a preferência dada (Happy Path)
       E que o professor deu uma preferência para o monitor
-      E que eu estou na página de login de usuários
-      E que o "professor" está logado
-      E que o professor está na página de monitores da turma
+      E eu devo ver "Preferência: 1"
 
-    Cenário: O professor auxiliar visualiza a preferência de um monitor (Happy Path)
-      Devo visualizar, em cada card de Aluno o campo de preferência
-      O campo de preferência deve conter a preferência dada pelo único professor
+    Cenário: O professor visualiza a média aritimética das preferências (Happy Path)
+      E que dois professores deram uma preferência para o monitor
+      E eu devo ver "Preferência: 1.5"

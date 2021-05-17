@@ -29,16 +29,13 @@ Dado /^(?:|que )o banco possui uma turma cadastrada com dois professores$/ do
 end
 
 Dado /^(?:|que )dois professores deram uma preferência para o monitor$/ do
-  Monitoria.find(1).update!(prioridade: 1, prioridade_auxiliar: 2)
+  monitoria = Monitoria.find(1).update!(prioridade: 1, prioridade_auxiliar: 2)
+  visit "#{current_path}?id=1"
 end
-
 
 Dado /^(?:|que )o professor deu uma preferência para o monitor$/ do
-  Monitoria.find(1).update!(prioridade: 1, prioridade_auxiliar: nil)
-end
-
-Quando /^(?:|eu )sento o dedo emm "([^"]*)"$/ do |link|
-  visit("/dashboard/monitorias")
+  monitoria = Monitoria.find(1).update!(prioridade: 1, prioridade_auxiliar: nil)
+  visit "#{current_path}?id=1"
 end
 
 Dado /^(?:|que) o professor está na página de monitores da turma$/ do
@@ -46,5 +43,15 @@ Dado /^(?:|que) o professor está na página de monitores da turma$/ do
     Então eu devo estar na página de dashboard do usuário
     Quando eu clico em "Monitoria"
     Então eu devo estar na página de monitoria
+    Quando eu clico em "Ver lista de monitores"
+    Então eu devo estar na página de candidatos
   )
 end
+
+Dado /^(?:|que) o professor está na página de alterar monitoria$/ do
+  steps %(
+    Quando eu clico em "Alterar Situaçao"
+    Então eu devo estar na página de alterar monitoria 1
+  )
+end
+
