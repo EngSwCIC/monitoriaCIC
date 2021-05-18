@@ -1,3 +1,5 @@
+#Controladora de monitorias, nela estão descritos os métodos de create, read, update e delete
+
 class MonitoriasController < ApplicationController
 	before_action :find_monitor, only: [:show]
 	before_action :find_monitoria, only: [:destroy, :edit, :update]

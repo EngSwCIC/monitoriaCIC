@@ -44,29 +44,30 @@ Dado /^(?:|que )o banco possui um aluno e um professor$/ do
     password_confirmation: '110492'
   }
 
-  @professor = {
-    id: 1,
-    name: 'Genaina Nunes Rodrigues',
-    username: 'grodrigues',
-    email: 'genaina@unb.br',
-    role: 2,
-    password: '123456',
-    password_confirmation: '123456'
-  }
-
-  @professor2 = {
-    id: 2,
-    name: 'Carla Castanho',
-    username: 'ccastanho',
-    email: 'carla@unb.br',
-    role: 2,
-    password: '123456',
-    password_confirmation: '123456'
-  }
+  @professor = [
+    {
+      id: 1,
+      name: 'Genaina Nunes Rodrigues',
+      username: 'grodrigues',
+      email: 'genaina@unb.br',
+      role: 2,
+      password: '123456',
+      password_confirmation: '123456'
+    },
+    {
+      id: 2,
+      name: 'Carla Castanho',
+      username: 'ccastanho',
+      email: 'carla@unb.br',
+      role: 2,
+      password: '123456',
+      password_confirmation: '123456'
+    }
+  ]
 
   User.create!(@aluno)
-  Professor.create!(@professor)
-  Professor.create!(@professor2)
+  Professor.create!(@professor[0])
+  Professor.create!(@professor[1])
 end
 
 Dado /^(?:|que )o banco possui uma monitoria$/ do
@@ -84,27 +85,29 @@ Dado /^(?:|que )o banco possui uma monitoria$/ do
 end
 
 Dado /^(?:|que )o banco possui duas monitorias$/ do
-  Monitoria.create!(
-    id: 1,
-    remuneracao: 'Remunerado',
-    fk_matricula: '140080279',
-    fk_cod_disciplina: 1,
-    fk_turmas_id: 1,
-    descricao_status: "Nota: SS. IRA: 3",
-    prioridade: 1,
-    fk_status_monitoria_id: 3
-  )
-
-  Monitoria.create!(
-    id: 2,
-    remuneracao: 'Remunerado',
-    fk_matricula: '140080299',
-    fk_cod_disciplina: 1,
-    fk_turmas_id: 1,
-    descricao_status: "Nota: SS. IRA: 3",
-    prioridade: 1,
-    fk_status_monitoria_id: 1
-  )
+  Monitoria.destroy_all
+  Monitoria.create!([
+    {
+      id: 1,
+      remuneracao: 'Remunerado',
+      fk_matricula: '140080279',
+      fk_cod_disciplina: 1,
+      fk_turmas_id: 1,
+      descricao_status: "Nota: SS. IRA: 3",
+      prioridade: 1,
+      fk_status_monitoria_id: 3
+    },
+    {
+      id: 2,
+      remuneracao: 'Remunerado',
+      fk_matricula: '140080299',
+      fk_cod_disciplina: 1,
+      fk_turmas_id: 1,
+      descricao_status: "Nota: SS. IRA: 3",
+      prioridade: 1,
+      fk_status_monitoria_id: 1
+    }
+  ])
 end
 
 Dado /^(?:|que eu )possuo dados bancários cadastrados$/ do
@@ -159,7 +162,8 @@ Dado /^(?:|que )o banco possui uma tarefa$/ do
 end
 
 Dado /^(?:|que )o banco possui duas turmas cadastradas$/ do
-  Turma.create!(
+  Turma.create!([
+    {
       id: 1,
       turma: 'A',
       professor: 'Genaina Nunes Rodrigues',
@@ -167,9 +171,8 @@ Dado /^(?:|que )o banco possui duas turmas cadastradas$/ do
       fk_status_turma_id: 3,
       qnt_bolsas: 4,
       fk_vagas_id: 1
-  )
-
-  Turma.create!(
+    },
+    {
       id: 2,
       turma: 'B',
       professor: 'Genaina Nunes Rodrigues',
@@ -177,7 +180,8 @@ Dado /^(?:|que )o banco possui duas turmas cadastradas$/ do
       fk_status_turma_id: 3,
       qnt_bolsas: 4,
       fk_vagas_id: 1
-  )
+    }
+  ])
 end
 
 Dado /^(?:|que eu )estou na (.+)$/ do |page_name|

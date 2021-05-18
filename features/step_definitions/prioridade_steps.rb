@@ -1,16 +1,3 @@
-Dado /^(?:|que )o banco possui uma turma cadastrada com apenas um professor$/ do
-  Turma.destroy_all
-  Turma.create!(
-    id: 1,
-    turma: 'A',
-    professor: 'Genaina Nunes Rodrigues',
-    fk_cod_disciplina: 1,
-    fk_status_turma_id: 3,
-    qnt_bolsas: 4,
-    fk_vagas_id: 1
-  )
-end
-
 Dado /^(?:|que )o banco possui uma turma cadastrada com dois professores$/ do
   Disciplina.destroy_all
   Turma.destroy_all
@@ -27,7 +14,6 @@ Dado /^(?:|que )o banco possui uma turma cadastrada com dois professores$/ do
     qnt_bolsas: 4,
     fk_vagas_id: 1
   )
-  
 end
 
 Dado /^(?:|que )dois professores deram uma preferência para o monitor$/ do
