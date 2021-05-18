@@ -191,18 +191,16 @@ describe MonitoriasController do
           expect(@db_monitoria.media).to be(1.5)
         end
         it 'espera encontrar média de prioridades quando apenas o professor titular avalia' do
-          @params[:monitoria][:prioridade] = 1
+          @params[:monitoria][:prioridade] = 3
           @params[:monitoria][:prioridade_auxiliar] = nil
-          put :update, params: @params
-          @db_monitoria.reload
-          expect(@db_monitoria.media).to be(1.0)
+          @db_monitoria.update_attributes(@params[:monitoria])
+          expect(@db_monitoria.media).to be(3.0)
         end
 
         it 'espera encontrar média de prioridades quando apenas o professor auxiliar avalia' do
           @params[:monitoria][:prioridade_auxiliar] = 2
-          @params[:monitoria][:prioridade_auxiliar] = nil
-          put :update, params: @params
-          @db_monitoria.reload
+          @params[:monitoria][:prioridade] = nil
+          @db_monitoria.update_attributes(@params[:monitoria])
           expect(@db_monitoria.media).to be(2.0)
         end
       end
