@@ -8,6 +8,7 @@ João Pedro Silva de Andrade - 17/0013944
 Pedro Henriques Nogueira - 14/0065032  
 Vinícius Caixeta de Souza - 18/0132199  
 Gustavo Einstein Soares Oliveira - 17/0104630  
+Cesar Augusto Vilela Borges - 16/0116341  
 
 ## Projeto
 
@@ -25,7 +26,7 @@ Código do projeto funcionando.
 
  - Scrum Master - Pedro Nogueira  
  - Product Owner - João Pedro  
- - Equipe de desenvolvimento - Vinícius, Gustavo  
+ - Equipe de desenvolvimento - Vinícius, Gustavo, Cesar  
 
 ## Branches
 
