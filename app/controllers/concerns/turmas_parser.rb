@@ -4,54 +4,47 @@ module TurmasParser
     extend ActiveSupport::Concern
 
     def parse_turmas_file (uploadedFile)
-        docToParse = Nokogiri::HTML(uploadedFile.read) do |config|
-            config.norecover
+        docToParse = Nokogiri::HTML(uploadedFile.read, nil, 'UTF-8') do |config|
+            config.recover
         end
         listaDeHashesDeTurmas = Array.new()
         blocosDeTurmaHTML = docToParse.xpath(
-            '//componentescur[@class=\"#{class_name}\"]..') # Separa o html em blocos da table pai do tr de classe 'componentescur'
+            '//table[tr[@class="componentescur"]]') # Separa o html em blocos da table pai do tr de classe 'componentescur'
         blocosDeTurmaHTML.each do |t|
             turma = Hash.new()
             infoDisciplinaTurma = t.at_css('tr.componentescur').css('td')
-            turma[:nomeDisciplina] = infoDisciplinaTurma[0].to_s.match(/^\s+\S+ - (.+)+ -/)
-            turma[:codigoDisciplina] = infoDisciplinaTurma[0].to_s.match(/^\s+(\S+) -/)
-            turma[:codigoTurma] = infoDisciplinaTurma[1].to_s.match(/^\s+(\S+)\s/)
-            turma[:situacao] = infoDisciplinaTurma[2].to_s.match(/<td>\s+(.+?)\s+<\/td>/)
-
-            infoProfessor = t.css('tr')[4].css('td') # Pulamos as quatro primeiras rows na tabela
-            turma[:nomeProfessor1] = infoProfessor[0].css('i').to_s.match(/<i>(.+?) \(.+\)/)
-            turma[:nomeProfessor2] = infoProfessor[0].css('i').to_s.match(/<br>(.+?) \(.+\)/) # Espera-se que seja = nil se houver só um professor
-            turma[:reserva] = infoProfessor[1].css('i').to_s.match(/<i><?i?>?(.+?)\/?<\/i><?/)
-
+            turma[:disciplina] = infoDisciplinaTurma[0].to_s.match(/^\s+\S+ - (.+)+ -/)[1]
+            turma[:cod_disciplina] = infoDisciplinaTurma[0].to_s.match(/^\s+CIC(\S+) -/)[1].to_i
+            turma[:codigo_turma] = infoDisciplinaTurma[1].to_s.match(/^\s+(\S+)\s/)[1]
+            turma[:situacao] = infoDisciplinaTurma[2].to_s.match(/<td>\s+(.+?)\s+<\/td>/)[1]
+            # puts 'DEBUG   ' + turma[:nomeDisciplina] + ' ' + turma[:cod_disciplina] + ' ' + turma[:codigoTurma] + ' ' + turma[:situacao]
+    
+            infoProfessor = t.at_css('tr.componentescur').next_element.css('td') # Pulamos as quatro primeiras rows na tabela
+            turma[:prof_principal] = infoProfessor[0].css('i').to_s.match(/<i>(.+?) \(.+\)/)
+            if (turma[:prof_principal] == nil)
+              turma[:prof_principal] = ''
+            else
+              turma[:prof_principal] = turma[:prof_principal][1]
+            end
+            turma[:prof_auxiliar] = infoProfessor[0].css('i').to_s.match(/<br>(.+?) \(.+\)/) # Espera-se que seja = nil se houver só um professor
+            if (turma[:prof_auxiliar] == nil)
+              turma[:prof_auxiliar] = ''
+            else
+              turma[:prof_auxiliar] = turma[:prof_auxiliar][1]
+            end
+            turma[:reserva] = infoProfessor[1].css('i').to_s.match(/<i><?i?>?(.+?)\/?<\/i><?/)[1]
             listaDeHashesDeTurmas.append(turma)
         end
         return listaDeHashesDeTurmas
     end
 
-    def criar_professor_com_valores_padroes (nomeProfessor)
-        nomeFormatado = nomeProfessor.split.map(&:capitalize).join(' ') # Transforme a primeira letra de cada nome em maiúscula
-        usuarioPadrao = nomeFormatado.split.join('')[0...14]
-        emailPadrao = usuarioPadrao + '@unb.br'
-        senhaPadrao = '123456abc'
-        role = 1
-        Professor.create!(name: nomeFormatado, email: emailPadrao, username: usuarioPadrao, password: senhaPadrao, password_confirmation: senhaPadrao, role: role)
-    end
-
-    def criar_disciplina_com_valores_padroes (nome, codigo)
-        Disciplina.create!([{nome: nome, 
-            fk_tipo_disciplina_id: 1, c_prat: 0, c_teor: 0, 
-            cod_disciplina: codigo}])
-    end
-
-    def criar_turma_a_partir_de_parametros (codigo, nomeDisciplina, nomeProfPrincipal, nomeProfAuxiliar)
-        disciplinaId = Disciplina.find(nomeDisciplina).id
-        Turma.create!([{
-            fk_cod_disciplina: disciplinaId,
-            turma: codigo,
-            professor: nomeProfPrincipal,
-            professor_aux: nomeProfAuxiliar,
-            fk_vagas_id: 1
-        }])
+    def criar_registros_a_partir_de_info_importada(lista_de_turmas)
+        lista_de_turmas.each do |hash|
+            Professor.criar_professor_com_valores_padroes(hash[:prof_principal])
+            Professor.criar_professor_com_valores_padroes(hash[:prof_auxiliar])
+            Disciplina.criar_disciplina_com_valores_padroes(hash)
+            Turma.criar_turma_a_partir_de_parametros(hash)
+        end
     end
 
 end
