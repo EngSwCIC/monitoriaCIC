@@ -1,42 +1,68 @@
 # controllers/concerns/turmas_parser.rb
 
+# Implementa funções dedicadas à extração de dados de turmas de um arquivo importado.
+# Este módulo serve apenas para uma formatação específica. Se o formato do arquivo for alterado, o módulo também deve ser.
 module TurmasParser
     extend ActiveSupport::Concern
 
-    def parse_turmas_file (uploadedFile)
-        docToParse = Nokogiri::HTML(uploadedFile.read, nil, 'UTF-8') do |config|
+    def parsear_arquivo_de_turmas (file)
+        doc_to_parse = Nokogiri::HTML(file.read, nil, 'UTF-8') do |config|
             config.recover
         end
-        listaDeHashesDeTurmas = Array.new()
-        blocosDeTurmaHTML = docToParse.xpath(
+        blocos_de_turma_html = doc_to_parse.xpath(
             '//table[tr[@class="componentescur"]]') # Separa o html em blocos da table pai do tr de classe 'componentescur'
-        blocosDeTurmaHTML.each do |t|
-            turma = Hash.new()
-            infoDisciplinaTurma = t.at_css('tr.componentescur').css('td')
-            turma[:disciplina] = infoDisciplinaTurma[0].to_s.match(/^\s+\S+ - (.+)+ -/)[1]
-            turma[:cod_disciplina] = infoDisciplinaTurma[0].to_s.match(/^\s+CIC(\S+) -/)[1].to_i
-            turma[:codigo_turma] = infoDisciplinaTurma[1].to_s.match(/^\s+(\S+)\s/)[1]
-            turma[:situacao] = infoDisciplinaTurma[2].to_s.match(/<td>\s+(.+?)\s+<\/td>/)[1]
-            # puts 'DEBUG   ' + turma[:nomeDisciplina] + ' ' + turma[:cod_disciplina] + ' ' + turma[:codigoTurma] + ' ' + turma[:situacao]
-    
-            infoProfessor = t.at_css('tr.componentescur').next_element.css('td') # Pulamos as quatro primeiras rows na tabela
-            turma[:prof_principal] = infoProfessor[0].css('i').to_s.match(/<i>(.+?) \(.+\)/)
-            if (turma[:prof_principal] == nil)
-              turma[:prof_principal] = ''
-            else
-              turma[:prof_principal] = turma[:prof_principal][1]
-            end
-            turma[:prof_auxiliar] = infoProfessor[0].css('i').to_s.match(/<br>(.+?) \(.+\)/) # Espera-se que seja = nil se houver só um professor
-            if (turma[:prof_auxiliar] == nil)
-              turma[:prof_auxiliar] = ''
-            else
-              turma[:prof_auxiliar] = turma[:prof_auxiliar][1]
-            end
-            turma[:reserva] = infoProfessor[1].css('i').to_s.match(/<i><?i?>?(.+?)\/?<\/i><?/)[1]
-            listaDeHashesDeTurmas.append(turma)
-        end
-        return listaDeHashesDeTurmas
+        return blocos_de_turma_html
     end
+
+    def extrair_texto_de_bloco (bloco, regex)
+        return bloco.to_s.match(/#{regex}/)[1]
+    end
+
+    def extrair_info_de_disciplina (info_turma)
+        info = Hash.new()
+        info_disciplina = info_turma.at_css('tr.componentescur').css('td')
+        info[:disciplina] = extrair_texto_de_bloco(info_disciplina[0], '^\s+\S+ - (.+)+ -')
+        info[:cod_disciplina] = extrair_texto_de_bloco(info_disciplina[0], '^\s+CIC(\S+) -').to_i
+        info[:codigo_turma] = extrair_texto_de_bloco(info_disciplina[1], '^\s+(\S+)\s')
+        info[:situacao] = extrair_texto_de_bloco(info_disciplina[2], '<td>\s+(.+?)\s+<\/td>')
+        return info
+    end
+
+    def buscar_nome_do_professor (info_professor, regex)
+        # professor = info_professor[0].css('i').to_s.match(/<i>(.+?) \(.+\)/)
+        professor = info_professor[0].css('i').to_s.match(/#{regex}/)
+        if (professor != nil)
+            professor = professor[1] # Caso haja match, usamos a senteça que causou o primeiro match, a qual fica no índice 1 do objeto MatchData.
+        end
+        return professor
+    end
+
+    def extrair_info_de_professor (info_turma)
+        info = Hash.new()
+        info_professor = info_turma.at_css('tr.componentescur').next_element.css('td') # Pulamos as quatro primeiras rows na tabela
+        info[:prof_principal] = buscar_nome_do_professor(info_professor, '<i>(.+?) \(.+\)')
+        info[:prof_auxiliar] = buscar_nome_do_professor(info_professor, '<br>(.+?) \(.+\)')
+        info[:reserva] = info_professor[1].css('i').to_s.match(/<i><?i?>?(.+?)\/?<\/i><?/)[1]
+        #turma[:prof_auxiliar] = infoProfessor[0].css('i').to_s.match(/<br>(.+?) \(.+\)/) # Espera-se que seja = nil se houver só um professor
+        return info
+    end
+
+    def extrair_info_de_todas_turmas (blocos_de_turma)
+        lista_de_turmas = Array.new()
+        blocos_de_turma.each do |bloco|
+            turma = Hash.new()
+            turma.merge!(extrair_info_de_disciplina(bloco))
+            turma.merge!(extrair_info_de_professor(bloco))
+            lista_de_turmas.append(turma)
+        end
+        return lista_de_turmas
+    end
+
+    def gerar_lista_de_turmas_a_partir_de_arquivo (uploaded_file)
+        blocos_de_turma_html = parsear_arquivo_de_turmas(uploaded_file)
+        lista_de_turmas = extrair_info_de_todas_turmas(blocos_de_turma_html)
+        return lista_de_turmas
+    end    
 
     def criar_registros_a_partir_de_info_importada(lista_de_turmas)
         lista_de_turmas.each do |hash|

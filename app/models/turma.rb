@@ -60,8 +60,8 @@ class Turma < ActiveRecord::Base
   end
 
   def self.criar_turma_a_partir_de_parametros (params)
-    disciplina_id = Disciplina.find_by(nome: params[:disciplina]).id
-    if (Disciplina.exists?(id: disciplina_id))
+    if (Disciplina.exists?(nome: params[:disciplina]))
+      disciplina_id = Disciplina.find_by(nome: params[:disciplina]).id
       Turma.create([{
           fk_cod_disciplina: disciplina_id,
           turma: params[:codigo_turma],

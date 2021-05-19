@@ -33,12 +33,14 @@ class Professor < ActiveRecord::Base
   validates :password_confirmation, length: { in: 6..12, message: "must be between 6 and 12 characters" }, on: :create
 
   def self.criar_professor_com_valores_padroes (nome_professor)
-    nome_formatado = nome_professor.split.map(&:capitalize).join(' ') # Transforme a primeira letra de cada nome em maiúscula
-    usuario_padrao = nome_formatado.split.join('')[0...14]
-    senha_padrao = '123456abc'
-    role = 1
-    Professor.create(name: nome_formatado, email: usuario_padrao + '@unb.br', username: usuario_padrao,
-      password: senha_padrao, password_confirmation: senha_padrao, role: role)
+    if (!nome_professor.nil?)
+      nome_formatado = nome_professor.split.map(&:capitalize).join(' ') # Transforme a primeira letra de cada nome em maiúscula
+      usuario_padrao = nome_formatado.split.join('')[0...14]
+      senha_padrao = '123456abc'
+      role = 1
+      Professor.create(name: nome_formatado, email: usuario_padrao + '@unb.br', username: usuario_padrao,
+        password: senha_padrao, password_confirmation: senha_padrao, role: role)
+    end
   end
 
 end

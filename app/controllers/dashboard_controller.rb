@@ -96,7 +96,7 @@ class DashboardController < ApplicationController
     if (arquivo == nil)
       raise "Por favor, selecionar um arquivo"
     end
-    array_de_turmas = parse_turmas_file(arquivo)
+    array_de_turmas = gerar_lista_de_turmas_a_partir_de_arquivo(arquivo)
     criar_registros_a_partir_de_info_importada(array_de_turmas)
     flash[:notice] = "Disciplinas importadas com sucesso!"
   rescue StandardError => error
