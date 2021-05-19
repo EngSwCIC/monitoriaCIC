@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>module TurmasParser - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="module">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+    
+    
+<div id="extends-section" class="nav-section">
+  <h3>Extended With Modules</h3>
+
+  <ul class="link-list">
+    <li><span class="extend">ActiveSupport::Concern</span>
+  </ul>
+</div>
+
+    
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li ><a href="#method-i-buscar_nome_do_professor">#buscar_nome_do_professor</a>
+    <li ><a href="#method-i-criar_registros_a_partir_de_info_importada">#criar_registros_a_partir_de_info_importada</a>
+    <li ><a href="#method-i-extrair_info_de_disciplina">#extrair_info_de_disciplina</a>
+    <li ><a href="#method-i-extrair_info_de_professor">#extrair_info_de_professor</a>
+    <li ><a href="#method-i-extrair_info_de_todas_turmas">#extrair_info_de_todas_turmas</a>
+    <li ><a href="#method-i-extrair_texto_de_bloco">#extrair_texto_de_bloco</a>
+    <li ><a href="#method-i-gerar_lista_de_turmas_a_partir_de_arquivo">#gerar_lista_de_turmas_a_partir_de_arquivo</a>
+    <li ><a href="#method-i-parsear_arquivo_de_turmas">#parsear_arquivo_de_turmas</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="module-TurmasParser">
+  <h1 id="module-TurmasParser" class="module">
+    module TurmasParser
+  </h1>
+
+  <section class="description">
+    
+<p>Implementa funções dedicadas à extração de dados de turmas de um arquivo importado. Este módulo serve apenas para uma formatação específica. Se o formato do arquivo for alterado, o módulo também deve ser.</p>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section">
+
+
+
+
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-buscar_nome_do_professor" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">buscar_nome_do_professor</span><span
+            class="method-args">(info_professor, regex)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Recebe um bloco html em <code>info_professor</code>, utiliza o padrão <code>regex</code> passado para realizar casamento. Caso haja casamento, retorna a primeira instância. Caso não, retorna um objeto nil.</p>
+
+          <div class="method-source-code" id="buscar_nome_do_professor-source">
+            <pre><span class="ruby-comment"># File app/controllers/concerns/turmas_parser.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">buscar_nome_do_professor</span> (<span class="ruby-identifier">info_professor</span>, <span class="ruby-identifier">regex</span>)
+    <span class="ruby-identifier">professor</span> = <span class="ruby-identifier">info_professor</span>[<span class="ruby-value">0</span>].<span class="ruby-identifier">css</span>(<span class="ruby-string">&#39;i&#39;</span>).<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/#{regex}/</span>)
+    <span class="ruby-keyword">if</span> (<span class="ruby-identifier">professor</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span>)
+        <span class="ruby-identifier">professor</span> = <span class="ruby-identifier">professor</span>[<span class="ruby-value">1</span>] <span class="ruby-comment"># Caso haja match, usamos a senteça que causou o primeiro match, a qual fica no índice 1 do objeto MatchData.</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">professor</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-criar_registros_a_partir_de_info_importada" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">criar_registros_a_partir_de_info_importada</span><span
+            class="method-args">(lista_de_turmas)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Adiciona ao banco de dados registros de professores, disciplinas, e turmas, a partir de dados de turmas individuais contidos na lista de hashes de entrada. Para isso, chama funções especiais dos modelos Professor, Disciplina, e Turma, as quais usam valores derivados para campos ausentes.</p>
+
+          <div class="method-source-code" id="criar_registros_a_partir_de_info_importada-source">
+            <pre><span class="ruby-comment"># File app/controllers/concerns/turmas_parser.rb, line 94</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">criar_registros_a_partir_de_info_importada</span>(<span class="ruby-identifier">lista_de_turmas</span>)
+    <span class="ruby-identifier">lista_de_turmas</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">hash</span><span class="ruby-operator">|</span>
+        <span class="ruby-constant">Professor</span>.<span class="ruby-identifier">criar_professor_com_valores_padroes</span>(<span class="ruby-identifier">hash</span>[<span class="ruby-value">:prof_principal</span>])
+        <span class="ruby-constant">Professor</span>.<span class="ruby-identifier">criar_professor_com_valores_padroes</span>(<span class="ruby-identifier">hash</span>[<span class="ruby-value">:prof_auxiliar</span>])
+        <span class="ruby-constant">Disciplina</span>.<span class="ruby-identifier">criar_disciplina_com_valores_padroes</span>(<span class="ruby-identifier">hash</span>)
+        <span class="ruby-constant">Turma</span>.<span class="ruby-identifier">criar_turma_a_partir_de_parametros</span>(<span class="ruby-identifier">hash</span>)
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-extrair_info_de_disciplina" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">extrair_info_de_disciplina</span><span
+            class="method-args">(info_turma)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Recebe um bloco html em <code>info_turma</code>, subdivide-o e extrai informações referentes a uma disciplina, utilizando casamento de regex específicos. Para isso, utiliza-se a função <code>extrair_texto_de_bloco</code>. Retorna uma hash com as informações.</p>
+
+          <div class="method-source-code" id="extrair_info_de_disciplina-source">
+            <pre><span class="ruby-comment"># File app/controllers/concerns/turmas_parser.rb, line 32</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extrair_info_de_disciplina</span> (<span class="ruby-identifier">info_turma</span>)
+    <span class="ruby-identifier">info</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-identifier">info_disciplina</span> = <span class="ruby-identifier">info_turma</span>.<span class="ruby-identifier">at_css</span>(<span class="ruby-string">&#39;tr.componentescur&#39;</span>).<span class="ruby-identifier">css</span>(<span class="ruby-string">&#39;td&#39;</span>)
+    <span class="ruby-identifier">info</span>[<span class="ruby-value">:disciplina</span>] = <span class="ruby-identifier">extrair_texto_de_bloco</span>(<span class="ruby-identifier">info_disciplina</span>[<span class="ruby-value">0</span>], <span class="ruby-string">&#39;^\s+\S+ - (.+)+ -&#39;</span>)
+    <span class="ruby-identifier">info</span>[<span class="ruby-value">:cod_disciplina</span>] = <span class="ruby-identifier">extrair_texto_de_bloco</span>(<span class="ruby-identifier">info_disciplina</span>[<span class="ruby-value">0</span>], <span class="ruby-string">&#39;^\s+CIC(\S+) -&#39;</span>).<span class="ruby-identifier">to_i</span>
+    <span class="ruby-identifier">info</span>[<span class="ruby-value">:codigo_turma</span>] = <span class="ruby-identifier">extrair_texto_de_bloco</span>(<span class="ruby-identifier">info_disciplina</span>[<span class="ruby-value">1</span>], <span class="ruby-string">&#39;^\s+(\S+)\s&#39;</span>)
+    <span class="ruby-identifier">info</span>[<span class="ruby-value">:situacao</span>] = <span class="ruby-identifier">extrair_texto_de_bloco</span>(<span class="ruby-identifier">info_disciplina</span>[<span class="ruby-value">2</span>], <span class="ruby-string">&#39;&lt;td&gt;\s+(.+?)\s+&lt;\/td&gt;&#39;</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">info</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-extrair_info_de_professor" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">extrair_info_de_professor</span><span
+            class="method-args">(info_turma)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Recebe um bloco html em <code>info_turma</code>, utiliza a função <code>buscar_nome_do_professor</code> para extrair informações. Retorna uma hash com as informações.</p>
+
+          <div class="method-source-code" id="extrair_info_de_professor-source">
+            <pre><span class="ruby-comment"># File app/controllers/concerns/turmas_parser.rb, line 56</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extrair_info_de_professor</span> (<span class="ruby-identifier">info_turma</span>)
+    <span class="ruby-identifier">info</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-identifier">info_professor</span> = <span class="ruby-identifier">info_turma</span>.<span class="ruby-identifier">at_css</span>(<span class="ruby-string">&#39;tr.componentescur&#39;</span>).<span class="ruby-identifier">next_element</span>.<span class="ruby-identifier">css</span>(<span class="ruby-string">&#39;td&#39;</span>) <span class="ruby-comment"># Pulamos as quatro primeiras rows na tabela</span>
+    <span class="ruby-identifier">info</span>[<span class="ruby-value">:prof_principal</span>] = <span class="ruby-identifier">buscar_nome_do_professor</span>(<span class="ruby-identifier">info_professor</span>, <span class="ruby-string">&#39;&lt;i&gt;(.+?) \(.+\)&#39;</span>)
+    <span class="ruby-identifier">info</span>[<span class="ruby-value">:prof_auxiliar</span>] = <span class="ruby-identifier">buscar_nome_do_professor</span>(<span class="ruby-identifier">info_professor</span>, <span class="ruby-string">&#39;&lt;br&gt;(.+?) \(.+\)&#39;</span>)
+    <span class="ruby-identifier">info</span>[<span class="ruby-value">:reserva</span>] = <span class="ruby-identifier">info_professor</span>[<span class="ruby-value">1</span>].<span class="ruby-identifier">css</span>(<span class="ruby-string">&#39;i&#39;</span>).<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/&lt;i&gt;&lt;?i?&gt;?(.+?)\/?&lt;\/i&gt;&lt;?/</span>)[<span class="ruby-value">1</span>]
+    <span class="ruby-comment">#turma[:prof_auxiliar] = infoProfessor[0].css(&#39;i&#39;).to_s.match(/&lt;br&gt;(.+?) \(.+\)/) # Espera-se que seja = nil se houver só um professor</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">info</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-extrair_info_de_todas_turmas" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">extrair_info_de_todas_turmas</span><span
+            class="method-args">(blocos_de_turma)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Recebe uma lista de blocos, <code>blocos_de_turma</code>, contendo informações de turmas individuais. Com ajuda de subfunções de extração, retira informações de cada turma, coloca-as em hashes, os quais iram compor uma lista de hashes para cada turma. Retorna essa lista.</p>
+
+          <div class="method-source-code" id="extrair_info_de_todas_turmas-source">
+            <pre><span class="ruby-comment"># File app/controllers/concerns/turmas_parser.rb, line 70</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extrair_info_de_todas_turmas</span> (<span class="ruby-identifier">blocos_de_turma</span>)
+    <span class="ruby-identifier">lista_de_turmas</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>()
+    <span class="ruby-identifier">blocos_de_turma</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">bloco</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">turma</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>()
+        <span class="ruby-identifier">turma</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">extrair_info_de_disciplina</span>(<span class="ruby-identifier">bloco</span>))
+        <span class="ruby-identifier">turma</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">extrair_info_de_professor</span>(<span class="ruby-identifier">bloco</span>))
+        <span class="ruby-identifier">lista_de_turmas</span>.<span class="ruby-identifier">append</span>(<span class="ruby-identifier">turma</span>)
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">lista_de_turmas</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-extrair_texto_de_bloco" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">extrair_texto_de_bloco</span><span
+            class="method-args">(bloco, regex)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Retorna o primeiro casamento de texto encontrado no <code>bloco</code>, utilizando o parâmetro <code>regex</code> passado.</p>
+
+          <div class="method-source-code" id="extrair_texto_de_bloco-source">
+            <pre><span class="ruby-comment"># File app/controllers/concerns/turmas_parser.rb, line 24</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">extrair_texto_de_bloco</span> (<span class="ruby-identifier">bloco</span>, <span class="ruby-identifier">regex</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">bloco</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">match</span>(<span class="ruby-regexp">/#{regex}/</span>)[<span class="ruby-value">1</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-gerar_lista_de_turmas_a_partir_de_arquivo" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">gerar_lista_de_turmas_a_partir_de_arquivo</span><span
+            class="method-args">(uploaded_file)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Recebe um arquivo html como entrada. Executa parsing e extrai informações de todas as turmas, cada em um hash. Retorna uma lista de tais hashes.</p>
+
+          <div class="method-source-code" id="gerar_lista_de_turmas_a_partir_de_arquivo-source">
+            <pre><span class="ruby-comment"># File app/controllers/concerns/turmas_parser.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">gerar_lista_de_turmas_a_partir_de_arquivo</span> (<span class="ruby-identifier">uploaded_file</span>)
+    <span class="ruby-identifier">blocos_de_turma_html</span> = <span class="ruby-identifier">parsear_arquivo_de_turmas</span>(<span class="ruby-identifier">uploaded_file</span>)
+    <span class="ruby-identifier">lista_de_turmas</span> = <span class="ruby-identifier">extrair_info_de_todas_turmas</span>(<span class="ruby-identifier">blocos_de_turma_html</span>)
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">lista_de_turmas</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-parsear_arquivo_de_turmas" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">parsear_arquivo_de_turmas</span><span
+            class="method-args">(file)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
+          <p>Usa funções da gema Nokogiri para separar o arquivo html em <code>file</code> em blocos menores, em cada qual deve estar contida informação sobre uma única turma. Retorna uma lista de tais blocos.</p>
+
+          <div class="method-source-code" id="parsear_arquivo_de_turmas-source">
+            <pre><span class="ruby-comment"># File app/controllers/concerns/turmas_parser.rb, line 13</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">parsear_arquivo_de_turmas</span> (<span class="ruby-identifier">file</span>)
+    <span class="ruby-identifier">doc_to_parse</span> = <span class="ruby-constant">Nokogiri</span><span class="ruby-operator">::</span><span class="ruby-constant">HTML</span>(<span class="ruby-identifier">file</span>.<span class="ruby-identifier">read</span>, <span class="ruby-keyword">nil</span>, <span class="ruby-string">&#39;UTF-8&#39;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">config</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">config</span>.<span class="ruby-identifier">recover</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">blocos_de_turma_html</span> = <span class="ruby-identifier">doc_to_parse</span>.<span class="ruby-identifier">xpath</span>(
+        <span class="ruby-string">&#39;//table[tr[@class=&quot;componentescur&quot;]]&#39;</span>) <span class="ruby-comment"># Separa o html em blocos da table pai do tr de classe &#39;componentescur&#39;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">blocos_de_turma_html</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.3.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

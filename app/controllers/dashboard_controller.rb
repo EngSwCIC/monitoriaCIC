@@ -91,6 +91,11 @@ class DashboardController < ApplicationController
     @disciplinas = Disciplina.all
   end
 
+  ##
+  # Utiliza funções no módulo TurmaParser para interpretar um arquivo de html enviado, o qual deve
+  # conter informações sobre turmas, em formato adequado. A partir dessas informações, cria novos
+  # registros no banco de dados. Após as operações, redireciona o usuário para a página de importação
+  # de disciplinas.
   def raspar_disciplinas
     arquivo = params[:arquivo_turmas]
     if (arquivo == nil)

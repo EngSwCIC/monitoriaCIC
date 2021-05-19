@@ -210,24 +210,13 @@ describe DashboardController do
           @file = fixture_file_upload('spec/fixtures/turmas_test_happy.html', 'text/html')
         end
 
-        it 'should call the method parse_turmas_file' do
-          expect_any_instance_of(DashboardController).to receive(:parse_turmas_file)
-          post :raspar_disciplinas, params: {arquivo_turmas: @file}, as: :json
-          # expect(response).to redirect_to('/dashboard/importar_disciplinas')
-        end
-
-        it 'should call the method criar_professor_com_valores_padroes at least once' do
-          expect_any_instance_of(DashboardController).to receive(:criar_professor_com_valores_padroes).at_least(:once)
+        it 'should call the method gerar_lista_de_turmas_a_partir_de_arquivo' do
+          expect_any_instance_of(DashboardController).to receive(:gerar_lista_de_turmas_a_partir_de_arquivo)
           post :raspar_disciplinas, params: {arquivo_turmas: @file}, as: :json
         end
 
-        it 'should call the method criar_disciplina_com_valores_padroes at least once' do
-          expect_any_instance_of(DashboardController).to receive(:criar_disciplina_com_valores_padroes).at_least(:once)
-          post :raspar_disciplinas, params: {arquivo_turmas: @file}, as: :json
-        end
-
-        it 'should call the method criar_turma_a_partir_de_parametros at least once' do
-          expect_any_instance_of(DashboardController).to receive(:criar_turma_a_partir_de_parametros).at_least(:once)
+        it 'should call the method criar_registros_a_partir_de_info_importada' do
+          expect_any_instance_of(DashboardController).to receive(:criar_registros_a_partir_de_info_importada)
           post :raspar_disciplinas, params: {arquivo_turmas: @file}, as: :json
         end
 
