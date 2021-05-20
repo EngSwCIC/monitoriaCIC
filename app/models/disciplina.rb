@@ -1,16 +1,33 @@
 class Disciplina < ApplicationRecord
+	
+	##
+	# Método estático que retorna os tipos das diciplinas
+	#
+	# Retorna o tipo da disciplina 
+	#
 	def self.all_tipos
     	return [['Obrigatória', 1], ['Optativa', 2]]
 	end
 
+	##
+	# Método estático para achar todas as disciplinas
+	#
+	# Retorna uma lista de todas as disciplinas, ordenadas por nome
+	#
 	def self.all_disciplinas
 		order(:nome).all
 	end
 
+	##
+	# Método estático para achar todas as disciplinas que permitem monitoria
+	#
+	# Retorna uma lista de todas as disciplinas que possuem o campo monitoria como true
+	#
 	def self.com_monitoria
 		return where(monitoria: true)
+
 	end
-	
+
  	validates_presence_of :nome
  	validates_presence_of :fk_tipo_disciplina_id
  	validates_presence_of :c_prat
