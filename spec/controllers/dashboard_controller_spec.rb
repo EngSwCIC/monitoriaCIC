@@ -1,6 +1,8 @@
 # frozen string literal: true
 
 require 'rails_helper'
+require 'simplecov'
+SimpleCov.start 'rails'
 
 describe DashboardController do
   describe 'Logged User' do
@@ -242,6 +244,27 @@ describe DashboardController do
       end
     end
 
+    describe '#vagas_monitoria' do
+      it 'should render the views/dashboard/vagas_monitoria.html.haml' do
+          @admin = FactoryBot.build(:admin)
+          allow_any_instance_of(DashboardController).to receive(:current_user).and_return(@admin)
+          get :vagas_monitoria
+          expect(response).to render_template(:vagas_monitoria)
+      end
+    end
+
+    describe '#monitoria_remunerada' do
+      it 'should render the views/dashboard/monitoria_remunerada.html.haml' do
+          @admin = FactoryBot.build(:admin)
+          allow_any_instance_of(DashboardController).to receive(:current_user).and_return(@admin)
+          get :vagas_monitoria
+          expect(response).to render_template(:vagas_monitoria)
+
+          get :monitoria_remunerada
+          expect(response).to render_template(:monitoria_remunerada)
+      end
+    end
+
     describe '#alocar_bolsa' do
       describe 'Alunos aceitos e sobram bolsas em algumas turmas' do
         before :each do
@@ -326,6 +349,26 @@ describe DashboardController do
           expect(turma.qnt_bolsas).to eq(0)
         end
 
+      end
+
+      describe 'Tentativa de alocacao dupla' do 
+        before :each do
+          @user1 = FactoryBot.create(:user, id: 1, matricula: "180103016", cpf: "06745907160", rg: "3235843", email: "profjoao@gmail.com")
+          @monitoria1 = FactoryBot.create(:monitoria, fk_status_monitoria_id: 1, fk_turmas_id: 1, remuneracao: 'Remunerado', fk_matricula: "111111111")
+          @turma1 = FactoryBot.create(:turma, id:1, qnt_bolsas: 0, turma: 'C')
+        end  
+
+        it 'Flash de erro na alocacao dos alunos' do
+          get :alocar_bolsa
+          monitorias = Monitoria.where(remuneracao: "Remunerado")
+          monitorias.each_with_index do |monitoria|
+            expect(monitoria.fk_status_monitoria_id).to eq(2)
+          get :alocar_bolsa
+          expect(response).to redirect_to ('/dashboard/vagas_monitoria')
+          expect(flash[:danger]).to eq('Não existe monitorias a serem alocadas, ou as monitorias já foram alocadas!')
+          
+          end
+        end
       end
     end
   end
