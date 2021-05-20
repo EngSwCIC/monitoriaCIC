@@ -1,5 +1,8 @@
 class Monitoria < ApplicationRecord
 
+	has_one_attached :historico_escolar
+
+
 	def self.all_disciplinas
  		@disciplinas = Array.new
  		Disciplina.find_each do |d|
