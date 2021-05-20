@@ -1,4 +1,7 @@
-require "rails_helper"
+require 'rails_helper'
+require 'simplecov'
+SimpleCov.start
+
 
 describe Monitoria do
 	before :each do
@@ -68,6 +71,34 @@ describe Monitoria do
 		@d2 = FactoryBot.create(:disciplina, cod_disciplina: 2, nome: 'Disciplina II')
 		@d3 = FactoryBot.create(:disciplina, cod_disciplina: 3, nome: 'Disciplina III')
 		expect(Monitoria.all_disciplinas).to eq([['Disciplina I', 1], ['Disciplina II', 2], ['Disciplina III', 3]])
+    end
+  end
+
+  #testando a funcao scraping, utilizando os historicos que adicionamos nos arquivos
+  describe '#scraping' do
+		
+  	it 'should make the scraping of the pdf and validate the data' do
+		expect(@monitoria.scraping('historico_matricula.pdf', 'CIC0004')).to eq('Recusado pela matricula')
+  	end
+
+	it 'should make the scraping of the pdf and validate the data' do
+		expect(@monitoria.scraping('historico_ira.pdf', 'CIC0004')).to eq('Recusado pelo IRA para monitoria remunerada')
+  	end
+
+	it 'should make the scraping of the pdf and validate the data' do
+		expect(@monitoria.scraping('historico_igrande.pdf', 'CIC0004')).to eq('Recusado pelo IRA')
+  	end
+
+	it 'should make the scraping of the pdf and validate the data' do
+		expect(@monitoria.scraping('historico_status.pdf', 'CIC0004')).to eq('Recusado pelo status')
+  	end
+	  
+    it 'should make the scraping of the pdf and validate the data' do
+		expect(@monitoria.scraping('historico_180112601.pdf', 'CIC0002')).to eq('Recusado pela mencao')
+    end
+	
+    it 'should make the scraping of the pdf and validate the data' do
+	    expect(@monitoria.scraping('historico_180112601.pdf', 'CIC0004')).to eq('Aceito')
     end
   end
 end

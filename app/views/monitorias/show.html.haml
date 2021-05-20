@@ -102,4 +102,6 @@
                         =link_to "Tarefas", tarefas_path(monitoria_id: monitor.id), class: 'btn btn-outline-primary unb-blue btn-block'
                       %hr
                       =link_to "Alterar Situaçao", edit_monitoria_path(monitor.id), class: 'btn btn-outline-primary unb-blue btn-block'
+                      %hr
+                      =link_to "Validar Monitoria", scraping_historico_path(filename:'historico_180112601.pdf', disciplina: monitor.fk_cod_disciplina, id: monitor.id), class: 'btn btn-outline-primary unb-blue btn-block', method: :put  
       .col-1

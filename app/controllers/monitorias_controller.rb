@@ -1,6 +1,6 @@
 class MonitoriasController < ApplicationController
 	before_action :find_monitor, only: [:show]
-	before_action :find_monitoria, only: [:destroy, :edit, :update]
+	before_action :find_monitoria, only: [:destroy, :edit, :update, :validate_scraping]
 	before_action :logged_in
 
 	def new
@@ -44,6 +44,15 @@ class MonitoriasController < ApplicationController
 		@monitoria.destroy
 		redirect_to dashboard_monitorias_path, notice: "Monitoria removida!"
 	end
+
+	def validate_scraping
+		if @monitoria.scraping(params[:filename],params[:disciplina])
+			redirect_to dashboard_monitorias_path, notice: "Situaçao atualizada!"
+		else
+			redirect_to dashboard_monitorias_path, notice: "Erro de validacao"
+		end
+	end
+
 
 	private
 	def monitoria_params
