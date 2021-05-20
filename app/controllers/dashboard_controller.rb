@@ -111,6 +111,11 @@ class DashboardController < ApplicationController
     redirect_to dashboard_importar_professores_path
   end
 
+  ##
+  # Método recebe as informações do banco de dados das turmas
+  # e conta o número de monitorias pendentes para usar na view.
+  #
+
   def vagas_monitoria
     @turmas = Turma.all_turmas
     @monitorias = Monitoria.where(fk_status_monitoria_id: 1, remuneracao: "Remunerado")
@@ -118,41 +123,55 @@ class DashboardController < ApplicationController
 
   end
 
+  ##
+  # Método recebe as informações do banco de dados das turmas, 
+  # uma lista de monitores aceitos e dos usuarios e disponibiliza.
+  # para serem usadas na view.
+  #
+
   def monitoria_remunerada
     @turmas = Turma.all_turmas
     @monitores = Monitoria.where(fk_status_monitoria_id: 3, remuneracao: "Remunerado")
     @users = User.all
   end
 
+  ##
+  # Método para alocação de bolsas remunerada. Método recebe do banco de dados uma lista de monitores 
+  # remunerados em status de pendência e as informações das turmas existentes.
+  # Retorna flashes de sucesso ou fracasso ao checar se existem monitores a serem alocados.
+  # Verifica se o monitor pode ser alocado na turma, atualiza o banco e redireciona para a página de vagas de monitoria.
+  #
+
   def alocar_bolsa
     @monitorias = Monitoria.where(fk_status_monitoria_id: 1, remuneracao: "Remunerado")
     @turmas = Turma.all_turmas
-    bolsas1 = Array.new(@turmas.size)
-
-    if @monitorias.size == 0
+    tamanho = @monitorias.size
+    
+    case tamanho
+    when 0
       flash[:danger] = "Não existe monitorias a serem alocadas, ou as monitorias já foram alocadas!"
     else
       flash[:notice] = "Alunos alocados com sucesso!"
     end
+    
+    @turmas.each_with_index do |turma, idx|
+      vagas = turma.qnt_bolsas
+      turma_id = turma.id
 
-    @turmas.each_with_index do |a, i|
-      bolsas1[i] = a.qnt_bolsas
-    end
-
-    @turmas.each_with_index do |turma, i|
       @monitorias.each do |monitoria|
-        if bolsas1[i] > 0 and monitoria.fk_turmas_id == turma.id
-          bolsas1[i] = bolsas1[i] - 1
-          monitoria.update!(fk_status_monitoria_id: 3)
+        monitoria_turma_id = monitoria.fk_turmas_id
 
-        elsif monitoria.fk_turmas_id == turma.id and bolsas1[i] == 0
-          monitoria.update!(fk_status_monitoria_id: 2)
+        if(monitoria_turma_id == turma_id)
+          case vagas
+          when 0
+            monitoria.update!(fk_status_monitoria_id: 2)  
+          else
+            vagas = vagas-1
+            monitoria.update!(fk_status_monitoria_id: 3)
+          end
         end
-      end
-    end
-
-    @turmas.each_with_index do |turma, i|
-      turma.update!(qnt_bolsas: bolsas1[i])
+      end 
+      turma.update!(qnt_bolsas: vagas)
     end
     
     redirect_to dashboard_vagas_monitoria_path
