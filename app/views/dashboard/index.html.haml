@@ -91,6 +91,13 @@
                 %span{'data-feather': "file-text"}
                 Minhas Atividades
 
+        -if current_user.kind_of?(Admin)
+          %ul.nav.flex-column.mb-2
+            %li.nav-item
+              %a.nav-link{href: dashboard_vagas_monitoria_path}
+                %span{'data-feather': "check"}
+                Vagas de monitoria
+
     %main.col-md-9.ml-sm-auto.col-lg-10.px-4{role: "main"}
       .row
         - if flash[:notice]

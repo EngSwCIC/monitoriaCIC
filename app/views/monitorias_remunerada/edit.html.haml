@@ -1,0 +1,52 @@
+%br
+%main.container{role: "main"}
+  .row
+    .col-3
+    .col.text-center
+      %h1 Aplicar Para Monitor
+      %hr
+      %p.text-justify
+        Altere a situação do candidato a monitoria para: Pendente, Recusado ou Aceito.
+    .col-3
+
+  .row
+    .col-3
+    .col
+      -if flash[:danger]
+        .alert.alert-danger
+          = flash[:danger]
+      -if flash[:notice]
+        .alert.alert-success
+          = flash[:notice]
+
+      = form_tag monitorias_remunerada_path, method: :put do
+        - @aluno = User.find_by(matricula: @monitoria.fk_matricula)
+        .form-group.row
+          = label_tag :aluno, "Aluno", class: "col-sm-3 col-form-label"
+          .col-sm-9
+            %p.form-control-plaintext
+              =@aluno.name
+        .form-group.row
+          = label_tag :matricula, 'Matrícula', class: 'col-sm-3 col-form-label'
+          .col-sm-9
+            %p.form-control-plaintext
+              =@aluno.matricula
+        .form-group.row
+          = label_tag :remuneracao, 'Remuneração', class: 'col-sm-3 col-form-label'
+          .col-sm-9
+            %p.form-control-plaintext
+              =@monitoria.remuneracao
+        .form-group.row
+          = label_tag :descricao_status, 'Descrição', class: 'col-sm-3 col-form-label'
+          .col-sm-9
+            %p.form-control-plaintext
+              =@monitoria.descricao_status
+
+        .form-group.row
+          = label :monitoria, :fk_status_monitoria_id, "Situaçao", class: "col-sm-3 col-form-label"
+          .col-sm-9
+            = select :monitoria, :fk_status_monitoria_id, options_for_select(Monitoria.all_status), {}, class: 'custom-select'
+        
+        %br
+        = submit_tag 'Atualizar', class: "btn btn-outline-primary btn-block"
+    .col-3

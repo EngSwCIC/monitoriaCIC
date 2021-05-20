@@ -117,7 +117,12 @@ module NavigationHelpers
 
     when /^página de importar professores$/
       dashboard_importar_professores_path
-
+    
+    when /^página de alterar a monitoria remunerada (.*)$/
+      edit_monitorias_remunerada_path(Monitoria.find($1))
+    
+    when /^página de monitores remunerado da turma$/
+      dashboard_monitorias_remunerada_candidatos_path  
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

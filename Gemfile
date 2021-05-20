@@ -27,7 +27,6 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'webdrivers', '~> 4.0'
 
 # Uses HAML templates
 gem 'haml'
@@ -89,7 +88,8 @@ group :test do
   gem 'rails-controller-testing'
   gem 'factory_bot_rails'
   gem 'simplecov'
-
+  gem 'metric_fu-Saikuro','~> 1.1', '>= 1.1.3'
+  
   # Used for metrics
   gem 'metric_fu', git: 'https://github.com/metricfu/metric_fu.git'
 end
