@@ -21,7 +21,7 @@
       -if flash[:notice]
         .alert.alert-success
           = flash[:notice]
-      = form_tag monitorias_path, method: :post do
+      = form_tag monitorias_path, method: :post, multipart: true do
         = hidden_field :monitoria, :fk_matricula, value: @user.matricula
         = hidden_field :monitoria, :prioridade, value: 1
         = hidden_field :monitoria, :fk_status_monitoria_id, value: 1 
@@ -48,11 +48,21 @@
             = select :monitoria, :fk_turmas_id, options_for_select(all), {}, class: 'custom-select'
 
         .form-group.row
-          = label :monitoria, :descricao_status, "Descriçao", class: "col-sm-3 col-form-label"
+          = label :monitoria, :ira, "IRA", class: "col-sm-3 col-form-label"
           .col-sm-9
             = text_field :monitoria, :descricao_status, :class => "form-control", :autocomplete => "off", :required => "required"
 
-        
+        .form-group.row
+          = label :monitoria, :mencao, "Menção", class: "col-sm-3 col-form-label"
+          .col-sm-9
+            = text_field :monitoria, :descricao_status, :class => "form-control", :autocomplete => "off", :required => "required"
+
+        .form-group.row
+          = label :monitoria, :historico_escolar, "Histórico Escolar", class: "col-sm-3 col-form-label"
+          .col-sm-9
+            = file_field :monitoria, :historico_escolar, :class => "form-control", :accepted => "application/pdf", :required => "required"
+
+
         %br
         = submit_tag 'Cadastrar', class: "btn btn-outline-primary btn-block unb-blue"
     .col-3
