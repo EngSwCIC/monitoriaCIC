@@ -89,6 +89,9 @@ group :test do
   gem 'factory_bot_rails'
   gem 'simplecov', require: false, group: :test
 
+  #Test complexity
+  gem 'cycromatic'
+
   # Used for metrics
   gem 'metric_fu', git: 'https://github.com/metricfu/metric_fu.git'
 end
