@@ -71,4 +71,36 @@ describe Monitoria do
 		expect(Monitoria.all_disciplinas).to eq([['Disciplina I', 1], ['Disciplina II', 2], ['Disciplina III', 3]])
     end
   end
+
+  		#Happy Path - envio de emails
+		  describe 'envio um email para cada aluno por monitoria confirmada' do
+			it 'sends an email' do
+				@monitoria = Monitoria.new(:remuneracao => "Remunerado", :fk_matricula => "140080379", :fk_cod_disciplina => 1, :fk_turmas_id => 1, :fk_status_monitoria_id => 1) 
+				@user = User.create!(id: 1, name: "Aluno", matricula: "140080379", email: "aluno@gmail.com", cpf: "67312863035", rg: "2665178", password: "123456", password_confirmation: '123456')
+				FactoryBot.create(:turma)
+				FactoryBot.create(:professor)
+				FactoryBot.create(:disciplina, id:1)
+
+				@monitoria.fk_status_monitoria_id = '3'
+				@monitoria.save
+				expect { @monitoria.send_resultado_monitoria_prof }
+				.to change { ActionMailer::Base.deliveries.count }.by(1)
+				expect { @monitoria.send_resultado_monitoria_user }
+				.to change { ActionMailer::Base.deliveries.count }.by(1)
+			end
+		end	
+	
+	#Sad Path - envio de emails
+	
+		describe 'envio um email para cada aluno por monitoria nao confirmada' do
+			it 'sends an email' do
+				
+				@monitoria.fk_status_monitoria_id = '2'
+				@monitoria.save
+				expect { @monitoria.send_resultado_monitoria_prof }
+				.to change { ActionMailer::Base.deliveries.count }.by(0)
+				expect { @monitoria.send_resultado_monitoria_user }
+				.to change { ActionMailer::Base.deliveries.count }.by(0)
+			end
+		end	
 end

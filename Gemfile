@@ -87,7 +87,7 @@ group :test do
   gem 'guard-rspec'
   gem 'rails-controller-testing'
   gem 'factory_bot_rails'
-  gem 'simplecov'
+  gem 'simplecov', require: false, group: :test
 
   # Used for metrics
   gem 'metric_fu', git: 'https://github.com/metricfu/metric_fu.git'
