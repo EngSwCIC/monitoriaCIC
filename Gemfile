@@ -27,7 +27,6 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
-gem 'webdrivers', '~> 4.0'
 
 # Uses HAML templates
 gem 'haml'
@@ -89,10 +88,15 @@ group :test do
   gem 'rails-controller-testing'
   gem 'factory_bot_rails'
   gem 'simplecov'
+  gem 'cycromatic'
+  gem "rubycritic", require: false
 
   # Used for metrics
-  gem 'metric_fu', git: 'https://github.com/metricfu/metric_fu.git'
+  #gem 'metric_fu', git: 'https://github.com/metricfu/metric_fu.git'
 end
+
+# Gema utilizada para documentação
+gem 'rdoc'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

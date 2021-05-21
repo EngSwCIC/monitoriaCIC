@@ -17,4 +17,11 @@ module SessionsHelper
   def logged_in?
     !logged_user.nil?
   end
+
+  def is_admin
+		if !current_user.kind_of?(Admin)
+			flash[:danger] = "Acesso negado."
+				redirect_to dashboard_path
+		end
+	end
 end

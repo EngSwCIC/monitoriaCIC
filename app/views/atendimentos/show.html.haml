@@ -15,13 +15,13 @@
               %a.nav-link{href: dashboard_disciplinas_path}
                 %span{'data-feather': "file"}
               Disciplinas
-          - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
+          - if current_user.kind_of?(User) || current_user.kind_of?(Professor) || current_user.kind_of?(Admin)
             %li.nav-item
               %a.nav-link.active{href: dashboard_monitorias_path}
                 %span{'data-feather': "github"}
                 Monitoria
 
-          -if current_user.kind_of?(Professor)
+          -if current_user.kind_of?(Professor) || current_user.kind_of?(Admin)
             %ul.nav.flex-column.mb-2
               %li.nav-item
                 %a.nav-link{href: dashboard_turmas_path}

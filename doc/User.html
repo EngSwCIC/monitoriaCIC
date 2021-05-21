@@ -21,8 +21,6 @@
 <link href="./css/rdoc.css" rel="stylesheet">
 
 
-
-
 <body id="top" role="document" class="class">
 <nav role="navigation">
   <div id="project-navigation">
@@ -59,38 +57,29 @@
 
   <div id="class-metadata">
     
-    <div id="parent-class-section" class="nav-section">
+    
+<div id="parent-class-section" class="nav-section">
   <h3>Parent</h3>
 
-  
   <p class="link">ActiveRecord::Base
-  
 </div>
 
     
     
-    <!-- Method Quickref -->
+    
+<!-- Method Quickref -->
 <div id="method-list-section" class="nav-section">
   <h3>Methods</h3>
 
   <ul class="link-list" role="directory">
-    
     <li ><a href="#method-c-digest">::digest</a>
-    
     <li ><a href="#method-c-new_token">::new_token</a>
-    
     <li ><a href="#method-i-authenticated-3F">#authenticated?</a>
-    
     <li ><a href="#method-i-create_reset_digest">#create_reset_digest</a>
-    
     <li ><a href="#method-i-nth_validation_digit">#nth_validation_digit</a>
-    
     <li ><a href="#method-i-password_reset_expired-3F">#password_reset_expired?</a>
-    
     <li ><a href="#method-i-send_password_reset_email">#send_password_reset_email</a>
-    
     <li ><a href="#method-i-valid_cpf">#valid_cpf</a>
-    
   </ul>
 </div>
 
@@ -106,35 +95,24 @@
     
   </section>
 
-  
   <section id="5Buntitled-5D" class="documentation-section">
-    
 
-    
 
-    
     <section class="constants-list">
       <header>
         <h3>Constants</h3>
       </header>
       <dl>
-      
         <dt id="VALID_EMAIL_REGEX">VALID_EMAIL_REGEX
-        
         <dd><p>Verificação do email</p>
-        
-      
       </dl>
     </section>
-    
 
-    
     <section class="attribute-method-details" class="method-section">
       <header>
         <h3>Attributes</h3>
       </header>
 
-      
       <div id="attribute-i-remember_token" class="method-detail">
         <div class="method-heading attribute-method-heading">
           <span class="method-name">remember_token</span><span
@@ -143,11 +121,8 @@
 
         <div class="method-description">
         
-        
-        
         </div>
       </div>
-      
       <div id="attribute-i-reset_token" class="method-detail">
         <div class="method-heading attribute-method-heading">
           <span class="method-name">reset_token</span><span
@@ -156,39 +131,26 @@
 
         <div class="method-description">
         
-        
-        
         </div>
       </div>
-      
     </section>
-    
 
-    
+
      <section id="public-class-5Buntitled-5D-method-details" class="method-section">
        <header>
          <h3>Public Class Methods</h3>
        </header>
 
-    
       <div id="method-c-digest" class="method-detail ">
-        
         <div class="method-heading">
           <span class="method-name">digest</span><span
             class="method-args">(string)</span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
 
         <div class="method-description">
-          
           <p>Retorna o digest de um hash de uma string passada para o método</p>
-          
-          
 
-          
           <div class="method-source-code" id="digest-source">
             <pre><span class="ruby-comment"># File app/models/user.rb, line 75</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">User</span>.<span class="ruby-identifier ruby-title">digest</span>(<span class="ruby-identifier">string</span>)
@@ -197,74 +159,49 @@
   <span class="ruby-constant">BCrypt</span><span class="ruby-operator">::</span><span class="ruby-constant">Password</span>.<span class="ruby-identifier">create</span>(<span class="ruby-identifier">string</span>, <span class="ruby-value">cost:</span> <span class="ruby-identifier">cost</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-c-new_token" class="method-detail ">
-        
         <div class="method-heading">
           <span class="method-name">new_token</span><span
             class="method-args">()</span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
 
         <div class="method-description">
-          
           <p>Retorna um token aleatório</p>
-          
-          
 
-          
           <div class="method-source-code" id="new_token-source">
             <pre><span class="ruby-comment"># File app/models/user.rb, line 82</span>
 <span class="ruby-keyword">def</span> <span class="ruby-constant">User</span>.<span class="ruby-identifier ruby-title">new_token</span>
   <span class="ruby-constant">SecureRandom</span>.<span class="ruby-identifier">urlsafe_base64</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
     </section>
-  
+
      <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
        <header>
          <h3>Public Instance Methods</h3>
        </header>
 
-    
       <div id="method-i-authenticated-3F" class="method-detail ">
-        
         <div class="method-heading">
           <span class="method-name">authenticated?</span><span
             class="method-args">(attribute, token)</span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
 
         <div class="method-description">
-          
           <p>Retorna true se o token passado é o mesmo que o digest armazenado no banco</p>
-          
-          
 
-          
           <div class="method-source-code" id="authenticated-3F-source">
             <pre><span class="ruby-comment"># File app/models/user.rb, line 104</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">authenticated?</span>(<span class="ruby-identifier">attribute</span>, <span class="ruby-identifier">token</span>)
@@ -273,33 +210,21 @@
   <span class="ruby-constant">BCrypt</span><span class="ruby-operator">::</span><span class="ruby-constant">Password</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">digest</span>).<span class="ruby-identifier">is_password?</span>(<span class="ruby-identifier">token</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-create_reset_digest" class="method-detail ">
-        
         <div class="method-heading">
           <span class="method-name">create_reset_digest</span><span
             class="method-args">()</span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
 
         <div class="method-description">
-          
           <p>Define os atributos para resetar a senha</p>
-          
-          
 
-          
           <div class="method-source-code" id="create_reset_digest-source">
             <pre><span class="ruby-comment"># File app/models/user.rb, line 87</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create_reset_digest</span>
@@ -308,33 +233,21 @@
   <span class="ruby-identifier">update_attribute</span>(<span class="ruby-value">:reset_sent_at</span>, <span class="ruby-constant">Time</span>.<span class="ruby-identifier">zone</span>.<span class="ruby-identifier">now</span>)
 <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-nth_validation_digit" class="method-detail ">
-        
         <div class="method-heading">
           <span class="method-name">nth_validation_digit</span><span
             class="method-args">(cpf_array, digit)</span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
 
         <div class="method-description">
-          
           <p>Cálculo de validação dp CPF</p>
-          
-          
 
-          
           <div class="method-source-code" id="nth_validation_digit-source">
             <pre><span class="ruby-comment"># File app/models/user.rb, line 41</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">nth_validation_digit</span>(<span class="ruby-identifier">cpf_array</span>, <span class="ruby-identifier">digit</span>)
@@ -356,99 +269,63 @@
   <span class="ruby-keyword">return</span> <span class="ruby-ivar">@validation_digit</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-password_reset_expired-3F" class="method-detail ">
-        
         <div class="method-heading">
           <span class="method-name">password_reset_expired?</span><span
             class="method-args">()</span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
 
         <div class="method-description">
-          
           <p>Retorna true se o parâmetro password reset expirou</p>
-          
-          
 
-          
           <div class="method-source-code" id="password_reset_expired-3F-source">
             <pre><span class="ruby-comment"># File app/models/user.rb, line 99</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">password_reset_expired?</span>
   <span class="ruby-identifier">reset_sent_at</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">2</span>.<span class="ruby-identifier">hours</span>.<span class="ruby-identifier">ago</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-send_password_reset_email" class="method-detail ">
-        
         <div class="method-heading">
           <span class="method-name">send_password_reset_email</span><span
             class="method-args">()</span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
 
         <div class="method-description">
-          
           <p>Envia o e-mail para resetar a senha</p>
-          
-          
 
-          
           <div class="method-source-code" id="send_password_reset_email-source">
             <pre><span class="ruby-comment"># File app/models/user.rb, line 94</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">send_password_reset_email</span>
   <span class="ruby-constant">UserMailer</span>.<span class="ruby-identifier">reset_senha</span>(<span class="ruby-keyword">self</span>).<span class="ruby-identifier">deliver_now</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-valid_cpf" class="method-detail ">
-        
         <div class="method-heading">
           <span class="method-name">valid_cpf</span><span
             class="method-args">()</span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
 
         <div class="method-description">
           
-          
-          
-          
 
-          
           <div class="method-source-code" id="valid_cpf-source">
             <pre><span class="ruby-comment"># File app/models/user.rb, line 60</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">valid_cpf</span>
@@ -465,25 +342,20 @@
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
     </section>
-  
-  </section>
 
+  </section>
 </main>
 
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.0.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.3.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

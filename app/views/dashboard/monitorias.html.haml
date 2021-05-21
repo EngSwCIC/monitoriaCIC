@@ -15,13 +15,13 @@
               %a.nav-link{href: dashboard_disciplinas_path}
                 %span{'data-feather': "file"}
                 Disciplinas
-          - if current_user.kind_of?(User) || current_user.kind_of?(Professor)
+          - if current_user.kind_of?(User) || current_user.kind_of?(Professor) || current_user.kind_of?(Admin)
             %li.nav-item
               %a.nav-link.active{href: dashboard_monitorias_path}
                 %span{'data-feather': "github"}
                 Monitoria
 
-          -if current_user.kind_of?(Professor)
+          -if current_user.kind_of?(Professor) || current_user.kind_of?(Admin)
             %ul.nav.flex-column.mb-2
               %li.nav-item
                 %a.nav-link{href: dashboard_turmas_path}
@@ -138,6 +138,36 @@
                               = turma.professor
                             = link_to "Aplicar para monitoria", new_monitoria_path(turma: turma.fk_cod_disciplina), {class: 'btn btn-outline-success unb-green btn-block', id: "link_#{turma.id}" }
 
+          - if current_user.class == Admin
+            %p.lead
+              Coordenador, nessa página você pode visualizar todas as turmas de disciplinas que você
+              ministra que receberam inscrições de alunos para monitoria. Para acessar a lista
+              e escolher seus monitores, clique em 'Ver lista de monitores' em alguma das turmas abaixo.
+              %br
+              Caso o botão esteja desativado (cinza) significa que ainda não há aplicantes para monitoria
+              na disciplina.
+            %br
+            .row
+              .col
+                .ul.list-group
+                  - Turma.all.each do |turma|
+                    - @disciplina = Disciplina.find(turma.fk_cod_disciplina)
+                    %li.list-group-item
+                      Disciplina:
+                      %b
+                        = @disciplina.nome
+                      %br
+                      Turma:
+                      %b
+                        = turma.turma
+                      %br
+                      %br
+                      - cod = @disciplina.cod_disciplina
+                      - m = Monitoria.find_by(fk_cod_disciplina: cod, fk_turmas_id: turma.id)
+                      - if !m.nil?
+                        = link_to "Ver lista de monitores", dashboard_monitorias_candidatos_path(id: turma.id), class: 'btn btn-outline-primary unb-blue'
+                      - else
+                        = link_to "Ver lista de monitores", nil, class: 'btn btn-secondary disabled'
           - else
             %p.lead
               Professor, nessa página você pode visualizar todas as turmas de disciplinas que você

@@ -1,3 +1,6 @@
+##
+# Model de Turma.
+
 class Turma < ActiveRecord::Base
   def self.qnt_bolsas
     @qnt_bolsas = []
@@ -54,11 +57,17 @@ class Turma < ActiveRecord::Base
   validates_presence_of :qnt_bolsas
   validate :turma_unica
 
+  ##
+  # Quando for criar uma turma, verifica se ela já não foi criada.
+  #
+  # Recebe de argumento os dados da turma criada, mas só utiliza fk_cod_disciplina.
+  #
+  # Retorna uma mensagem de erro caso não consiga criar a turma.
   def turma_unica
     @turmas = Turma.where(fk_cod_disciplina: fk_cod_disciplina)
 
     @turmas.each do |t|
-      if t.turma == turma
+      if t.turma == turma && t.id != id
         errors.add(:turma, "#{turma} não é a única para a disciplina #{Disciplina.find(fk_cod_disciplina).nome}")
       end
     end

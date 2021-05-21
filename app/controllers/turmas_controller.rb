@@ -1,5 +1,10 @@
+##
+# Implementação da controller de Turmas
+# Função: definir métodos estruturais para listagem, criação, inserção de dados,
+# edição de um registro e remoção de um registro
+
 class TurmasController < ApplicationController
-  # GET #new
+
   def new
     @user = current_user
   end
@@ -20,17 +25,32 @@ class TurmasController < ApplicationController
     redirect_to dashboard_turmas_path
   end
 
+  ##
+  # Método responsável por atualizar um registro com os dados inseridos em Edit.
+  #
+  # Recebe os dados da view Edit e faz o tratamento dos dados modificados pelo usuário.
+  #
+  # Caso os dados sejam válidos, o registro é atualizado no banco e
+  # Redireciona para a página de turmas.
+  #
+  # Caso os dados sejam inválidos, o registro não é atualizado no banco e
+  # Redireciona para a página turmas com a mensagem de erro.
+  #
+	# PATCH/PUT /turmas/:id
   def update
     @turma = Turma.find(params[:id])
-    @turma.update_attributes(turma_params)
-
-    if !@turma.errors.any?
-      flash[:notice] = 'Turma atualizada com sucesso!'
+    if validate_turma(turma_params[:qnt_bolsas]) == true
+      @turma.update_attributes(turma_params)
+      if !@turma.errors.any?
+        flash[:notice] = 'Turma atualizada com sucesso!'
+      else
+        flash[:danger] = @turma.errors.full_messages
+      end
+      redirect_to dashboard_turmas_path
     else
-      flash[:danger] = @turma.errors.full_messages
+      flash[:notice] = 'Turma possui uma quantidade de alunos aceito maior que a nova quantidade de vagas disponiveis!'
+      redirect_to dashboard_turmas_path
     end
-
-    redirect_to dashboard_turmas_path
   end
 
   def destroy
@@ -62,5 +82,11 @@ class TurmasController < ApplicationController
       end
     end
     @turmas
+  end
+
+  def validate_turma(quantidade)
+    @monitoria = Monitoria.where(fk_turmas_id: params[:id], fk_status_monitoria_id: 3)
+    turma = quantidade.to_i
+    return true if @monitoria.length <= turma || @monitoria.length == 0
   end
 end

@@ -8,5 +8,6 @@ FactoryBot.define do
     descricao_status {'Nota: SS, IRA: 3'}
     prioridade {'1'}
     fk_status_monitoria_id {'1'}
+    open {false}
   end
 end

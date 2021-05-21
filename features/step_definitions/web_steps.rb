@@ -218,6 +218,9 @@ Dado /^(?:|que) está na página de dashboard do usuário$/ do
   )
 end
 
+Dado /^(?:|que )o período de inscrição da monitoria esteja encerrado$/ do
+  Monitoria.update(1, open: false)
+end
 
 Quando /^(?:|eu )aperto em "([^"]*)"$/ do |button|
   click_button(button)

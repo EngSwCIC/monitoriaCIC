@@ -1,14 +1,13 @@
-#language pt
-Funcionalidade: Relatorio dos atendimentos
-    O monitor pode accesar a seu relatorio de atendimentos e os professores podem accesar aos relatorios de todos os monitores
-
+#language: pt
+Funcionalidade: Relatorio dos atendimentos.
+    O monitor pode accesar a seu relatorio de atendimentos e os professores podem accesar aos relatorios de todos os monitores.
 
 Cenario de Fundo:
     Dado que eu estou na pagina de x(accesso de relatorios)
     Quando eu clico em "Visualizar relatorio"
     Entao eu devo estar na pagina dos relatorios
 
-Cenario:Monitor visualiza todos os registros(Happy Path)
+Cenario: Monitor visualiza todos os registros(Happy Path)
     Quando o monitor visualiza o relatorio
         |Aluno atendido|Dia        |Motivo  |Descricao|
         |Daniel        |08/10/2019 |duvida  |tirar uma duvida|
