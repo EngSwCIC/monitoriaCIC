@@ -22,18 +22,31 @@ class Monitoria < ApplicationRecord
     	return [['Pendente', 1], ['Recusado', 2], ['Aceito', 3], ['Encerrado', 4]]
  	end
 
+	##
+	# Método utilizado como auxílio no arquivo views/monitorias/edit.html.haml
+	# Retorna um array com as opções possíveis para seleção de prioridade
+
 	def self.all_prioridades
 		return [['Selecionar', nil],['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]]
  	end
 
+	##
+	# Método que calcula a média das prioridades de dois professores
+	# Método chamado em callback before_update, sempre que um professor atualizar uma prioridade
+	#
+	# Se uma das prioridades for nula, isto é, não foi atribuida, a média representa a soma das prioridades
+	# Senão, caso haja duas duas prioridades, a média é a média aritmética dessas prioridades
+
 	def set_media
-		if self.prioridade != nil && self.prioridade_auxiliar == nil
-			self.media = self.prioridade
-		elsif self.prioridade == nil && self.prioridade_auxiliar != nil
-				self.media = self.prioridade_auxiliar 
-		elsif self.prioridade_auxiliar != nil && self.prioridade != nil
- 			self.media = (self.prioridade.to_f + self.prioridade_auxiliar.to_f)/2
+		prioridade = self.prioridade
+		prioridade_auxiliar = self.prioridade_auxiliar
+		media = self.media
+		if !prioridade || !prioridade_auxiliar
+			media = prioridade.to_f + prioridade_auxiliar.to_f
+		else
+ 			media = (prioridade + prioridade_auxiliar)/2
 		end
+		self.media = media
 	end
 
  	validates_presence_of :remuneracao
