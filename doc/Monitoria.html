@@ -77,7 +77,11 @@
     
     <li ><a href="#method-c-all_disciplinas">::all_disciplinas</a>
     
+    <li ><a href="#method-c-all_prioridades">::all_prioridades</a>
+    
     <li ><a href="#method-c-all_status">::all_status</a>
+    
+    <li ><a href="#method-i-set_media">#set_media</a>
     
   </ul>
 </div>
@@ -130,13 +134,46 @@
 
           
           <div class="method-source-code" id="all_disciplinas-source">
-            <pre><span class="ruby-comment"># File app/models/monitoria.rb, line 3</span>
+            <pre><span class="ruby-comment"># File app/models/monitoria.rb, line 5</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">all_disciplinas</span>
         <span class="ruby-ivar">@disciplinas</span> = <span class="ruby-constant">Array</span>.<span class="ruby-identifier">new</span>
         <span class="ruby-constant">Disciplina</span>.<span class="ruby-identifier">find_each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">d</span><span class="ruby-operator">|</span>
                 <span class="ruby-ivar">@disciplinas</span> <span class="ruby-operator">&lt;&lt;</span> [<span class="ruby-identifier">d</span>.<span class="ruby-identifier">nome</span>, <span class="ruby-identifier">d</span>.<span class="ruby-identifier">cod_disciplina</span>]
         <span class="ruby-keyword">end</span>
         <span class="ruby-ivar">@disciplinas</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-all_prioridades" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">all_prioridades</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Método utilizado como auxílio no arquivo views/monitorias/edit.html.haml Retorna um array com as opções possíveis para seleção de prioridade</p>
+          
+          
+
+          
+          <div class="method-source-code" id="all_prioridades-source">
+            <pre><span class="ruby-comment"># File app/models/monitoria.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">all_prioridades</span>
+        <span class="ruby-keyword">return</span> [[<span class="ruby-string">&#39;Selecionar&#39;</span>, <span class="ruby-keyword">nil</span>],[<span class="ruby-string">&#39;1&#39;</span>, <span class="ruby-value">1</span>], [<span class="ruby-string">&#39;2&#39;</span>, <span class="ruby-value">2</span>], [<span class="ruby-string">&#39;3&#39;</span>, <span class="ruby-value">3</span>], [<span class="ruby-string">&#39;4&#39;</span>, <span class="ruby-value">4</span>], [<span class="ruby-string">&#39;5&#39;</span>, <span class="ruby-value">5</span>]]
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -176,9 +213,60 @@
 
           
           <div class="method-source-code" id="all_status-source">
-            <pre><span class="ruby-comment"># File app/models/monitoria.rb, line 19</span>
+            <pre><span class="ruby-comment"># File app/models/monitoria.rb, line 21</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier ruby-title">all_status</span>
 <span class="ruby-keyword">return</span> [[<span class="ruby-string">&#39;Pendente&#39;</span>, <span class="ruby-value">1</span>], [<span class="ruby-string">&#39;Recusado&#39;</span>, <span class="ruby-value">2</span>], [<span class="ruby-string">&#39;Aceito&#39;</span>, <span class="ruby-value">3</span>], [<span class="ruby-string">&#39;Encerrado&#39;</span>, <span class="ruby-value">4</span>]]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-set_media" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">set_media</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Método que calcula a média das prioridades de dois professores Método chamado em callback before_update, sempre que um professor atualizar uma prioridade</p>
+
+<p>Se uma das prioridades for nula, isto é, não foi atribuida, a média representa a soma das prioridades Senão, caso haja duas duas prioridades, a média é a média aritmética dessas prioridades</p>
+          
+          
+
+          
+          <div class="method-source-code" id="set_media-source">
+            <pre><span class="ruby-comment"># File app/models/monitoria.rb, line 40</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">set_media</span>
+        <span class="ruby-identifier">prioridade</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">prioridade</span>
+        <span class="ruby-identifier">prioridade_auxiliar</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">prioridade_auxiliar</span>
+        <span class="ruby-identifier">media</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">media</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">prioridade</span> <span class="ruby-operator">||</span> <span class="ruby-operator">!</span><span class="ruby-identifier">prioridade_auxiliar</span>
+                <span class="ruby-identifier">media</span> = <span class="ruby-identifier">prioridade</span>.<span class="ruby-identifier">to_f</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">prioridade_auxiliar</span>.<span class="ruby-identifier">to_f</span>
+        <span class="ruby-keyword">else</span>
+                <span class="ruby-identifier">media</span> = (<span class="ruby-identifier">prioridade</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">prioridade_auxiliar</span>)<span class="ruby-operator">/</span><span class="ruby-value">2</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">self</span>.<span class="ruby-identifier">media</span> = <span class="ruby-identifier">media</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -199,7 +287,7 @@
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.0.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 
