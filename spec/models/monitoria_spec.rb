@@ -62,6 +62,13 @@ describe Monitoria do
     end
   end
 
+	describe '#all_prioridades' do
+    it 'retorna array com as prioridades' do
+      @status =[['Selecionar', nil],['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5]]
+      expect(Monitoria.all_prioridades).to eq @status
+    end
+  end
+
   describe '#all_disciplinas' do
     it 'retorna array com as disciplinas' do
 		@d1 = FactoryBot.create(:disciplina, cod_disciplina: 1, nome: 'Disciplina I')
