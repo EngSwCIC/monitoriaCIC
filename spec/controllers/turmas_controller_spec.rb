@@ -147,7 +147,6 @@ describe TurmasController do
         @db_turma2 = FactoryBot.create(:turma, id: '2', fk_cod_disciplina: '1', turma: 'B')
         @disciplina = FactoryBot.create(:disciplina, id: '1', cod_disciplina: '1')
         @monitoria1 = FactoryBot.create(:monitoria, id: '1', fk_status_monitoria_id: 3, open: false)
-        # @monitoria2 = FactoryBot.create(:monitoria, id: '2', fk_status_monitoria_id: 3)
         
         @invalid_info = {
           turma: 'B',

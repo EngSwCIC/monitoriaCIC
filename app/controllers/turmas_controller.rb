@@ -22,16 +22,13 @@ class TurmasController < ApplicationController
 
   def update
     @turma = Turma.find(params[:id])
-
     if validate_turma(turma_params[:qnt_bolsas]) == true
       @turma.update_attributes(turma_params)
-
       if !@turma.errors.any?
         flash[:notice] = 'Turma atualizada com sucesso!'
       else
         flash[:danger] = @turma.errors.full_messages
       end
-
       redirect_to dashboard_turmas_path
     else
       flash[:notice] = 'Turma possui uma quantidade de alunos aceito maior que a nova quantidade de vagas disponiveis!'
