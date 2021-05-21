@@ -238,8 +238,4 @@ describe MonitoriasController do
       expect(flash[:notice]).to eq('Você precisa estar logado para acessar a pagina Monitoria')
     end
   end
-  
-  describe 'not admin' do
-    allow_any_instance_of(MonitoriasController).to receive(:is_admin).and_return(true)
-  end
 end

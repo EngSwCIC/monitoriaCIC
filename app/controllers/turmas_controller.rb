@@ -67,13 +67,6 @@ class TurmasController < ApplicationController
     @turmas
   end
 
-  def is_admin
-		if !current_user.kind_of?(Admin)
-			flash[:danger] = "Acesso negado."
-				redirect_to dashboard_disciplinas_path
-		end
-	end
-
   def validate_turma(quantidade)
     @monitoria = Monitoria.where(fk_turmas_id: params[:id], fk_status_monitoria_id: 3)
     turma = quantidade.to_i
