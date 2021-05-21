@@ -23,4 +23,10 @@ class Disciplina < ApplicationRecord
  	validates :c_est, format: { with: /\A[\d]+\z/, message: "apenas numeros" }
  	validates :c_ext, format: { with: /\A[\d]+\z/, message: "apenas numeros" }
 
+	 def self.criar_disciplina_com_valores_padroes (params)
+		Disciplina.create([{nome: params[:disciplina], 
+			  fk_tipo_disciplina_id: 1, c_prat: 0, c_teor: 0, 
+			  cod_disciplina: params[:cod_disciplina]}])
+	  end
+
 end

@@ -1,4 +1,5 @@
 class DashboardController < ApplicationController
+  include TurmasParser
   before_action :user_logged
   def index; end
 
@@ -90,101 +91,22 @@ class DashboardController < ApplicationController
     @disciplinas = Disciplina.all
   end
 
-  def parse_turmas_file (uploadedFile)
-    docToParse = Nokogiri::HTML(uploadedFile.read, nil, 'UTF-8') do |config|
-        config.recover
-    end
-    listaDeHashesDeTurmas = Array.new()
-    blocosDeTurmaHTML = docToParse.xpath(
-        '//table[tr[@class="componentescur"]]') # Separa o html em blocos da table pai do tr de classe 'componentescur'
-    blocosDeTurmaHTML.each do |t|
-        turma = Hash.new()
-        infoDisciplinaTurma = t.at_css('tr.componentescur').css('td')
-        turma[:nomeDisciplina] = infoDisciplinaTurma[0].to_s.match(/^\s+\S+ - (.+)+ -/)[1]
-        turma[:codigoDisciplina] = infoDisciplinaTurma[0].to_s.match(/^\s+CIC(\S+) -/)[1].to_i
-        turma[:codigoTurma] = infoDisciplinaTurma[1].to_s.match(/^\s+(\S+)\s/)[1]
-        turma[:situacao] = infoDisciplinaTurma[2].to_s.match(/<td>\s+(.+?)\s+<\/td>/)[1]
-        # puts 'DEBUG   ' + turma[:nomeDisciplina] + ' ' + turma[:codigoDisciplina] + ' ' + turma[:codigoTurma] + ' ' + turma[:situacao]
-
-        infoProfessor = t.at_css('tr.componentescur').next_element.css('td') # Pulamos as quatro primeiras rows na tabela
-        turma[:nomeProfessor1] = infoProfessor[0].css('i').to_s.match(/<i>(.+?) \(.+\)/)
-        if (turma[:nomeProfessor1] == nil)
-          turma[:nomeProfessor1] = ''
-        else
-          turma[:nomeProfessor1] = turma[:nomeProfessor1][1]
-        end
-        turma[:nomeProfessor2] = infoProfessor[0].css('i').to_s.match(/<br>(.+?) \(.+\)/) # Espera-se que seja = nil se houver só um professor
-        if (turma[:nomeProfessor2] == nil)
-          turma[:nomeProfessor2] = ''
-        else
-          turma[:nomeProfessor2] = turma[:nomeProfessor2][1]
-        end
-        turma[:reserva] = infoProfessor[1].css('i').to_s.match(/<i><?i?>?(.+?)\/?<\/i><?/)[1]
-        listaDeHashesDeTurmas.append(turma)
-    end
-    return listaDeHashesDeTurmas
-  end
-
-  def criar_professor_com_valores_padroes (nomeProfessor)
-    nomeFormatado = nomeProfessor.split.map(&:capitalize).join(' ') # Transforme a primeira letra de cada nome em maiúscula
-    if (!Professor.exists?(name: nomeFormatado))
-      usuarioPadrao = nomeFormatado.split.join('')[0...14]
-      emailPadrao = usuarioPadrao + '@unb.br'
-      senhaPadrao = '123456abc'
-      role = 1
-      Professor.create(name: nomeFormatado, email: emailPadrao, username: usuarioPadrao, password: senhaPadrao, password_confirmation: senhaPadrao, role: role)
-    end
-  end
-
-  def criar_disciplina_com_valores_padroes (nome, codigo)
-    if (!Disciplina.exists?(cod_disciplina: codigo))
-      Disciplina.create([{nome: nome, 
-          fk_tipo_disciplina_id: 1, c_prat: 0, c_teor: 0, 
-          cod_disciplina: codigo}])
-    end
-  end
-
-  def criar_turma_a_partir_de_parametros (codigo, nomeDisciplina, nomeProfPrincipal, nomeProfAuxiliar)
-    disciplinaId = Disciplina.find_by(nome: nomeDisciplina).id
-    if (Disciplina.exists?(nome: nomeDisciplina)) && (!Turma.exists?(
-      fk_cod_disciplina: disciplinaId,
-      turma: codigo,
-      professor: nomeProfPrincipal,
-      professor_aux: nomeProfAuxiliar,
-      fk_vagas_id: 1 ))
-      Turma.create([{
-          fk_cod_disciplina: disciplinaId,
-          turma: codigo,
-          professor: nomeProfPrincipal,
-          professor_aux: nomeProfAuxiliar,
-          fk_vagas_id: 1
-      }])
-    end
-  end
-
+  ##
+  # Utiliza funções no módulo TurmaParser para interpretar um arquivo de html enviado, o qual deve
+  # conter informações sobre turmas, em formato adequado. A partir dessas informações, cria novos
+  # registros no banco de dados. Após as operações, redireciona o usuário para a página de importação
+  # de disciplinas.
   def raspar_disciplinas
-    if (params[:arquivo_turmas] == nil)
+    arquivo = params[:arquivo_turmas]
+    if (arquivo == nil)
       raise "Por favor, selecionar um arquivo"
     end
-    
-    array_de_turmas = parse_turmas_file(params[:arquivo_turmas])
-    array_de_turmas.each do |hash|
-      criar_professor_com_valores_padroes(hash[:nomeProfessor1])
-      if (hash[:nomeProfessor2] != '')
-        criar_professor_com_valores_padroes(hash[:nomeProfessor2])
-      end
-      begin
-        criar_disciplina_com_valores_padroes(hash[:nomeDisciplina], hash[:codigoDisciplina])
-      rescue StandardError => e
-        flash[:danger] = "#{e.message}"
-      end
-      criar_turma_a_partir_de_parametros(hash[:codigoTurma], hash[:nomeDisciplina], hash[:nomeProfessor1], hash[:nomeProfessor2])
-    end
+    array_de_turmas = gerar_lista_de_turmas_a_partir_de_arquivo(arquivo)
+    criar_registros_a_partir_de_info_importada(array_de_turmas)
     flash[:notice] = "Disciplinas importadas com sucesso!"
-
-    redirect_to dashboard_importar_disciplinas_path
-  rescue StandardError => e
-    flash[:danger] = e.message
+  rescue StandardError => error
+    flash[:danger] = error.message
+  ensure
     redirect_to dashboard_importar_disciplinas_path
   end  
   
