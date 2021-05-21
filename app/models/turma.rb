@@ -1,40 +1,35 @@
+# A classe Turma é responsável pelas regras de negócios relacionadas à entidade Turma.
+# Para isso realiza operações na tabela Turma no banco de dados.
 class Turma < ActiveRecord::Base
   def self.qnt_bolsas
-    @qnt_bolsas = []
+    qnt_bolsas = []
 
-    for i in 1..10
-      @vaga = []
-      @vaga = [i.to_s, i]
-      @qnt_bolsas.insert(-1, @vaga)
+    for index in 1..10
+      vaga = [index.to_s, index]
+      qnt_bolsas.insert(-1, vaga)
     end
 
-    return @qnt_bolsas
+    return qnt_bolsas
   end
 
   def self.sel_disciplinas
-    @disciplinas = Disciplina.select('cod_disciplina', 'nome')
-
-    @select = []
-    @disciplinas.each do |disciplina|
-      @atual = []
-      @atual = [disciplina.nome, disciplina.cod_disciplina]
-      @select.insert(-1, @atual)
+    disciplinas = Disciplina.select('cod_disciplina', 'nome')
+    select = []
+    disciplinas.each do |disciplina|
+      select.insert(-1, [disciplina.nome, disciplina.cod_disciplina])
     end
-
-    return @select
+    return select
   end
 
   def self.show_disciplinas
-    @disciplinas = Disciplina.select('nome')
-    @show = []
+    disciplinas = Disciplina.select('nome')
+    show = []
 
-    @disciplinas.each do |disciplina|
-      @atual = String.new
-      @atual = disciplina.nome
-      @show.insert(-1, @atual)
+    disciplinas.each do |disciplina|
+      show.insert(-1, disciplina.nome)
     end
 
-    return @show
+    return show
   end
 
   def self.sel_turmas
@@ -55,12 +50,26 @@ class Turma < ActiveRecord::Base
   validate :turma_unica
 
   def turma_unica
-    @turmas = Turma.where(fk_cod_disciplina: fk_cod_disciplina)
+    turmas = Turma.where(fk_cod_disciplina: fk_cod_disciplina)
 
-    @turmas.each do |t|
-      if t.turma == turma
+    turmas.each do |elem|
+      if elem.turma == turma
         errors.add(:turma, "#{turma} não é a única para a disciplina #{Disciplina.find(fk_cod_disciplina).nome}")
       end
     end
   end
+
+  def self.criar_turma_a_partir_de_parametros (params)
+    if (Disciplina.exists?(nome: params[:disciplina]))
+      disciplina_id = Disciplina.find_by(nome: params[:disciplina]).id
+      Turma.create([{
+          fk_cod_disciplina: disciplina_id,
+          turma: params[:codigo_turma],
+          professor: params[:prof_principal],
+          professor_aux: params[:prof_auxiliar],
+          fk_vagas_id: 1
+      }])
+    end
+  end
+
 end

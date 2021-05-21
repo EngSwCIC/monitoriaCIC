@@ -3,6 +3,7 @@ class CreateTurmas < ActiveRecord::Migration[5.2]
     create_table :turmas do |t|
       t.string "turma", null: false
       t.string "professor", null: false
+      t.string "professor_aux", default: ''
       t.integer "fk_cod_disciplina", null: false
       t.integer "fk_status_turma_id", default: 3, null: false
       t.integer "qnt_bolsas", default: 0, null: false

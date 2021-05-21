@@ -120,9 +120,12 @@
                             %td=d.c_ext
                       - if current_user.kind_of?(Admin)
                         .row
-                          .col-6
+                          .col-4
                             %a.btn.btn-outline-warning.btn-block{href: edit_disciplina_path(d.cod_disciplina)}
                               Editar Disciplina
-                          .col-6
+                          .col-4
                             =link_to "Apagar Disciplina", disciplina_path(d.cod_disciplina), method: :delete,
                             class: 'btn btn-outline-danger btn-block'
+                          .col-4
+                            %a.btn.btn-outline-primary.btn-block{href: disciplina_path(d.id)}
+                              Ver Turmas

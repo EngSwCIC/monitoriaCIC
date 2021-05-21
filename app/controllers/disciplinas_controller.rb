@@ -20,6 +20,11 @@ class DisciplinasController < ApplicationController
 
 	def edit;	end
 
+	def show
+		@turmas = Turma.where(fk_cod_disciplina: params[:id])
+		@disciplina = params[:nome]
+	end
+
 	def update
 		if @disciplina.update disciplina_params
 			redirect_to dashboard_disciplinas_path, notice: "Disciplina atualizada!"

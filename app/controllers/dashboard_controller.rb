@@ -1,6 +1,6 @@
 class DashboardController < ApplicationController
+  include TurmasParser
   before_action :user_logged
-
   def index; end
 
   def edit_user
@@ -92,13 +92,21 @@ class DashboardController < ApplicationController
   end
 
   ##
-  # Método para raspar as disciplinas do site do MatrículaWeb
-  # e carregá-las no modelo.
-
+  # Utiliza funções no módulo TurmaParser para interpretar um arquivo de html enviado, o qual deve
+  # conter informações sobre turmas, em formato adequado. A partir dessas informações, cria novos
+  # registros no banco de dados. Após as operações, redireciona o usuário para a página de importação
+  # de disciplinas.
   def raspar_disciplinas
-    disciplinas = raspar_matriculaweb_disciplinas
-    carregar_disciplinas(disciplinas)
-
+    arquivo = params[:arquivo_turmas]
+    if (arquivo == nil)
+      raise "Por favor, selecionar um arquivo"
+    end
+    array_de_turmas = gerar_lista_de_turmas_a_partir_de_arquivo(arquivo)
+    criar_registros_a_partir_de_info_importada(array_de_turmas)
+    flash[:notice] = "Disciplinas importadas com sucesso!"
+  rescue StandardError => error
+    flash[:danger] = error.message
+  ensure
     redirect_to dashboard_importar_disciplinas_path
   end  
   
