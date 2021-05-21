@@ -1,3 +1,8 @@
+##
+# Implementação da controller de Turmas
+# Função: definir métodos estruturais para listagem, criação, inserção de dados,
+# edição de um registro e remoção de um registro
+
 class TurmasController < ApplicationController
 
   def new
@@ -20,6 +25,14 @@ class TurmasController < ApplicationController
     redirect_to dashboard_turmas_path
   end
 
+  ##
+  # Método responsável por atualizar um registro com os dados inseridos em Edit.
+  # Recebe os dados da view Edit e faz o tratamento dos dados modificados pelo usuário.
+  # Caso os dados sejam válidos, o registro é atualizado no banco e
+  # Redireciona para a página de turmas.
+  # Caso os dados sejam inválidos, o registro não é atualizado no banco e
+  # Redireciona para a página turmas com a mensagem de erro.
+	# PATCH/PUT /turmas/:id
   def update
     @turma = Turma.find(params[:id])
     if validate_turma(turma_params[:qnt_bolsas]) == true

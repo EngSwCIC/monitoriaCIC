@@ -21,8 +21,6 @@
 <link href="./css/rdoc.css" rel="stylesheet">
 
 
-
-
 <body id="top" role="document" class="module">
 <nav role="navigation">
   <div id="project-navigation">
@@ -62,20 +60,17 @@
     
     
     
-    <!-- Method Quickref -->
+    
+<!-- Method Quickref -->
 <div id="method-list-section" class="nav-section">
   <h3>Methods</h3>
 
   <ul class="link-list" role="directory">
-    
     <li ><a href="#method-i-current_user">#current_user</a>
-    
+    <li ><a href="#method-i-is_admin">#is_admin</a>
     <li ><a href="#method-i-log_in">#log_in</a>
-    
     <li ><a href="#method-i-logged_in-3F">#logged_in?</a>
-    
     <li ><a href="#method-i-logged_user">#logged_user</a>
-    
   </ul>
 </div>
 
@@ -91,41 +86,27 @@
     
   </section>
 
-  
   <section id="5Buntitled-5D" class="documentation-section">
-    
 
-    
 
-    
 
-    
 
-    
+
      <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
        <header>
          <h3>Public Instance Methods</h3>
        </header>
 
-    
       <div id="method-i-current_user" class="method-detail ">
-        
         <div class="method-heading">
           <span class="method-name">current_user</span><span
             class="method-args">()</span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
 
         <div class="method-description">
           
-          
-          
-          
 
-          
           <div class="method-source-code" id="current_user-source">
             <pre><span class="ruby-comment"># File app/helpers/sessions_helper.rb, line 12</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">current_user</span>
@@ -133,99 +114,87 @@
   <span class="ruby-ivar">@current_user</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">email:</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:user_id</span>]) <span class="ruby-operator">||</span> <span class="ruby-constant">Professor</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">email:</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:user_id</span>]) <span class="ruby-operator">||</span> <span class="ruby-constant">Admin</span>.<span class="ruby-identifier">find_by</span>(<span class="ruby-value">email:</span> <span class="ruby-identifier">session</span>[<span class="ruby-value">:user_id</span>])
 <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
-      <div id="method-i-log_in" class="method-detail ">
-        
+      <div id="method-i-is_admin" class="method-detail ">
         <div class="method-heading">
-          <span class="method-name">log_in</span><span
-            class="method-args">(user)</span>
-          
+          <span class="method-name">is_admin</span><span
+            class="method-args">()</span>
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
 
         <div class="method-description">
           
-          
-          
+
+          <div class="method-source-code" id="is_admin-source">
+            <pre><span class="ruby-comment"># File app/helpers/sessions_helper.rb, line 21</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">is_admin</span>
+              <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Admin</span>)
+                      <span class="ruby-identifier">flash</span>[<span class="ruby-value">:danger</span>] = <span class="ruby-string">&quot;Acesso negado.&quot;</span>
+                              <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">dashboard_path</span>
+              <span class="ruby-keyword">end</span>
+      <span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-log_in" class="method-detail ">
+        <div class="method-heading">
+          <span class="method-name">log_in</span><span
+            class="method-args">(user)</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+
+        <div class="method-description">
           
 
-          
           <div class="method-source-code" id="log_in-source">
             <pre><span class="ruby-comment"># File app/helpers/sessions_helper.rb, line 2</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">log_in</span>(<span class="ruby-identifier">user</span>)
   <span class="ruby-identifier">session</span>[<span class="ruby-value">:user_id</span>] = <span class="ruby-identifier">user</span>.<span class="ruby-identifier">email</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-logged_in-3F" class="method-detail ">
-        
         <div class="method-heading">
           <span class="method-name">logged_in?</span><span
             class="method-args">()</span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
 
         <div class="method-description">
           
-          
-          
-          
 
-          
           <div class="method-source-code" id="logged_in-3F-source">
             <pre><span class="ruby-comment"># File app/helpers/sessions_helper.rb, line 17</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">logged_in?</span>
   <span class="ruby-operator">!</span><span class="ruby-identifier">logged_user</span>.<span class="ruby-identifier">nil?</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-logged_user" class="method-detail ">
-        
         <div class="method-heading">
           <span class="method-name">logged_user</span><span
             class="method-args">()</span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
 
         <div class="method-description">
           
-          
-          
-          
 
-          
           <div class="method-source-code" id="logged_user-source">
             <pre><span class="ruby-comment"># File app/helpers/sessions_helper.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">logged_user</span>
@@ -234,25 +203,20 @@
       <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
     </section>
-  
-  </section>
 
+  </section>
 </main>
 
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.0.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.3.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 
