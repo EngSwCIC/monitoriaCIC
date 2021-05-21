@@ -203,6 +203,14 @@ describe MonitoriasController do
           @db_monitoria.update_attributes(@params[:monitoria])
           expect(@db_monitoria.media).to be(2.0)
         end
+
+        it 'Tenta atualizar com prioridade inválida' do
+          @params[:monitoria][:prioridade] = ""
+          put :update, params: @params
+          expect(flash[:danger]).to include(
+            "Para atualizar, escolha uma preferêcia."
+          )
+        end
       end
     end
 
