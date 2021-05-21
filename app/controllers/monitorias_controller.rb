@@ -43,7 +43,6 @@ class MonitoriasController < ApplicationController
 			redirect_to dashboard_monitorias_path, notice: "Período de inscrição ainda aberto!"
 		end
 	end
-
 	def destroy
 		@monitoria.destroy
 		redirect_to dashboard_monitorias_path, notice: "Monitoria removida!"

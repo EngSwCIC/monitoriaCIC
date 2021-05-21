@@ -182,9 +182,6 @@ describe TurmasController do
       it 'tries to update a Turma for a small number than the accepted monitors' do
         put :update, params: @params2
         expect(flash[:notice]).to eq('Turma possui uma quantidade de alunos aceito maior que a nova quantidade de vagas disponiveis!')
-        # expect(flash[:danger]).to include(
-        #   "Turma possui uma quantidade de alunos aceito maior que a nova quantidade de vagas disponiveis!"
-        # )
       end
     end
   end

@@ -88,9 +88,11 @@ group :test do
   gem 'rails-controller-testing'
   gem 'factory_bot_rails'
   gem 'simplecov'
+  gem 'cycromatic'
+  gem "rubycritic", require: false
 
   # Used for metrics
-  gem 'metric_fu', git: 'https://github.com/metricfu/metric_fu.git'
+  #gem 'metric_fu', git: 'https://github.com/metricfu/metric_fu.git'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

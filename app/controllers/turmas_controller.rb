@@ -23,8 +23,6 @@ class TurmasController < ApplicationController
   def update
     @turma = Turma.find(params[:id])
 
-    # @monitoria = Monitoria.where(fk_turmas_id: params[:id], fk_status_monitoria_id: 3)
-    # if @monitoria.length <= turma_params[:qnt_bolsas].to_i || @monitoria.length == 0
     if validate_turma(turma_params[:qnt_bolsas]) == true
       @turma.update_attributes(turma_params)
 
@@ -82,7 +80,6 @@ class TurmasController < ApplicationController
   def validate_turma(quantidade)
     @monitoria = Monitoria.where(fk_turmas_id: params[:id], fk_status_monitoria_id: 3)
     turma = quantidade.to_i
-    puts turma
     return true if @monitoria.length <= turma || @monitoria.length == 0
   end
 end
