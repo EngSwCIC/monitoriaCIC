@@ -1,4 +1,4 @@
-Fri, 21 May 2021 14:54:49 -0300
+Fri, 21 May 2021 14:59:57 -0300
 3.1.7	Tue, 20 Apr 2021 11:43:50 -0300
 app/assets/config/manifest.js	Tue, 20 Apr 2021 11:43:50 -0300
 app/assets/images/carousel.jpeg	Tue, 20 Apr 2021 11:43:50 -0300
@@ -47,14 +47,14 @@ app/controllers/disciplinas_controller.rb	Tue, 20 Apr 2021 11:43:50 -0300
 app/controllers/faq_controller.rb	Tue, 20 Apr 2021 11:43:50 -0300
 app/controllers/historico_controller.rb	Tue, 20 Apr 2021 11:43:50 -0300
 app/controllers/home_controller.rb	Tue, 20 Apr 2021 11:43:50 -0300
-app/controllers/monitorias_controller.rb	Fri, 21 May 2021 14:53:26 -0300
+app/controllers/monitorias_controller.rb	Fri, 21 May 2021 14:58:32 -0300
 app/controllers/motivos_controller.rb	Tue, 20 Apr 2021 11:43:50 -0300
 app/controllers/professors_controller.rb	Tue, 20 Apr 2021 11:43:50 -0300
 app/controllers/reset_senhas_controller.rb	Tue, 20 Apr 2021 11:43:50 -0300
 app/controllers/sessions_controller.rb	Tue, 20 Apr 2021 11:43:50 -0300
 app/controllers/sobre_controller.rb	Tue, 20 Apr 2021 11:43:50 -0300
 app/controllers/tarefas_controller.rb	Tue, 20 Apr 2021 11:43:50 -0300
-app/controllers/turmas_controller.rb	Fri, 21 May 2021 14:54:44 -0300
+app/controllers/turmas_controller.rb	Fri, 21 May 2021 14:59:41 -0300
 app/controllers/users_controller.rb	Tue, 20 Apr 2021 11:43:50 -0300
 app/helpers/application_helper.rb	Tue, 20 Apr 2021 11:43:50 -0300
 app/helpers/atendimentos_helper.rb	Tue, 20 Apr 2021 11:43:50 -0300
@@ -80,7 +80,7 @@ app/models/monitoria.rb	Fri, 21 May 2021 14:17:33 -0300
 app/models/motivo.rb	Tue, 20 Apr 2021 11:43:50 -0300
 app/models/professor.rb	Tue, 20 Apr 2021 11:43:50 -0300
 app/models/tarefa.rb	Tue, 20 Apr 2021 11:43:50 -0300
-app/models/turma.rb	Fri, 21 May 2021 14:27:26 -0300
+app/models/turma.rb	Fri, 21 May 2021 14:59:53 -0300
 app/models/user.rb	Tue, 20 Apr 2021 11:43:50 -0300
 app/views/admins/new.html.haml	Tue, 20 Apr 2021 11:43:50 -0300
 app/views/atendimentos/edit.html.haml	Tue, 20 Apr 2021 11:43:50 -0300
@@ -291,7 +291,7 @@ features/step_definitions/web_steps.rb	Wed, 05 May 2021 20:21:38 -0300
 features/support/env.rb	Wed, 05 May 2021 20:21:31 -0300
 features/support/paths.rb	Tue, 20 Apr 2021 11:43:50 -0300
 features/support/selectors.rb	Tue, 20 Apr 2021 11:43:50 -0300
-Gemfile	Fri, 21 May 2021 14:06:35 -0300
+Gemfile	Fri, 21 May 2021 14:58:44 -0300
 Gemfile.lock	Fri, 21 May 2021 14:08:16 -0300
 Guardfile	Tue, 20 Apr 2021 11:43:50 -0300
 lib/tasks/cucumber.rake	Wed, 05 May 2021 20:21:31 -0300

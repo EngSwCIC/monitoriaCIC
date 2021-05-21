@@ -255,10 +255,14 @@
         </div>
 
         <div class="method-description">
-          <p>Quando for criar uma turma, verifica se ela já não foi criada. Recebe de argumento os dados da turma criada, mas só utiliza fk_cod_disciplina. Retorna uma mensagem de erro caso não consiga criar a turma.</p>
+          <p>Quando for criar uma turma, verifica se ela já não foi criada.</p>
+
+<p>Recebe de argumento os dados da turma criada, mas só utiliza fk_cod_disciplina.</p>
+
+<p>Retorna uma mensagem de erro caso não consiga criar a turma.</p>
 
           <div class="method-source-code" id="turma_unica-source">
-            <pre><span class="ruby-comment"># File app/models/turma.rb, line 64</span>
+            <pre><span class="ruby-comment"># File app/models/turma.rb, line 66</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">turma_unica</span>
   <span class="ruby-ivar">@turmas</span> = <span class="ruby-constant">Turma</span>.<span class="ruby-identifier">where</span>(<span class="ruby-value">fk_cod_disciplina:</span> <span class="ruby-identifier">fk_cod_disciplina</span>)
 

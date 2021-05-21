@@ -151,7 +151,7 @@
           
 
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/monitorias_controller.rb, line 65</span>
+            <pre><span class="ruby-comment"># File app/controllers/monitorias_controller.rb, line 70</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
         <span class="ruby-ivar">@monitoria</span>.<span class="ruby-identifier">destroy</span>
         <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">dashboard_monitorias_path</span>, <span class="ruby-value">notice:</span> <span class="ruby-string">&quot;Monitoria removida!&quot;</span>
@@ -233,10 +233,20 @@
         </div>
 
         <div class="method-description">
-          <p>Método responsável por atualizar um registro com os dados inseridos em Edit. Verifica se o periodo de inscrição está fechado,  caso esteja aberto: Renderiza a de monitorias com uma mensagem de erro. Caso o período esteja fechado: Recebe os dados da view Edit e faz o tratamento dos dados modificados pelo usuário. Caso os dados sejam válidos, o registro é atualizado no banco e renderezado a página de monitorias com uma mensagem de sucesso. Caso os dados sejam inválidos é renderizada a mesma página de edit novamente. PATCH/PUT /monitorias/:id</p>
+          <p>Método responsável por atualizar um registro com os dados inseridos em Edit.</p>
+
+<p>Verifica se o periodo de inscrição está fechado,  caso esteja aberto: Renderiza a de monitorias com uma mensagem de erro.</p>
+
+<p>Caso o período esteja fechado: Recebe os dados da view Edit e faz o tratamento dos dados modificados pelo usuário.</p>
+
+<p>Caso os dados sejam válidos, o registro é atualizado no banco e renderezado a página de monitorias com uma mensagem de sucesso.</p>
+
+<p>Caso os dados sejam inválidos é renderizada a mesma página de edit novamente.</p>
+
+<p>PATCH/PUT /monitorias/:id</p>
 
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/monitorias_controller.rb, line 48</span>
+            <pre><span class="ruby-comment"># File app/controllers/monitorias_controller.rb, line 53</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
         <span class="ruby-comment"># Se o periodo de inscrição está fechado</span>
         <span class="ruby-keyword">if</span> <span class="ruby-ivar">@monitoria</span>.<span class="ruby-identifier">open</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">false</span>

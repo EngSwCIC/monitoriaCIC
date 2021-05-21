@@ -39,11 +39,16 @@ class MonitoriasController < ApplicationController
 
 	##
   # Método responsável por atualizar um registro com os dados inseridos em Edit.
+	#
   # Verifica se o periodo de inscrição está fechado, 
 	# caso esteja aberto: Renderiza a de monitorias com uma mensagem de erro.
+	#
 	# Caso o período esteja fechado: Recebe os dados da view Edit e faz o tratamento dos dados modificados pelo usuário.
+	#
   # Caso os dados sejam válidos, o registro é atualizado no banco e renderezado a página de monitorias com uma mensagem de sucesso.
+	#
   # Caso os dados sejam inválidos é renderizada a mesma página de edit novamente.
+	#
 	# PATCH/PUT /monitorias/:id
 	def update
 		# Se o periodo de inscrição está fechado

@@ -59,7 +59,9 @@ class Turma < ActiveRecord::Base
 
   ##
   # Quando for criar uma turma, verifica se ela já não foi criada.
+  #
   # Recebe de argumento os dados da turma criada, mas só utiliza fk_cod_disciplina.
+  #
   # Retorna uma mensagem de erro caso não consiga criar a turma.
   def turma_unica
     @turmas = Turma.where(fk_cod_disciplina: fk_cod_disciplina)

@@ -27,11 +27,15 @@ class TurmasController < ApplicationController
 
   ##
   # Método responsável por atualizar um registro com os dados inseridos em Edit.
+  #
   # Recebe os dados da view Edit e faz o tratamento dos dados modificados pelo usuário.
+  #
   # Caso os dados sejam válidos, o registro é atualizado no banco e
   # Redireciona para a página de turmas.
+  #
   # Caso os dados sejam inválidos, o registro não é atualizado no banco e
   # Redireciona para a página turmas com a mensagem de erro.
+  #
 	# PATCH/PUT /turmas/:id
   def update
     @turma = Turma.find(params[:id])

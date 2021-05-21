@@ -145,7 +145,7 @@
           
 
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/turmas_controller.rb, line 52</span>
+            <pre><span class="ruby-comment"># File app/controllers/turmas_controller.rb, line 56</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
   <span class="ruby-ivar">@turma</span> = <span class="ruby-constant">Turma</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-constant">Monitoria</span>.<span class="ruby-identifier">find_each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">m</span><span class="ruby-operator">|</span>
@@ -213,10 +213,18 @@
         </div>
 
         <div class="method-description">
-          <p>Método responsável por atualizar um registro com os dados inseridos em Edit. Recebe os dados da view Edit e faz o tratamento dos dados modificados pelo usuário. Caso os dados sejam válidos, o registro é atualizado no banco e Redireciona para a página de turmas. Caso os dados sejam inválidos, o registro não é atualizado no banco e Redireciona para a página turmas com a mensagem de erro. PATCH/PUT /turmas/:id</p>
+          <p>Método responsável por atualizar um registro com os dados inseridos em Edit.</p>
+
+<p>Recebe os dados da view Edit e faz o tratamento dos dados modificados pelo usuário.</p>
+
+<p>Caso os dados sejam válidos, o registro é atualizado no banco e Redireciona para a página de turmas.</p>
+
+<p>Caso os dados sejam inválidos, o registro não é atualizado no banco e Redireciona para a página turmas com a mensagem de erro.</p>
+
+<p>PATCH/PUT /turmas/:id</p>
 
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/turmas_controller.rb, line 36</span>
+            <pre><span class="ruby-comment"># File app/controllers/turmas_controller.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
   <span class="ruby-ivar">@turma</span> = <span class="ruby-constant">Turma</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">validate_turma</span>(<span class="ruby-identifier">turma_params</span>[<span class="ruby-value">:qnt_bolsas</span>]) <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
