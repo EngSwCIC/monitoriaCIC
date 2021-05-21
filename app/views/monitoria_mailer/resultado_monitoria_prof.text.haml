@@ -1,0 +1,10 @@
+Resultado da monitoria
+
+Parabéns 
+= Professor.find_by_name(Turma.find(@resultado.fk_turmas_id).professor).name
+
+O aluno(a)
+= User.find_by_matricula(@resultado.fk_matricula).name
+
+foi escolhido(a) para ser monitor da monitoria
+= Disciplina.find(Turma.find(@resultado.fk_turmas_id).fk_cod_disciplina).nome
