@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>users_controller_spec.html - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../";
+  var index_rel_prefix = "../../../../";
+</script>
+
+<script src="../../../../js/navigation.js" defer></script>
+<script src="../../../../js/search.js" defer></script>
+<script src="../../../../js/search_index.js" defer></script>
+<script src="../../../../js/searcher.js" defer></script>
+<script src="../../../../js/darkfish.js" defer></script>
+
+<link href="../../../../css/fonts.css" rel="stylesheet">
+<link href="../../../../css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    
+<div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+    <li><a href="../../../../3_1_7.html">3.1.7</a>
+    <li><a href="../../../../Gemfile.html">Gemfile</a>
+    <li><a href="../../../../Gemfile_lock.html">Gemfile.lock</a>
+    <li><a href="../../../../Guardfile.html">Guardfile</a>
+    <li><a href="../../../../README_md.html">README</a>
+    <li><a href="../../../../Rakefile.html">Rakefile</a>
+    <li><a href="../../../../SPRINT2_md.html">SPRINT2</a>
+    <li><a href="../../../../app/assets/config/manifest_js.html">manifest.js</a>
+    <li><a href="../../../../app/assets/javascripts/application_js.html">application.js</a>
+    <li><a href="../../../../app/assets/javascripts/atendimentos_coffee.html">atendimentos.coffee</a>
+    <li><a href="../../../../app/assets/javascripts/atividades_coffee.html">atividades.coffee</a>
+    <li><a href="../../../../app/assets/javascripts/cable_js.html">cable.js</a>
+    <li><a href="../../../../app/assets/javascripts/disciplinas_coffee.html">disciplinas.coffee</a>
+    <li><a href="../../../../app/assets/javascripts/historico_coffee.html">historico.coffee</a>
+    <li><a href="../../../../app/assets/javascripts/home_coffee.html">home.coffee</a>
+    <li><a href="../../../../app/assets/javascripts/motivos_coffee.html">motivos.coffee</a>
+    <li><a href="../../../../app/assets/javascripts/popper_min_js.html">popper.min.js</a>
+    <li><a href="../../../../app/assets/javascripts/reset_senhas_coffee.html">reset_senhas.coffee</a>
+    <li><a href="../../../../app/assets/javascripts/sessions_coffee.html">sessions.coffee</a>
+    <li><a href="../../../../app/assets/javascripts/tarefas_coffee.html">tarefas.coffee</a>
+    <li><a href="../../../../app/assets/stylesheets/application_scss.html">application.scss</a>
+    <li><a href="../../../../app/assets/stylesheets/atendimentos_scss.html">atendimentos.scss</a>
+    <li><a href="../../../../app/assets/stylesheets/atividades_scss.html">atividades.scss</a>
+    <li><a href="../../../../app/assets/stylesheets/custom_scss.html">custom.scss</a>
+    <li><a href="../../../../app/assets/stylesheets/disciplinas_scss.html">disciplinas.scss</a>
+    <li><a href="../../../../app/assets/stylesheets/historico_scss.html">historico.scss</a>
+    <li><a href="../../../../app/assets/stylesheets/home_scss.html">home.scss</a>
+    <li><a href="../../../../app/assets/stylesheets/motivos_scss.html">motivos.scss</a>
+    <li><a href="../../../../app/assets/stylesheets/reset_senhas_scss.html">reset_senhas.scss</a>
+    <li><a href="../../../../app/assets/stylesheets/scaffolds_scss.html">scaffolds.scss</a>
+    <li><a href="../../../../app/assets/stylesheets/sessions_scss.html">sessions.scss</a>
+    <li><a href="../../../../app/assets/stylesheets/tarefas_scss.html">tarefas.scss</a>
+    <li><a href="../../../../app/views/admins/new_html_haml.html">new.html.haml</a>
+    <li><a href="../../../../app/views/atendimentos/_atendimento_json_jbuilder.html">_atendimento.json.jbuilder</a>
+    <li><a href="../../../../app/views/atendimentos/edit_html_haml.html">edit.html.haml</a>
+    <li><a href="../../../../app/views/atendimentos/index_json_jbuilder.html">index.json.jbuilder</a>
+    <li><a href="../../../../app/views/atendimentos/new_html_haml.html">new.html.haml</a>
+    <li><a href="../../../../app/views/atendimentos/show_html_haml.html">show.html.haml</a>
+    <li><a href="../../../../app/views/atendimentos/show_json_jbuilder.html">show.json.jbuilder</a>
+    <li><a href="../../../../app/views/atividades/edit_html_haml.html">edit.html.haml</a>
+    <li><a href="../../../../app/views/atividades/new_html_haml.html">new.html.haml</a>
+    <li><a href="../../../../app/views/dados_bancarios/edit_html_haml.html">edit.html.haml</a>
+    <li><a href="../../../../app/views/dados_bancarios/new_html_haml.html">new.html.haml</a>
+    <li><a href="../../../../app/views/dashboard/apagar_alunos_html_haml.html">apagar_alunos.html.haml</a>
+    <li><a href="../../../../app/views/dashboard/atendimentos_html_haml.html">atendimentos.html.haml</a>
+    <li><a href="../../../../app/views/dashboard/atividades_html_haml.html">atividades.html.haml</a>
+    <li><a href="../../../../app/views/dashboard/dados_bancarios_html_haml.html">dados_bancarios.html.haml</a>
+    <li><a href="../../../../app/views/dashboard/disciplinas_html_haml.html">disciplinas.html.haml</a>
+    <li><a href="../../../../app/views/dashboard/edit_user_html_haml.html">edit_user.html.haml</a>
+    <li><a href="../../../../app/views/dashboard/historico_html_haml.html">historico.html.haml</a>
+    <li><a href="../../../../app/views/dashboard/importar_disciplinas_html_haml.html">importar_disciplinas.html.haml</a>
+    <li><a href="../../../../app/views/dashboard/importar_professores_html_haml.html">importar_professores.html.haml</a>
+    <li><a href="../../../../app/views/dashboard/index_html_haml.html">index.html.haml</a>
+    <li><a href="../../../../app/views/dashboard/monitorias_html_haml.html">monitorias.html.haml</a>
+    <li><a href="../../../../app/views/dashboard/turmas_html_haml.html">turmas.html.haml</a>
+    <li><a href="../../../../app/views/disciplinas/edit_html_haml.html">edit.html.haml</a>
+    <li><a href="../../../../app/views/disciplinas/new_html_haml.html">new.html.haml</a>
+    <li><a href="../../../../app/views/faq/index_html_haml.html">index.html.haml</a>
+    <li><a href="../../../../app/views/home/index_html_haml.html">index.html.haml</a>
+    <li><a href="../../../../app/views/layouts/application_html_haml.html">application.html.haml</a>
+    <li><a href="../../../../app/views/monitorias/edit_html_haml.html">edit.html.haml</a>
+    <li><a href="../../../../app/views/monitorias/new_html_haml.html">new.html.haml</a>
+    <li><a href="../../../../app/views/monitorias/show_html_haml.html">show.html.haml</a>
+    <li><a href="../../../../app/views/motivos/_motivo_json_jbuilder.html">_motivo.json.jbuilder</a>
+    <li><a href="../../../../app/views/motivos/index_json_jbuilder.html">index.json.jbuilder</a>
+    <li><a href="../../../../app/views/motivos/show_json_jbuilder.html">show.json.jbuilder</a>
+    <li><a href="../../../../app/views/professors/identityconfirmation_html_haml.html">identityconfirmation.html.haml</a>
+    <li><a href="../../../../app/views/professors/index_html_haml.html">index.html.haml</a>
+    <li><a href="../../../../app/views/professors/new_html_haml.html">new.html.haml</a>
+    <li><a href="../../../../app/views/reset_senhas/edit_html_haml.html">edit.html.haml</a>
+    <li><a href="../../../../app/views/reset_senhas/new_html_haml.html">new.html.haml</a>
+    <li><a href="../../../../app/views/sessions/new_html_haml.html">new.html.haml</a>
+    <li><a href="../../../../app/views/sobre/index_html_haml.html">index.html.haml</a>
+    <li><a href="../../../../app/views/tarefas/_form_html_haml.html">_form.html.haml</a>
+    <li><a href="../../../../app/views/tarefas/_formedit_html_haml.html">_formedit.html.haml</a>
+    <li><a href="../../../../app/views/tarefas/_tarefa_json_jbuilder.html">_tarefa.json.jbuilder</a>
+    <li><a href="../../../../app/views/tarefas/edit_html_haml.html">edit.html.haml</a>
+    <li><a href="../../../../app/views/tarefas/index_html_haml.html">index.html.haml</a>
+    <li><a href="../../../../app/views/tarefas/index_json_jbuilder.html">index.json.jbuilder</a>
+    <li><a href="../../../../app/views/tarefas/new_html_haml.html">new.html.haml</a>
+    <li><a href="../../../../app/views/tarefas/show_html_haml.html">show.html.haml</a>
+    <li><a href="../../../../app/views/tarefas/show_json_jbuilder.html">show.json.jbuilder</a>
+    <li><a href="../../../../app/views/turmas/edit_html_haml.html">edit.html.haml</a>
+    <li><a href="../../../../app/views/turmas/new_html_haml.html">new.html.haml</a>
+    <li><a href="../../../../app/views/user_mailer/reset_senha_html_haml.html">reset_senha.html.haml</a>
+    <li><a href="../../../../app/views/user_mailer/reset_senha_text_haml.html">reset_senha.text.haml</a>
+    <li><a href="../../../../app/views/users/new_html_haml.html">new.html.haml</a>
+    <li><a href="../../../../config_ru.html">config.ru</a>
+    <li><a href="../../../../config/credentials_yml_enc.html">credentials.yml.enc</a>
+    <li><a href="../../../../coverage/assets/0_10_2/application_css.html">application.css</a>
+    <li><a href="../../../../coverage/assets/0_10_2/application_js.html">application.js</a>
+    <li><a href="../../../../coverage/index_html.html">index.html</a>
+    <li><a href="../../../../database_sqlite3.html">database.sqlite3</a>
+    <li><a href="../../../../development_sqlite3.html">development.sqlite3</a>
+    <li><a href="../../../../features/adicionarTarefa_feature.html">adicionarTarefa.feature</a>
+    <li><a href="../../../../features/apagarAluno_feature.html">apagarAluno.feature</a>
+    <li><a href="../../../../features/apagarDadosBancarios_feature.html">apagarDadosBancarios.feature</a>
+    <li><a href="../../../../features/apagarTurma_feature.html">apagarTurma.feature</a>
+    <li><a href="../../../../features/avaliarTarefa_feature.html">avaliarTarefa.feature</a>
+    <li><a href="../../../../features/cadastrarDadosBancarios_feature.html">cadastrarDadosBancarios.feature</a>
+    <li><a href="../../../../features/cadastrarTurma_feature.html">cadastrarTurma.feature</a>
+    <li><a href="../../../../features/disciplinaCRUD_feature.html">disciplinaCRUD.feature</a>
+    <li><a href="../../../../features/editarAtendimento_feature.html">editarAtendimento.feature</a>
+    <li><a href="../../../../features/editarAtividade_feature.html">editarAtividade.feature</a>
+    <li><a href="../../../../features/editarDadosBancarios_feature.html">editarDadosBancarios.feature</a>
+    <li><a href="../../../../features/editarDisciplina_feature.html">editarDisciplina.feature</a>
+    <li><a href="../../../../features/editarMonitoria_feature.html">editarMonitoria.feature</a>
+    <li><a href="../../../../features/editarPerfilAluno_feature.html">editarPerfilAluno.feature</a>
+    <li><a href="../../../../features/editarPerfilProfessor_feature.html">editarPerfilProfessor.feature</a>
+    <li><a href="../../../../features/editarTurma_feature.html">editarTurma.feature</a>
+    <li><a href="../../../../features/historicoDisciplinas_feature.html">historicoDisciplinas.feature</a>
+    <li><a href="../../../../features/importarDisciplinas_feature.html">importarDisciplinas.feature</a>
+    <li><a href="../../../../features/importarProfessor_feature.html">importarProfessor.feature</a>
+    <li><a href="../../../../features/inscreverMonitoria_feature.html">inscreverMonitoria.feature</a>
+    <li><a href="../../../../features/loginAdmin_feature.html">loginAdmin.feature</a>
+    <li><a href="../../../../features/loginAluno_feature.html">loginAluno.feature</a>
+    <li><a href="../../../../features/loginProfessor_feature.html">loginProfessor.feature</a>
+    <li><a href="../../../../features/menuInscricao_feature.html">menuInscricao.feature</a>
+    <li><a href="../../../../features/paginaFAQ_feature.html">paginaFAQ.feature</a>
+    <li><a href="../../../../features/paginaSobre_feature.html">paginaSobre.feature</a>
+    <li><a href="../../../../features/registrarAluno_feature.html">registrarAluno.feature</a>
+    <li><a href="../../../../features/registrarAtendimento_feature.html">registrarAtendimento.feature</a>
+    <li><a href="../../../../features/registrarAtividade_feature.html">registrarAtividade.feature</a>
+    <li><a href="../../../../features/registrarProfessor_feature.html">registrarProfessor.feature</a>
+    <li><a href="../../../../features/relatorioAtendimento_feature.html">relatorioAtendimento.feature</a>
+    <li><a href="../../../../features/removerMonitoria_feature.html">removerMonitoria.feature</a>
+    <li><a href="../../../../features/remuneracaoMonitoria_feature.html">remuneracaoMonitoria.feature</a>
+    <li><a href="../../../../features/resetSenha_feature.html">resetSenha.feature</a>
+    <li><a href="../../../../features/selectProfessores_feature.html">selectProfessores.feature</a>
+    <li><a href="../../../../features/selectProfessoresEmail_feature.html">selectProfessoresEmail.feature</a>
+    <li><a href="../../../../features/statusEncerrado_feature.html">statusEncerrado.feature</a>
+    <li><a href="../../../../lib/tasks/cucumber_rake.html">cucumber.rake</a>
+    <li><a href="../../../../log/development_log.html">development.log</a>
+    <li><a href="../../../../package_json.html">package.json</a>
+    <li><a href="../../../../public/404_html.html">404.html</a>
+    <li><a href="../../../../public/422_html.html">422.html</a>
+    <li><a href="../../../../public/500_html.html">500.html</a>
+    <li><a href="../../../../public/apple-touch-icon-precomposed_png.html">apple-touch-icon-precomposed.png</a>
+    <li><a href="../../../../public/apple-touch-icon_png.html">apple-touch-icon.png</a>
+    <li><a href="../../../../public/favicon_ico.html">favicon.ico</a>
+    <li><a href="../../../../public/robots_txt.html">robots</a>
+    <li><a href="../../../../sprint_2_md.html">sprint_2</a>
+    <li><a href="../../../../tmp/cache/bootsnap/compile-cache/fc/4d97e6179ffc0e_tmp_8kvu7r.html">4d97e6179ffc0e.tmp.8kvu7r</a>
+    <li><a href="../../../../tmp/development_secret_txt.html">development_secret</a>
+    <li><a href="../../../../tmp/restart_txt.html">restart</a>
+    <li><a href="../../../../tmp/rubycritic/app/channels/application_cable/channel_html.html">channel.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/channels/application_cable/connection_html.html">connection.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/controllers/admins_controller_html.html">admins_controller.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/controllers/application_controller_html.html">application_controller.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/controllers/atendimentos_controller_html.html">atendimentos_controller.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/controllers/atividades_controller_html.html">atividades_controller.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/controllers/dados_bancarios_controller_html.html">dados_bancarios_controller.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/controllers/dashboard_controller_html.html">dashboard_controller.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/controllers/disciplinas_controller_html.html">disciplinas_controller.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/controllers/faq_controller_html.html">faq_controller.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/controllers/historico_controller_html.html">historico_controller.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/controllers/home_controller_html.html">home_controller.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/controllers/monitorias_controller_html.html">monitorias_controller.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/controllers/motivos_controller_html.html">motivos_controller.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/controllers/professors_controller_html.html">professors_controller.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/controllers/reset_senhas_controller_html.html">reset_senhas_controller.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/controllers/sessions_controller_html.html">sessions_controller.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/controllers/sobre_controller_html.html">sobre_controller.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/controllers/tarefas_controller_html.html">tarefas_controller.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/controllers/turmas_controller_html.html">turmas_controller.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/controllers/users_controller_html.html">users_controller.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/helpers/application_helper_html.html">application_helper.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/helpers/atendimentos_helper_html.html">atendimentos_helper.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/helpers/atividades_helper_html.html">atividades_helper.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/helpers/disciplinas_helper_html.html">disciplinas_helper.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/helpers/historico_helper_html.html">historico_helper.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/helpers/home_helper_html.html">home_helper.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/helpers/motivos_helper_html.html">motivos_helper.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/helpers/reset_senhas_helper_html.html">reset_senhas_helper.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/helpers/sessions_helper_html.html">sessions_helper.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/helpers/tarefas_helper_html.html">tarefas_helper.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/jobs/application_job_html.html">application_job.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/mailers/application_mailer_html.html">application_mailer.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/mailers/professor_mailer_html.html">professor_mailer.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/mailers/user_mailer_html.html">user_mailer.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/models/admin_html.html">admin.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/models/application_record_html.html">application_record.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/models/atendimento_html.html">atendimento.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/models/atividade_html.html">atividade.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/models/dados_bancarios_html.html">dados_bancarios.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/models/disciplina_html.html">disciplina.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/models/monitoria_html.html">monitoria.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/models/motivo_html.html">motivo.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/models/professor_html.html">professor.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/models/tarefa_html.html">tarefa.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/models/turma_html.html">turma.html</a>
+    <li><a href="../../../../tmp/rubycritic/app/models/user_html.html">user.html</a>
+    <li><a href="../../../../tmp/rubycritic/assets/javascripts/application_js.html">application.js</a>
+    <li><a href="../../../../tmp/rubycritic/assets/stylesheets/application_css.html">application.css</a>
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/bootstrap_min_js.html">bootstrap.min.js</a>
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/highcharts_src-4_0_1_js.html">highcharts.src-4.0.1.js</a>
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_filtertable_min_js.html">jquery.filtertable.min.js</a>
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_min_js.html">jquery.min.js</a>
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_scrollTo_min_js.html">jquery.scrollTo.min.js</a>
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_tablesorter_js.html">jquery.tablesorter.js</a>
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_tablesorter_min_js.html">jquery.tablesorter.min.js</a>
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/jquery_timeago_js.html">jquery.timeago.js</a>
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/javascripts/prettify_js.html">prettify.js</a>
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/stylesheets/bootstrap_min_css.html">bootstrap.min.css</a>
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/stylesheets/font-awesome_min_css.html">font-awesome.min.css</a>
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/stylesheets/prettify_css.html">prettify.css</a>
+    <li><a href="../../../../tmp/rubycritic/assets/vendor/stylesheets/prettify_custom_theme_css.html">prettify.custom_theme.css</a>
+    <li><a href="../../../../tmp/rubycritic/code_index_html.html">code_index.html</a>
+    <li><a href="../../../../tmp/rubycritic/config/application_html.html">application.html</a>
+    <li><a href="../../../../tmp/rubycritic/config/boot_html.html">boot.html</a>
+    <li><a href="../../../../tmp/rubycritic/config/environment_html.html">environment.html</a>
+    <li><a href="../../../../tmp/rubycritic/config/environments/development_html.html">development.html</a>
+    <li><a href="../../../../tmp/rubycritic/config/environments/production_html.html">production.html</a>
+    <li><a href="../../../../tmp/rubycritic/config/environments/test_html.html">test.html</a>
+    <li><a href="../../../../tmp/rubycritic/config/initializers/application_controller_renderer_html.html">application_controller_renderer.html</a>
+    <li><a href="../../../../tmp/rubycritic/config/initializers/assets_html.html">assets.html</a>
+    <li><a href="../../../../tmp/rubycritic/config/initializers/backtrace_silencers_html.html">backtrace_silencers.html</a>
+    <li><a href="../../../../tmp/rubycritic/config/initializers/content_security_policy_html.html">content_security_policy.html</a>
+    <li><a href="../../../../tmp/rubycritic/config/initializers/cookies_serializer_html.html">cookies_serializer.html</a>
+    <li><a href="../../../../tmp/rubycritic/config/initializers/filter_parameter_logging_html.html">filter_parameter_logging.html</a>
+    <li><a href="../../../../tmp/rubycritic/config/initializers/inflections_html.html">inflections.html</a>
+    <li><a href="../../../../tmp/rubycritic/config/initializers/mime_types_html.html">mime_types.html</a>
+    <li><a href="../../../../tmp/rubycritic/config/initializers/session_store_html.html">session_store.html</a>
+    <li><a href="../../../../tmp/rubycritic/config/initializers/wrap_parameters_html.html">wrap_parameters.html</a>
+    <li><a href="../../../../tmp/rubycritic/config/puma_html.html">puma.html</a>
+    <li><a href="../../../../tmp/rubycritic/config/routes_html.html">routes.html</a>
+    <li><a href="../../../../tmp/rubycritic/config/spring_html.html">spring.html</a>
+    <li><a href="../../../../tmp/rubycritic/db/migrate/20191025181734_create_admin_html.html">20191025181734_create_admin.html</a>
+    <li><a href="../../../../tmp/rubycritic/db/migrate/20191025182246_create_bolsas_html.html">20191025182246_create_bolsas.html</a>
+    <li><a href="../../../../tmp/rubycritic/db/migrate/20191025182328_create_dados_bancarios_html.html">20191025182328_create_dados_bancarios.html</a>
+    <li><a href="../../../../tmp/rubycritic/db/migrate/20191025182418_create_descricao_periodo_html.html">20191025182418_create_descricao_periodo.html</a>
+    <li><a href="../../../../tmp/rubycritic/db/migrate/20191025182504_create_disciplinas_html.html">20191025182504_create_disciplinas.html</a>
+    <li><a href="../../../../tmp/rubycritic/db/migrate/20191025182624_create_migrations_html.html">20191025182624_create_migrations.html</a>
+    <li><a href="../../../../tmp/rubycritic/db/migrate/20191025182656_create_monitoria_html.html">20191025182656_create_monitoria.html</a>
+    <li><a href="../../../../tmp/rubycritic/db/migrate/20191025182829_create_password_resets_html.html">20191025182829_create_password_resets.html</a>
+    <li><a href="../../../../tmp/rubycritic/db/migrate/20191025182920_create_periodos_html.html">20191025182920_create_periodos.html</a>
+    <li><a href="../../../../tmp/rubycritic/db/migrate/20191025183018_create_professors_html.html">20191025183018_create_professors.html</a>
+    <li><a href="../../../../tmp/rubycritic/db/migrate/20191025183120_create_status_monitoria_html.html">20191025183120_create_status_monitoria.html</a>
+    <li><a href="../../../../tmp/rubycritic/db/migrate/20191025183206_create_status_turma_html.html">20191025183206_create_status_turma.html</a>
+    <li><a href="../../../../tmp/rubycritic/db/migrate/20191025183258_create_tipo_disciplina_html.html">20191025183258_create_tipo_disciplina.html</a>
+    <li><a href="../../../../tmp/rubycritic/db/migrate/20191025183323_create_turmas_html.html">20191025183323_create_turmas.html</a>
+    <li><a href="../../../../tmp/rubycritic/db/migrate/20191025183520_create_users_html.html">20191025183520_create_users.html</a>
+    <li><a href="../../../../tmp/rubycritic/db/migrate/20191025183553_create_vagas_html.html">20191025183553_create_vagas.html</a>
+    <li><a href="../../../../tmp/rubycritic/db/migrate/20191119111242_create_motivos_html.html">20191119111242_create_motivos.html</a>
+    <li><a href="../../../../tmp/rubycritic/db/migrate/20191119114540_create_atendimentos_html.html">20191119114540_create_atendimentos.html</a>
+    <li><a href="../../../../tmp/rubycritic/db/migrate/20191119134000_create_tarefas_html.html">20191119134000_create_tarefas.html</a>
+    <li><a href="../../../../tmp/rubycritic/db/migrate/20191120225259_create_atividades_html.html">20191120225259_create_atividades.html</a>
+    <li><a href="../../../../tmp/rubycritic/db/migrate/20191121154635_add_monitor_to_atendimentos_html.html">20191121154635_add_monitor_to_atendimentos.html</a>
+    <li><a href="../../../../tmp/rubycritic/db/migrate/20191210130811_change_column_null_html.html">20191210130811_change_column_null.html</a>
+    <li><a href="../../../../tmp/rubycritic/db/migrate/20210505021717_add_monitoria_to_disciplinas_html.html">20210505021717_add_monitoria_to_disciplinas.html</a>
+    <li><a href="../../../../tmp/rubycritic/db/schema_html.html">schema.html</a>
+    <li><a href="../../../../tmp/rubycritic/db/seeds_html.html">seeds.html</a>
+    <li><a href="../../../../tmp/rubycritic/features/step_definitions/web_steps_html.html">web_steps.html</a>
+    <li><a href="../../../../tmp/rubycritic/features/support/env_html.html">env.html</a>
+    <li><a href="../../../../tmp/rubycritic/features/support/paths_html.html">paths.html</a>
+    <li><a href="../../../../tmp/rubycritic/features/support/selectors_html.html">selectors.html</a>
+    <li><a href="../../../../tmp/rubycritic/overview_html.html">overview.html</a>
+    <li><a href="../../../../tmp/rubycritic/simple_cov_index_html.html">simple_cov_index.html</a>
+    <li><a href="../../../../tmp/rubycritic/smells_index_html.html">smells_index.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/controllers/admins_controller_spec_html.html">admins_controller_spec.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/controllers/atendimentos_controller_spec_html.html">atendimentos_controller_spec.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/controllers/atividades_controller_spec_html.html">atividades_controller_spec.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/controllers/dados_bancarios_controller_spec_html.html">dados_bancarios_controller_spec.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/controllers/dashboard_controller_spec_html.html">dashboard_controller_spec.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/controllers/disciplinas_controller_spec_html.html">disciplinas_controller_spec.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/controllers/faq_controller_spec_html.html">faq_controller_spec.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/controllers/home_controller_spec_html.html">home_controller_spec.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/controllers/monitorias_controller_spec_html.html">monitorias_controller_spec.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/controllers/professors_controller_spec_html.html">professors_controller_spec.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/controllers/reset_senhas_controller_spec_html.html">reset_senhas_controller_spec.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/controllers/sessions_controller_spec_html.html">sessions_controller_spec.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/controllers/sobre_controller_spec_html.html">sobre_controller_spec.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/controllers/tarefas_controller_spec_html.html">tarefas_controller_spec.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/controllers/turmas_controller_spec_html.html">turmas_controller_spec.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/controllers/users_controller_spec_html.html">users_controller_spec.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/factories/atendimento_html.html">atendimento.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/factories/atividade_html.html">atividade.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/factories/dados_bancarios_html.html">dados_bancarios.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/factories/disciplina_html.html">disciplina.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/factories/monitoria_html.html">monitoria.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/factories/motivo_html.html">motivo.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/factories/professor_html.html">professor.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/factories/tarefa_html.html">tarefa.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/factories/turma_html.html">turma.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/factories/user_html.html">user.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/models/atendimento_spec_html.html">atendimento_spec.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/models/atividade_spec_html.html">atividade_spec.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/models/dados_bancarios_spec_html.html">dados_bancarios_spec.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/models/disciplina_spec_html.html">disciplina_spec.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/models/monitoria_spec_html.html">monitoria_spec.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/models/professor_spec_html.html">professor_spec.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/models/tarefa_spec_html.html">tarefa_spec.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/models/turma_spec_html.html">turma_spec.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/models/user_spec_html.html">user_spec.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/rails_helper_html.html">rails_helper.html</a>
+    <li><a href="../../../../tmp/rubycritic/spec/spec_helper_html.html">spec_helper.html</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page tmp/rubycritic/spec/controllers/users_controller_spec.html">
+
+<p>&lt;!DOCTYPE html&gt; &lt;html xmlns=“<a href="http://www.w3.org/1999/xhtml">www.w3.org/1999/xhtml</a>”&gt;</p>
+
+<pre>&lt;head&gt;
+  &lt;meta charset=&quot;utf-8&quot;&gt;
+  &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+  &lt;title&gt;Ruby Critic - Home&lt;/title&gt;
+  &lt;meta name=&quot;description&quot; content=&quot;&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+
+  &lt;!-- StyleSheets --&gt;
+  &lt;link href=&quot;../../assets/vendor/stylesheets/bootstrap.min.css&quot; media=&quot;screen, projection, print&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+  &lt;link href=&quot;../../assets/vendor/stylesheets/font-awesome.min.css&quot; media=&quot;screen, projection, print&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+  &lt;link href=&quot;../../assets/vendor/stylesheets/prettify.custom_theme.css&quot; media=&quot;screen, projection, print&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+  &lt;link href=&quot;../../assets/stylesheets/application.css&quot; media=&quot;screen, projection, print&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;header class=&quot;navbar navbar-default navbar-fixed-top&quot;&gt;
+    &lt;a href=&quot;#menu-toggle&quot; class=&quot;btn btn-default hidden-lg visible-sm-* hidden-md visible-xs-* pull-left&quot; id=&quot;menu-toggle&quot;&gt;&lt;i class=&quot;fa fa-bars&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;&lt;/a&gt;
+    &lt;a href=&quot;../../overview.html&quot;&gt;&lt;img src=&quot;../../assets/images/logo.png&quot; alt=&quot;Ruby Critic Logo&quot; title=&quot;Ruby Critic Logo&quot; width=&quot;55&quot;&gt;&lt;span class=&quot;logo&quot;&gt;RUBYCRITIC&lt;/span&gt;&lt;/a&gt;
+
+  &lt;/header&gt;
+  &lt;div id=&quot;wrapper&quot;&gt;
+    &lt;!-- Sidebar --&gt;
+    &lt;aside id=&quot;sidebar-wrapper&quot;&gt;
+      &lt;ul class=&quot;sidebar-nav&quot;&gt;
+        &lt;li class=&quot;sidebar-item&quot;&gt;
+          &lt;a href=&quot;../../overview.html&quot; class=&quot;project-nav-item overview-nav&quot;&gt;&lt;i class=&quot;fa fa-dashboard&quot;&gt;&lt;/i&gt;Overview&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;sidebar-item&quot;&gt;
+          &lt;a href=&quot;../../code_index.html&quot; class=&quot;project-nav-item code-index-nav&quot;&gt;&lt;i class=&quot;fa fa-code&quot;&gt;&lt;/i&gt;Code&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;sidebar-item&quot;&gt;
+          &lt;a href=&quot;../../smells_index.html&quot; class=&quot;project-nav-item smells-index-nav&quot;&gt;&lt;i class=&quot;fa fa-warning&quot;&gt;&lt;/i&gt;Smells&lt;/a&gt;
+        &lt;/li&gt;
+        &lt;li class=&quot;sidebar-item&quot;&gt;
+          &lt;a href=&quot;../../simple_cov_index.html&quot; class=&quot;project-nav-item coverage-index-nav&quot;&gt;&lt;i class=&quot;fa fa-umbrella&quot;&gt;&lt;/i&gt;Coverage&lt;/a&gt;
+        &lt;/li&gt;
+      &lt;/ul&gt;
+    &lt;/aside&gt;
+    &lt;!-- /#sidebar-wrapper --&gt;
+    &lt;div id=&quot;page-content-wrapper&quot;&gt;
+      &lt;div class=&quot;container-fluid&quot;&gt;
+        &lt;div class=&quot;row&quot;&gt;
+&lt;!--Page Title --&gt;
+&lt;div class=&quot;Page_Title&quot;&gt;
+  &lt;div class=&quot;file-time&quot;&gt;
+    &lt;span class=&quot;committed-at&quot;&gt;
+
+        Never committed
+
+    &lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div&gt;
+    &lt;h3&gt;&lt;small&gt;spec/controllers /&lt;/small&gt; users_controller_spec.rb&lt;/h3&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;!--End Page Title --&gt;
+&lt;div class=&quot;Content_Wrapper&quot;&gt;
+  &lt;!-- code detail --&gt;
+  &lt;div class=&quot;code-top-detail clearfix row&quot;&gt;
+    &lt;div class=&quot;col-md-8&quot;&gt;
+      &lt;div class=&quot;row&quot;&gt;
+        &lt;div class=&quot;col-md-1&quot;&gt;
+          &lt;div class=&quot;rating f big&quot;&gt;
+            F
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&quot;code-statistics col-md-11&quot;&gt;
+          &lt;div class=&quot;col-md-3&quot;&gt;
+            &lt;div&gt;&lt;span class=&quot;metric&quot;&gt;230&lt;/span&gt;&lt;small&gt; lines of codes&lt;/small&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;span class=&quot;metric&quot;&gt;0&lt;/span&gt;&lt;small&gt; methods&lt;/small&gt;&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col-md-3&quot;&gt;
+            &lt;div&gt;&lt;span class=&quot;metric&quot;&gt;N/A&lt;/span&gt;&lt;small&gt; complexity/method&lt;/small&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;span class=&quot;metric&quot;&gt;0&lt;/span&gt;&lt;small&gt; churn&lt;/small&gt;&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class=&quot;col-md-3&quot;&gt;
+            &lt;div&gt;&lt;span class=&quot;metric&quot;&gt;336.73&lt;/span&gt;&lt;small&gt; complexity&lt;/small&gt;&lt;/div&gt;
+            &lt;div&gt;&lt;span class=&quot;metric&quot;&gt;219&lt;/span&gt;&lt;small&gt; duplications&lt;/small&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;col-md-4&quot;&gt;
+      &lt;div class=&quot;code-tabs&quot;&gt;
+        &lt;ul class=&quot;nav nav-pills right-to-left&quot;&gt;
+          &lt;li&gt;&lt;a href=&quot;#&quot; id=&quot;toggle-code&quot; class=&quot;toggle-button button&quot;&gt;code&lt;/a&gt;&lt;/li&gt;
+          &lt;li class=&quot;active&quot;&gt;
+            &lt;a href=&quot;#&quot; id=&quot;toggle-smells&quot; class=&quot;toggle-button button&quot;&gt;
+              10
+              smells
+            &lt;/a&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;code class=&quot;prettyprint linenums lang-ruby file-code js-file-code&quot;&gt;# frozen_string_literal: true</pre>
+
+<p>require &amp;#39;rails_helper&amp;#39;</p>
+
+<p>describe <a href="../../../../UsersController.html"><code>UsersController</code></a> do</p>
+
+<pre>describe &amp;#39;#new&amp;#39; do
+  it &amp;#39;should render the views/users/new.html.haml view&amp;#39; do
+    get :new
+    expect(response).to render_template(:new)
+  end
+end
+
+describe &amp;#39;#create&amp;#39; do
+  before :each do&lt;ol class=&quot;nocode errors smells&quot;&gt;  &lt;li&gt;    &lt;div class=&quot;description&quot;&gt;      &lt;div class=&quot;heading&quot;&gt;        &lt;span&gt;          &lt;i class=&quot;fa fa-warning&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;          &lt;a href=&quot;http://docs.seattlerb.org/flay/&quot; target=&quot;_blank&quot;&gt;&lt;b&gt;DuplicateCode&lt;/b&gt;&lt;/a&gt;        &lt;/span&gt;      &lt;/div&gt;      &lt;span&gt;Similar code found in 3 nodes&lt;/span&gt;              &lt;span&gt;Locations:&lt;/span&gt;                  &lt;a href=&quot;users_controller_spec.html#L14&quot; class=&quot;js-smell-location&quot;&gt;0&lt;/a&gt;                  &lt;a href=&quot;users_controller_spec.html#L61&quot; class=&quot;js-smell-location&quot;&gt;1&lt;/a&gt;                  &lt;a href=&quot;users_controller_spec.html#L86&quot; class=&quot;js-smell-location&quot;&gt;2&lt;/a&gt;                  &lt;/div&gt;  &lt;/li&gt;&lt;/ol&gt;
+    @info = {
+      name: &amp;#39;Bernardo Costa Nascimento&amp;#39;,
+      email: &amp;#39;bernardoc1104@gmail.com&amp;#39;,
+      matricula: &amp;#39;140080279&amp;#39;,
+      cpf: &amp;#39;03638481182&amp;#39;,
+      rg: &amp;#39;2645178&amp;#39;,
+      password: &amp;#39;110492&amp;#39;,
+      password_confirmation: &amp;#39;110492&amp;#39;
+    }
+    @params = Hash.new
+    @params[:user] = @info
+  end
+
+  it &amp;#39;calls the controller method that filters the form input&amp;#39; do
+    post :create, params: @params
+    users_controller = double(&amp;#39;users_controller&amp;#39;)
+    allow(users_controller).to receive(:user_params).and_return(@params[:user])
+  end
+
+  it &amp;#39;calls the model method that creates the User&amp;#39; do&lt;ol class=&quot;nocode errors smells&quot;&gt;  &lt;li&gt;    &lt;div class=&quot;description&quot;&gt;      &lt;div class=&quot;heading&quot;&gt;        &lt;span&gt;          &lt;i class=&quot;fa fa-warning&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;          &lt;a href=&quot;http://docs.seattlerb.org/flay/&quot; target=&quot;_blank&quot;&gt;&lt;b&gt;DuplicateCode&lt;/b&gt;&lt;/a&gt;        &lt;/span&gt;      &lt;/div&gt;      &lt;span&gt;Similar code found in 6 nodes&lt;/span&gt;              &lt;span&gt;Locations:&lt;/span&gt;                  &lt;a href=&quot;admins_controller_spec.html#L32&quot; class=&quot;js-smell-location&quot;&gt;0&lt;/a&gt;                  &lt;a href=&quot;atendimentos_controller_spec.html#L34&quot; class=&quot;js-smell-location&quot;&gt;1&lt;/a&gt;                  &lt;a href=&quot;atividades_controller_spec.html#L38&quot; class=&quot;js-smell-location&quot;&gt;2&lt;/a&gt;                  &lt;a href=&quot;professors_controller_spec.html#L42&quot; class=&quot;js-smell-location&quot;&gt;3&lt;/a&gt;                  &lt;a href=&quot;turmas_controller_spec.html#L45&quot; class=&quot;js-smell-location&quot;&gt;4&lt;/a&gt;                  &lt;a href=&quot;users_controller_spec.html#L34&quot; class=&quot;js-smell-location&quot;&gt;5&lt;/a&gt;                  &lt;/div&gt;  &lt;/li&gt;&lt;/ol&gt;
+    ActionController::Parameters.permit_all_parameters = true
+    @user = ActionController::Parameters.new(@params[:user])
+
+    expect(User).to receive(:create).with(@user).and_return(User.create(@user))
+    post :create, params: @params
+  end
+
+  it &amp;#39;calls the sessions helper method that logs the registered user&amp;#39; do
+    expect(assigns(:user)).to eq(@user)
+    sessions_helper = double(&amp;#39;sessions_helper&amp;#39;)
+    allow(sessions_helper).to receive(:log_in).with(:user)
+    post :create, params: @params
+  end
+
+  it &amp;#39;redirects the registered user to the dashboard&amp;#39; do&lt;ol class=&quot;nocode errors smells&quot;&gt;  &lt;li&gt;    &lt;div class=&quot;description&quot;&gt;      &lt;div class=&quot;heading&quot;&gt;        &lt;span&gt;          &lt;i class=&quot;fa fa-warning&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;          &lt;a href=&quot;http://docs.seattlerb.org/flay/&quot; target=&quot;_blank&quot;&gt;&lt;b&gt;DuplicateCode&lt;/b&gt;&lt;/a&gt;        &lt;/span&gt;      &lt;/div&gt;      &lt;span&gt;Similar code found in 2 nodes&lt;/span&gt;              &lt;span&gt;Locations:&lt;/span&gt;                  &lt;a href=&quot;reset_senhas_controller_spec.html#L22&quot; class=&quot;js-smell-location&quot;&gt;0&lt;/a&gt;                  &lt;a href=&quot;users_controller_spec.html#L49&quot; class=&quot;js-smell-location&quot;&gt;1&lt;/a&gt;                  &lt;/div&gt;  &lt;/li&gt;&lt;/ol&gt;
+    post :create, params: @params
+
+    expect(flash[:notice]).to eq(&amp;quot;Registro realizado com sucesso!&amp;quot;)
+    redirect_to dashboard_path
+    expect(subject).to redirect_to(&amp;#39;/dashboard&amp;#39;)
+  end
+end
+
+describe &amp;#39;#create sad paths&amp;#39; do
+  fixtures &amp;#39;user&amp;#39;
+
+  before :each do&lt;ol class=&quot;nocode errors smells&quot;&gt;  &lt;li&gt;    &lt;div class=&quot;description&quot;&gt;      &lt;div class=&quot;heading&quot;&gt;        &lt;span&gt;          &lt;i class=&quot;fa fa-warning&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;          &lt;a href=&quot;http://docs.seattlerb.org/flay/&quot; target=&quot;_blank&quot;&gt;&lt;b&gt;DuplicateCode&lt;/b&gt;&lt;/a&gt;        &lt;/span&gt;      &lt;/div&gt;      &lt;span&gt;Similar code found in 3 nodes&lt;/span&gt;              &lt;span&gt;Locations:&lt;/span&gt;                  &lt;a href=&quot;users_controller_spec.html#L14&quot; class=&quot;js-smell-location&quot;&gt;0&lt;/a&gt;                  &lt;a href=&quot;users_controller_spec.html#L61&quot; class=&quot;js-smell-location&quot;&gt;1&lt;/a&gt;                  &lt;a href=&quot;users_controller_spec.html#L86&quot; class=&quot;js-smell-location&quot;&gt;2&lt;/a&gt;                  &lt;/div&gt;  &lt;/li&gt;&lt;/ol&gt;
+    @info = {
+        name: &amp;#39;Bernardo Costa Nascimento&amp;#39;,
+        email: &amp;#39;bernardoc1104@gmail.com&amp;#39;,
+        matricula: &amp;#39;140080279&amp;#39;,
+        cpf: &amp;#39;03638481182&amp;#39;,
+        rg: &amp;#39;2645178&amp;#39;,
+        password: &amp;#39;110492&amp;#39;,
+        password_confirmation: &amp;#39;110492&amp;#39;
+    }
+    @params = Hash.new
+    @params[:user] = @info
+  end
+
+  describe &amp;#39;tries to create an invalid user on the database&amp;#39; do
+    it &amp;#39;tries to create a user that is not unique&amp;#39; do
+      post :create, params: @params
+      expect(flash[:danger]).to include(&amp;#39;Matricula has already been taken&amp;#39;, &amp;#39;Email has already been taken&amp;#39;,
+        &amp;#39;Cpf has already been taken&amp;#39;, &amp;#39;Rg has already been taken&amp;#39;)
+      redirect_to new_user_path
+      expect(subject).to redirect_to(&amp;#39;/users/new&amp;#39;)
+    end
+  end
+
+  describe &amp;#39;tries to create a user by filling the form wrong&amp;#39; do
+    before :each do&lt;ol class=&quot;nocode errors smells&quot;&gt;  &lt;li&gt;    &lt;div class=&quot;description&quot;&gt;      &lt;div class=&quot;heading&quot;&gt;        &lt;span&gt;          &lt;i class=&quot;fa fa-warning&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;          &lt;a href=&quot;http://docs.seattlerb.org/flay/&quot; target=&quot;_blank&quot;&gt;&lt;b&gt;DuplicateCode&lt;/b&gt;&lt;/a&gt;        &lt;/span&gt;      &lt;/div&gt;      &lt;span&gt;Similar code found in 3 nodes&lt;/span&gt;              &lt;span&gt;Locations:&lt;/span&gt;                  &lt;a href=&quot;users_controller_spec.html#L14&quot; class=&quot;js-smell-location&quot;&gt;0&lt;/a&gt;                  &lt;a href=&quot;users_controller_spec.html#L61&quot; class=&quot;js-smell-location&quot;&gt;1&lt;/a&gt;                  &lt;a href=&quot;users_controller_spec.html#L86&quot; class=&quot;js-smell-location&quot;&gt;2&lt;/a&gt;                  &lt;/div&gt;  &lt;/li&gt;&lt;/ol&gt;
+      @wrong_info = {
+        name: &amp;#39;&amp;#39;,
+        email: &amp;#39;&amp;#39;,
+        matricula: &amp;#39;&amp;#39;,
+        cpf: &amp;#39;&amp;#39;,
+        rg: &amp;#39;&amp;#39;,
+        password: &amp;#39;&amp;#39;,
+        password_confirmation: &amp;#39;&amp;#39;
+      }
+
+      @params = Hash.new
+      @params[:user] = @wrong_info
+    end
+
+    it &amp;#39;leaves the form blank&amp;#39; do&lt;ol class=&quot;nocode errors smells&quot;&gt;  &lt;li&gt;    &lt;div class=&quot;description&quot;&gt;      &lt;div class=&quot;heading&quot;&gt;        &lt;span&gt;          &lt;i class=&quot;fa fa-warning&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;          &lt;a href=&quot;http://docs.seattlerb.org/flog/&quot; target=&quot;_blank&quot;&gt;&lt;b&gt;HighComplexity&lt;/b&gt;&lt;/a&gt;        &lt;/span&gt;      &lt;/div&gt;      &lt;span&gt;describe(#create sad paths)::describe(tries to create a user by filling the form wrong)::it#leaves the form blank has a flog score of 25&lt;/span&gt;          &lt;/div&gt;  &lt;/li&gt;&lt;/ol&gt;
+      @params[:user] = @wrong_info
+      post :create, params: @params
+      expect(flash[:danger]).to include(&amp;quot;Name can&amp;#39;t be blank&amp;quot;, &amp;quot;Email can&amp;#39;t be blank&amp;quot;, &amp;quot;Cpf can&amp;#39;t be blank&amp;quot;,
+        &amp;quot;Rg can&amp;#39;t be blank&amp;quot;, &amp;quot;Matricula can&amp;#39;t be blank&amp;quot;, &amp;quot;Password can&amp;#39;t be blank&amp;quot;, &amp;quot;Password must be between 6 and 12 characters&amp;quot;,
+        &amp;quot;Name is too short (minimum is 3 characters)&amp;quot;, &amp;quot;Email invalid email format&amp;quot;,
+        &amp;quot;Cpf is the wrong length (should be 11 characters)&amp;quot;, &amp;quot;Cpf only numbers&amp;quot;, &amp;quot;Rg is too short (minimum is 7 characters)&amp;quot;,
+        &amp;quot;Rg only numbers&amp;quot;, &amp;quot;Matricula is the wrong length (should be 9 characters)&amp;quot;, &amp;quot;Matricula only numbers&amp;quot;,
+        &amp;quot;Password confirmation must be between 6 and 12 characters&amp;quot;)
+      redirect_to new_user_path
+      expect(subject).to redirect_to(&amp;#39;/users/new&amp;#39;)
+    end
+  end
+end
+
+describe &amp;quot;#update&amp;quot; do
+  fixtures &amp;#39;user&amp;#39;
+
+  before :each do
+    @info = {
+      name: &amp;#39;Clarissa e Palos&amp;#39;,
+      matricula: &amp;#39;140080278&amp;#39;,
+      cpf: &amp;#39;09646418104&amp;#39;,
+      rg: &amp;#39;1234567&amp;#39;
+    }
+
+    @params = Hash.new
+    @params[:user] = @info
+    @params[:id] = 2
+
+    @user = user(:some_other_student)
+  end
+
+  it &amp;#39;calls the model method that locates the user&amp;#39; do&lt;ol class=&quot;nocode errors smells&quot;&gt;  &lt;li&gt;    &lt;div class=&quot;description&quot;&gt;      &lt;div class=&quot;heading&quot;&gt;        &lt;span&gt;          &lt;i class=&quot;fa fa-warning&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;          &lt;a href=&quot;http://docs.seattlerb.org/flay/&quot; target=&quot;_blank&quot;&gt;&lt;b&gt;DuplicateCode&lt;/b&gt;&lt;/a&gt;        &lt;/span&gt;      &lt;/div&gt;      &lt;span&gt;Similar code found in 5 nodes&lt;/span&gt;              &lt;span&gt;Locations:&lt;/span&gt;                  &lt;a href=&quot;dados_bancarios_controller_spec.html#L227&quot; class=&quot;js-smell-location&quot;&gt;0&lt;/a&gt;                  &lt;a href=&quot;professors_controller_spec.html#L145&quot; class=&quot;js-smell-location&quot;&gt;1&lt;/a&gt;                  &lt;a href=&quot;professors_controller_spec.html#L174&quot; class=&quot;js-smell-location&quot;&gt;2&lt;/a&gt;                  &lt;a href=&quot;sessions_controller_spec.html#L14&quot; class=&quot;js-smell-location&quot;&gt;3&lt;/a&gt;                  &lt;a href=&quot;users_controller_spec.html#L134&quot; class=&quot;js-smell-location&quot;&gt;4&lt;/a&gt;                  &lt;/div&gt;  &lt;/li&gt;&lt;/ol&gt;
+    expect(User).to receive(:find_by_email).and_return @user
+    put :update, params: @params
+  end
+
+  it &amp;#39;calls the controller method that filters the form input&amp;#39; do
+    allow(User).to receive(:find_by_email).and_return @user
+    put :update, params: @params
+    users_controller = double(&amp;#39;users_controller&amp;#39;)
+    allow(users_controller).to receive(:user_params).and_return(@params[:user])
+  end
+
+  it &amp;#39;calls the model method that performs the update&amp;#39; do&lt;ol class=&quot;nocode errors smells&quot;&gt;  &lt;li&gt;    &lt;div class=&quot;description&quot;&gt;      &lt;div class=&quot;heading&quot;&gt;        &lt;span&gt;          &lt;i class=&quot;fa fa-warning&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;          &lt;a href=&quot;http://docs.seattlerb.org/flay/&quot; target=&quot;_blank&quot;&gt;&lt;b&gt;DuplicateCode&lt;/b&gt;&lt;/a&gt;        &lt;/span&gt;      &lt;/div&gt;      &lt;span&gt;Similar code found in 3 nodes&lt;/span&gt;              &lt;span&gt;Locations:&lt;/span&gt;                  &lt;a href=&quot;professors_controller_spec.html#L187&quot; class=&quot;js-smell-location&quot;&gt;0&lt;/a&gt;                  &lt;a href=&quot;turmas_controller_spec.html#L122&quot; class=&quot;js-smell-location&quot;&gt;1&lt;/a&gt;                  &lt;a href=&quot;users_controller_spec.html#L146&quot; class=&quot;js-smell-location&quot;&gt;2&lt;/a&gt;                  &lt;/div&gt;  &lt;/li&gt;&lt;/ol&gt;
+    ActionController::Parameters.permit_all_parameters = true
+    @user_params = ActionController::Parameters.new(@params[:user])
+
+    allow(User).to receive(:find_by_email).and_return @user
+    expect(@user).to receive(:update_attributes).with(@user_params)
+                                                .and_return(@user.update_attributes(@user_params))
+
+    put :update, params: @params
+  end
+
+  it &amp;#39;redirects the updated user to the dashboard&amp;#39; do&lt;ol class=&quot;nocode errors smells&quot;&gt;  &lt;li&gt;    &lt;div class=&quot;description&quot;&gt;      &lt;div class=&quot;heading&quot;&gt;        &lt;span&gt;          &lt;i class=&quot;fa fa-warning&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;          &lt;a href=&quot;http://docs.seattlerb.org/flay/&quot; target=&quot;_blank&quot;&gt;&lt;b&gt;DuplicateCode&lt;/b&gt;&lt;/a&gt;        &lt;/span&gt;      &lt;/div&gt;      &lt;span&gt;Similar code found in 2 nodes&lt;/span&gt;              &lt;span&gt;Locations:&lt;/span&gt;                  &lt;a href=&quot;professors_controller_spec.html#L197&quot; class=&quot;js-smell-location&quot;&gt;0&lt;/a&gt;                  &lt;a href=&quot;users_controller_spec.html#L157&quot; class=&quot;js-smell-location&quot;&gt;1&lt;/a&gt;                  &lt;/div&gt;  &lt;/li&gt;  &lt;li&gt;    &lt;div class=&quot;description&quot;&gt;      &lt;div class=&quot;heading&quot;&gt;        &lt;span&gt;          &lt;i class=&quot;fa fa-warning&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;          &lt;a href=&quot;http://docs.seattlerb.org/flog/&quot; target=&quot;_blank&quot;&gt;&lt;b&gt;HighComplexity&lt;/b&gt;&lt;/a&gt;        &lt;/span&gt;      &lt;/div&gt;      &lt;span&gt;describe(#update)::it#redirects the updated user to the dashboard has a flog score of 29&lt;/span&gt;          &lt;/div&gt;  &lt;/li&gt;&lt;/ol&gt;
+    allow(User).to receive(:find_by_email).and_return @user
+    put :update, params: @params
+
+    expect(flash[:notice]).to eq(&amp;quot;Cadastro atualizado com sucesso!&amp;quot;)
+    redirect_to dashboard_path
+    expect(subject).to redirect_to (&amp;#39;/dashboard&amp;#39;)
+  end
+end
+
+describe &amp;#39;#update sad path&amp;#39; do
+  fixtures &amp;#39;user&amp;#39;
+
+  before :each do
+    @info = {
+      name: &amp;#39;Clarissa e Palos&amp;#39;,
+      matricula: &amp;#39;140080279&amp;#39;,
+      cpf: &amp;#39;03638481182&amp;#39;,
+      rg: &amp;#39;2645178&amp;#39;
+    }
+
+    @info2 = {
+      name: &amp;#39;&amp;#39;,
+      matricula: &amp;#39;&amp;#39;,
+      cpf: &amp;#39;&amp;#39;,
+      rg: &amp;#39;&amp;#39;
+    }
+
+    @params = Hash.new
+    @params[:id] = 2
+
+    @user = user(:some_other_student)
+  end
+
+  it &amp;#39;tries to update an user with non-unique information&amp;#39; do&lt;ol class=&quot;nocode errors smells&quot;&gt;  &lt;li&gt;    &lt;div class=&quot;description&quot;&gt;      &lt;div class=&quot;heading&quot;&gt;        &lt;span&gt;          &lt;i class=&quot;fa fa-warning&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;          &lt;a href=&quot;http://docs.seattlerb.org/flog/&quot; target=&quot;_blank&quot;&gt;&lt;b&gt;HighComplexity&lt;/b&gt;&lt;/a&gt;        &lt;/span&gt;      &lt;/div&gt;      &lt;span&gt;describe(#update sad path)::it#tries to update an user with non-unique information has a flog score of 45&lt;/span&gt;          &lt;/div&gt;  &lt;/li&gt;&lt;/ol&gt;
+    @params[:user] = @info
+    ActionController::Parameters.permit_all_parameters = true
+    @user_params = ActionController::Parameters.new(@params[:user])
+
+    allow(User).to receive(:find_by_email).and_return @user
+    expect(@user).to receive(:update_attributes).with(@user_params)
+                                                .and_return(@user.update_attributes(@user_params))
+    put :update, params: @params
+    expect(flash[:danger]).to include(&amp;#39;Matricula has already been taken&amp;#39;, &amp;#39;Cpf has already been taken&amp;#39;,
+                                      &amp;#39;Rg has already been taken&amp;#39;)
+    redirect_to dashboard_path
+    expect(subject).to redirect_to (&amp;#39;/dashboard&amp;#39;)
+  end
+
+  it &amp;#39;tries to update an user with invalid information&amp;#39; do&lt;ol class=&quot;nocode errors smells&quot;&gt;  &lt;li&gt;    &lt;div class=&quot;description&quot;&gt;      &lt;div class=&quot;heading&quot;&gt;        &lt;span&gt;          &lt;i class=&quot;fa fa-warning&quot; aria-hidden=&quot;true&quot;&gt;&lt;/i&gt;          &lt;a href=&quot;http://docs.seattlerb.org/flog/&quot; target=&quot;_blank&quot;&gt;&lt;b&gt;HighComplexity&lt;/b&gt;&lt;/a&gt;        &lt;/span&gt;      &lt;/div&gt;      &lt;span&gt;describe(#update sad path)::it#tries to update an user with invalid information has a flog score of 35&lt;/span&gt;          &lt;/div&gt;  &lt;/li&gt;&lt;/ol&gt;
+    @params[:user] = @info2
+    ActionController::Parameters.permit_all_parameters = true
+    @user_params = ActionController::Parameters.new(@params[:user])
+
+    allow(User).to receive(:find_by_email).and_return @user
+    expect(@user).to receive(:update_attributes).with(@user_params)
+                                                .and_return(@user.update_attributes(@user_params))
+    put :update, params: @params
+    expect(flash[:danger]).to include(
+      &amp;quot;Name can&amp;#39;t be blank&amp;quot;,
+      &amp;quot;Name is too short (minimum is 3 characters)&amp;quot;,
+      &amp;quot;Cpf can&amp;#39;t be blank&amp;quot;,
+      &amp;quot;Cpf is the wrong length (should be 11 characters)&amp;quot;,
+      &amp;quot;Cpf only numbers&amp;quot;,
+      &amp;quot;Rg can&amp;#39;t be blank&amp;quot;,
+      &amp;quot;Rg is too short (minimum is 7 characters)&amp;quot;,
+      &amp;quot;Rg only numbers&amp;quot;,
+      &amp;quot;Matricula can&amp;#39;t be blank&amp;quot;,
+      &amp;quot;Matricula is the wrong length (should be 9 characters)&amp;quot;,
+      &amp;quot;Matricula only numbers&amp;quot;
+    )
+  end
+end</pre>
+
+<p>end &lt;/code&gt;</p>
+
+<pre>&lt;/div&gt;</pre>
+
+<p>&lt;/div&gt;</p>
+
+<pre>      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;!-- JavaScripts --&gt;
+  &lt;script src=&quot;../../assets/vendor/javascripts/jquery.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;../../assets/vendor/javascripts/jquery.tablesorter.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;../../assets/vendor/javascripts/jquery.scrollTo.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;../../assets/vendor/javascripts/jquery.timeago.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;../../assets/vendor/javascripts/highcharts.src-4.0.1.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;../../assets/vendor/javascripts/prettify.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;../../assets/vendor/javascripts/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;../../assets/javascripts/application.js&quot;&gt;&lt;/script&gt;
+  &lt;script src=&quot;../../assets/vendor/javascripts/jquery.filtertable.min.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;</pre>
+
+<p>&lt;/html&gt;</p>
+
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.3.1.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
