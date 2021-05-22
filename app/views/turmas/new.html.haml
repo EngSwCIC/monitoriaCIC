@@ -19,6 +19,11 @@
             = text_field :turma, :professor, class: 'form-control-plaintext', readonly: 'readonly', value: current_user.name
 
         .form-group.row
+          = label :turma, :professor, 'Professor Auxiliar', class: 'col-sm-2 col-form-label'
+          .col-sm-10
+            = select :turma , :professor_auxiliar, options_for_select(["Nenhum"] + Professor.all.map { |p| p.name }.filter  { |p| p != current_user.name}), {}, class: 'custom-select'
+
+        .form-group.row
           = label :turma, :disciplina, 'Disciplina', class: 'col-sm-2 col-form-label'
           .col-sm-10
             = select :turma, :fk_cod_disciplina, options_for_select(Turma.sel_disciplinas), {}, class: 'custom-select'

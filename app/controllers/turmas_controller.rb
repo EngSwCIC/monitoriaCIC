@@ -47,7 +47,7 @@ class TurmasController < ApplicationController
 
   private
   def turma_params
-    params.require(:turma).permit(:id, :turma, :professor, :fk_cod_disciplina, :qnt_bolsas, :fk_vagas_id)
+    params.require(:turma).permit(:id, :turma, :professor, :professor_auxiliar, :fk_cod_disciplina, :qnt_bolsas, :fk_vagas_id)
   end
 
   def find_turma
@@ -58,6 +58,8 @@ class TurmasController < ApplicationController
     @turmas = Array.new
     @turmas_buscadas = Turma.find_each do |turma|
       if turma.professor == professor.name
+        @turmas << turma
+      elsif turma.professor_auxiliar == professor.name
         @turmas << turma
       end
     end

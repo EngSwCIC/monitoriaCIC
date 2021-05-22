@@ -18,6 +18,9 @@ module NavigationHelpers
 
     when /^página inicial do MonitoriaCIC$/
       root_path
+    
+    when /^página de candidatos$/
+      dashboard_monitorias_candidatos_path
 
     when /^página de registro de alunos$/
       new_user_path

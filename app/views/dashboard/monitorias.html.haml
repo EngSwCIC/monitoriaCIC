@@ -150,7 +150,7 @@
             .row
               .col
                 .ul.list-group
-                  - Turma.where(professor: @user.name).each do |turma|
+                  - Turma.where(professor: @user.name).or(Turma.where(professor_auxiliar: @user.name)).each do |turma|
                     - @disciplina = Disciplina.find(turma.fk_cod_disciplina)
                     %li.list-group-item
                       Disciplina:

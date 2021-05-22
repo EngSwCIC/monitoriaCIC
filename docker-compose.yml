@@ -1,0 +1,27 @@
+version: "3"
+
+volumes:
+  dbdata:
+
+services:
+  database:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: "${DB_USER}"
+      POSTGRES_PASSWORD: "${DB_PASSWORD}"
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+  app:
+    build: .
+    depends_on:
+      - database
+    # rails db:setup
+    command: rails server -p 3000 -b '0.0.0.0'
+    volumes:
+      - ./:/opt/monitoria_cic
+    ports:
+      - "3000:3000"
+    env_file: .env
+    environment:
+      BUNDLE_APP_CONFIG: /opt/monitoria_cic/.bundle
