@@ -67,8 +67,8 @@ module NavigationHelpers
       tarefa_path(Tarefa.find(1))
     
 
-    when /^página de edição da disciplina (.*)$/
-      edit_disciplina_path(Disciplina.find($1))
+    when /^página de edição de disciplina$/
+      edit_disciplina_path(Disciplina.find(1))
 
     when /^página de nova disciplina$/
       new_disciplina_path

@@ -21,8 +21,6 @@
 <link href="./css/rdoc.css" rel="stylesheet">
 
 
-
-
 <body id="top" role="document" class="class">
 <nav role="navigation">
   <div id="project-navigation">
@@ -59,36 +57,28 @@
 
   <div id="class-metadata">
     
-    <div id="parent-class-section" class="nav-section">
+    
+<div id="parent-class-section" class="nav-section">
   <h3>Parent</h3>
 
-  
   <p class="link"><a href="ApplicationController.html">ApplicationController</a>
-  
 </div>
 
     
     
-    <!-- Method Quickref -->
+    
+<!-- Method Quickref -->
 <div id="method-list-section" class="nav-section">
   <h3>Methods</h3>
 
   <ul class="link-list" role="directory">
-    
     <li ><a href="#method-i-create">#create</a>
-    
     <li ><a href="#method-i-destroy">#destroy</a>
-    
     <li ><a href="#method-i-edit">#edit</a>
-    
     <li ><a href="#method-i-index">#index</a>
-    
     <li ><a href="#method-i-new">#new</a>
-    
     <li ><a href="#method-i-show">#show</a>
-    
     <li ><a href="#method-i-update">#update</a>
-    
   </ul>
 </div>
 
@@ -104,41 +94,27 @@
     
   </section>
 
-  
   <section id="5Buntitled-5D" class="documentation-section">
-    
 
-    
 
-    
 
-    
 
-    
+
      <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
        <header>
          <h3>Public Instance Methods</h3>
        </header>
 
-    
       <div id="method-i-create" class="method-detail ">
-        
         <div class="method-heading">
           <span class="method-name">create</span><span
             class="method-args">()</span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
 
         <div class="method-description">
-          
           <p>POST /atividades POST /atividades.json Método para criar o registro de uma atividade, associando a atividade ao usuário logado, que será passado pelo atividade_params Criando ou não, retorna para o dashboard</p>
-          
-          
 
-          
           <div class="method-source-code" id="create-source">
             <pre><span class="ruby-comment"># File app/controllers/atividades_controller.rb, line 31</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">create</span>
@@ -153,33 +129,21 @@
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-destroy" class="method-detail ">
-        
         <div class="method-heading">
           <span class="method-name">destroy</span><span
             class="method-args">()</span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
 
         <div class="method-description">
-          
           <p>DELETE /atividades/1 DELETE /atividades/1.json Metodo utilizado para apagar uma atividade, utilizando seu id como paramentro</p>
-          
-          
 
-          
           <div class="method-source-code" id="destroy-source">
             <pre><span class="ruby-comment"># File app/controllers/atividades_controller.rb, line 64</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">destroy</span>
@@ -190,165 +154,105 @@
   <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">dashboard_atividades_path</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-edit" class="method-detail ">
-        
         <div class="method-heading">
           <span class="method-name">edit</span><span
             class="method-args">()</span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
 
         <div class="method-description">
-          
           <p>GET /atividades/1/edit</p>
-          
-          
 
-          
           <div class="method-source-code" id="edit-source">
             <pre><span class="ruby-comment"># File app/controllers/atividades_controller.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">edit</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-index" class="method-detail ">
-        
         <div class="method-heading">
           <span class="method-name">index</span><span
             class="method-args">()</span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
 
         <div class="method-description">
-          
           <p>GET /atividades GET /atividades.json</p>
-          
-          
 
-          
           <div class="method-source-code" id="index-source">
             <pre><span class="ruby-comment"># File app/controllers/atividades_controller.rb, line 7</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">index</span>
   <span class="ruby-ivar">@atividades</span> = <span class="ruby-constant">Atividade</span>.<span class="ruby-identifier">all</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-new" class="method-detail ">
-        
         <div class="method-heading">
           <span class="method-name">new</span><span
             class="method-args">()</span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
 
         <div class="method-description">
-          
           <pre>GET /atividades/new</pre>
 
 <p>Associa o registro de atividade ao usuario logado</p>
-          
-          
 
-          
           <div class="method-source-code" id="new-source">
             <pre><span class="ruby-comment"># File app/controllers/atividades_controller.rb, line 18</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">new</span>
   <span class="ruby-ivar">@atividade</span> = <span class="ruby-constant">Atividade</span>.<span class="ruby-identifier">new</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-show" class="method-detail ">
-        
         <div class="method-heading">
           <span class="method-name">show</span><span
             class="method-args">()</span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
 
         <div class="method-description">
-          
           <p>GET /atividades/1 GET /atividades/1.json</p>
-          
-          
 
-          
           <div class="method-source-code" id="show-source">
             <pre><span class="ruby-comment"># File app/controllers/atividades_controller.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">show</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
       <div id="method-i-update" class="method-detail ">
-        
         <div class="method-heading">
           <span class="method-name">update</span><span
             class="method-args">()</span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
 
         <div class="method-description">
-          
           <p>PATCH/PUT /atividades/1 PATCH/PUT /atividades/1.json Método para editar o registro de uma atividade, passando pelo atividade_params a atividade atualizada associada ao usuario que foi capturada por <a href=":id">params</a></p>
-          
-          
 
-          
           <div class="method-source-code" id="update-source">
             <pre><span class="ruby-comment"># File app/controllers/atividades_controller.rb, line 47</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">update</span>
@@ -365,25 +269,20 @@
   <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">dashboard_atividades_path</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
     </section>
-  
-  </section>
 
+  </section>
 </main>
 
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.0.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.3.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

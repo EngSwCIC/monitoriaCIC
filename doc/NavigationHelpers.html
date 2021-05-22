@@ -21,8 +21,6 @@
 <link href="./css/rdoc.css" rel="stylesheet">
 
 
-
-
 <body id="top" role="document" class="module">
 <nav role="navigation">
   <div id="project-navigation">
@@ -62,14 +60,13 @@
     
     
     
-    <!-- Method Quickref -->
+    
+<!-- Method Quickref -->
 <div id="method-list-section" class="nav-section">
   <h3>Methods</h3>
 
   <ul class="link-list" role="directory">
-    
     <li ><a href="#method-i-path_to">#path_to</a>
-    
   </ul>
 </div>
 
@@ -91,45 +88,31 @@
 
   </section>
 
-  
   <section id="5Buntitled-5D" class="documentation-section">
-    
 
-    
 
-    
 
-    
 
-    
+
      <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
        <header>
          <h3>Public Instance Methods</h3>
        </header>
 
-    
       <div id="method-i-path_to" class="method-detail ">
-        
         <div class="method-heading">
           <span class="method-name">path_to</span><span
             class="method-args">(page_name)</span>
-          
           <span class="method-click-advice">click to toggle source</span>
-          
         </div>
-        
 
         <div class="method-description">
-          
           <p>Maps a name to a path. Used by the</p>
 
 <pre>When /^I go to (.+)$/ do |page_name|</pre>
 
 <p>step definition in web_steps.rb</p>
-          
-          
 
-          
           <div class="method-source-code" id="path_to-source">
             <pre><span class="ruby-comment"># File features/support/paths.rb, line 13</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">path_to</span>(<span class="ruby-identifier">page_name</span>)
@@ -137,6 +120,108 @@
 
   <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^the home\s?page$/</span>
     <span class="ruby-string">&#39;/&#39;</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página inicial do MonitoriaCIC$/</span>
+    <span class="ruby-identifier">root_path</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de registro de alunos$/</span>
+    <span class="ruby-identifier">new_user_path</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de registro de professores$/</span>
+    <span class="ruby-identifier">new_professor_path</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de selecao de professores$/</span>
+    <span class="ruby-identifier">professors_path</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de confirmacao dos professores$/</span>
+    <span class="ruby-identifier">confirmation_path</span> 
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de dashboard do usuário$/</span>
+    <span class="ruby-identifier">dashboard_path</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de disciplinas$/</span>
+    <span class="ruby-identifier">dashboard_disciplinas_path</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de monitoria$/</span>
+    <span class="ruby-identifier">dashboard_monitorias_path</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de nova monitoria$/</span>
+    <span class="ruby-identifier">new_monitoria_path</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de importar disciplinas$/</span>
+    <span class="ruby-identifier">dashboard_importar_disciplinas_path</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de informações da disciplina (.*)$/</span>
+    <span class="ruby-identifier">disciplina_path</span>(<span class="ruby-constant">Disciplina</span>.<span class="ruby-identifier">find</span>(<span class="ruby-node">$1</span>))
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de monitores da turma$/</span>
+    <span class="ruby-identifier">dashboard_monitorias_candidatos_path</span>  
+    
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de alterar monitoria (.*)$/</span>
+    <span class="ruby-identifier">edit_monitoria_path</span>(<span class="ruby-constant">Monitoria</span>.<span class="ruby-identifier">find</span>(<span class="ruby-node">$1</span>))
+    
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de tarefas do monitor$/</span>
+    <span class="ruby-comment">#tarefas_path(monitoria_id:1)</span>
+    <span class="ruby-identifier">tarefas_path</span>
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de cadastro de tarefas$/</span>
+    <span class="ruby-comment">#tarefas_path(monitoria_id:1)</span>
+    <span class="ruby-identifier">new_tarefa_path</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de avaliação$/</span>
+    <span class="ruby-identifier">edit_tarefa_path</span>(<span class="ruby-constant">Tarefa</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">1</span>))
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página da tarefa$/</span>
+    <span class="ruby-identifier">tarefa_path</span>(<span class="ruby-constant">Tarefa</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">1</span>))
+  
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de edição de disciplina$/</span>
+    <span class="ruby-identifier">edit_disciplina_path</span>(<span class="ruby-constant">Disciplina</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">1</span>))
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de nova disciplina$/</span>
+    <span class="ruby-identifier">new_disciplina_path</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de login de usuários$/</span>
+    <span class="ruby-identifier">new_session_path</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de FAQ$/</span>
+    <span class="ruby-identifier">faq_path</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de editar perfil do usuário$/</span>
+    <span class="ruby-identifier">dashboard_edit_user_path</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de dados bancários$/</span>
+    <span class="ruby-identifier">dashboard_dados_bancarios_path</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de histórico$/</span>
+    <span class="ruby-identifier">dashboard_historico_path</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de cadastro de dados bancários$/</span>
+    <span class="ruby-identifier">new_dados_bancario_path</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de edição de dados bancários$/</span>
+    <span class="ruby-identifier">edit_dados_bancario_path</span>(<span class="ruby-constant">User</span>.<span class="ruby-identifier">find_by_email</span>(<span class="ruby-string">&#39;bernardoc1104@gmail.com&#39;</span>).<span class="ruby-identifier">id</span>)
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de turmas$/</span>
+    <span class="ruby-identifier">dashboard_turmas_path</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de cadastro de turmas$/</span>
+    <span class="ruby-identifier">new_turma_path</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de edição de turma$/</span>
+    <span class="ruby-identifier">edit_turma_path</span>(<span class="ruby-constant">Turma</span>.<span class="ruby-identifier">find</span>(<span class="ruby-value">1</span>))
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de apagar alunos$/</span>
+    <span class="ruby-identifier">dashboard_apagar_alunos_path</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de Sobre do sistema$/</span>
+    <span class="ruby-identifier">sobre_path</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de nova recuperação de senha$/</span>
+    <span class="ruby-identifier">new_reset_senha_path</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de recuperação de senha$/</span>
+    <span class="ruby-identifier">reset_senhas_path</span>
+
+  <span class="ruby-keyword">when</span> <span class="ruby-regexp">/^página de importar professores$/</span>
+    <span class="ruby-identifier">dashboard_importar_professores_path</span>
 
   <span class="ruby-comment"># Add more mappings here.</span>
   <span class="ruby-comment"># Here is an example that pulls values out of the Regexp:</span>
@@ -156,25 +241,20 @@
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
-          
         </div>
 
-        
 
-        
       </div>
 
-    
     </section>
-  
-  </section>
 
+  </section>
 </main>
 
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="https://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.2.0.
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.3.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

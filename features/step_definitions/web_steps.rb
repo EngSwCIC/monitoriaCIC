@@ -112,13 +112,28 @@ end
 
 Dado /^(?:|que )o banco possui uma disciplina$/ do
   Disciplina.create!(
+    :id => 1,
     :cod_disciplina => 1,
     :nome => "Engenharia de Software",
     :fk_tipo_disciplina_id => 1,
     :c_prat => 4,
     :c_teor => 2,
     :c_est => 4,
-    :c_ext => 0)
+    :c_ext => 0,
+    :monitoria => true)
+end
+
+Dado /^(?:|que )o banco possui uma disciplina que nao permite monitoria$/ do
+  Disciplina.create!(
+    :id => 1,
+    :cod_disciplina => 1,
+    :nome => "Software Básico",
+    :fk_tipo_disciplina_id => 1,
+    :c_prat => 2,
+    :c_teor => 2,
+    :c_est => 0,
+    :c_ext => 0,
+    :monitoria => "false")
 end
 
 Dado /^(?:|que )o banco possui uma turma cadastrada$/ do
@@ -252,6 +267,10 @@ Quando /^(?:|eu )aperto enter no teclado$/ do
   page.click('Ok')
 end
 
+Quando /^(?:|eu )marco a checkbox de "([^"]*)"$/ do |label|
+  find('//*[@id="checkbox"]').click
+end
+
 Então /^(?:|eu )devo estar na (.+)$/ do |page_name|
   current_path = URI.parse(current_url).path
   if current_path.respond_to? :should
@@ -267,6 +286,7 @@ Então /^(?:|eu )devo ver "([^"]*)"$/ do |text|
   else
     assert page.has_content?(text)
   end
+
 end
 
 Então /^(?:|eu )não devo ver "([^"]*)"$/ do |text|
@@ -291,6 +311,10 @@ Então /^(?:|eu )devo ver todas as mensagens de falha para registro de professor
     E eu devo ver "Password confirmation must be between 6 and 12 characters"
   )
 end
+
+# Então /^o link "([^"]*)" não deve existir$/ do
+#   # TODO: implementar esse step
+# end
 
 Então /^(?:|eu )devo ver todas as mensagens de falha para registro de alunos$/ do
   steps %(
@@ -360,3 +384,4 @@ Então("o usuario não deve receber um email de confirmação") do
   email = ActionMailer::Base.deliveries.first
   email.should == nil
 end
+
