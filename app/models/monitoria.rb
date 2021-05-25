@@ -8,17 +8,25 @@ class Monitoria < ApplicationRecord
  		@disciplinas
  	end
 
- 	# def self.all_turmas
- 	# 	@turmas = Array.new
- 	# 	Turma.find_each do |t|
- 	# 			@turmas << [t.turma, t.id]
- 	# 	end
- 	# 	@turmas
- 	# end
+ 	def self.all_turmas
+ 		@turmas = Array.new
+ 		Turma.find_each do |t|
+ 				@turmas << [t.turma, t.id]
+ 		end
+ 		@turmas
+ 	end
 
  	def self.all_status
     	return [['Pendente', 1], ['Recusado', 2], ['Aceito', 3], ['Encerrado', 4]]
- 	end
+	end
+
+	def self.all_remuneracao
+		return [['Todas'], ['Remunerada'], ['Voluntária']]
+	end
+
+	def self.find_by_remuneracao(remuneracao)
+		return Monitoria.where(remuneracao: remuneracao)
+	end
  	validates_presence_of :remuneracao
  	validates_presence_of :fk_matricula
  	validates_presence_of :fk_cod_disciplina

@@ -16,7 +16,11 @@ class MonitoriasController < ApplicationController
 				valid = false
 			end
 		end
-
+		if @monitoria.remuneracao="Voluntária"
+			@monitoria.fk_status_monitoria_id=3
+		else
+			@monitoria.fk_status_monitoria_id=1
+		end
 		if valid and @monitoria.save
 			redirect_to dashboard_monitorias_path, notice: "Aplicaçao para monitoria enviada com sucesso!"
 		else

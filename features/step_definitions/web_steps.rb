@@ -59,7 +59,7 @@ end
 Dado /^(?:|que )o banco possui uma monitoria$/ do
   Monitoria.create!(
     id: 1,
-    remuneracao: 'Remunerado',
+    remuneracao: 'Remunerada',
     fk_matricula: '140080279',
     fk_cod_disciplina: 1,
     fk_turmas_id: 1,
@@ -69,10 +69,23 @@ Dado /^(?:|que )o banco possui uma monitoria$/ do
   )
 end
 
+Dado /^(?:|que )o banco possui uma monitoria voluntaria$/ do
+  Monitoria.create!(
+    id: 2,
+    remuneracao: 'Voluntária',
+    fk_matricula: '140080279',
+    fk_cod_disciplina: 1,
+    fk_turmas_id: 1,
+    descricao_status: "Nota: SS. IRA: 3",
+    prioridade: 1,
+    fk_status_monitoria_id: 3
+  )
+end
+
 Dado /^(?:|que )o banco possui duas monitorias$/ do
   Monitoria.create!(
     id: 1,
-    remuneracao: 'Remunerado',
+    remuneracao: 'Remunerada',
     fk_matricula: '140080279',
     fk_cod_disciplina: 1,
     fk_turmas_id: 1,
@@ -112,6 +125,7 @@ end
 
 Dado /^(?:|que )o banco possui uma disciplina$/ do
   Disciplina.create!(
+    id: 1,
     :cod_disciplina => 1,
     :nome => "Engenharia de Software",
     :fk_tipo_disciplina_id => 1,
@@ -275,6 +289,10 @@ Então /^(?:|eu )não devo ver "([^"]*)"$/ do |text|
   else
     assert page.has_no_content?(text)
   end
+end
+
+Então /^o seletor "([^"]*)" deve ter o valor "([^"]*)"$/ do |field, value|
+  expect(page).to have_select(field, selected:value)
 end
 
 Então /^(?:|eu )devo ver todas as mensagens de falha para registro de professores$/ do
